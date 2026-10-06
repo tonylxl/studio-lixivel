@@ -1,0 +1,25 @@
+---
+titre: "Cuisine ouverte : où placer l’îlot ?"
+categorie: Cuisine
+date: 2026-07-18
+duree: 6 min
+cover: /images/bureau.jpg
+coverAlt: ""
+chapo: "Un îlot mal placé gêne plus qu’il ne sert. Distances, circulations, prises : les règles à connaître avant de dessiner votre cuisine ouverte."
+etiquettes:
+  - Cuisine
+---
+
+## 1. Partir de la pièce telle qu’elle est
+
+Avant d’acheter quoi que ce soit, on observe : la lumière aux différentes heures, les circulations, ce qui gêne au quotidien. Une photo de chaque mur et un plan coté rapide suffisent pour y voir clair.
+
+## 2. Fixer une règle simple
+
+Une palette de trois couleurs maximum, une matière dominante, un fil conducteur. C’est ce qui donne de la cohérence à une pièce, bien plus que le prix des meubles.
+
+> Avant de valider un achat, posez-vous une question : est-ce que ce meuble sert à deux choses ? Dans un petit espace, c’est souvent ce qui fait la différence.
+
+## 3. Avancer par étapes
+
+On commence par ce qui change tout (la peinture, la lumière, le rangement), puis on ajoute la déco au fil du temps. Un intérieur réussi se construit, il ne s’achète pas en une fois.

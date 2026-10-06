@@ -1,0 +1,77 @@
+.root {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  background: var(--fond-lin);
+  touch-action: pan-y;
+  user-select: none;
+  cursor: ew-resize;
+}
+
+.img {
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.before {
+  position: absolute;
+  inset: 0;
+}
+
+.label {
+  position: absolute;
+  top: 24px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.labelLeft {
+  left: 24px;
+}
+
+.labelRight {
+  right: 24px;
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: #fff;
+  pointer-events: none;
+}
+
+.handle {
+  position: absolute;
+  top: 50%;
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--texte);
+  font-size: 18px;
+  box-shadow: 0 8px 24px rgba(73, 65, 65, 0.18);
+  cursor: ew-resize;
+}
+
+@media (max-width: 640px) {
+  .label {
+    top: 16px;
+  }
+  .labelLeft {
+    left: 16px;
+  }
+  .labelRight {
+    right: 16px;
+  }
+}

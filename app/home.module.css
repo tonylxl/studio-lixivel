@@ -1,0 +1,298 @@
+/* Presse */
+.presse {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  flex-wrap: wrap;
+  padding: 24px var(--g);
+  border-bottom: 1px solid var(--bordure-legere);
+}
+
+/* Intro */
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  padding-block: 120px 160px;
+}
+
+.intro p {
+  max-width: 1080px;
+}
+
+/* Projets empilés : chaque photo reste collée en haut pendant que la suivante arrive */
+.projets {
+  position: relative;
+}
+
+.projet {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: min(900px, 100svh);
+  padding: 36px var(--g);
+  overflow: hidden;
+  color: var(--texte-inverse);
+  background: var(--fond-sombre);
+}
+
+.projetImg {
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+
+.projet:hover .projetImg {
+  transform: scale(1.03);
+}
+
+.projetVoile {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+.projetTop,
+.projetTitre {
+  position: relative;
+  z-index: 1;
+}
+
+.projetTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.projetTitre {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Services */
+.services {
+  padding-block: 160px;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  padding: 0 var(--g);
+}
+
+.serviceLink {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.serviceMedia {
+  width: 100%;
+  height: 360px;
+  margin-bottom: 8px;
+}
+
+.serviceMedia img {
+  transition: transform 0.9s var(--ease);
+}
+
+.serviceLink:hover .serviceMedia img {
+  transform: scale(1.04);
+}
+
+.serviceMedia[data-illu] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fond-lin);
+}
+
+.serviceIllu {
+  width: 200px;
+  height: auto;
+}
+
+.serviceLink:hover :global(.link) {
+  color: var(--texte-accent);
+}
+
+/* Le studio */
+.studio {
+  padding-bottom: 160px;
+}
+
+.studioImgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.studioImgs figure {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.studioImgs figcaption {
+  padding-left: var(--g);
+}
+
+.studioImg {
+  position: relative;
+  height: 760px;
+  overflow: hidden;
+  background: var(--fond-lin);
+}
+
+.studioImg img {
+  object-fit: cover;
+}
+
+.studioText {
+  padding-top: 48px;
+}
+
+/* Processus */
+.processus {
+  padding-bottom: 160px;
+}
+
+/* Avis */
+.avis {
+  background: var(--fond-lin);
+}
+
+/* Instagram */
+.insta {
+  padding-block: 0 160px;
+}
+
+.instaList {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0 var(--g);
+}
+
+.instaCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.instaMedia {
+  height: 320px;
+}
+
+.instaMedia img {
+  transition: transform 0.9s var(--ease);
+}
+
+.instaCard:hover .instaMedia img {
+  transform: scale(1.05);
+}
+
+.instaMedia[data-illu] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instaIllu {
+  width: 140px;
+  height: auto;
+}
+
+.instaTag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+@media (max-width: 1024px) {
+  .intro {
+    padding-block: 100px 120px;
+  }
+  .projet {
+    height: min(700px, 100svh);
+    padding: 32px var(--g);
+  }
+  .services {
+    padding-block: 120px;
+  }
+  .servicesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 48px;
+  }
+  .studio,
+  .processus {
+    padding-bottom: 120px;
+  }
+  .studioImg {
+    height: 560px;
+  }
+  .insta {
+    padding-bottom: 120px;
+  }
+  .instaList {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+  }
+  .instaList li {
+    flex: 0 0 260px;
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 760px) {
+  .studioImgs {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .studioText {
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .presse {
+    justify-content: flex-start;
+  }
+  .presse > p:first-child {
+    width: 100%;
+  }
+  .intro {
+    padding-block: 64px 80px;
+    gap: 32px;
+  }
+  .projet {
+    height: 520px;
+    padding: 24px var(--g);
+  }
+  .services {
+    padding-block: 80px;
+  }
+  .servicesGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .serviceMedia {
+    height: 280px;
+  }
+  .studio,
+  .processus,
+  .insta {
+    padding-bottom: 80px;
+  }
+  .studioImg {
+    height: 480px;
+  }
+  .instaList li {
+    flex-basis: 240px;
+  }
+}

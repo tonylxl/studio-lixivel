@@ -1,0 +1,72 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: min(900px, 100svh);
+  min-height: 600px;
+  background: var(--hero-fond);
+  transition: background-color 1.2s var(--ease);
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: calc(var(--header-h) + 24px) var(--g) 0;
+}
+
+.objet {
+  position: absolute;
+  z-index: 1;
+  width: min(832px, 62vw);
+  aspect-ratio: 1;
+  left: 50%;
+  bottom: -8%;
+  translate: -40% 0;
+}
+
+.objetShape {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--hero-objet);
+  transition: background-color 1.2s var(--ease);
+  -webkit-mask: url("/images/tabouret.png") center / contain no-repeat;
+  mask: url("/images/tabouret.png") center / contain no-repeat;
+}
+
+.cta {
+  position: absolute;
+  z-index: 3;
+  right: var(--g);
+  bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    height: min(760px, 100svh);
+  }
+  .objet {
+    width: 600px;
+    translate: -45% 0;
+  }
+  .cta {
+    left: var(--g);
+    right: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    height: min(680px, 100svh);
+    min-height: 560px;
+  }
+  .objet {
+    width: 380px;
+    left: 50%;
+    bottom: 40px;
+    translate: -50% 0;
+  }
+  .cta {
+    bottom: 24px;
+  }
+}
