@@ -3,8 +3,10 @@ import Image from "next/image";
 import PageTone from "@/components/PageTone";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StudioNav from "@/components/StudioNav";
-import Reveal from "@/components/Reveal";
+import StudioNav, { type StudioNavItem } from "@/components/StudioNav";
+import MaskReveal from "@/components/MaskReveal";
+import SettleCard from "@/components/SettleCard";
+import CountUp from "@/components/CountUp";
 import { SITE } from "@/lib/site";
 import styles from "./studio.module.css";
 
@@ -14,22 +16,22 @@ export const metadata: Metadata = {
     "Studio Lixivel, studio d’architecture intérieure fondé par Cindy à Rouen : une approche accessible, des intérieurs pratiques et chaleureux, à distance partout en France.",
 };
 
-const SECTIONS = [
-  { id: "le-studio", label: "Le studio" },
-  { id: "approche", label: "L’approche" },
-  { id: "fondatrice", label: "La fondatrice" },
-  { id: "chiffres", label: "En chiffres" },
-  { id: "valeurs", label: "Ce qui nous guide" },
-  { id: "histoire", label: "L’histoire" },
-  { id: "presse", label: "Dans la presse" },
-  { id: "coulisses", label: "En coulisses" },
+const SECTIONS: StudioNavItem[] = [
+  { id: "le-studio", label: "Studio Lixivel", couleur: "blanc" },
+  { id: "approche", label: "L’approche", couleur: "sauge" },
+  { id: "fondatrice", label: "La fondatrice", couleur: "rose" },
+  { id: "chiffres", label: "En chiffres", couleur: "sombre" },
+  { id: "valeurs", label: "Ce qui nous guide", couleur: "bordeaux" },
+  { id: "histoire", label: "L’histoire", couleur: "moutarde" },
+  { id: "presse", label: "Dans la presse", couleur: "ardoise" },
+  { id: "coulisses", label: "En coulisses", couleur: "lin" },
 ];
 
 const CHIFFRES = [
-  { valeur: "+60", label: "projets accompagnés", couleur: "rose" },
-  { valeur: "4", label: "magazines en ont parlé", couleur: "sauge" },
-  { valeur: "3", label: "formules sur 4 entièrement à distance", couleur: "moutarde" },
-  { valeur: "48 h", label: "pour vous répondre", couleur: "ardoise" },
+  { valeur: "+60", label: "projets accompagnés", couleur: "sauge", rotate: 3, y: 60 },
+  { valeur: "4", label: "magazines en ont parlé", couleur: "rose", rotate: -2, y: 20 },
+  { valeur: "3", label: "formules sur 4 entièrement à distance", couleur: "ardoise", rotate: 2, y: 90 },
+  { valeur: "48 h", label: "pour vous répondre", couleur: "moutarde", rotate: -3, y: 40 },
 ];
 
 const VALEURS = [
@@ -65,15 +67,26 @@ const PRESSE = [
 ];
 
 const REELS = [
-  { titre: "Pièce de vie de 50 m² : neutre ou couleur ?", image: "/images/chambre.jpg" },
+  { titre: "Pièce de vie de 50 m² : neutre ou couleur ?", image: "/images/chambre.jpg" },
   { titre: "Un salon déco à petits prix", image: "/images/bureau.jpg" },
-  { titre: "Avant / après : studio 30 m²", image: "/images/bureau-nb.jpg" },
+  { titre: "Avant / après : studio 30 m²", image: "/images/bureau-nb.jpg" },
 ];
+
+/** En-tête de section : filet en haut, titre 40 à gauche, description éventuelle à droite. */
+function Head({ title, children, art }: { title: string; children?: React.ReactNode; art?: React.ReactNode }) {
+  return (
+    <div className={styles.head}>
+      <h2 className="t-section">{title}</h2>
+      {children && <div className={`t-serre c-2 ${styles.headSide}`}>{children}</div>}
+      {art}
+    </div>
+  );
+}
 
 export default function StudioPage() {
   return (
     <>
-      <PageTone tone="lin" />
+      <PageTone tone="doux" scope="page" />
       <Header source="header-studio" />
       <main id="contenu" className={styles.page}>
         <aside className={styles.aside}>
@@ -82,22 +95,30 @@ export default function StudioPage() {
 
         <div className={styles.content}>
           {/* 00 — Ouverture */}
-          <section id="le-studio" className={`${styles.card} ${styles.hero}`}>
-            <p className="t-surtitre">Le studio</p>
-            <h1 className="t-hero">
-              Architecte d’intérieur,
-              <br />à votre image.
-            </h1>
-            <p className={`t-intro ${styles.heroText}`}>
-              Studio Lixivel est un studio d’architecture intérieure basé à Rouen. Il conçoit des intérieurs pratiques et
-              chaleureux, à distance partout en France et sur place en Normandie.
-            </p>
-            <Image src="/images/fauteuil.png" alt="" width={441} height={502} className={styles.heroArt} priority />
+          <section id="le-studio" className={styles.hero}>
+            <Image src="/images/fauteuil-lin.png" alt="" width={1061} height={1213} className={styles.heroArt} priority />
+            <div className={styles.heroText}>
+              <p className="t-serre c-2">Le studio</p>
+              <MaskReveal
+                as="h1"
+                className="t-hero"
+                lines={["Architecte d’intérieur,", "à votre image."]}
+                stagger={0.12}
+              />
+              <p className={styles.heroLead}>
+                Studio Lixivel est un studio d’architecture intérieure basé à Rouen. Il conçoit des intérieurs pratiques
+                et chaleureux, à distance partout en France et sur place en Normandie.
+              </p>
+            </div>
           </section>
 
           {/* 01 — Approche */}
-          <section id="approche" className={styles.card}>
-            <h2 className="t-section">L’approche</h2>
+          <section id="approche" className={styles.section}>
+            <Head title="L’approche" />
+            <p className={styles.accroche}>
+              Studio Lixivel est né d’une idée simple : l’architecture intérieure ne devrait pas être réservée aux gros
+              budgets.
+            </p>
             <div className={styles.cols}>
               <p className="t-serre c-2">
                 Le studio conçoit des intérieurs pensés pour votre façon de vivre. Plans 2D, rendus 3D et listes shopping
@@ -108,15 +129,20 @@ export default function StudioPage() {
                 avant/après. Une communauté qui porte la même conviction : chacun mérite un intérieur qui lui ressemble.
               </p>
             </div>
-            <div className={`media ${styles.wideImg}`}>
-              <Image src="/images/bureau.jpg" alt="Bureau sur mesure dans un studio rénové" fill sizes="(max-width: 1024px) 100vw, 80vw" />
+            <div className={styles.photos}>
+              <div className={`media ${styles.photo}`}>
+                <Image src="/images/chambre.jpg" alt="Chambre aux murs rouges et tête de lit en bois" fill sizes="(max-width: 760px) 100vw, 40vw" />
+              </div>
+              <div className={`media ${styles.photo}`}>
+                <Image src="/images/bureau.jpg" alt="Bureau sur mesure dans un studio rénové" fill sizes="(max-width: 760px) 100vw, 40vw" />
+              </div>
             </div>
           </section>
 
           {/* 02 — Fondatrice */}
-          <section id="fondatrice" className={`${styles.card} ${styles.fondatrice}`}>
-            <h2 className="t-section">La fondatrice</h2>
-            <p className="t-intro">
+          <section id="fondatrice" className={styles.section}>
+            <Head title="La fondatrice" />
+            <p className={styles.accroche}>
               Derrière le studio, Cindy : architecte d’intérieur et créatrice de contenus déco, qui suit chaque projet de
               près.
             </p>
@@ -130,10 +156,10 @@ export default function StudioPage() {
                 conviction que le studio.
               </p>
             </div>
-            <div className={styles.fondatriceGrid}>
-              <div className={`media ${styles.portrait}`}>
+            <div className={styles.photos}>
+              <SettleCard as="div" rotate={-4} y={0} className={`media ${styles.photo}`}>
                 <Image src="/images/portrait.jpg" alt="Portrait de Cindy dans son bureau" fill sizes="(max-width: 760px) 100vw, 40vw" />
-              </div>
+              </SettleCard>
               <figure className={styles.quote}>
                 <blockquote className="t-citation c-accent">
                   « Un bel intérieur, ce n’est pas une question de budget. C’est un lieu qui vous ressemble, et où l’on
@@ -145,27 +171,28 @@ export default function StudioPage() {
           </section>
 
           {/* 03 — Chiffres */}
-          <section id="chiffres" className={styles.card}>
-            <h2 className="t-section">En chiffres</h2>
+          <section id="chiffres" className={styles.section}>
+            <Head title="En chiffres" />
             <ul className={styles.chiffres}>
               {CHIFFRES.map((c, i) => (
-                <Reveal as="li" key={c.label} delay={i * 0.08} className={styles.chiffre}>
-                  <div data-couleur={c.couleur} className={styles.chiffreInner} style={{ rotate: `${[-3, 2, -2, 3][i]}deg` }}>
-                    <span className="t-chiffre">{c.valeur}</span>
-                    <span className="t-carte">{c.label}</span>
-                  </div>
-                </Reveal>
+                <SettleCard key={c.label} index={i} rotate={c.rotate} y={c.y} className={styles.chiffre} data-couleur={c.couleur}>
+                  <CountUp value={c.valeur} className="t-chiffre" />
+                  <span className={styles.chiffreLabel}>{c.label}</span>
+                </SettleCard>
               ))}
             </ul>
           </section>
 
           {/* 04 — Valeurs */}
-          <section id="valeurs" className={styles.card}>
-            <h2 className="t-section">Ce qui nous guide</h2>
+          <section id="valeurs" className={styles.section}>
+            <Head
+              title="Ce qui nous guide"
+              art={<Image src="/images/fauteuil.png" alt="" width={441} height={502} className={styles.headArt} />}
+            />
             <ul className={styles.valeurs}>
               {VALEURS.map((v) => (
                 <li key={v.titre}>
-                  <p className="t-projet">{v.titre}</p>
+                  <MaskReveal as="p" className={styles.valeur} lines={[v.titre]} />
                   <p className="t-serre c-2">{v.texte}</p>
                 </li>
               ))}
@@ -173,17 +200,15 @@ export default function StudioPage() {
           </section>
 
           {/* 05 — Histoire */}
-          <section id="histoire" className={styles.card}>
-            <h2 className="t-section">L’histoire</h2>
-            <p className="t-intro">
-              Studio Lixivel est né d’une idée simple : l’architecture intérieure ne devrait pas être réservée aux gros
-              budgets.
+          <section id="histoire" className={styles.section}>
+            <Head title="L’histoire" />
+            <p className={styles.accroche}>
+              Après plusieurs années en agence, Cindy lance le studio à Rouen en 2021.
             </p>
             <div className={styles.cols}>
               <p className="t-serre c-2">
-                Après plusieurs années en agence, Cindy lance le studio à Rouen en 2021 et commence à partager son
-                quotidien sur les réseaux. Les questions affluent : comment aménager un studio, quelle couleur choisir,
-                comment rénover sans tout casser ?
+                Elle commence à partager son quotidien sur les réseaux. Les questions affluent : comment aménager un
+                studio, quelle couleur choisir, comment rénover sans tout casser ?
               </p>
               <p className="t-serre c-2">
                 Pour y répondre, le studio imagine des formules à distance : un vrai travail d’architecte d’intérieur,
@@ -193,13 +218,13 @@ export default function StudioPage() {
           </section>
 
           {/* 06 — Presse */}
-          <section id="presse" className={styles.card}>
-            <h2 className="t-section">Dans la presse</h2>
+          <section id="presse" className={styles.section}>
+            <Head title="Dans la presse" />
             <ul className={styles.presse}>
               {PRESSE.map((p) => (
                 <li key={p.nom}>
                   <a href={p.lien} target="_blank" rel="noopener noreferrer" className={styles.presseRow}>
-                    <span className="t-accordeon">{p.nom}</span>
+                    <span className={styles.presseNom}>{p.nom}</span>
                     <span className="t-serre c-2">{p.titre}</span>
                     <span aria-hidden className={styles.arrow}>
                       ↗
@@ -211,27 +236,22 @@ export default function StudioPage() {
           </section>
 
           {/* 07 — Coulisses */}
-          <section id="coulisses" className={styles.card}>
-            <div className={styles.coulissesHead}>
-              <h2 className="t-section">En coulisses</h2>
-              <div className="stack" style={{ gap: 16, alignItems: "flex-start" }}>
-                <p className="t-serre c-2">
-                  Astuces, avant/après et trouvailles à petit prix, chaque semaine sur Instagram et TikTok.
-                </p>
-                <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="link">
-                  Suivre {SITE.handle}
-                </a>
-              </div>
-            </div>
+          <section id="coulisses" className={styles.section}>
+            <Head title="En coulisses">
+              <p>Astuces, avant/après et trouvailles à petit prix, chaque semaine sur Instagram et TikTok.</p>
+              <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="link" style={{ color: "var(--texte)" }}>
+                Suivre {SITE.handle}
+              </a>
+            </Head>
             <ul className={styles.reels}>
               {REELS.map((r) => (
                 <li key={r.titre}>
                   <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className={styles.reel}>
-                    <div className={`media media--l ${styles.reelMedia}`}>
-                      <Image src={r.image} alt="" fill sizes="(max-width: 760px) 70vw, 25vw" />
-                      <span className={`tag ${styles.reelTag}`}>▶ Reel</span>
+                    <div className={`media ${styles.reelMedia}`}>
+                      <Image src={r.image} alt="" fill sizes="(max-width: 760px) 80vw, 25vw" />
+                      <span className={styles.reelTag}>▶ Reel</span>
                     </div>
-                    <p className="t-petit c-2">{r.titre}</p>
+                    <p className="t-serre c-2">{r.titre}</p>
                   </a>
                 </li>
               ))}

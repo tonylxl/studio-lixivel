@@ -2,7 +2,7 @@
 titre: "Cuisine ouverte : où placer l’îlot ?"
 categorie: Cuisine
 date: 2026-07-18
-duree: 6 min
+duree: 6 min
 cover: /images/bureau.jpg
 coverAlt: ""
 chapo: "Un îlot mal placé gêne plus qu’il ne sert. Distances, circulations, prises : les règles à connaître avant de dessiner votre cuisine ouverte."

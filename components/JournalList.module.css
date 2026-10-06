@@ -2,7 +2,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 0 var(--g) 40px;
+}
+
+.current {
+  padding: 0 var(--g) 24px;
 }
 
 .grid {
@@ -33,12 +36,5 @@
     grid-template-columns: minmax(0, 1fr);
     row-gap: 40px;
   }
-  .filters {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .filters :global(.pill) {
-    flex-shrink: 0;
-  }
+
 }

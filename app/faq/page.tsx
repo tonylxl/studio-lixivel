@@ -38,7 +38,7 @@ export default function FaqPage() {
           </>
         }
       >
-        <p>
+        <p className="c-2">
           Vous ne trouvez pas votre réponse ? Écrivez-nous à{" "}
           <a href={`mailto:${SITE.email}`} className="link">
             {SITE.email}
@@ -47,7 +47,7 @@ export default function FaqPage() {
         </p>
         <nav className={styles.ancres} aria-label="Catégories">
           {FAQ.map((c) => (
-            <a key={c.id} href={`#${c.id}`} className="pill">
+            <a key={c.id} href={`#${c.id}`} className={styles.ancre}>
               {c.titre}
             </a>
           ))}
@@ -56,13 +56,11 @@ export default function FaqPage() {
 
       <main id="contenu" className={styles.main}>
         {FAQ.map((c, i) => (
-          <section key={c.id} id={c.id} className={`split ${styles.cat}`} aria-labelledby={`t-${c.id}`}>
-            <h2 id={`t-${c.id}`} className="t-section">
+          <section key={c.id} id={c.id} className={styles.cat} aria-labelledby={`t-${c.id}`}>
+            <h2 id={`t-${c.id}`} className={`t-section ${styles.catTitre}`}>
               {c.titre}
             </h2>
-            <div className="col-2--wide">
-              <Accordion items={c.items} defaultOpen={i === 0 ? 0 : -1} />
-            </div>
+            <Accordion items={c.items} defaultOpen={i === 0 ? 0 : -1} />
           </section>
         ))}
       </main>

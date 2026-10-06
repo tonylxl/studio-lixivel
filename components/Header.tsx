@@ -8,8 +8,8 @@ import { NAV, SITE, rdvHref } from "@/lib/site";
 import styles from "./Header.module.css";
 
 type Props = {
-  /** "dark" : textes clairs sur une ouverture foncée (ardoise). */
-  variant?: "light" | "dark";
+  /** "dark" : textes clairs sur une ouverture foncée (ardoise). "home" : pastille Menu blanche sur le hero. */
+  variant?: "light" | "dark" | "home";
   /** Source envoyée au formulaire quand on clique sur « Prendre rendez-vous ». */
   source?: string;
 };
@@ -61,7 +61,7 @@ export default function Header({ variant = "light", source = "header" }: Props) 
           Studio Lixivel<span className={styles.brandMore}>, architecte d’intérieur</span>
         </Link>
         <div className={styles.actions}>
-          <Link href={rdvHref(source)} className={`btn btn--rose ${styles.cta}`}>
+          <Link href={rdvHref(source)} className={`btn ${styles.cta}`}>
             <span className={styles.ctaLong}>Prendre rendez-vous</span>
             <span className={styles.ctaShort}>Rendez-vous</span>
           </Link>

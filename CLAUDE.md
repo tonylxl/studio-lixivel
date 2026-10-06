@@ -7,7 +7,7 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 1. Maquettes faites dans **Figma** (fichier `lk7wByl71xrJAmiZKAN84P`, page « Web » : home « Home V4 — Desktop 1440 », section « Pages intérieures — Desktop » avec Services, Projets, Projet détail, Le studio, Contact, FAQ, Mentions légales, Journal, Article, Simulateur).
 2. Première tentative dans **Framer**, abandonnée (limites du plugin MCP).
 3. Décision du 6 oct. 2026 : **site custom en Next.js**, hébergé sur **Vercel**, contenus éditables par Cindy via **Pages CMS** (fichiers Markdown dans le repo).
-4. Le code actuel a été écrit sans pouvoir lancer `npm` (registre bloqué dans l’environnement d’origine). **Il n’a jamais été buildé** : première chose à faire, `npm install && npm run build`, puis corriger les erreurs.
+4. Le code a d’abord été écrit sans pouvoir lancer `npm`. Premier build réussi le 6 oct. 2026, puis passe de conformité aux maquettes (frames « Home V4 » et « Pages intérieures — Desktop ») et à leurs annotations « Motion — … ».
 
 ## Stack
 
@@ -31,7 +31,8 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 - Grille desktop 1440 : gouttière 40 px, titre à gauche (695 px), texte/description à partir de x = 735 (`--col: 51.1%`), description 330 px. Tablette : gouttière 24 px. Mobile : 20 px, une colonne.
 - En-tête de section : filet fin en haut, titre 40 semi-gras à gauche, texte à droite.
 - **Arrondis** : ≥ 300 px → 70 (`--r-xl`), 200–299 → 40, 80–199 → 24, < 80 → 12, pastilles → 999.
-- **Une couleur d’ouverture par page**, qui passe au blanc au premier scroll : accueil rose (boucle rose/moutarde/sauge), Services sauge, FAQ lin, Contact moutarde, Le studio lin, Journal & articles ardoise, Projets couleur du projet, Mentions doux.
+- **Une couleur d’ouverture par page**, qui passe au blanc au premier scroll : accueil rose (boucle rose/moutarde/sauge toutes les 3 s), Services sauge, FAQ lin, Contact moutarde, Le studio crème (doux), Journal & articles ardoise, Projets couleur du projet, Mentions doux. La couleur reste derrière l’ouverture (classe `.tone-bg`), sauf Le studio, Contact et 404 (`<PageTone scope="page">`).
+- Motion (annotations Figma) : CTA flottant (masqué près du footer et sur mobile), presse 60 → 100 % au survol, intro ligne par ligne, titres de projets en masque, cartes Processus / En chiffres qui se rangent au scroll (`SettleCard`), zoom 1,08 → 1 (`ScrollZoom`), slider avant/après qui fait un aller-retour à l’entrée, « Prenons rendez-vous » en masque et tabouret qui tourne au scroll (`FooterStool`).
 - Couleurs : fond rose #f7dddf, lin #e0d9d2, doux #f6f2ef, sombre #494141, accent bordeaux #8c373c, texte #494141 / #726d67, inverse #ffe5e3, sauge #bcd4b4, ardoise #5d7c86, moutarde #fcc976.
 - Survol des lignes : rose pâle #fff2f2. Illustrations au trait bordeaux (tabouret, fauteuil, lampe).
 
@@ -47,7 +48,8 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 
 ## À faire / à valider
 
-- [ ] **Premier build** et corrections (`npm run build`), puis vérification visuelle desktop / tablette / mobile.
+- [x] **Premier build** et corrections (`npm run build`), vérification visuelle desktop (1440) et mobile (390).
+- [ ] Vérification visuelle tablette (768–1024).
 - [ ] Projet Vercel relié au repo (import par Tony) ; variable `NEXT_PUBLIC_TALLY_FORM_ID` (formulaire Tally à créer : type de projet, pièces, surface, formule, budget, coordonnées) ; `NEXT_PUBLIC_SITE_URL` une fois le domaine choisi.
 - [ ] Tester Pages CMS (app.pagescms.org) : vérifier que le champ `body` en rich-text s’affiche bien (intertitres, citation → encadré, `[[produits]]`).
 - [ ] Contenus inventés à valider avec Cindy : réponses FAQ, 3 avis sur 4 (seul Matthieu est réel), texte « L’histoire », chiffres, fiche projet « Studio 30 m² », villes/années des projets, 6 articles d’exemple du journal, liens presse (actuellement `#`), comptes Instagram/TikTok.

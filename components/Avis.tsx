@@ -24,7 +24,20 @@ export default function Avis({ items }: { items: AvisItem[] }) {
   return (
     <div className={styles.root}>
       <div className={styles.main}>
-        <AvantApres key={i} avant={a.avant} apres={a.apres} className={styles.slider} depart={48} />
+        <div className={styles.sliderWrap}>
+          <AnimatePresence initial={false}>
+            <motion.div
+              key={i}
+              className={styles.sliderLayer}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              <AvantApres avant={a.avant} apres={a.apres} className={styles.slider} depart={48} />
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
         <div className={styles.side}>
           <div className={styles.top}>
@@ -43,10 +56,10 @@ export default function Avis({ items }: { items: AvisItem[] }) {
               <motion.blockquote
                 key={i}
                 className="t-citation"
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
               >
                 « {a.texte} »
               </motion.blockquote>
@@ -74,6 +87,7 @@ export default function Avis({ items }: { items: AvisItem[] }) {
               aria-current={n === i || undefined}
               onClick={() => setI(n)}
             >
+              {n === i && <motion.span layoutId="avis-barre" className={styles.bar} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} />}
               <span className="t-carte">{it.nom}</span>
               <span className="t-serre c-2">{it.projet}</span>
             </button>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { TONES, type Tone } from "@/lib/site";
+import MaskReveal from "./MaskReveal";
 import styles from "./ProjetsHub.module.css";
 
 export type ProjetCard = {
@@ -51,8 +52,8 @@ export default function ProjetsHub({ projets }: { projets: ProjetCard[] }) {
         data-dark={(vue === "galerie" && dark) || undefined}
       >
         <div className={styles.leftInner}>
-          <h1 className="t-hero">Nos réalisations d’architecte d’intérieur.</h1>
-          <p className={`t-serre ${styles.intro}`}>
+          <MaskReveal as="h1" className="t-hero" lines={["Nos réalisations", "d’architecte", "d’intérieur."]} />
+          <p className={`t-petit ${styles.intro}`}>
             Appartements, maisons, bureaux, ateliers : une sélection de projets menés à distance partout en France et sur
             place en Normandie.
           </p>
@@ -75,6 +76,12 @@ export default function ProjetsHub({ projets }: { projets: ProjetCard[] }) {
               </motion.div>
             )}
           </AnimatePresence>
+        </div>
+      </div>
+
+      <div className={styles.right}>
+        <div className={styles.rightTop}>
+          <p className="t-petit">Projets ({projets.length})</p>
           <div className={styles.toggle} role="group" aria-label="Affichage">
             <button type="button" aria-pressed={vue === "galerie"} onClick={() => setVue("galerie")}>
               Galerie
@@ -84,9 +91,6 @@ export default function ProjetsHub({ projets }: { projets: ProjetCard[] }) {
             </button>
           </div>
         </div>
-      </div>
-
-      <div className={styles.right}>
         {vue === "galerie" ? (
           <ul className={styles.gallery}>
             {projets.map((x, i) => (
@@ -97,17 +101,41 @@ export default function ProjetsHub({ projets }: { projets: ProjetCard[] }) {
                   refs.current[i] = el;
                 }}
               >
-                <Link href={x.detail ? `/projets/${x.slug}` : "#"} className={styles.card} aria-disabled={!x.detail || undefined}>
-                  <div className={`media ${styles.cardMedia}`}>
-                    <Image src={x.cover} alt={x.coverAlt} fill sizes="(max-width: 900px) 100vw, 50vw" priority={i < 2} />
+                <Link
+                  href={x.detail ? `/projets/${x.slug}` : "#"}
+                  className={styles.card}
+                  aria-disabled={!x.detail || undefined}
+                  onPointerMove={(e) => {
+                    const r = e.currentTarget.getBoundingClientRect();
+                    e.currentTarget.style.setProperty("--cx", `${e.clientX - r.left}px`);
+                    e.currentTarget.style.setProperty("--cy", `${e.clientY - r.top}px`);
+                  }}
+                >
+                  <motion.div
+                    className={`media ${styles.cardMedia}`}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <motion.div
+                      className={styles.cardZoom}
+                      initial={{ scale: 1.08 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+                      transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                      <Image src={x.cover} alt={x.coverAlt} fill sizes="(max-width: 900px) 100vw, 50vw" priority={i < 2} />
+                    </motion.div>
                     {x.detail && <span className={styles.voir}>Voir</span>}
-                  </div>
+                  </motion.div>
                   <div className={styles.cardText}>
-                    <div>
-                      <p className="t-accordeon">{x.titre}</p>
-                      <p className="t-serre c-2">{x.sousTitre}</p>
-                    </div>
-                    <p className="t-serre c-2">
+                    <p className="t-carte">
+                      {x.titre}
+                      <br />
+                      <span className="c-2">{x.sousTitre}</span>
+                    </p>
+                    <p className="t-petit">
                       {x.ville} · {x.annee}
                     </p>
                   </div>

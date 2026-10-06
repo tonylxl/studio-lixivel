@@ -44,6 +44,16 @@
   position: relative;
 }
 
+/* L'ardoise de l'ouverture s'arrête à mi-hauteur de la photo */
+.coverFond {
+  position: absolute;
+  inset: 0 0 50% 0;
+}
+
+.cover {
+  z-index: 1;
+}
+
 .cover {
   height: min(760px, 70svh);
 }

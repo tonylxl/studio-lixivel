@@ -51,7 +51,7 @@ export default function MentionsPage() {
           </section>
         ))}
       </main>
-      <Footer band={false} />
+      <Footer source="footer-mentions" />
     </>
   );
 }

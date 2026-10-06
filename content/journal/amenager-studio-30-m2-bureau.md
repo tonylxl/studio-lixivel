@@ -1,35 +1,35 @@
 ---
-titre: Aménager un studio de 30 m² sans sacrifier le bureau
+titre: Aménager un studio de 30 m² sans sacrifier le bureau
 categorie: Petits espaces
 date: 2026-09-12
-duree: 6 min
+duree: 6 min
 une: true
 cover: /images/bureau.jpg
 coverAlt: Bureau sur mesure le long d’un mur bordeaux, chaise laquée rouge
-chapo: Dans un studio, le bureau finit souvent sur un coin de table. Pourtant, avec un plan bien pensé, 30 m² suffisent pour dormir, recevoir et travailler sans tout mélanger. Voici les solutions que le studio utilise sur ses projets.
+chapo: Dans un studio, le bureau finit souvent sur un coin de table. Pourtant, avec un plan bien pensé, 30 m² suffisent pour dormir, recevoir et travailler sans tout mélanger. Voici les solutions que le studio utilise sur ses projets.
 reel:
   url: https://www.instagram.com/studiolixivel/
   vignette: /images/bureau.jpg
-  legende: "Studio 30 m² : le bureau caché"
+  legende: "Studio 30 m² : le bureau caché"
 produits:
   - titre: Bureau mural rabattable
-    prix: 189 €
+    prix: 189 €
     image: /images/chambre.jpg
     lien: ""
   - titre: Lampe d’architecte murale
-    prix: 79 €
+    prix: 79 €
     image: /images/plan.jpg
     lien: ""
   - titre: Chaise en bois cintré
-    prix: 120 €
+    prix: 120 €
     image: /images/bureau.jpg
     lien: ""
 etiquettes:
   - Petits espaces
   - Bureau
   - Studio
-seoTitle: Aménager un studio de 30 m² avec un vrai bureau
-seoDescription: "Mezzanine, cloison vitrée, rangements invisibles : les solutions d’une architecte d’intérieur pour créer un coin bureau dans un studio de 30 m²."
+seoTitle: Aménager un studio de 30 m² avec un vrai bureau
+seoDescription: "Mezzanine, cloison vitrée, rangements invisibles : les solutions d’une architecte d’intérieur pour créer un coin bureau dans un studio de 30 m²."
 ---
 
 ## 1. Choisir où placer le bureau
@@ -48,7 +48,7 @@ Une cloison pleine ferait perdre la lumière. Préférez une verrière, une bibl
 
 ## 3. Des rangements qui disparaissent
 
-Dans 30 m², chaque meuble doit servir deux fois. Un placard toute hauteur dont une porte cache le bureau, un lit coffre, des niches au-dessus des portes : on range sans encombrer le sol, et la pièce respire.
+Dans 30 m², chaque meuble doit servir deux fois. Un placard toute hauteur dont une porte cache le bureau, un lit coffre, des niches au-dessus des portes : on range sans encombrer le sol, et la pièce respire.
 
 ## 4. La sélection du studio
 

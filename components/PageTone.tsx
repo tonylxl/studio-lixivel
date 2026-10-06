@@ -8,7 +8,16 @@ import { TONES, type Tone } from "@/lib/site";
  * choisie au chargement, puis passe en blanc (fondu 0,6 s) dès qu'on a
  * fait défiler une partie de l'ouverture.
  */
-export default function PageTone({ tone, threshold = 0.35 }: { tone: Tone; threshold?: number }) {
+export default function PageTone({
+  tone,
+  threshold = 0.35,
+  scope = "opening",
+}: {
+  tone: Tone;
+  threshold?: number;
+  /** "opening" : seule l'ouverture (classe .tone-bg) prend la couleur ; "page" : toute la page. */
+  scope?: "opening" | "page";
+}) {
   useEffect(() => {
     const root = document.documentElement;
     const color = TONES[tone];
@@ -25,6 +34,7 @@ export default function PageTone({ tone, threshold = 0.35 }: { tone: Tone; thres
 
     root.style.setProperty("--page-tone", color);
     root.dataset.toned = "true";
+    root.dataset.toneScope = scope;
     white = false;
     apply();
 
@@ -33,9 +43,11 @@ export default function PageTone({ tone, threshold = 0.35 }: { tone: Tone; thres
       window.removeEventListener("scroll", apply);
       root.style.removeProperty("--page-tone");
       delete root.dataset.toned;
+      delete root.dataset.toneScope;
     };
-  }, [tone, threshold]);
+  }, [tone, threshold, scope]);
 
   // Rendu côté serveur : la bonne couleur est là dès le premier affichage.
-  return <style>{`:root{--page-tone:${TONES[tone]}}`}</style>;
+  const css = `:root{--page-tone:${TONES[tone]}}` + (scope === "page" ? `body{background-color:var(--page-tone)}` : "");
+  return <style>{css}</style>;
 }

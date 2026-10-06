@@ -2,7 +2,7 @@
 titre: "Quelle couleur pour ma table basse ?"
 categorie: Salon
 date: 2026-09-02
-duree: 4 min
+duree: 4 min
 cover: /images/chambre.jpg
 coverAlt: ""
 chapo: "Bois clair, laque colorée ou noir mat : la bonne couleur de table basse dépend surtout de votre canapé et de votre sol. Le studio vous aide à choisir."

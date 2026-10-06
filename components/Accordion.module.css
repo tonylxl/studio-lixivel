@@ -16,14 +16,30 @@
   font: inherit;
 }
 
+/* Ligne pleine largeur : la question commence à la 2e colonne, le signe juste à côté */
 .trigger {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  padding: 20px 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 380px) 16px;
+  align-items: start;
+  gap: 40px;
+  padding: 16px var(--g) 16px var(--col);
   text-align: left;
+}
+
+.trigger > :first-child {
+  line-height: 1.15;
+}
+
+.trigger .icon {
+  margin-top: 6px;
+  color: var(--bordure);
+  transition: color 0.25s var(--ease);
+}
+
+.item[data-open] .icon,
+.trigger:hover .icon {
+  color: var(--texte);
 }
 
 .icon {
@@ -68,15 +84,28 @@
 }
 
 .panelInner p {
-  padding: 0 56px 24px 16px;
-  max-width: 600px;
+  box-sizing: content-box;
+  max-width: 380px;
+  padding: 4px var(--g) 40px var(--col);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .trigger {
-    padding: 18px 8px;
+    grid-template-columns: minmax(0, 1fr) 16px;
+    padding-left: 45%;
   }
   .panelInner p {
-    padding: 0 8px 20px;
+    padding-left: 45%;
+  }
+}
+
+@media (max-width: 760px) {
+  .trigger {
+    gap: 24px;
+    padding: 18px var(--g);
+  }
+  .panelInner p {
+    max-width: none;
+    padding: 0 calc(var(--g) + 40px) 24px var(--g);
   }
 }

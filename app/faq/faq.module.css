@@ -4,20 +4,44 @@
   gap: 8px;
 }
 
+/* Pastilles blanches sur le fond lin */
+.ancre {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+  line-height: 1.2;
+  transition: background-color 0.25s var(--ease);
+}
+
+.ancre:hover {
+  background: var(--fond-page);
+}
+
 .main {
   padding-bottom: 160px;
 }
 
 .cat {
-  padding: 40px var(--g) 80px;
-  border-top: 1px solid var(--bordure-legere);
+  padding-bottom: 80px;
   scroll-margin-top: var(--header-h);
 }
 
-@media (max-width: 760px) {
+.cat + .cat {
+  border-top: 1px solid var(--bordure-legere);
+}
+
+.catTitre {
+  padding: 32px var(--g) 24px;
+}
+
+@media (max-width: 640px) {
   .cat {
-    row-gap: 24px;
-    padding-bottom: 56px;
+    padding-bottom: 48px;
+  }
+  .catTitre {
+    padding: 28px var(--g) 16px;
   }
   .main {
     padding-bottom: 80px;

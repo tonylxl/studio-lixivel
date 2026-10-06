@@ -9,14 +9,16 @@ type Props = {
   y?: number;
   className?: string;
   as?: "div" | "li" | "section" | "article" | "figure";
+  [key: `data-${string}`]: string | boolean | undefined;
 };
 
 /** Apparition douce (fondu + léger glissement) quand l'élément entre à l'écran. */
-export default function Reveal({ children, delay = 0, y = 32, className, as = "div" }: Props) {
+export default function Reveal({ children, delay = 0, y = 32, className, as = "div", ...rest }: Props) {
   const reduce = useReducedMotion();
   const Tag = motion[as];
   return (
     <Tag
+      {...rest}
       className={className}
       initial={reduce ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}

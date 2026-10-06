@@ -1,38 +1,33 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
-import { rdvHref } from "@/lib/site";
+import { motion, useReducedMotion } from "motion/react";
 import styles from "./HeroHome.module.css";
 
-/** Boucle de couleurs du hero : aplat + tabouret ton sur ton. */
+/**
+ * Boucle du hero (maquette « Hero — états suivants ») : toutes les 3 s, le fond
+ * et la silhouette changent ensemble (rose → moutarde → sauge), fondu 0,6 s.
+ */
 const ETATS = [
-  { fond: "#f7dddf", objet: "#ecc9cc" },
-  { fond: "#fcc976", objet: "#f2b85a" },
-  { fond: "#bcd4b4", objet: "#a9c6a0" },
-];
+  { fond: "#f7dddf", objet: "#e0b8bb", forme: "tabouret" },
+  { fond: "#fcc976", objet: "#d29e59", forme: "fauteuil" },
+  { fond: "#bcd4b4", objet: "#91ac9f", forme: "tabouret" },
+] as const;
 
 export default function HeroHome() {
   const [i, setI] = useState(0);
   const reduce = useReducedMotion();
-  const { scrollY } = useScroll();
-  const rotate = useTransform(scrollY, [0, 900], [0, -14]);
-  const y = useTransform(scrollY, [0, 900], [0, 120]);
 
   useEffect(() => {
     if (reduce) return;
-    const t = setInterval(() => setI((n) => (n + 1) % ETATS.length), 4500);
+    const t = setInterval(() => setI((n) => (n + 1) % ETATS.length), 3000);
     return () => clearInterval(t);
   }, [reduce]);
 
   const etat = ETATS[i];
 
   return (
-    <section
-      className={styles.hero}
-      style={{ ["--hero-fond" as string]: etat.fond, ["--hero-objet" as string]: etat.objet }}
-    >
+    <section className={styles.hero} style={{ ["--hero-fond" as string]: etat.fond }}>
       <div className={styles.inner}>
         <motion.h1
           className="t-hero"
@@ -46,18 +41,16 @@ export default function HeroHome() {
         </motion.h1>
       </div>
 
-      <motion.div className={styles.objet} style={reduce ? undefined : { rotate, y }} aria-hidden>
-        <motion.span
-          className={styles.objetShape}
-          initial={reduce ? false : { opacity: 0, scale: 0.92, rotate: 8 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1.4, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-        />
-      </motion.div>
-
-      <Link href={rdvHref("hero")} className={`btn btn--lg ${styles.cta}`}>
-        Prendre rendez-vous
-      </Link>
+      <div className={styles.objet} aria-hidden>
+        {(["tabouret", "fauteuil"] as const).map((forme) => (
+          <span
+            key={forme}
+            className={styles.objetShape}
+            data-forme={forme}
+            style={{ opacity: etat.forme === forme ? 1 : 0, background: etat.objet }}
+          />
+        ))}
+      </div>
     </section>
   );
 }

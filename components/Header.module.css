@@ -43,27 +43,43 @@
   gap: 8px;
 }
 
+/* Bouton « Prendre rendez-vous » : bordeaux sur fond clair, rose sur fond foncé (ardoise). */
+.header[data-variant="dark"]:not([data-scrolled]) .cta {
+  background: var(--fond-rose);
+  color: var(--texte);
+}
+
+.header[data-variant="dark"]:not([data-scrolled]) .cta:hover {
+  background: #f1c9cc;
+}
+
 .menuBtn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   min-height: 44px;
-  padding: 0 16px;
-  border-radius: var(--r-s);
+  padding: 0 14px 0 18px;
+  border-radius: 999px;
   background: var(--fond-lin);
   color: var(--texte);
   font-weight: 500;
-  letter-spacing: -0.02em;
+  font-size: 18px;
+  letter-spacing: -0.01em;
   transition: background-color 0.25s var(--ease);
 }
 
-.menuBtn:hover {
+.header[data-variant="home"]:not([data-scrolled]) .menuBtn {
+  background: var(--fond-page);
+}
+
+.menuBtn:hover,
+.header[data-variant="home"]:not([data-scrolled]) .menuBtn:hover {
   background: var(--fond-header);
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: currentColor;
 }
@@ -189,9 +205,12 @@
   .ctaShort {
     display: inline;
   }
-  .cta,
-  .menuBtn {
+  .cta {
     padding-inline: 14px;
+  }
+  .menuBtn {
+    padding: 0 12px 0 14px;
+    font-size: 16px;
   }
   .overlaySocial {
     flex-wrap: wrap;

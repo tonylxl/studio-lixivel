@@ -102,7 +102,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
       <PageTone tone="ardoise" threshold={0.6} />
       <Header variant="dark" source={`journal-${a.slug}`} />
       <main id="contenu">
-        <header className={styles.hero}>
+        <header className={`tone-bg ${styles.hero}`}>
           <nav className={`t-surtitre ${styles.ariane}`} aria-label="Fil d’Ariane">
             <Link href="/journal">Journal</Link>
             <span aria-hidden>/</span>
@@ -120,6 +120,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
         </header>
 
         <div className={`wrap ${styles.coverWrap}`}>
+          <span className={`tone-bg ${styles.coverFond}`} aria-hidden />
           <div className={`media ${styles.cover}`}>
             <Image src={a.cover} alt={a.coverAlt} fill priority sizes="100vw" />
           </div>
@@ -160,7 +161,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
             </h2>
             <div className={styles.ctaText}>
               <p className="t-serre">
-                Un article donne des pistes, un plan règle tout. Le studio conçoit le vôtre à distance, dès 40 €/m², plans
+                Un article donne des pistes, un plan règle tout. Le studio conçoit le vôtre à distance, dès 40 €/m², plans
                 et liste shopping compris.
               </p>
               <div className={styles.ctaActions}>

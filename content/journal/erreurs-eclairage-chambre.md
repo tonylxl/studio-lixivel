@@ -2,7 +2,7 @@
 titre: "Cinq erreurs d’éclairage dans une chambre"
 categorie: Chambre
 date: 2026-08-05
-duree: 7 min
+duree: 7 min
 cover: /images/bureau.jpg
 coverAlt: ""
 chapo: "Un plafonnier trop blanc, pas de lumière pour lire, des ampoules trop froides… Les erreurs les plus fréquentes, et comment les corriger sans travaux."

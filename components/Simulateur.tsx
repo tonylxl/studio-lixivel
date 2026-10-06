@@ -78,7 +78,7 @@ export default function Simulateur() {
             <span className={styles.num}>02</span> Surface
           </label>
           <output htmlFor="surface" className={styles.surface}>
-            {surface >= 200 ? "200 m² et +" : `${surface} m²`}
+            {surface >= 200 ? "200 m² et +" : `${surface} m²`}
           </output>
           <input
             id="surface"
@@ -92,8 +92,8 @@ export default function Simulateur() {
             style={{ ["--p" as string]: `${((surface - 10) / 190) * 100}%` }}
           />
           <div className={styles.rangeLabels}>
-            <span>10 m²</span>
-            <span>200 m² et +</span>
+            <span>10 m²</span>
+            <span>200 m² et +</span>
           </div>
         </div>
 

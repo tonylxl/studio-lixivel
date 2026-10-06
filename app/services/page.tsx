@@ -25,46 +25,46 @@ export default function ServicesPage() {
         tone="sauge"
         source="header-services"
         title="Services d’architecte d’intérieur"
-        below={
-          <nav className={styles.ancres} aria-label="Formules">
-            {FORMULES.map((f) => (
-              <a key={f.slug} href={`#${f.slug}`} className="pill">
-                {f.court}
-              </a>
-            ))}
-            <a href="#simulateur" className="pill">
-              Simulateur
-            </a>
-          </nav>
-        }
       >
-        <p>
+        <p className="c-2">
           Quatre formules, du simple conseil à la prise en charge complète. Trois d’entre elles se font entièrement à
           distance, partout en France.
         </p>
+        <nav className={styles.ancres} aria-label="Formules">
+          {FORMULES.map((f) => (
+            <a key={f.slug} href={`#${f.slug}`} className="link">
+              {f.court}
+            </a>
+          ))}
+          <a href="#simulateur" className="link">
+            Simulateur
+          </a>
+        </nav>
       </Opening>
 
       <main id="contenu">
         {FORMULES.map((f, i) => (
           <section key={f.slug} id={f.slug} className={styles.formule} aria-labelledby={`t-${f.slug}`}>
-            <Reveal className={`media ${styles.formuleMedia}`}>
+            <Reveal className={`media ${styles.formuleMedia}`} data-fond={f.slug}>
               {f.illustration ? (
                 <div className={styles.illuWrap}>
                   <Image src={f.image} alt="" width={260} height={325} />
                 </div>
               ) : (
-                <Image src={f.image} alt="" fill sizes="(max-width: 760px) 100vw, 48vw" priority={i === 0} />
+                <div className={styles.illuWrap}>
+                  <Image src={f.image} alt="" fill sizes="(max-width: 760px) 100vw, 48vw" priority={i === 0} />
+                </div>
               )}
             </Reveal>
             <div className={styles.formuleText}>
               <p className="t-surtitre c-accent">{f.surtitre}</p>
-              <h2 id={`t-${f.slug}`} className="t-section">
+              <h2 id={`t-${f.slug}`} className="t-projet">
                 {f.titre}
               </h2>
-              <p className="t-intro c-2">{f.description}</p>
-              <div>
-                <p className="t-carte">Ce qui est inclus</p>
-                <ul className="plus-list">
+              <p className={`t-serre c-2 ${styles.description}`}>{f.description}</p>
+              <div className={styles.inclus}>
+                <p className="t-petit c-2">Ce qui est inclus</p>
+                <ul className={`plus-list ${styles.plus}`}>
                   {f.inclus.map((x) => (
                     <li key={x}>{x}</li>
                   ))}
@@ -90,34 +90,37 @@ export default function ServicesPage() {
         {/* Comparatif */}
         <section className={styles.comparatif} aria-labelledby="t-comparer">
           <SectionHead id="t-comparer" title="Comparer les formules" />
-          <div className={`wrap ${styles.tableWrap}`}>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th scope="col">
-                    <span className="sr-only">Prestation</span>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th scope="col">
+                  <span className="sr-only">Prestation</span>
+                </th>
+                {FORMULES.map((f) => (
+                  <th key={f.slug} scope="col" className="t-carte">
+                    {f.court}
                   </th>
-                  {FORMULES.map((f) => (
-                    <th key={f.slug} scope="col" className="t-carte">
-                      {f.court}
-                    </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {COMPARATIF.map((row) => (
+                <tr key={row.label} data-tarif={row.label === "Tarif" || undefined}>
+                  <th scope="row">{row.label}</th>
+                  {row.valeurs.map((v, i) => (
+                    <td
+                      key={i}
+                      data-formule={FORMULES[i].court}
+                      data-vide={v === "—" || undefined}
+                      data-check={v === "✓" || undefined}
+                    >
+                      {v === "—" ? <span aria-label="Non inclus">—</span> : v === "✓" ? <span aria-label="Inclus">✓</span> : v}
+                    </td>
                   ))}
                 </tr>
-              </thead>
-              <tbody>
-                {COMPARATIF.map((row) => (
-                  <tr key={row.label}>
-                    <th scope="row">{row.label}</th>
-                    {row.valeurs.map((v, i) => (
-                      <td key={i} data-vide={v === "—" || undefined}>
-                        {v}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </section>
 
         {/* Simulateur */}
@@ -139,12 +142,7 @@ export default function ServicesPage() {
               Voir toute la FAQ
             </Link>
           </SectionHead>
-          <div className="split wrap">
-            <span />
-            <div className="col-2--wide">
-              <Accordion items={FAQ_SERVICES} defaultOpen={0} />
-            </div>
-          </div>
+          <Accordion items={FAQ_SERVICES} defaultOpen={0} />
         </section>
       </main>
       <Footer source="footer-services" />

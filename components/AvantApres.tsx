@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { animate } from "motion";
 import styles from "./AvantApres.module.css";
 
 type Props = {
@@ -14,7 +15,10 @@ type Props = {
   sizes?: string;
 };
 
-/** Comparateur avant / après : on fait glisser la poignée (souris, doigt ou flèches du clavier). */
+/**
+ * Comparateur avant / après : on fait glisser la poignée (souris, doigt ou flèches du clavier).
+ * À l’entrée à l’écran, la poignée fait un petit aller-retour pour montrer qu’on peut glisser.
+ */
 export default function AvantApres({
   avant,
   apres,
@@ -27,6 +31,31 @@ export default function AvantApres({
   const [pos, setPos] = useState(depart);
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let stop: (() => void) | undefined;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        const controls = animate(depart, [depart, depart + 10, depart - 8, depart], {
+          duration: 1.6,
+          delay: 0.3,
+          ease: "easeInOut",
+          onUpdate: (v) => !dragging.current && setPos(v),
+        });
+        stop = () => controls.stop();
+      },
+      { threshold: 0.5 },
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      stop?.();
+    };
+  }, [depart]);
 
   const fromEvent = useCallback((clientX: number) => {
     const el = ref.current;

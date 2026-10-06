@@ -8,6 +8,8 @@ import Footer from "@/components/Footer";
 import SectionHead from "@/components/SectionHead";
 import AvantApres from "@/components/AvantApres";
 import Reveal from "@/components/Reveal";
+import ScrollZoom from "@/components/ScrollZoom";
+import LineReveal from "@/components/LineReveal";
 import { getProjet, getProjets } from "@/lib/content";
 import styles from "./projet.module.css";
 
@@ -61,7 +63,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
       <PageTone tone={p.couleur} />
       <Header variant={p.couleur === "ardoise" ? "dark" : "light"} source={`projet-${p.slug}`} />
       <main id="contenu">
-        <section className={styles.top} data-dark={p.couleur === "ardoise" || undefined}>
+        <section className={`tone-bg ${styles.top}`} data-dark={p.couleur === "ardoise" || undefined}>
           <Link href="/projets" className={`t-petit ${styles.back}`}>
             ← Tous les projets
           </Link>
@@ -81,11 +83,9 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
           </div>
         </section>
 
-        <div className={`wrap ${styles.coverWrap}`}>
-          <div className={`media ${styles.cover}`}>
-            <Image src={p.cover} alt={p.coverAlt} fill priority sizes="100vw" />
-          </div>
-        </div>
+        <ScrollZoom className={styles.cover}>
+          <Image src={p.cover} alt={p.coverAlt} fill priority sizes="100vw" />
+        </ScrollZoom>
 
         {p.brief && (
           <section className={styles.block} aria-labelledby="t-brief">
@@ -93,11 +93,11 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
             <div className="split wrap">
               <span />
               <div className="col-2--wide stack" style={{ gap: 48 }}>
-                <p className="t-intro">{p.brief}</p>
+                <LineReveal className="t-intro" text={p.brief} />
                 {p.contraintes.length > 0 && (
                   <div>
-                    <p className="t-carte">Les contraintes</p>
-                    <ul className="plus-list" style={{ marginTop: 12 }}>
+                    <p className="t-petit c-2">Les contraintes</p>
+                    <ul className={styles.contraintes}>
                       {p.contraintes.map((c) => (
                         <li key={c}>{c}</li>
                       ))}
@@ -110,20 +110,20 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
         )}
 
         {p.avant && p.apres && (
-          <section className={styles.block} aria-labelledby="t-aa">
-            <SectionHead id="t-aa" title="Avant / après">
+          <section className={`${styles.block} ${styles.aaBlock}`} aria-labelledby="t-aa">
+            <SectionHead id="t-aa" title="Avant / après" plain>
               Même pièce, même angle. Faites glisser pour comparer.
             </SectionHead>
             <div className={`wrap ${styles.aa}`}>
               <AvantApres avant={p.avant.image} apres={p.apres.image} className={styles.aaSlider} />
               <div className={styles.aaLegendes}>
                 <div>
-                  <p className="t-surtitre c-2">Avant</p>
-                  <p className="t-serre">{p.avant.legende}</p>
+                  <p className="t-carte">Avant</p>
+                  <p className="t-serre c-2">{p.avant.legende}</p>
                 </div>
                 <div>
-                  <p className="t-surtitre c-accent">Après</p>
-                  <p className="t-serre">{p.apres.legende}</p>
+                  <p className="t-carte">Après</p>
+                  <p className="t-serre c-2">{p.apres.legende}</p>
                 </div>
               </div>
             </div>
@@ -138,10 +138,10 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
             <ol className={`wrap ${styles.etapes}`}>
               {etapes.map(([label, src], i) => (
                 <Reveal as="li" key={label} delay={i * 0.1}>
-                  <div className={`media media--l ${styles.etapeImg}`}>
+                  <div className={`media ${styles.etapeImg}`} data-plan={label === "Plan 2D" || undefined}>
                     <Image src={src} alt={label} fill sizes="(max-width: 760px) 100vw, 33vw" />
                   </div>
-                  <p className="t-carte">{label}</p>
+                  <p className="t-petit">{label}</p>
                 </Reveal>
               ))}
             </ol>
@@ -179,8 +179,8 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
                 <tbody>
                   {p.shopping.map((s) => (
                     <tr key={s.piece}>
-                      <td>{s.piece}</td>
-                      <td className="c-2">{s.ou}</td>
+                      <td className="t-carte">{s.piece}</td>
+                      <td>{s.ou}</td>
                       <td>{s.prix}</td>
                     </tr>
                   ))}
@@ -191,24 +191,33 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
         )}
 
         {p.avis && (
-          <section className={styles.avis} aria-labelledby="t-avis">
-            <h2 id="t-avis" className="t-section">
-              L’avis de {p.avis.nom}
-            </h2>
-            <blockquote className="t-manifeste">« {p.avis.texte} »</blockquote>
-            <div>
-              <p className="t-carte">{p.avis.nom}</p>
-              <p className="t-serre c-2">{p.avis.contexte}</p>
-            </div>
+          <section className={styles.block} aria-labelledby="t-avis">
+            <SectionHead id="t-avis" title={`L’avis de ${p.avis.nom}`} />
+            <figure className={`wrap ${styles.avis}`}>
+              <blockquote className={styles.avisTexte}>« {p.avis.texte} »</blockquote>
+              <figcaption className={styles.avisAuteur}>
+                <span className={styles.avatar} aria-hidden />
+                <span>
+                  <span className="t-carte">{p.avis.nom}</span>
+                  <br />
+                  <span className="t-petit c-2">{p.avis.contexte}</span>
+                </span>
+              </figcaption>
+            </figure>
           </section>
         )}
 
         {suivant && (
           <Link href={suivant.detail ? `/projets/${suivant.slug}` : "/projets"} className={styles.next}>
-            <span className="t-surtitre c-2">Projet suivant</span>
+            <span className="t-petit c-2">Projet suivant</span>
             <span className={styles.nextTitle}>
-              <span className="t-hero">{suivant.titre}</span>
-              <span className="t-projet c-2">{suivant.sousTitre}</span>
+              <span className={`media ${styles.nextThumb}`} aria-hidden>
+                <Image src={suivant.cover} alt="" fill sizes="120px" />
+              </span>
+              <span>
+                <span className={styles.nextNom}>{suivant.titre}</span>
+                <span className={`${styles.nextNom} c-2`}>{suivant.sousTitre}</span>
+              </span>
             </span>
             <span className={styles.nextArrow} aria-hidden>
               →

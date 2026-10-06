@@ -1,5 +1,5 @@
 .top {
-  padding: calc(var(--header-h) + 32px) var(--g) 64px;
+  padding: calc(var(--header-h) + 24px) var(--g) 72px;
 }
 
 .top[data-dark] {
@@ -8,7 +8,9 @@
 
 .back {
   display: inline-block;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .back:hover {
@@ -20,8 +22,13 @@
   opacity: 0.55;
 }
 
+.fiche {
+  font-size: 14px;
+}
+
 .fiche > div {
   grid-template-columns: 180px minmax(0, 1fr);
+  padding: 8px 0;
   border-color: rgba(73, 65, 65, 0.15);
 }
 
@@ -30,73 +37,119 @@
   opacity: 0.7;
 }
 
-.coverWrap {
-  padding-bottom: 40px;
+/* Photo d'ouverture pleine largeur */
+.cover {
+  position: relative;
+  height: min(820px, 80svh);
+  background: var(--fond-lin);
 }
 
-.cover {
-  height: min(860px, 80svh);
+.cover img {
+  object-fit: cover;
 }
 
 .block {
   padding-top: 120px;
 }
 
+.contraintes {
+  margin-top: 8px;
+}
+
+.contraintes li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--bordure-legere);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--texte-2);
+}
+
+/* Avant / après sur fond lin */
+.aaBlock {
+  margin-top: 120px;
+  padding: 0 0 120px;
+  background: var(--fond-lin);
+}
+
 .aa {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 900px) minmax(0, 330px);
+  justify-content: space-between;
   gap: 40px;
   align-items: start;
 }
 
 .aaSlider {
-  aspect-ratio: 16 / 11;
+  aspect-ratio: 900 / 640;
 }
 
 .aaLegendes {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding-top: 8px;
 }
 
 .aaLegendes > div {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
 
+.aaBlock + .block {
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* Du plan au réalisé */
 .etapes {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 24px;
 }
 
 .etapes li {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-
-.etapeImg {
-  aspect-ratio: 4 / 5;
-}
-
-.galerie {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
+.etapeImg {
+  aspect-ratio: 440 / 520;
+}
+
+.etapeImg[data-plan] {
+  background: var(--fond-rose);
+}
+
+.etapeImg[data-plan] img {
+  object-fit: contain;
+  padding: 24px;
+  mix-blend-mode: multiply;
+}
+
+/* En images : une grande photo, deux petites empilées */
+.galerie {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 24px;
+}
+
 .galImg {
-  aspect-ratio: 4 / 5;
+  min-height: 380px;
 }
 
 .galerie li:nth-child(3n + 1) {
+  grid-row: span 2;
+}
+
+.galerie li:last-child:nth-child(3n + 1) {
   grid-column: 1 / -1;
+  grid-row: auto;
   aspect-ratio: 16 / 9;
 }
 
+/* Liste shopping */
 .shopping {
   width: 100%;
   border-collapse: collapse;
@@ -104,7 +157,7 @@
 
 .shopping th,
 .shopping td {
-  padding: 16px 8px 16px 0;
+  padding: 12px 8px 12px 0;
   border-bottom: 1px solid var(--bordure-legere);
   text-align: left;
   font-weight: 400;
@@ -115,38 +168,69 @@
   color: var(--texte-2);
 }
 
+.shopping td:nth-child(2) {
+  font-size: 14px;
+  color: var(--texte-2);
+}
+
 .shopping th:first-child,
 .shopping td:first-child {
-  width: var(--col);
+  width: calc(var(--col) - var(--g));
+}
+
+.shopping th:last-child,
+.shopping td:last-child {
+  padding-right: 0;
+  text-align: right;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.shopping tbody tr {
+  transition: background-color 0.25s var(--ease);
 }
 
 .shopping tbody tr:hover {
   background: var(--fond-survol);
 }
 
+/* Avis du client */
 .avis {
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  margin: 160px var(--g) 0;
-  padding: 80px 64px;
-  border-radius: var(--r-xl);
+  gap: 40px;
+}
+
+.avisTexte {
+  max-width: 1100px;
+  font-size: clamp(26px, 3.35vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.avisAuteur {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
   background: var(--fond-rose);
 }
 
-.avis blockquote {
-  max-width: 1100px;
-}
-
+/* Projet suivant */
 .next {
   display: grid;
   grid-template-columns: var(--col) minmax(0, 1fr) auto;
   align-items: center;
   gap: 16px;
   margin-top: 120px;
-  padding: 48px var(--g);
+  padding: 32px var(--g);
   border-top: 1px solid var(--bordure-legere);
-  border-bottom: 1px solid var(--bordure-legere);
   transition: background-color 0.3s var(--ease);
 }
 
@@ -156,12 +240,26 @@
 
 .nextTitle {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 20px;
+}
+
+.nextThumb {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border-radius: var(--r-m);
+}
+
+.nextNom {
+  display: block;
+  font-size: clamp(24px, 2.8vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .nextArrow {
-  font-size: 40px;
+  font-size: 32px;
   transition: transform 0.35s var(--ease);
 }
 
@@ -187,16 +285,21 @@
     row-gap: 32px;
   }
   .fiche > div {
-    grid-template-columns: 130px minmax(0, 1fr);
+    grid-template-columns: 120px minmax(0, 1fr);
   }
   .cover {
-    height: 420px;
+    height: 440px;
+  }
+  .aaBlock {
+    margin-top: 80px;
+    padding-bottom: 72px;
   }
   .aaSlider {
     aspect-ratio: 4 / 5;
   }
   .aaLegendes {
     flex-direction: column;
+    gap: 20px;
   }
   .etapes {
     grid-template-columns: minmax(0, 1fr);
@@ -204,19 +307,49 @@
   .galerie {
     grid-template-columns: minmax(0, 1fr);
   }
-  .galerie li:nth-child(3n + 1) {
+  .galerie li:nth-child(3n + 1),
+  .galerie li:last-child:nth-child(3n + 1) {
+    grid-row: auto;
     aspect-ratio: 4 / 5;
   }
-  .avis {
-    margin-top: 96px;
-    padding: 48px 24px;
-    gap: 32px;
+  .galImg {
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+  .shopping thead {
+    display: none;
+  }
+  .shopping tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--bordure-legere);
+  }
+  .shopping td {
+    padding: 0;
+    border: 0;
+  }
+  .shopping td:first-child {
+    width: auto;
+  }
+  .shopping td:nth-child(2) {
+    grid-row: 2;
+  }
+  .shopping td:last-child {
+    grid-column: 2;
+    grid-row: 1;
   }
   .next {
     grid-template-columns: minmax(0, 1fr) auto;
+    margin-top: 96px;
   }
   .next > :first-child {
     grid-column: 1 / -1;
+  }
+  .nextThumb {
+    width: 64px;
+    height: 64px;
   }
 }
 

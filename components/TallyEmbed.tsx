@@ -30,7 +30,10 @@ export default function TallyEmbed() {
     return (
       <div className={styles.mock}>
         <p className="t-petit c-2">Question 1 sur 6</p>
-        <p className="t-accordeon">Quel est votre projet ?</p>
+        <span className={styles.progress} aria-hidden>
+          <span style={{ width: "16.6%" }} />
+        </span>
+        <p className={styles.question}>Quel est votre projet ?</p>
         <div className={styles.choices}>
           {DEMO_CHOIX.map((c, i) => (
             <button

@@ -1,13 +1,13 @@
 ---
-titre: Studio 30 m²
+titre: Studio 30 m²
 sousTitre: Rénovation complète
 ville: Rouen
 lieu: Rouen, Normandie
 annee: 2025
-surface: 30 m²
+surface: 30 m²
 formule: Prise en charge complète
-duree: 4 mois, dont 6 semaines de travaux
-budget: 25 000 € travaux et mobilier
+duree: 4 mois, dont 6 semaines de travaux
+budget: 25 000 € travaux et mobilier
 couleur: rose
 ordre: 1
 cover: /images/bureau.jpg
@@ -16,7 +16,7 @@ brief: Clara, 29 ans, venait d’acheter un studio sombre et cloisonné dans le 
 contraintes:
   - Une seule fenêtre, plein nord
   - Pas de mur porteur à toucher
-  - Budget serré, travaux en 6 semaines maximum
+  - Budget serré, travaux en 6 semaines maximum
 avant:
   image: /images/bureau-nb.jpg
   legende: Une cloison qui coupait la lumière, des murs jaunis, aucun rangement.
@@ -34,21 +34,21 @@ galerie:
 shopping:
   - piece: Chaise laquée rouge
     ou: Fabricant à préciser
-    prix: ≈ 180 €
+    prix: ≈ 180 €
   - piece: Lampe de bureau chromée
     ou: Fabricant à préciser
-    prix: ≈ 140 €
+    prix: ≈ 140 €
   - piece: Lampadaire en cannage
     ou: Fabricant à préciser
-    prix: ≈ 220 €
+    prix: ≈ 220 €
   - piece: Tapisserie murale
     ou: Artisan à préciser
-    prix: ≈ 450 €
+    prix: ≈ 450 €
   - piece: Store en bambou
     ou: Fabricant à préciser
-    prix: ≈ 60 €
+    prix: ≈ 60 €
 avis:
-  texte: Je n’aurais jamais imaginé qu’on puisse faire tenir un vrai bureau et autant de rangements dans 30 m². Cindy a tout géré, je n’ai eu qu’à choisir les couleurs.
+  texte: Je n’aurais jamais imaginé qu’on puisse faire tenir un vrai bureau et autant de rangements dans 30 m². Cindy a tout géré, je n’ai eu qu’à choisir les couleurs.
   nom: Clara
-  contexte: Studio 30 m² · Rouen
+  contexte: Studio 30 m² · Rouen
 ---

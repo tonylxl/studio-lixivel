@@ -22,7 +22,7 @@ export default function Opening({ tone, title, surtitre, children, below, source
     <>
       <PageTone tone={tone} />
       <Header variant={dark ? "dark" : "light"} source={source} />
-      <section className={`${styles.opening} ${className ?? ""}`} data-dark={dark || undefined}>
+      <section className={`tone-bg ${styles.opening} ${className ?? ""}`} data-dark={dark || undefined}>
         <div className="split">
           <div className={styles.titleCol}>
             {surtitre && <p className="t-surtitre">{surtitre}</p>}

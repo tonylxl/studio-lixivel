@@ -1,24 +1,35 @@
 .ancres {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 48px;
-  padding-left: var(--col);
+  gap: 8px 16px;
+  margin-top: -8px;
 }
 
+/* Formules : visuel 655 × 620 à gauche, détail à droite */
 .formule {
   display: grid;
-  grid-template-columns: var(--col) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 655px) minmax(0, 1fr);
+  gap: 40px;
   align-items: start;
-  padding: 120px var(--g) 0;
-  scroll-margin-top: calc(var(--header-h) + 24px);
+  padding: 31px var(--g) 120px;
+  border-top: 1px solid var(--bordure-legere);
+  scroll-margin-top: var(--header-h);
 }
 
 .formuleMedia {
   position: sticky;
   top: calc(var(--header-h) + 24px);
-  height: min(640px, 70vh);
-  margin-right: 40px;
+  height: 620px;
+}
+
+.formuleMedia[data-fond="conseils"] {
+  background: var(--fond-rose);
+}
+
+.formuleMedia[data-fond="conseils"] img {
+  object-fit: contain;
+  padding: 32px;
+  mix-blend-mode: multiply;
 }
 
 .illuWrap {
@@ -33,63 +44,87 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 28px;
-  max-width: 625px;
+  gap: 20px;
+  max-width: 580px;
 }
 
-.formuleText > div {
+.description {
+  max-width: 440px;
+}
+
+.inclus {
   width: 100%;
+  padding-top: 12px;
 }
 
-.formuleText :global(.plus-list) {
-  margin-top: 12px;
+.plus li {
+  color: var(--texte-2);
+  line-height: 1.15;
 }
 
 .meta {
   display: flex;
-  gap: 64px;
+  gap: 40px;
   margin: 0;
+  padding-top: 8px;
 }
 
 .meta dd {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
 }
 
 /* Comparatif */
 .comparatif {
-  padding-top: 160px;
-}
-
-.tableWrap {
-  overflow-x: auto;
+  border-top: 0;
 }
 
 .table {
   width: 100%;
-  min-width: 720px;
   border-collapse: collapse;
+  margin-bottom: 120px;
 }
 
 .table th,
 .table td {
-  padding: 16px 12px;
+  padding: 14px 12px 16px 0;
   border-bottom: 1px solid var(--bordure-legere);
   text-align: left;
   font-weight: 400;
-}
-
-.table thead th {
-  font-weight: 500;
-  border-bottom-color: var(--bordure);
+  line-height: 1.15;
 }
 
 .table th:first-child {
   width: var(--col);
-  padding-left: 0;
+  padding-left: var(--g);
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+
+.table thead th {
+  padding-block: 10px;
+  font-weight: 500;
+}
+
+.table thead th:first-child {
+  font-size: 14px;
+}
+
+.table td[data-check] {
+  color: var(--texte-accent);
 }
 
 .table td[data-vide] {
   color: var(--bordure);
+}
+
+.table tr[data-tarif] td {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.table tbody tr {
+  transition: background-color 0.25s var(--ease);
 }
 
 .table tbody tr:hover {
@@ -98,60 +133,102 @@
 
 /* Simulateur */
 .simulateur {
-  padding-top: 160px;
+  padding-bottom: 160px;
   scroll-margin-top: var(--header-h);
 }
 
 /* FAQ */
 .faq {
-  padding-block: 160px;
+  padding-bottom: 160px;
 }
 
 @media (max-width: 1024px) {
-  .ancres {
-    padding-left: 0;
-  }
   .formule {
-    padding-top: 96px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    padding-bottom: 96px;
   }
   .formuleMedia {
-    margin-right: 24px;
+    height: 520px;
   }
-  .comparatif,
-  .simulateur {
-    padding-top: 120px;
+  .table th:first-child {
+    width: 36%;
+    font-size: 20px;
   }
+  .simulateur,
   .faq {
-    padding-block: 120px;
+    padding-bottom: 120px;
   }
 }
 
 @media (max-width: 760px) {
   .formule {
     grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
-    padding-top: 80px;
+    gap: 28px;
+    padding-bottom: 72px;
   }
   .formuleMedia {
     position: relative;
     top: 0;
-    height: 300px;
-    margin-right: 0;
+    height: 340px;
   }
   .meta {
-    gap: 32px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    width: 100%;
   }
 }
 
+/* Mobile : chaque ligne du comparatif devient un bloc, les 4 formules sur une grille */
 @media (max-width: 640px) {
-  .ancres {
-    margin-top: 32px;
+  .table,
+  .table tbody {
+    display: block;
+    margin-bottom: 80px;
   }
-  .comparatif,
-  .simulateur {
-    padding-top: 80px;
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
   }
+  .table tbody tr {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 8px;
+    padding: 16px var(--g) 18px;
+    border-bottom: 1px solid var(--bordure-legere);
+  }
+  .table tbody th,
+  .table tbody td {
+    padding: 0;
+    border: 0;
+  }
+  .table tbody th:first-child {
+    grid-column: 1 / -1;
+    width: auto;
+    padding: 0 0 12px;
+    font-size: 18px;
+  }
+  .table tbody td {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 15px;
+  }
+  .table tbody td::before {
+    content: attr(data-formule);
+    font-size: 12px;
+    line-height: 1.3;
+    color: var(--texte-2);
+  }
+  .table tr[data-tarif] td {
+    font-size: 15px;
+  }
+  .simulateur,
   .faq {
-    padding-block: 80px;
+    padding-bottom: 80px;
   }
 }

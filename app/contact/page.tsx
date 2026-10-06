@@ -10,13 +10,13 @@ import styles from "./contact.module.css";
 export const metadata: Metadata = {
   title: "Prendre rendez-vous",
   description:
-    "Répondez au questionnaire en 10 minutes : vos envies, vos contraintes, votre budget. Le studio vous recontacte sous 48 h, sans engagement.",
+    "Répondez au questionnaire en 10 minutes : vos envies, vos contraintes, votre budget. Le studio vous recontacte sous 48 h, sans engagement.",
 };
 
 export default function ContactPage() {
   return (
     <>
-      <PageTone tone="moutarde" />
+      <PageTone tone="moutarde" scope="page" />
       <Header source="header-contact" />
       <main id="contenu" className={styles.page}>
         <div className={styles.left}>
@@ -25,21 +25,23 @@ export default function ContactPage() {
             <br />
             rendez-vous.
           </h1>
-          <p className="t-intro">
+          <p className={`t-serre c-2 ${styles.intro}`}>
             Répondez au questionnaire en 10 minutes : vos envies, vos contraintes, votre budget. Nous vous recontactons
             ensuite pour en parler, sans engagement.
           </p>
 
           <section aria-labelledby="t-etapes" className={styles.etapes}>
-            <h2 id="t-etapes" className="t-carte">
+            <h2 id="t-etapes" className="t-petit c-2">
               Comment ça se passe
             </h2>
             <ol className={styles.cards}>
               {ETAPES.slice(0, 3).map((e, i) => (
-                <li key={e.titre} className={styles.card} data-couleur={e.couleur} style={{ rotate: `${[-3, 2, -1.5][i]}deg` }}>
-                  <span className={styles.num}>0{i + 1}</span>
-                  <p className="t-carte">{e.titre}</p>
-                  <p className="t-petit">{e.texte}</p>
+                <li key={e.titre} className={styles.card} data-couleur={e.couleur} style={{ rotate: `${[2, -1, 1.5][i]}deg` }}>
+                  <span className={`t-chiffre ${styles.num}`}>0{i + 1}</span>
+                  <span>
+                    <span className={`t-carte ${styles.cardTitre}`}>{e.titre}</span>
+                    <span className="t-petit">{e.texte}</span>
+                  </span>
                 </li>
               ))}
             </ol>

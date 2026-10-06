@@ -9,6 +9,16 @@
   border-bottom: 1px solid var(--bordure-legere);
 }
 
+/* Noms des magazines : 60 % → 100 % au survol */
+.presseNom {
+  opacity: 0.6;
+  transition: opacity 0.25s var(--ease);
+}
+
+.presseNom:hover {
+  opacity: 1;
+}
+
 /* Intro */
 .intro {
   display: flex;
@@ -40,19 +50,29 @@
   background: var(--fond-sombre);
 }
 
+.projetFond {
+  position: absolute;
+  inset: 0;
+}
+
 .projetImg {
   object-fit: cover;
   transition: transform 1.2s var(--ease);
 }
 
-.projet:hover .projetImg {
+.projet:hover .projetFond {
+  position: absolute;
+  inset: 0;
+}
+
+.projetImg {
   transform: scale(1.03);
 }
 
 .projetVoile {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.45) 100%);
+  background: linear-gradient(180deg, rgba(20, 8, 8, 0.3) 0%, rgba(20, 8, 8, 0) 50%, rgba(20, 8, 8, 0.55) 100%);
 }
 
 .projetTop,
@@ -67,9 +87,7 @@
 }
 
 .projetTitre {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  margin: 0;
 }
 
 /* Services */
@@ -189,11 +207,21 @@
 }
 
 .instaMedia img {
-  transition: transform 0.9s var(--ease);
+  transition: transform 0.6s var(--ease);
 }
 
 .instaCard:hover .instaMedia img {
-  transform: scale(1.05);
+  transform: scale(1.04);
+}
+
+/* Légende : passe en brun au survol */
+.instaLegende {
+  color: var(--texte-2);
+  transition: color 0.25s var(--ease);
+}
+
+.instaCard:hover .instaLegende {
+  color: var(--texte);
 }
 
 .instaMedia[data-illu] {
@@ -242,7 +270,9 @@
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--g);
     padding-bottom: 8px;
+    scrollbar-width: none;
   }
   .instaList li {
     flex: 0 0 260px;

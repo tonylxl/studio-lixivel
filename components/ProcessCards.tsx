@@ -1,32 +1,27 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
 import { ETAPES } from "@/data/services";
+import SettleCard from "./SettleCard";
 import styles from "./ProcessCards.module.css";
 
-const DEPART = [-7, 5, -4, 8];
+/** Rotations (−9° à +9°) et décalages de départ : comme des meubles posés en vrac. */
+const DEPART = [
+  { rotate: -9, y: 70 },
+  { rotate: 6, y: 20 },
+  { rotate: -4, y: 110 },
+  { rotate: 9, y: 50 },
+];
 
-/** Les 4 étapes : les cartes arrivent inclinées puis se rangent quand on fait défiler. */
+/** Les 4 étapes : les cartes arrivent en désordre et se rangent au fil du scroll. */
 export default function ProcessCards() {
-  const reduce = useReducedMotion();
   return (
     <ol className={styles.grid}>
       {ETAPES.map((e, i) => (
-        <motion.li
-          key={e.titre}
-          className={styles.card}
-          data-couleur={e.couleur}
-          initial={reduce ? false : { rotate: DEPART[i], y: 60 + i * 20, opacity: 0 }}
-          whileInView={{ rotate: 0, y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-          transition={{ duration: 1.1, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <SettleCard key={e.titre} index={i} {...DEPART[i]} className={styles.card} data-couleur={e.couleur}>
           <span className={`t-xxl ${styles.num}`}>0{i + 1}</span>
           <div className={styles.text}>
             <h3 className="t-accordeon">{e.titre}</h3>
             <p className="t-serre">{e.texte}</p>
           </div>
-        </motion.li>
+        </SettleCard>
       ))}
     </ol>
   );
