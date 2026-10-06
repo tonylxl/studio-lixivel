@@ -32,9 +32,7 @@
   max-width: 440px;
 }
 
-.uneText h2 a:hover {
-  color: var(--texte-accent);
-}
+
 
 .meta {
   display: flex;

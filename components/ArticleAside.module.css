@@ -30,7 +30,6 @@
   transition: color 0.25s var(--ease);
 }
 
-.toc a:hover,
 .toc a[aria-current] {
   color: var(--texte-accent);
 }

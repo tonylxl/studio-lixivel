@@ -55,7 +55,7 @@ export default function ArticleAside({ toc, titre, reel }: Props) {
               <li key={t.id}>
                 <a href={`#${t.id}`} aria-current={active === t.id ? "true" : undefined}>
                   <span className={styles.n}>{String(i + 1).padStart(2, "0")}</span>
-                  {t.label}
+                  <span className="trait">{t.label}</span>
                 </a>
               </li>
             ))}

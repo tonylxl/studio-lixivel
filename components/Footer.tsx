@@ -51,7 +51,7 @@ export default function Footer({
               <ul className={styles.nav}>
                 {NAV.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className={styles.navLink}>
+                    <Link href={item.href} className={`trait ${styles.navLink}`}>
                       {item.label}
                     </Link>
                   </li>
@@ -62,7 +62,7 @@ export default function Footer({
           <address className={styles.address}>
             <span>{SITE.ville}</span>
             <span>{SITE.zone}</span>
-            <a href={`mailto:${SITE.email}`} className={styles.mail}>
+            <a href={`mailto:${SITE.email}`} className={`trait ${styles.mail}`}>
               {SITE.email}
             </a>
           </address>
@@ -74,17 +74,19 @@ export default function Footer({
 
         <ul className={styles.legal}>
           <li>
-            <a href={SITE.instagram} target="_blank" rel="noopener noreferrer">
+            <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="trait">
               Instagram
             </a>
           </li>
           <li>
-            <a href={SITE.tiktok} target="_blank" rel="noopener noreferrer">
+            <a href={SITE.tiktok} target="_blank" rel="noopener noreferrer" className="trait">
               TikTok
             </a>
           </li>
           <li>
-            <Link href="/mentions-legales">Mentions légales</Link>
+            <Link href="/mentions-legales" className="trait">
+              Mentions légales
+            </Link>
           </li>
           <li>© Studio Lixivel {new Date().getFullYear()}</li>
         </ul>

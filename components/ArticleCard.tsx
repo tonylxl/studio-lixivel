@@ -21,7 +21,9 @@ export default function ArticleCard({ a }: { a: ArticleCardData }) {
         <span className="t-surtitre c-accent">{a.categorie}</span>
         <span className="t-surtitre c-2">{a.duree}</span>
       </p>
-      <h3 className="t-accordeon">{a.titre}</h3>
+      <h3 className="t-accordeon">
+        <span className="trait">{a.titre}</span>
+      </h3>
     </Link>
   );
 }

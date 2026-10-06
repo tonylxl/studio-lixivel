@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -6,7 +7,7 @@ import HeroHome from "@/components/HeroHome";
 import FloatingCta from "@/components/FloatingCta";
 import SectionHead from "@/components/SectionHead";
 import Reveal from "@/components/Reveal";
-import LineReveal from "@/components/LineReveal";
+import ScrollFadeText from "@/components/ScrollFadeText";
 import MaskReveal from "@/components/MaskReveal";
 import ScrollZoom from "@/components/ScrollZoom";
 import ProcessCards from "@/components/ProcessCards";
@@ -84,7 +85,7 @@ export default function Home() {
 
         {/* Intro */}
         <section className={`wrap ${styles.intro}`}>
-          <LineReveal
+          <ScrollFadeText
             className="t-projet"
             text="Studio Lixivel est un studio d’architecture intérieure basé à Rouen. Agencement, décoration, rénovation : nous concevons des lieux pratiques et chaleureux, à distance partout en France ou sur place en Normandie, quel que soit votre budget."
           />
@@ -102,8 +103,8 @@ export default function Home() {
           </SectionHead>
           <div className={styles.projets}>
             {projets.map((p, i) => (
+              <Fragment key={p.slug}>
               <Link
-                key={p.slug}
                 href={p.detail ? `/projets/${p.slug}` : "/projets"}
                 className={styles.projet}
                 style={{ zIndex: i + 1 }}
@@ -129,6 +130,9 @@ export default function Home() {
                   lines={[p.titre, <span key="s" style={{ opacity: 0.55 }}>{p.sousTitre}</span>]}
                 />
               </Link>
+              {/* Pause : la photo reste en place le temps de lire le titre, avant que la suivante glisse dessus */}
+              {i < projets.length - 1 && <div className={styles.projetPause} aria-hidden />}
+              </Fragment>
             ))}
           </div>
         </section>

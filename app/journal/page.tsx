@@ -45,7 +45,9 @@ export default function JournalPage() {
                 <span className="t-surtitre c-2">{une.duree}</span>
               </p>
               <h2 className="t-projet">
-                <Link href={`/journal/${une.slug}`}>{une.titre}</Link>
+                <Link href={`/journal/${une.slug}`} className="trait">
+                  {une.titre}
+                </Link>
               </h2>
               <p className="t-serre c-2">{une.chapo}</p>
               <Link href={`/journal/${une.slug}`} className="link link--accent">

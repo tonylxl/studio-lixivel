@@ -9,12 +9,6 @@
 .back {
   display: inline-block;
   margin-bottom: 40px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.back:hover {
-  color: var(--texte-accent);
 }
 
 .sub {

@@ -303,24 +303,36 @@ html[data-tone-scope="page"] body,
   color: var(--texte-inverse);
 }
 
-.link {
-  font-weight: 500;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-  transition: color 0.25s var(--ease), text-decoration-color 0.25s var(--ease);
+/* Liens : pas de changement de couleur au survol, le soulignement se dessine
+   de gauche à droite. `.trait` donne le même effet à n'importe quel lien. */
+.link,
+.trait {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  padding-bottom: 2px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 0.45s var(--ease);
 }
 
-.link:hover {
-  color: var(--texte-accent);
+.link {
+  font-weight: 500;
+}
+
+.link:hover,
+.link:focus-visible,
+.trait:hover,
+.trait:focus-visible,
+a:hover > .trait,
+a:focus-visible > .trait {
+  background-size: 100% 1px;
 }
 
 .link--accent {
   color: var(--texte-accent);
-}
-
-.link--accent:hover {
-  color: var(--texte);
 }
 
 /* --------------------------------------------------------------------------

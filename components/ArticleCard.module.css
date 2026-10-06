@@ -16,12 +16,8 @@
   transform: scale(1.04);
 }
 
-.card:hover h3 {
-  color: var(--texte-accent);
-}
-
-.card h3 {
-  transition: color 0.25s var(--ease);
+.card:hover :global(.trait) {
+  background-size: 100% 1px;
 }
 
 .meta {

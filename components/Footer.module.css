@@ -48,12 +48,6 @@
   font-size: 40px;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  transition: color 0.25s var(--ease), transform 0.35s var(--ease);
-}
-
-.navLink:hover {
-  color: var(--texte-accent);
-  transform: translateX(8px);
 }
 
 .address {
@@ -87,11 +81,6 @@
   gap: 4px;
   line-height: 1.15;
   text-align: right;
-}
-
-.mail:hover,
-.legal a:hover {
-  color: var(--texte-accent);
 }
 
 @media (max-width: 900px) {

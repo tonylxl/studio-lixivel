@@ -64,7 +64,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
       <Header variant={p.couleur === "ardoise" ? "dark" : "light"} source={`projet-${p.slug}`} />
       <main id="contenu">
         <section className={`tone-bg ${styles.top}`} data-dark={p.couleur === "ardoise" || undefined}>
-          <Link href="/projets" className={`t-petit ${styles.back}`}>
+          <Link href="/projets" className={`t-petit trait ${styles.back}`}>
             ← Tous les projets
           </Link>
           <div className="split">

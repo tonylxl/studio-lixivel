@@ -147,16 +147,15 @@
   font-size: clamp(44px, 7vw, 96px);
   line-height: 1;
   letter-spacing: -0.045em;
-  transition: color 0.25s var(--ease), padding-left 0.35s var(--ease);
 }
 
-.navLink:hover,
 .navLink[aria-current="page"] {
   color: var(--texte-accent);
 }
 
-.navLink:hover {
-  padding-left: 12px;
+.navLink:hover .navLabel,
+.navLink:focus-visible .navLabel {
+  background-size: 100% 2px;
 }
 
 .navIndex {

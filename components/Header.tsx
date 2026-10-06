@@ -20,13 +20,22 @@ export default function Header({ variant = "light", source = "header" }: Props) 
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
+  const anchorY = useRef(0);
 
   useEffect(() => {
+    // Disparaît quand on descend, revient dès qu'on remonte. On cumule le déplacement
+    // depuis le dernier changement de sens, pour réagir aussi aux scrolls lents (trackpad).
     const onScroll = () => {
-      const y = window.scrollY;
+      const y = Math.max(0, window.scrollY);
       setScrolled(y > 24);
-      setHidden(y > 240 && y > lastY.current + 4);
-      if (y < lastY.current - 4 || y < 240) setHidden(false);
+      if (y === lastY.current) return;
+      const goingDown = y > lastY.current;
+      const wasGoingDown = lastY.current > anchorY.current;
+      if (goingDown !== wasGoingDown) anchorY.current = lastY.current;
+      const delta = y - anchorY.current;
+      if (y < 80) setHidden(false);
+      else if (delta > 12) setHidden(true);
+      else if (delta < -12) setHidden(false);
       lastY.current = y;
     };
     onScroll();
@@ -114,7 +123,7 @@ export default function Header({ variant = "light", source = "header" }: Props) 
                       aria-current={pathname.startsWith(item.href) ? "page" : undefined}
                     >
                       <span className={styles.navIndex}>0{i + 1}</span>
-                      {item.label}
+                      <span className={`trait ${styles.navLabel}`}>{item.label}</span>
                     </Link>
                   </motion.li>
                 ))}

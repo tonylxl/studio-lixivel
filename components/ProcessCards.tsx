@@ -15,7 +15,7 @@ export default function ProcessCards() {
   return (
     <ol className={styles.grid}>
       {ETAPES.map((e, i) => (
-        <SettleCard key={e.titre} index={i} {...DEPART[i]} className={styles.card} data-couleur={e.couleur}>
+        <SettleCard key={e.titre} index={i} hold={0.4} {...DEPART[i]} className={styles.card} data-couleur={e.couleur}>
           <span className={`t-xxl ${styles.num}`}>0{i + 1}</span>
           <div className={styles.text}>
             <h3 className="t-accordeon">{e.titre}</h3>
