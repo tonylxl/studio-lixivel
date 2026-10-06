@@ -29,7 +29,7 @@ etiquettes:
   - Bureau
   - Studio
 seoTitle: Aménager un studio de 30 m² avec un vrai bureau
-seoDescription: Mezzanine, cloison vitrée, rangements invisibles : les solutions d’une architecte d’intérieur pour créer un coin bureau dans un studio de 30 m².
+seoDescription: "Mezzanine, cloison vitrée, rangements invisibles : les solutions d’une architecte d’intérieur pour créer un coin bureau dans un studio de 30 m²."
 ---
 
 ## 1. Choisir où placer le bureau
