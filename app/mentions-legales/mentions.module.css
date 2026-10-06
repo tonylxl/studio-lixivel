@@ -1,0 +1,21 @@
+.main {
+  padding: 40px var(--g) 160px;
+}
+
+.bloc {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--bordure-legere);
+}
+
+.bloc:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding-bottom: 80px;
+  }
+  .bloc {
+    padding: 28px 0;
+  }
+}

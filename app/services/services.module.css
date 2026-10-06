@@ -1,0 +1,157 @@
+.ancres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 48px;
+  padding-left: var(--col);
+}
+
+.formule {
+  display: grid;
+  grid-template-columns: var(--col) minmax(0, 1fr);
+  align-items: start;
+  padding: 120px var(--g) 0;
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+.formuleMedia {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+  height: min(640px, 70vh);
+  margin-right: 40px;
+}
+
+.illuWrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formuleText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  max-width: 625px;
+}
+
+.formuleText > div {
+  width: 100%;
+}
+
+.formuleText :global(.plus-list) {
+  margin-top: 12px;
+}
+
+.meta {
+  display: flex;
+  gap: 64px;
+  margin: 0;
+}
+
+.meta dd {
+  margin: 6px 0 0;
+}
+
+/* Comparatif */
+.comparatif {
+  padding-top: 160px;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid var(--bordure-legere);
+  text-align: left;
+  font-weight: 400;
+}
+
+.table thead th {
+  font-weight: 500;
+  border-bottom-color: var(--bordure);
+}
+
+.table th:first-child {
+  width: var(--col);
+  padding-left: 0;
+}
+
+.table td[data-vide] {
+  color: var(--bordure);
+}
+
+.table tbody tr:hover {
+  background: var(--fond-survol);
+}
+
+/* Simulateur */
+.simulateur {
+  padding-top: 160px;
+  scroll-margin-top: var(--header-h);
+}
+
+/* FAQ */
+.faq {
+  padding-block: 160px;
+}
+
+@media (max-width: 1024px) {
+  .ancres {
+    padding-left: 0;
+  }
+  .formule {
+    padding-top: 96px;
+  }
+  .formuleMedia {
+    margin-right: 24px;
+  }
+  .comparatif,
+  .simulateur {
+    padding-top: 120px;
+  }
+  .faq {
+    padding-block: 120px;
+  }
+}
+
+@media (max-width: 760px) {
+  .formule {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    padding-top: 80px;
+  }
+  .formuleMedia {
+    position: relative;
+    top: 0;
+    height: 300px;
+    margin-right: 0;
+  }
+  .meta {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ancres {
+    margin-top: 32px;
+  }
+  .comparatif,
+  .simulateur {
+    padding-top: 80px;
+  }
+  .faq {
+    padding-block: 80px;
+  }
+}

@@ -1,0 +1,25 @@
+.ancres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.main {
+  padding-bottom: 160px;
+}
+
+.cat {
+  padding: 40px var(--g) 80px;
+  border-top: 1px solid var(--bordure-legere);
+  scroll-margin-top: var(--header-h);
+}
+
+@media (max-width: 760px) {
+  .cat {
+    row-gap: 24px;
+    padding-bottom: 56px;
+  }
+  .main {
+    padding-bottom: 80px;
+  }
+}

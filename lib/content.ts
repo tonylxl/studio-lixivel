@@ -61,7 +61,20 @@ export function renderMarkdown(markdown: string): { html: string; toc: TocItem[]
       },
     },
   });
-  const html = marked.parse(markdown, { async: false }) as string;
+  let html = marked.parse(markdown, { async: false }) as string;
+
+  // Contenu saisi dans le CMS en HTML : on ajoute aussi les ancres et les encadrés.
+  html = html.replace(/<h2>([\s\S]*?)<\/h2>/g, (_m, inner: string) => {
+    const plain = inner.replace(/<[^>]+>/g, "").replace(/^\d+\.\s*/, "");
+    const id = slugify(plain);
+    toc.push({ id, label: plain });
+    return `<h2 id="${id}">${inner}</h2>`;
+  });
+  html = html.replace(
+    /<blockquote>([\s\S]*?)<\/blockquote>/g,
+    (_m, inner: string) =>
+      `<aside class="conseil"><span class="conseil__art" aria-hidden="true"></span><div><p class="conseil__titre">Le conseil du studio</p>${inner}</div></aside>`,
+  );
   return { html, toc };
 }
 

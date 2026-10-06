@@ -1,0 +1,117 @@
+.aside {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 300px;
+}
+
+.toc {
+  margin-top: 12px;
+}
+
+.toc li {
+  border-bottom: 1px solid var(--bordure-legere);
+}
+
+.toc li:last-child {
+  border-bottom: 0;
+}
+
+.toc a {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--texte-2);
+  transition: color 0.25s var(--ease);
+}
+
+.toc a:hover,
+.toc a[aria-current] {
+  color: var(--texte-accent);
+}
+
+.n {
+  font-weight: 500;
+  font-size: 12px;
+  padding-top: 2px;
+}
+
+.share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  font-size: 14px;
+}
+
+.reel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 220px;
+}
+
+.reelMedia {
+  display: block;
+  aspect-ratio: 9 / 16;
+}
+
+.reelMedia img {
+  transition: transform 0.9s var(--ease);
+}
+
+.reel:hover .reelMedia img {
+  transform: scale(1.05);
+}
+
+.reelTag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  padding-left: 4px;
+  border-radius: 50%;
+  background: var(--fond-rose);
+  color: var(--texte-accent);
+  transition: transform 0.3s var(--ease);
+}
+
+.reel:hover .play {
+  transform: scale(1.1);
+}
+
+.reelLegende {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 20px;
+  color: var(--texte-inverse);
+  font-size: 15px;
+  line-height: 1.2;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 1024px) {
+  .aside {
+    position: static;
+    max-width: none;
+  }
+  .aside nav {
+    display: none;
+  }
+}

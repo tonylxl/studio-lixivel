@@ -1,0 +1,118 @@
+# Configuration de Pages CMS (https://pagescms.org) : interface d'édition pour Cindy.
+# Connexion sur app.pagescms.org avec le compte GitHub qui a accès au repo.
+
+media:
+  input: public/images/uploads
+  output: /images/uploads
+
+content:
+  - name: journal
+    label: Journal
+    type: collection
+    path: content/journal
+    filename: "{fields.titre}.md"
+    view:
+      fields: [titre, categorie, date, une]
+      primary: titre
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: titre, label: Titre (H1), type: string, required: true }
+      - name: categorie
+        label: Catégorie
+        type: select
+        required: true
+        options:
+          values: [Petits espaces, Salon, Chambre, Cuisine, Petit budget, Rénovation, Avant / après]
+      - { name: date, label: Date de publication, type: date, required: true }
+      - { name: duree, label: Durée de lecture (ex. 6 min), type: string }
+      - { name: une, label: Article à la une, type: boolean }
+      - { name: cover, label: Photo de couverture, type: image, required: true }
+      - { name: coverAlt, label: Description de la photo (accessibilité), type: string }
+      - { name: chapo, label: Chapô (introduction), type: text }
+      - name: reel
+        label: Réel Instagram lié
+        type: object
+        fields:
+          - { name: url, label: Lien du réel, type: string }
+          - { name: vignette, label: Vignette du réel, type: image }
+          - { name: legende, label: Légende du réel, type: string }
+      - name: produits
+        label: La sélection du studio (produits)
+        type: object
+        list: true
+        fields:
+          - { name: titre, label: Nom du produit, type: string }
+          - { name: prix, label: Prix, type: string }
+          - { name: image, label: Photo, type: image }
+          - { name: lien, label: Lien (affilié), type: string }
+      - { name: etiquettes, label: Étiquettes, type: string, list: true }
+      - { name: seoTitle, label: Titre pour Google (optionnel), type: string }
+      - { name: seoDescription, label: Description pour Google (optionnel), type: text }
+      - name: body
+        label: Contenu
+        type: rich-text
+        description: "Intertitres en « Titre 2 ». Une citation devient l’encadré « Le conseil du studio ». Écrire [[produits]] seul sur une ligne pour placer la sélection."
+
+  - name: projets
+    label: Projets
+    type: collection
+    path: content/projets
+    filename: "{fields.titre}.md"
+    view:
+      fields: [titre, sousTitre, ville, annee]
+      primary: titre
+      sort: [ordre]
+    fields:
+      - { name: titre, label: Titre, type: string, required: true }
+      - { name: sousTitre, label: Sous-titre (formule), type: string }
+      - { name: ville, label: Ville, type: string }
+      - { name: lieu, label: Lieu (fiche), type: string }
+      - { name: annee, label: Année, type: number }
+      - { name: ordre, label: Ordre d’affichage, type: number }
+      - name: couleur
+        label: Couleur d’ouverture
+        type: select
+        options:
+          values: [rose, sauge, moutarde, lin, doux, ardoise]
+      - { name: cover, label: Photo principale, type: image, required: true }
+      - { name: coverAlt, label: Description de la photo, type: string }
+      - { name: surface, label: Surface, type: string }
+      - { name: formule, label: Formule, type: string }
+      - { name: duree, label: Durée, type: string }
+      - { name: budget, label: Budget indicatif, type: string }
+      - { name: brief, label: "Le brief (rempli = page détail créée)", type: text }
+      - { name: contraintes, label: Contraintes, type: string, list: true }
+      - name: avant
+        label: Avant
+        type: object
+        fields:
+          - { name: image, label: Photo avant, type: image }
+          - { name: legende, label: Légende, type: text }
+      - name: apres
+        label: Après
+        type: object
+        fields:
+          - { name: image, label: Photo après, type: image }
+          - { name: legende, label: Légende, type: text }
+      - { name: plan, label: Plan 2D, type: image }
+      - { name: rendu, label: Rendu 3D, type: image }
+      - { name: realise, label: Photo du réalisé, type: image }
+      - { name: galerie, label: Galerie, type: image, list: true }
+      - name: shopping
+        label: Liste shopping
+        type: object
+        list: true
+        fields:
+          - { name: piece, label: Pièce, type: string }
+          - { name: ou, label: Où la trouver, type: string }
+          - { name: prix, label: Prix, type: string }
+      - name: avis
+        label: Avis client
+        type: object
+        fields:
+          - { name: texte, label: Citation, type: text }
+          - { name: nom, label: Prénom, type: string }
+          - { name: contexte, label: Contexte, type: string }

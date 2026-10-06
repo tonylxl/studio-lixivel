@@ -1,0 +1,273 @@
+.page {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 20px;
+  padding: calc(var(--header-h) + 16px) var(--g) 160px;
+}
+
+.aside {
+  position: relative;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 64px 56px;
+  border-radius: var(--r-xl);
+  background: var(--fond-doux);
+  scroll-margin-top: calc(var(--header-h) + 16px);
+  overflow: hidden;
+}
+
+.hero {
+  min-height: 640px;
+  background: var(--fond-rose);
+  gap: 24px;
+}
+
+.heroText {
+  max-width: 560px;
+  margin-top: auto;
+}
+
+.heroArt {
+  position: absolute;
+  right: 6%;
+  bottom: 48px;
+  width: min(360px, 32%);
+  height: auto;
+  rotate: 6deg;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 920px;
+}
+
+.wideImg {
+  height: 520px;
+}
+
+.fondatrice .t-intro {
+  max-width: 720px;
+}
+
+.fondatriceGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+}
+
+.portrait {
+  height: 560px;
+  rotate: -2deg;
+}
+
+.portrait img {
+  object-position: 60% center;
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 24px;
+}
+
+.chiffres {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.chiffreInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 280px;
+  padding: 28px;
+  border-radius: var(--r-l);
+  background: var(--fond-rose);
+  transition: rotate 0.5s var(--ease);
+}
+
+.chiffre:hover .chiffreInner {
+  rotate: 0deg !important;
+}
+
+.chiffreInner[data-couleur="sauge"] {
+  background: var(--sauge);
+}
+
+.chiffreInner[data-couleur="moutarde"] {
+  background: var(--moutarde);
+}
+
+.chiffreInner[data-couleur="ardoise"] {
+  background: var(--ardoise);
+  color: var(--texte-inverse);
+}
+
+.valeurs li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+  padding: 32px 0;
+  border-top: 1px solid var(--bordure-legere);
+}
+
+.presse li {
+  border-top: 1px solid var(--bordure-legere);
+}
+
+.presse li:last-child {
+  border-bottom: 1px solid var(--bordure-legere);
+}
+
+.presseRow {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) 24px;
+  gap: 24px;
+  align-items: center;
+  padding: 20px 8px;
+  transition: background-color 0.25s var(--ease);
+}
+
+.presseRow:hover {
+  background: var(--fond-survol);
+}
+
+.arrow {
+  font-size: 20px;
+  transition: transform 0.3s var(--ease);
+}
+
+.presseRow:hover .arrow {
+  transform: translate(3px, -3px);
+  color: var(--texte-accent);
+}
+
+.coulissesHead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.reels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.reel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reelMedia {
+  aspect-ratio: 9 / 14;
+}
+
+.reelMedia img {
+  transition: transform 0.9s var(--ease);
+}
+
+.reel:hover .reelMedia img {
+  transform: scale(1.04);
+}
+
+.reelTag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+@media (max-width: 1024px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+    padding-bottom: 120px;
+  }
+  .aside {
+    position: sticky;
+    top: var(--header-h);
+    z-index: 5;
+    margin-inline: calc(var(--g) * -1);
+    padding-inline: var(--g);
+    background: var(--page-tone);
+  }
+  .card {
+    padding: 48px 32px;
+  }
+  .chiffres {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .cols,
+  .fondatriceGrid,
+  .valeurs li,
+  .coulissesHead {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .hero {
+    min-height: 560px;
+  }
+  .heroArt {
+    width: 180px;
+    right: 24px;
+    bottom: 200px;
+  }
+  .wideImg {
+    height: 320px;
+  }
+  .portrait {
+    height: 420px;
+  }
+  .presseRow {
+    grid-template-columns: minmax(0, 1fr) 24px;
+    gap: 6px 16px;
+  }
+  .presseRow > :nth-child(2) {
+    grid-row: 2;
+  }
+  .reels {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  .reels li {
+    flex: 0 0 70%;
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding-bottom: 80px;
+  }
+  .card {
+    padding: 36px 20px;
+    gap: 28px;
+  }
+  .chiffres {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .chiffreInner {
+    min-height: 200px;
+  }
+}

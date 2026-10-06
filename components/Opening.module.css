@@ -1,0 +1,34 @@
+.opening {
+  padding: calc(var(--header-h) + 80px) var(--g) 80px;
+}
+
+.opening[data-dark] {
+  color: var(--texte-inverse);
+}
+
+.titleCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-right: 40px;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding-top: 12px;
+  font-size: 16px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 640px) {
+  .opening {
+    padding: calc(var(--header-h) + 48px) var(--g) 56px;
+  }
+  .titleCol {
+    padding-right: 0;
+  }
+}
