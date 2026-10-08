@@ -43,7 +43,7 @@ export const FAQ: { id: string; titre: string; items: QR[] }[] = [
     items: [
       {
         q: "Comment est calculé le prix ?",
-        r: "Les honoraires sont calculés au mètre carré, selon la formule : dès 40 €/m² pour les conseils, 50 €/m² pour la décoration (45 €/m² pour les 18–29 ans), dès 70 €/m² pour la prise en charge complète. La semi-complète est sur devis. Le simulateur de la page Services vous donne une première estimation.",
+        r: "Les honoraires sont calculés au mètre carré, selon la formule : dès 35 €/m² pour les conseils, dès 55 €/m² pour la décoration (le prix au m² baisse pour les grandes surfaces), dès 90 €/m² pour la semi-complète. La prise en charge complète démarre à 5 000 €. Le simulateur de la page Services donne une première estimation ; après le questionnaire, nous vous envoyons une fourchette, puis le tarif exact.",
       },
       {
         q: "Faut-il un gros budget ?",
@@ -69,7 +69,7 @@ export const FAQ: { id: string; titre: string; items: QR[] }[] = [
       },
       {
         q: "Quels sont les délais ?",
-        r: "Comptez 1 à 2 mois pour la formule Conseils, 1 à 5 mois pour la Décoration et 1 à 4 mois de conception pour la semi-complète. Pour la prise en charge complète, nous vous envoyons un devis sous 48 h avec un planning détaillé.",
+        r: "Comptez 15 jours pour la formule Conseils. Pour la Décoration, 15 jours pour l’agencement, puis 1 à 4 mois pour la décoration selon les modifications. Pour la semi-complète et la complète, environ 6 mois, selon l’ampleur du projet.",
       },
     ],
   },

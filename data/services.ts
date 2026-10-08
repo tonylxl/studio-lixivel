@@ -10,10 +10,12 @@ export type Formule = {
   tarif: string;
   image: string;
   illustration?: boolean;
-  /** Tarif en €/m² pour le simulateur (null = sur devis). */
+  /** Tarif de base en €/m² pour le simulateur (« à partir de »). null = forfait minimum. */
   prix: number | null;
-  prixJeune?: number;
-  honorairesTravaux?: boolean;
+  /** Montant minimum des honoraires (formule complète). */
+  minimum?: number;
+  /** Mention affichée sous l'estimation. */
+  noteTarif?: string;
   modifs: string;
 };
 
@@ -33,10 +35,10 @@ export const FORMULES: Formule[] = [
       "Planche d’ambiance (en option)",
       "Une série de modifications incluse",
     ],
-    delai: "1 à 2 mois",
-    tarif: "Dès 40 €/m²",
+    delai: "15 jours",
+    tarif: "Dès 35 €/m²",
     image: "/images/plan.jpg",
-    prix: 40,
+    prix: 35,
     modifs: "Une série incluse",
   },
   {
@@ -54,11 +56,11 @@ export const FORMULES: Formule[] = [
       "Liste shopping avec toutes les références",
       "Modifications à partir de 90 €",
     ],
-    delai: "1 à 5 mois",
-    tarif: "Dès 50 €/m², 45 €/m² pour les 18–29 ans",
+    delai: "15 jours pour l’agencement, puis 1 à 4 mois pour la décoration",
+    tarif: "Dès 55 €/m²",
     image: "/images/chambre.jpg",
-    prix: 50,
-    prixJeune: 45,
+    prix: 55,
+    noteTarif: "Le prix au m² baisse quand la surface augmente.",
     modifs: "À partir de 90 €",
   },
   {
@@ -76,11 +78,12 @@ export const FORMULES: Formule[] = [
       "Dossier administratif et devis",
       "Suivi à distance et réception des travaux",
     ],
-    delai: "1 à 4 mois pour la conception",
-    tarif: "Sur devis",
+    delai: "Environ 6 mois, selon le projet",
+    tarif: "Dès 90 €/m²",
     image: "/images/lampe.png",
     illustration: true,
-    prix: null,
+    prix: 90,
+    noteTarif: "Le tarif dépend de l’ampleur des travaux.",
     modifs: "Incluses dans le suivi",
   },
   {
@@ -98,11 +101,12 @@ export const FORMULES: Formule[] = [
       "Démarches, artisans et suivi de chantier",
       "Achats mobilier et déco (en option)",
     ],
-    delai: "Devis sous 48 h",
-    tarif: "Dès 70 €/m² + honoraires sur travaux",
+    delai: "Environ 6 mois, selon le projet",
+    tarif: "À partir de 5 000 €",
     image: "/images/bureau-nb.jpg",
-    prix: 70,
-    honorairesTravaux: true,
+    prix: null,
+    minimum: 5000,
+    noteTarif: "Devis personnalisé selon la surface et l’ampleur des travaux.",
     modifs: "Incluses dans le suivi",
   },
 ];
@@ -114,7 +118,8 @@ export const COMPARATIF: { label: string; valeurs: string[] }[] = [
   { label: "Recherche des artisans", valeurs: ["—", "—", "✓", "✓"] },
   { label: "Suivi de chantier", valeurs: ["—", "—", "À distance", "Sur place"] },
   { label: "Visite et mesures sur place", valeurs: ["—", "—", "—", "✓"] },
-  { label: "Tarif", valeurs: ["Dès 40 €/m²", "Dès 50 €/m²", "Sur devis", "Dès 70 €/m²"] },
+  { label: "Tarif", valeurs: ["Dès 35 €/m²", "Dès 55 €/m²", "Dès 90 €/m²", "Dès 5 000 €"] },
+  { label: "Délai", valeurs: ["15 jours", "15 jours + 1 à 4 mois", "Environ 6 mois", "Environ 6 mois"] },
 ];
 
 export const ETAPES = [

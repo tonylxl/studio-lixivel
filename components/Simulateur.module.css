@@ -148,6 +148,14 @@
   color: var(--texte-accent);
 }
 
+.from {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--texte);
+}
+
 .plus {
   display: block;
   margin-top: 8px;

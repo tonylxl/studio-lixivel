@@ -42,11 +42,11 @@ function useCountUp(target: number, duration = 400) {
 export default function Simulateur() {
   const [slug, setSlug] = useState("decoration");
   const [surface, setSurface] = useState(45);
-  const [jeune, setJeune] = useState(false);
 
   const f = FORMULES.find((x) => x.slug === slug)!;
-  const prixM2 = f.prix === null ? null : jeune && f.prixJeune ? f.prixJeune : f.prix;
-  const total = prixM2 === null ? 0 : Math.round((surface * prixM2) / 10) * 10;
+  const prixM2 = f.prix;
+  const total =
+    prixM2 === null ? (f.minimum ?? 0) : Math.max(f.minimum ?? 0, Math.round((surface * prixM2) / 10) * 10);
   const shown = useCountUp(total);
 
   return (
@@ -97,32 +97,24 @@ export default function Simulateur() {
           </div>
         </div>
 
-        {f.prixJeune && (
-          <div className={styles.step}>
-            <span className={styles.legend}>
-              <span className={styles.num}>03</span> Tarif 18–29 ans
-            </span>
-            <label className={styles.toggle}>
-              <input type="checkbox" checked={jeune} onChange={(e) => setJeune(e.target.checked)} />
-              <span className={styles.switch} aria-hidden />
-              <span className="t-petit c-2">
-                Vous avez entre 18 et 29 ans : {f.prixJeune} €/m² au lieu de {f.prix} €/m² sur la formule Décoration.
-              </span>
-            </label>
-          </div>
-        )}
       </div>
 
       <div className={`${styles.card} ${styles.result}`} aria-live="polite">
         <p className="t-surtitre">Estimation des honoraires</p>
         <p className={styles.amount}>
-          {prixM2 === null ? "Sur devis" : euro(shown)}
-          {f.honorairesTravaux && <span className={styles.plus}> + honoraires sur travaux</span>}
+          <span className={styles.from}>À partir de</span>
+          {euro(shown)}
         </p>
         <p className="t-petit c-2">
           {prixM2 === null
-            ? `${f.titre} · conception et suivi chiffrés après notre échange`
-            : `${f.titre} · ${surface} m² × ${prixM2} €/m²`}
+            ? `${f.titre} · forfait minimum`
+            : `${f.titre} · ${surface} m² × ${prixM2} €/m² (tarif de base)`}
+          {f.noteTarif && (
+            <>
+              <br />
+              {f.noteTarif}
+            </>
+          )}
         </p>
 
         <dl className={`info-rows ${styles.rows}`}>
@@ -147,7 +139,7 @@ export default function Simulateur() {
           Prendre rendez-vous avec cette estimation
         </Link>
         <p className="t-petit c-2">
-          Estimation indicative, hors mobilier et travaux. Le devis définitif est établi après notre échange.
+          Estimation indicative, hors mobilier et travaux. Après le questionnaire, le studio vous envoie une fourchette de prix, puis le tarif exact par email.
         </p>
       </div>
     </div>

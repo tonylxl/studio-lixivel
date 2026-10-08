@@ -43,14 +43,17 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 - « +60 projets ». Pas de bouton dans les réponses de la FAQ.
 - SEO : H1 avec « architecte d’intérieur », **sans** « Rouen » (Cindy vise plus large). Stratégie SEO à définir plus tard avec Tony.
 - Tous les boutons « Prendre rendez-vous » mènent à `/contact?source=…` (formulaire Tally intégré, la source est transmise au formulaire).
-- Simulateur (page Services, ancre `#simulateur`) : honoraires du studio seulement, Conseils 40 €/m², Décoration 50 €/m² (45 €/m² pour les 18–29 ans), Semi-complète « Sur devis », Complète 70 €/m² + honoraires sur travaux ; arrondi à 10 € ; CTA vers le formulaire avec formule + surface.
+- **Tarifs (validés par Cindy le 8 oct. 2026)**, toujours affichés « à partir de » : Agencement & conseils **35 €/m²** ; Agencement & décoration **dès 55 €/m²** (dégressif quand la surface augmente) ; Semi-complète **dès 90 €/m²** ; Prise en charge complète **à partir de 5 000 €**. **Plus d’offre 18–29 ans / étudiants / nouveaux propriétaires.**
+- **Délais** : Conseils 15 jours ; Décoration 15 jours pour l’agencement puis 1 à 4 mois pour la déco (selon les modifications) ; Semi-complète et Complète environ 6 mois selon le projet.
+- Process tarifaire de Cindy : après le questionnaire, elle envoie une fourchette, puis le prix exact par email (le simulateur sert à prévenir, pas à chiffrer).
+- Simulateur (page Services, ancre `#simulateur`) : honoraires du studio seulement, « À partir de » = surface × tarif de base (min. 5 000 € pour la complète), arrondi à 10 € ; CTA vers le formulaire avec formule + surface.
 - Journal : un article peut être écrit à partir d’un réel Instagram ; champ « réel » (lien, vignette, légende) affiché dans la colonne de gauche de l’article.
 
 ## À faire / à valider
 
 - [x] **Premier build** et corrections (`npm run build`), vérification visuelle desktop (1440) et mobile (390).
 - [ ] Vérification visuelle tablette (768–1024).
-- [ ] Projet Vercel relié au repo (import par Tony) ; variable `NEXT_PUBLIC_TALLY_FORM_ID` (formulaire Tally à créer : type de projet, pièces, surface, formule, budget, coordonnées) ; `NEXT_PUBLIC_SITE_URL` une fois le domaine choisi.
+- [ ] Projet Vercel relié au repo (import par Tony) ; variable `NEXT_PUBLIC_TALLY_FORM_ID` (formulaire Tally à refaire d’après `docs/questionnaire-tally.md`) ; `NEXT_PUBLIC_SITE_URL` une fois le domaine choisi.
 - [ ] Tester Pages CMS (app.pagescms.org) : vérifier que le champ `body` en rich-text s’affiche bien (intertitres, citation → encadré, `[[produits]]`).
 - [ ] Contenus inventés à valider avec Cindy : réponses FAQ, 3 avis sur 4 (seul Matthieu est réel), texte « L’histoire », chiffres, fiche projet « Studio 30 m² », villes/années des projets, 6 articles d’exemple du journal, liens presse (actuellement `#`), comptes Instagram/TikTok.
 - [ ] Mentions légales : nom, adresse, SIRET (champs entre crochets).
