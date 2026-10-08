@@ -101,17 +101,15 @@
   gap: 16px;
 }
 
-.card[aria-disabled] {
-  cursor: default;
-}
-
 .cardMedia {
   aspect-ratio: 660 / 800;
-  cursor: none;
 }
 
-.card[aria-disabled] .cardMedia {
-  cursor: default;
+/* Souris : le rond « Voir » remplace le curseur au-dessus des photos */
+@media (hover: hover) and (pointer: fine) {
+  .cardMedia {
+    cursor: none;
+  }
 }
 
 .cardZoom {
@@ -121,31 +119,6 @@
 
 .cardZoom img {
   object-fit: cover;
-}
-
-/* Curseur rond « Voir » qui suit la souris */
-.voir {
-  position: absolute;
-  left: var(--cx, 50%);
-  top: var(--cy, 50%);
-  display: grid;
-  place-items: center;
-  width: 96px;
-  height: 96px;
-  margin: -48px 0 0 -48px;
-  border-radius: 50%;
-  background: var(--fond-rose);
-  color: var(--texte-accent);
-  font-weight: 500;
-  opacity: 0;
-  transform: scale(0.6);
-  pointer-events: none;
-  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
-}
-
-.card:hover .voir {
-  opacity: 1;
-  transform: scale(1);
 }
 
 .cardText {
@@ -216,12 +189,6 @@
   }
   .right {
     padding: 32px var(--g) 80px;
-  }
-  .voir {
-    display: none;
-  }
-  .cardMedia {
-    cursor: pointer;
   }
   .gallery {
     gap: 56px;

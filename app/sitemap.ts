@@ -7,9 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE.url}${p}`,
     lastModified: new Date(),
   }));
-  const projets = getProjets()
-    .filter((p) => p.detail)
-    .map((p) => ({ url: `${SITE.url}/projets/${p.slug}`, lastModified: new Date() }));
+  const projets = getProjets().map((p) => ({ url: `${SITE.url}/projets/${p.slug}`, lastModified: new Date() }));
   const articles = getArticles().map((a) => ({ url: `${SITE.url}/journal/${a.slug}`, lastModified: new Date(a.date) }));
   return [...pages, ...projets, ...articles];
 }

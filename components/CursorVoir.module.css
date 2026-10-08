@@ -1,0 +1,17 @@
+.cursor {
+  position: fixed;
+  z-index: 45;
+  top: -48px;
+  left: -48px;
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--fond-rose);
+  color: var(--texte-accent);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  pointer-events: none;
+}

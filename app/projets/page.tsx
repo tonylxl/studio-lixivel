@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function ProjetsPage() {
-  const projets = getProjets().map(({ slug, titre, sousTitre, ville, annee, couleur, cover, coverAlt, detail }) => ({
+  const projets = getProjets().map(({ slug, titre, sousTitre, ville, annee, couleur, cover, coverAlt }) => ({
     slug,
     titre,
     sousTitre,
@@ -20,7 +20,6 @@ export default function ProjetsPage() {
     couleur,
     cover,
     coverAlt,
-    detail,
   }));
   return (
     <>

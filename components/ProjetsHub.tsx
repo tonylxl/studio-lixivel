@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { TONES, type Tone } from "@/lib/site";
 import MaskReveal from "./MaskReveal";
+import CursorVoir from "./CursorVoir";
 import styles from "./ProjetsHub.module.css";
 
 export type ProjetCard = {
@@ -17,7 +18,6 @@ export type ProjetCard = {
   couleur: Tone;
   cover: string;
   coverAlt: string;
-  detail: boolean;
 };
 
 /** Écran partagé : colonne collante colorée à gauche (couleur du projet visible), photos qui défilent à droite. */
@@ -101,17 +101,9 @@ export default function ProjetsHub({ projets }: { projets: ProjetCard[] }) {
                   refs.current[i] = el;
                 }}
               >
-                <Link
-                  href={x.detail ? `/projets/${x.slug}` : "#"}
-                  className={styles.card}
-                  aria-disabled={!x.detail || undefined}
-                  onPointerMove={(e) => {
-                    const r = e.currentTarget.getBoundingClientRect();
-                    e.currentTarget.style.setProperty("--cx", `${e.clientX - r.left}px`);
-                    e.currentTarget.style.setProperty("--cy", `${e.clientY - r.top}px`);
-                  }}
-                >
+                <Link href={`/projets/${x.slug}`} className={styles.card}>
                   <motion.div
+                    data-cursor-voir
                     className={`media ${styles.cardMedia}`}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -127,7 +119,6 @@ export default function ProjetsHub({ projets }: { projets: ProjetCard[] }) {
                     >
                       <Image src={x.cover} alt={x.coverAlt} fill sizes="(max-width: 900px) 100vw, 50vw" priority={i < 2} />
                     </motion.div>
-                    {x.detail && <span className={styles.voir}>Voir</span>}
                   </motion.div>
                   <div className={styles.cardText}>
                     <p className="t-carte">
@@ -147,7 +138,7 @@ export default function ProjetsHub({ projets }: { projets: ProjetCard[] }) {
           <ul className={styles.list}>
             {projets.map((x, i) => (
               <li key={x.slug}>
-                <Link href={x.detail ? `/projets/${x.slug}` : "#"} className={styles.row}>
+                <Link href={`/projets/${x.slug}`} className={styles.row}>
                   <span className="t-petit c-2">{String(i + 1).padStart(2, "0")}</span>
                   <span className="t-accordeon">{x.titre}</span>
                   <span className="t-serre c-2">{x.sousTitre}</span>
@@ -163,6 +154,7 @@ export default function ProjetsHub({ projets }: { projets: ProjetCard[] }) {
           </ul>
         )}
       </div>
+      {vue === "galerie" && <CursorVoir />}
     </div>
   );
 }

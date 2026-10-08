@@ -105,7 +105,7 @@ export default function Home() {
             {projets.map((p, i) => (
               <Fragment key={p.slug}>
               <Link
-                href={p.detail ? `/projets/${p.slug}` : "/projets"}
+                href={`/projets/${p.slug}`}
                 className={styles.projet}
                 style={{ zIndex: i + 1 }}
               >

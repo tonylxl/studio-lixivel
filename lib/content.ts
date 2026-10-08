@@ -107,7 +107,6 @@ export type Projet = {
   galerie: string[];
   shopping: { piece: string; ou?: string; prix?: string }[];
   avis?: { texte: string; nom: string; contexte?: string };
-  detail: boolean;
 };
 
 export function getProjets(): Projet[] {
@@ -137,7 +136,6 @@ export function getProjets(): Projet[] {
       galerie: data.galerie ?? [],
       shopping: data.shopping ?? [],
       avis: data.avis,
-      detail: Boolean(data.brief),
     }))
     .sort((a, b) => a.ordre - b.ordre);
 }

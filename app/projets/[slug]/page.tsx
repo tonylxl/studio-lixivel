@@ -16,9 +16,7 @@ import styles from "./projet.module.css";
 type Params = { slug: string };
 
 export function generateStaticParams() {
-  return getProjets()
-    .filter((p) => p.detail)
-    .map((p) => ({ slug: p.slug }));
+  return getProjets().map((p) => ({ slug: p.slug }));
 }
 
 export const dynamicParams = false;
@@ -29,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!p) return {};
   return {
     title: `${p.titre} · ${p.sousTitre}`,
-    description: p.brief?.slice(0, 155),
+    description: (p.brief ?? `${p.titre}, ${p.sousTitre.toLowerCase()} à ${p.ville}, par Studio Lixivel.`).slice(0, 155),
     openGraph: { images: [p.cover] },
   };
 }
@@ -208,7 +206,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
         )}
 
         {suivant && (
-          <Link href={suivant.detail ? `/projets/${suivant.slug}` : "/projets"} className={styles.next}>
+          <Link href={`/projets/${suivant.slug}`} className={styles.next}>
             <span className="t-petit c-2">Projet suivant</span>
             <span className={styles.nextTitle}>
               <span className={`media ${styles.nextThumb}`} aria-hidden>
