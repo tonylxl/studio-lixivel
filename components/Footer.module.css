@@ -50,6 +50,19 @@
   letter-spacing: -0.02em;
 }
 
+/* Liens du footer : passage au bordeaux au survol (pas de soulignement) */
+.navLink,
+.lien {
+  transition: color 0.25s var(--ease);
+}
+
+.navLink:hover,
+.navLink:focus-visible,
+.lien:hover,
+.lien:focus-visible {
+  color: var(--texte-accent);
+}
+
 .address {
   display: flex;
   flex-direction: column;

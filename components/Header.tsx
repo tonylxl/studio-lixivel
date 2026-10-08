@@ -123,7 +123,7 @@ export default function Header({ variant = "light", source = "header" }: Props) 
                       aria-current={pathname.startsWith(item.href) ? "page" : undefined}
                     >
                       <span className={styles.navIndex}>0{i + 1}</span>
-                      <span className={`trait ${styles.navLabel}`}>{item.label}</span>
+                      {item.label}
                     </Link>
                   </motion.li>
                 ))}
@@ -132,16 +132,16 @@ export default function Header({ variant = "light", source = "header" }: Props) 
 
             <div className={styles.overlayBottom}>
               <div className={styles.overlayInfos}>
-                <a href={`mailto:${SITE.email}`} className="link">
+                <a href={`mailto:${SITE.email}`} className={styles.lien}>
                   {SITE.email}
                 </a>
                 <span className="c-2">{SITE.ville} · {SITE.zone}</span>
               </div>
               <div className={styles.overlaySocial}>
-                <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="link">
+                <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className={styles.lien}>
                   Instagram
                 </a>
-                <a href={SITE.tiktok} target="_blank" rel="noopener noreferrer" className="link">
+                <a href={SITE.tiktok} target="_blank" rel="noopener noreferrer" className={styles.lien}>
                   TikTok
                 </a>
                 <Link href={rdvHref("menu")} className="btn">

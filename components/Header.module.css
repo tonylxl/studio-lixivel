@@ -147,15 +147,21 @@
   font-size: clamp(44px, 7vw, 96px);
   line-height: 1;
   letter-spacing: -0.045em;
+  transition: color 0.25s var(--ease);
 }
 
-.navLink[aria-current="page"] {
+/* Menu ouvert : les liens passent au bordeaux au survol (pas de soulignement) */
+.navLink:hover,
+.navLink:focus-visible,
+.navLink[aria-current="page"],
+.lien:hover,
+.lien:focus-visible {
   color: var(--texte-accent);
 }
 
-.navLink:hover .navLabel,
-.navLink:focus-visible .navLabel {
-  background-size: 100% 2px;
+.lien {
+  font-weight: 500;
+  transition: color 0.25s var(--ease);
 }
 
 .navIndex {
