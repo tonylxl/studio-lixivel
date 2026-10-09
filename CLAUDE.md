@@ -59,3 +59,12 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 - [ ] Mentions légales : nom, adresse, SIRET (champs entre crochets).
 - [ ] Remplacer les photos provisoires par les vraies photos de Cindy, logos presse en SVG, logo.
 - [ ] Domaine, redirections 301 depuis l’ancien site, analytics.
+- [ ] Questionnaire Tally : le créer avec `docs/questionnaire-google-form.gs` (Google Forms → import dans Tally), puis compléter dans Tally (champs cachés, logique, envoi de fichiers, notification) d’après `docs/questionnaire-tally.md`.
+- [ ] Simulateur, à trancher avec Cindy : paliers dégressifs de la Décoration (aujourd’hui 55 €/m² fixe), minimum éventuel pour la semi-complète, curseur de surface inutile pour la Complète (forfait 5 000 €).
+- [ ] Logos presse (Marie Claire, Gala, actu.fr, Maison & Jardin) : à fournir en SVG dans `public/images/presse/` ; en attendant, noms en texte comme sur la maquette.
+- [ ] Fiches projets : seul « Studio 30 m² » est complet, les 5 autres pages n’ont que titre, lieu, année et photo (à compléter dans Pages CMS).
+
+## Mode de travail
+
+- Tony est sur Mac, édite avec Cursor, et lance Claude Code en local dans le dossier du projet. Donner les commandes pour macOS uniquement.
+- `npm run dev` tourne pendant qu’on travaille : vérifier dans le navigateur, puis commit + `git push origin main` seulement quand Tony valide.
