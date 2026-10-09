@@ -19,7 +19,7 @@ Remplace l’ancien formulaire (`studiolixivel.com/debuter-votre-projet`). Objec
 
 ## Réglages Tally
 
-1. **Nouveau formulaire** → titre : « Débuter votre projet ». Pagination : 4 pages + remerciement. Formulaire en ligne : `obr965` (tally.so/forms/obr965/edit). Sous le titre : « Environ 5 minutes · 4 étapes · réponse sous 48 h ».
+1. **Nouveau formulaire** → titre : « Débuter votre projet ». Formulaire en ligne : `obr965` (tally.so/forms/obr965/edit). Une page d’accueil (« Parlons de votre projet », court texte, « Environ 5 minutes · 4 étapes · réponse sous 48 h », bouton « Commencer »), puis 4 pages de questions et la page de remerciement.
 2. **Champs cachés** (bloc *Hidden fields*, en haut) : `source`, `formule`, `surface`, `article`. Le site les remplit tout seul via l’URL (bouton cliqué, simulateur, article du journal).
 3. **Logique** : la question *Formule* ne s’affiche que si `formule` est vide ; la question *Surface* ne s’affiche que si `surface` est vide (sinon la valeur du simulateur est déjà connue).
 4. **Notifications** (Integrations → Email notifications) : envoyer chaque réponse à `contact@studiolixivel.com`, avec *Reply-to* = l’email du client (Cindy répond directement depuis sa boîte).
