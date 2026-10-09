@@ -69,7 +69,7 @@ export default function Home() {
 
   return (
     <>
-      <Header source="header-accueil" variant="home" />
+      <Header source="header-accueil" variant="overlay" />
       <main id="contenu">
         <HeroHome />
 

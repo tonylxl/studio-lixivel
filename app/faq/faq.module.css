@@ -19,6 +19,15 @@
   background: var(--fond-page);
 }
 
+/* Une fois la page repassée en blanc, les pastilles prennent le lin pour rester visibles */
+:global(html[data-toned="false"]) .ancre {
+  background: var(--fond-lin);
+}
+
+.ancre {
+  transition: background-color 0.6s var(--ease);
+}
+
 .main {
   padding-bottom: 160px;
 }

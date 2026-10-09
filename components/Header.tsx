@@ -8,8 +8,12 @@ import { NAV, SITE, rdvHref } from "@/lib/site";
 import styles from "./Header.module.css";
 
 type Props = {
-  /** "dark" : textes clairs sur une ouverture foncée (ardoise). "home" : pastille Menu blanche sur le hero. */
-  variant?: "light" | "dark" | "home";
+  /**
+   * "dark" : textes clairs sur une ouverture foncée (ardoise).
+   * "overlay" : nav transparente au-dessus d'une ouverture qui a sa propre couleur (hero de l'accueil, hub Projets).
+   * Sinon la nav prend la couleur d'ouverture de la page (PageTone) et passe au blanc au premier scroll.
+   */
+  variant?: "light" | "dark" | "overlay";
   /** Source envoyée au formulaire quand on clique sur « Prendre rendez-vous ». */
   source?: string;
 };
@@ -27,7 +31,7 @@ export default function Header({ variant = "light", source = "header" }: Props) 
     // depuis le dernier changement de sens, pour réagir aussi aux scrolls lents (trackpad).
     const onScroll = () => {
       const y = Math.max(0, window.scrollY);
-      setScrolled(y > 24);
+      setScrolled(y > 8);
       if (y === lastY.current) return;
       const goingDown = y > lastY.current;
       const wasGoingDown = lastY.current > anchorY.current;

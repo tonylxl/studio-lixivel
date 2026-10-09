@@ -32,7 +32,7 @@ export default function JournalPage() {
         <JournalFilters categories={categories} />
       </Opening>
 
-      <main id="contenu">
+      <main id="contenu" className="sur-blanc">
         {une && (
           <section className={styles.une} aria-label="À la une">
             <Link href={`/journal/${une.slug}`} className={`media ${styles.uneMedia}`}>

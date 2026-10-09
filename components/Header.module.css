@@ -9,20 +9,26 @@
   gap: 16px;
   padding-inline: var(--g);
   color: var(--texte);
-  transition: transform 0.45s var(--ease), background-color 0.35s var(--ease), color 0.35s var(--ease),
+  background-color: var(--page-tone);
+  transition: transform 0.45s var(--ease), background-color 0.6s var(--ease), color 0.6s var(--ease),
     box-shadow 0.35s var(--ease);
 }
 
-.header[data-variant="dark"] {
-  color: var(--texte-inverse);
+/* Accueil et hub Projets : nav transparente au-dessus de l'ouverture, blanche dès qu'on défile */
+.header[data-variant="overlay"]:not([data-scrolled]) {
+  background-color: transparent;
+}
+
+.header[data-variant="overlay"][data-scrolled] {
+  background-color: var(--fond-page);
 }
 
 .header[data-scrolled] {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--bordure-legere);
-  color: var(--texte);
+}
+
+:global(html:not([data-toned="false"])) .header[data-variant="dark"] {
+  color: var(--texte-inverse);
 }
 
 .header[data-hidden] {
@@ -44,12 +50,12 @@
 }
 
 /* Bouton « Prendre rendez-vous » : bordeaux sur fond clair, rose sur fond foncé (ardoise). */
-.header[data-variant="dark"]:not([data-scrolled]) .cta {
+:global(html:not([data-toned="false"])) .header[data-variant="dark"] .cta {
   background: var(--fond-rose);
   color: var(--texte);
 }
 
-.header[data-variant="dark"]:not([data-scrolled]) .cta:hover {
+:global(html:not([data-toned="false"])) .header[data-variant="dark"] .cta:hover {
   background: #f1c9cc;
 }
 
@@ -68,12 +74,18 @@
   transition: background-color 0.25s var(--ease);
 }
 
-.header[data-variant="home"]:not([data-scrolled]) .menuBtn {
+/* Sur une couleur d'ouverture lin, la pastille lin deviendrait invisible : elle passe en blanc */
+:global(html:not([data-toned="false"])) .menuBtn {
+  background: var(--menu-toned, var(--fond-lin));
+}
+
+.header[data-variant="overlay"]:not([data-scrolled]) .menuBtn {
   background: var(--fond-page);
 }
 
 .menuBtn:hover,
-.header[data-variant="home"]:not([data-scrolled]) .menuBtn:hover {
+:global(html:not([data-toned="false"])) .menuBtn:hover,
+.header[data-variant="overlay"]:not([data-scrolled]) .menuBtn:hover {
   background: var(--fond-header);
 }
 

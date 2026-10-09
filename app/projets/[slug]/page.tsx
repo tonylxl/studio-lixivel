@@ -86,7 +86,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
         </ScrollZoom>
 
         {p.brief && (
-          <section className={styles.block} aria-labelledby="t-brief">
+          <section className={`sur-blanc ${styles.block}`} aria-labelledby="t-brief">
             <SectionHead id="t-brief" title="Le brief" />
             <div className="split wrap">
               <span />
@@ -129,7 +129,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
         )}
 
         {etapes.length > 0 && (
-          <section className={styles.block} aria-labelledby="t-plan">
+          <section className={`sur-blanc ${styles.block}`} aria-labelledby="t-plan">
             <SectionHead id="t-plan" title="Du plan au réalisé">
               Ce que vous recevez avec la formule : le plan 2D, les rendus 3D en 4K, puis la pièce terminée.
             </SectionHead>
@@ -147,7 +147,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
         )}
 
         {p.galerie.length > 0 && (
-          <section className={styles.block} aria-labelledby="t-images">
+          <section className={`sur-blanc ${styles.block}`} aria-labelledby="t-images">
             <SectionHead id="t-images" title="En images" />
             <ul className={`wrap ${styles.galerie}`}>
               {p.galerie.map((src, i) => (
@@ -160,7 +160,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
         )}
 
         {p.shopping.length > 0 && (
-          <section className={styles.block} aria-labelledby="t-shopping">
+          <section className={`sur-blanc ${styles.block}`} aria-labelledby="t-shopping">
             <SectionHead id="t-shopping" title="La liste shopping">
               Les pièces choisies pour ce projet. Avec la formule décoration, vous recevez la liste complète avec les
               liens.
@@ -189,7 +189,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
         )}
 
         {p.avis && (
-          <section className={styles.block} aria-labelledby="t-avis">
+          <section className={`sur-blanc ${styles.block}`} aria-labelledby="t-avis">
             <SectionHead id="t-avis" title={`L’avis de ${p.avis.nom}`} />
             <figure className={`wrap ${styles.avis}`}>
               <blockquote className={styles.avisTexte}>« {p.avis.texte} »</blockquote>
@@ -206,7 +206,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
         )}
 
         {suivant && (
-          <Link href={`/projets/${suivant.slug}`} className={styles.next}>
+          <Link href={`/projets/${suivant.slug}`} className={`sur-blanc ${styles.next}`}>
             <span className="t-petit c-2">Projet suivant</span>
             <span className={styles.nextTitle}>
               <span className={`media ${styles.nextThumb}`} aria-hidden>

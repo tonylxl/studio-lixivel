@@ -86,7 +86,7 @@ function Head({ title, children, art }: { title: string; children?: React.ReactN
 export default function StudioPage() {
   return (
     <>
-      <PageTone tone="doux" scope="page" />
+      <PageTone tone="doux" />
       <Header source="header-studio" />
       <main id="contenu" className={styles.page}>
         <aside className={styles.aside}>

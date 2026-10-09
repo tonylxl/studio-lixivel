@@ -85,7 +85,7 @@ body {
   line-height: 1.5;
   letter-spacing: -0.02em;
   color: var(--texte);
-  background: var(--fond-page);
+  background: var(--page-tone);
   transition: background-color 0.6s var(--ease);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -168,12 +168,30 @@ ol {
   top: 16px;
 }
 
-/* Couleur d'ouverture : derrière l'ouverture seulement (par défaut),
-   ou sur toute la page (Le studio, Contact, 404). Elle passe au blanc au premier scroll. */
-html[data-tone-scope="page"] body,
+/* Couleur d'ouverture (composant PageTone) : toute la page, nav comprise, est colorée
+   tant qu'on est en haut, puis repasse en blanc dès qu'on fait défiler. */
 .tone-bg {
   background-color: var(--page-tone);
   transition: background-color 0.6s var(--ease);
+}
+
+/* Ouvertures foncées (ardoise) : texte clair sur la couleur, brun une fois la page en blanc */
+[data-dark] {
+  transition: color 0.6s var(--ease);
+}
+
+/* Contenu sous une ouverture foncée : reste sur blanc pour rester lisible */
+.sur-blanc {
+  background-color: var(--fond-page);
+}
+
+html[data-toned="false"] [data-dark] {
+  color: var(--texte);
+}
+
+html[data-toned="false"] .pill--inverse:not(.is-active) {
+  border-color: var(--bordure);
+  color: var(--texte);
 }
 
 /* --------------------------------------------------------------------------

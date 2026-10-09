@@ -23,7 +23,7 @@ export default function ProjetsPage() {
   }));
   return (
     <>
-      <Header source="header-projets" />
+      <Header source="header-projets" variant="overlay" />
       <main id="contenu">
         <ProjetsHub projets={projets} />
       </main>

@@ -6,7 +6,7 @@ import PageTone from "@/components/PageTone";
 export default function NotFound() {
   return (
     <>
-      <PageTone tone="rose" scope="page" />
+      <PageTone tone="rose" />
       <Header />
       <main
         id="contenu"

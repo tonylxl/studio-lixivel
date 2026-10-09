@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <PageTone tone="moutarde" scope="page" />
+      <PageTone tone="moutarde" />
       <Header source="header-contact" />
       <main id="contenu" className={styles.page}>
         <div className={styles.left}>

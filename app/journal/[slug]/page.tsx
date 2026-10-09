@@ -99,10 +99,10 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
 
   return (
     <>
-      <PageTone tone="ardoise" threshold={0.6} />
+      <PageTone tone="ardoise" />
       <Header variant="dark" source={`journal-${a.slug}`} />
       <main id="contenu">
-        <header className={`tone-bg ${styles.hero}`}>
+        <header className={`tone-bg ${styles.hero}`} data-dark>
           <nav className={`t-surtitre ${styles.ariane}`} aria-label="Fil d’Ariane">
             <Link href="/journal">Journal</Link>
             <span aria-hidden>/</span>
@@ -126,7 +126,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
           </div>
         </div>
 
-        <div className={styles.body}>
+        <div className={`sur-blanc ${styles.body}`}>
           <div className={styles.asideCol}>
             <ArticleAside toc={toc} titre={a.titre} reel={a.reel} />
           </div>
@@ -152,7 +152,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
           </article>
         </div>
 
-        <section className={styles.cta} aria-labelledby="t-cta">
+        <section className={`sur-blanc ${styles.cta}`} aria-labelledby="t-cta">
           <div className={styles.ctaCard}>
             <h2 id="t-cta" className="t-section">
               Un plan sur mesure
@@ -177,7 +177,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
         </section>
 
         {lire.length > 0 && (
-          <section className={styles.lire} aria-labelledby="t-lire">
+          <section className={`sur-blanc ${styles.lire}`} aria-labelledby="t-lire">
             <SectionHead id="t-lire" title="À lire aussi">
               D’autres idées pour {a.categorie.toLowerCase() === "petits espaces" ? "les petits espaces" : "votre intérieur"}.
             </SectionHead>
