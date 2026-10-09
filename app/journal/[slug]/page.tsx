@@ -15,7 +15,7 @@ import styles from "./article.module.css";
 type Params = { slug: string };
 
 export function generateStaticParams() {
-  return getArticles().map((a) => ({ slug: a.slug }));
+  return getArticles({ brouillons: true }).map((a) => ({ slug: a.slug }));
 }
 
 export const dynamicParams = false;
@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: { absolute: `${a.seoTitle ?? a.titre} · Conseils d’architecte d’intérieur · Studio Lixivel` },
     description: a.seoDescription ?? a.chapo.slice(0, 155),
     openGraph: { type: "article", images: [a.cover], publishedTime: a.date },
+    ...(a.brouillon && { robots: { index: false, follow: false } }),
   };
 }
 
@@ -103,6 +104,11 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
       <Header variant="dark" source={`journal-${a.slug}`} />
       <main id="contenu">
         <header className={`tone-bg ${styles.hero}`} data-dark>
+          {a.brouillon && (
+            <p className={`t-petit ${styles.brouillon}`}>
+              Brouillon : visible uniquement par ce lien. Décochez « Brouillon » dans Pages CMS pour le publier.
+            </p>
+          )}
           <nav className={`t-surtitre ${styles.ariane}`} aria-label="Fil d’Ariane">
             <Link href="/journal">Journal</Link>
             <span aria-hidden>/</span>
@@ -132,11 +138,11 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
           </div>
           <article className={styles.content}>
             {a.chapo && <p className={`t-intro ${styles.chapo}`}>{a.chapo}</p>}
-            <div className={styles.prose} dangerouslySetInnerHTML={{ __html: avant }} />
+            <div className={styles.prose} data-vertical={a.vertical || undefined} dangerouslySetInnerHTML={{ __html: avant }} />
             {apres !== undefined && (
               <>
                 {produits}
-                <div className={styles.prose} dangerouslySetInnerHTML={{ __html: apres }} />
+                <div className={styles.prose} data-vertical={a.vertical || undefined} dangerouslySetInnerHTML={{ __html: apres }} />
               </>
             )}
             {apres === undefined && produits}

@@ -1,9 +1,10 @@
 # Configuration de Pages CMS (https://pagescms.org) : interface d'édition pour Cindy.
 # Connexion sur app.pagescms.org avec le compte GitHub qui a accès au repo.
 
+# Médiathèque : tout public/images (photos du site, dossiers journal/{article} créés depuis les réels, uploads).
 media:
-  input: public/images/uploads
-  output: /images/uploads
+  input: public/images
+  output: /images
 
 content:
   - name: journal
@@ -28,7 +29,9 @@ content:
           values: [Petits espaces, Salon, Chambre, Cuisine, Petit budget, Rénovation, Avant / après]
       - { name: date, label: Date de publication, type: date, required: true }
       - { name: duree, label: Durée de lecture (ex. 6 min), type: string }
+      - { name: brouillon, label: "Brouillon (non publié : visible seulement par son lien)", type: boolean }
       - { name: une, label: Article à la une, type: boolean }
+      - { name: vertical, label: "Photos verticales (article tiré d’un réel, format 4:5)", type: boolean }
       - { name: cover, label: Photo de couverture, type: image, required: true }
       - { name: coverAlt, label: Description de la photo (accessibilité), type: string }
       - { name: chapo, label: Chapô (introduction), type: text }
@@ -55,6 +58,26 @@ content:
         label: Contenu
         type: rich-text
         description: "Intertitres en « Titre 2 ». Une citation devient l’encadré « Le conseil du studio ». Écrire [[produits]] seul sur une ligne pour placer la sélection."
+
+  - name: reels
+    label: Réels à transformer en article
+    type: collection
+    path: content/reels
+    filename: "{year}-{month}-{day}-{fields.sujet}.md"
+    view:
+      fields: [sujet, statut, article]
+      primary: sujet
+    fields:
+      - { name: sujet, label: Sujet en quelques mots, type: string, required: true, description: "Ex. « cuisine du studio à 10 000 € ». Sert seulement à retrouver la demande." }
+      - { name: url, label: Lien du réel Instagram, type: string, required: true }
+      - { name: notes, label: "Consignes pour l’article (optionnel)", type: text, description: "Angle souhaité, infos à ajouter (ville, budget, marques des produits, liens), ce qu’il ne faut pas dire…" }
+      - name: statut
+        label: Statut
+        type: select
+        default: à traiter
+        options:
+          values: [à traiter, brouillon créé, erreur]
+      - { name: article, label: "Article créé (rempli automatiquement)", type: string }
 
   - name: projets
     label: Projets
@@ -116,3 +139,38 @@ content:
           - { name: texte, label: Citation, type: text }
           - { name: nom, label: Prénom, type: string }
           - { name: contexte, label: Contexte, type: string }
+
+  - name: villes
+    label: Pages villes
+    type: collection
+    path: content/villes
+    filename: "{fields.nom}.md"
+    view:
+      fields: [nom, region, ordre]
+      primary: nom
+      sort: [ordre]
+    fields:
+      - { name: nom, label: Ville, type: string, required: true, description: "Le titre de la page sera « Architecte d’intérieur à … »." }
+      - { name: region, label: Région, type: string }
+      - { name: ordre, label: Ordre d’affichage, type: number }
+      - name: couleur
+        label: Couleur d’ouverture
+        type: select
+        options:
+          values: [rose, sauge, moutarde, lin, doux, ardoise]
+      - { name: intro, label: Introduction (en haut à droite), type: text, required: true }
+      - { name: deplacement, label: "Comment le studio intervient dans cette ville", type: text }
+      - { name: quartiers, label: Quartiers et communes, type: string, list: true }
+      - name: faq
+        label: Questions fréquentes de la ville
+        type: object
+        list: true
+        fields:
+          - { name: q, label: Question, type: string }
+          - { name: r, label: Réponse, type: text }
+      - { name: seoTitle, label: Titre pour Google (optionnel), type: string }
+      - { name: seoDescription, label: Description pour Google (optionnel), type: text }
+      - name: body
+        label: Contenu propre à la ville
+        type: rich-text
+        description: "Important pour Google : un texte vraiment propre à la ville (types de logements, quartiers, façon d’intervenir). Intertitres en « Titre 2 »."
