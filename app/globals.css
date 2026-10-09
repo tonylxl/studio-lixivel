@@ -36,7 +36,10 @@
   --r-s: 12px;
 
   /* Grille */
-  --g: 40px; /* gouttière latérale */
+  --g-base: 40px; /* gouttière latérale minimale */
+  --content-max: 1600px; /* largeur max du contenu (les fonds et photos pleine largeur ne sont pas limités) */
+  /* Gouttière : 40 px, puis s'élargit au-delà de 1 600 px de contenu pour le garder centré */
+  --g: max(var(--g-base), calc((100vw - var(--content-max)) / 2));
   --col: 51.1%; /* début de la 2e colonne (x = 735 sur 1440) */
   --header-h: 72px;
 
@@ -49,13 +52,13 @@
 
 @media (max-width: 1024px) {
   :root {
-    --g: 24px;
+    --g-base: 24px;
   }
 }
 
 @media (max-width: 640px) {
   :root {
-    --g: 20px;
+    --g-base: 20px;
     --r-xl: 40px;
     --r-l: 32px;
     --header-h: 64px;

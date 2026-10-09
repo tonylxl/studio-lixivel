@@ -169,7 +169,7 @@
 
 .shopping th:first-child,
 .shopping td:first-child {
-  width: calc(var(--col) - var(--g));
+  width: calc(var(--col) - var(--g-base));
 }
 
 .shopping th:last-child,

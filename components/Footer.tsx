@@ -84,6 +84,11 @@ export default function Footer({
             </a>
           </li>
           <li>
+            <Link href="/architecte-interieur" className={styles.lien}>
+              Zones d’intervention
+            </Link>
+          </li>
+          <li>
             <Link href="/mentions-legales" className={styles.lien}>
               Mentions légales
             </Link>
