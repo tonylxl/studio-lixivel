@@ -37,10 +37,6 @@
   scroll-margin-top: var(--header-h);
 }
 
-.cat + .cat {
-  border-top: 1px solid var(--bordure-legere);
-}
-
 .catTitre {
   padding: 32px var(--g) 24px;
 }

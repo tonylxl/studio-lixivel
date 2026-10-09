@@ -1,0 +1,192 @@
+.block {
+  padding-bottom: 120px;
+}
+
+/* Formules : 4 cartes en ligne */
+.formules {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.formule {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px 24px;
+  border-radius: var(--r-m);
+  background: var(--fond-doux);
+}
+
+.formule h3 a:hover {
+  color: var(--texte-accent);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--bordure-legere);
+}
+
+.meta dd {
+  font-weight: 500;
+}
+
+/* Projets */
+.projets {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.projet {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.projetImg {
+  aspect-ratio: 4 / 5;
+  margin-bottom: 12px;
+}
+
+.projetImg img {
+  transition: transform 0.8s var(--ease);
+}
+
+.projet:hover .projetImg img {
+  transform: scale(1.04);
+}
+
+/* Contenu local */
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 40px;
+}
+
+.quartiers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 420px;
+}
+
+.quartiers li {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--fond-doux);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--texte-2);
+}
+
+.prose :global(h2),
+.prose :global(h3) {
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--texte);
+}
+
+.prose :global(strong) {
+  color: var(--texte);
+  font-weight: 500;
+}
+
+.prose :global(a) {
+  color: var(--texte-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose :global(ul) {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.prose :global(ul li)::before {
+  content: "— ";
+}
+
+/* Autres villes */
+.villes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ville {
+  display: inline-flex;
+  padding: 10px 18px;
+  border: 1px solid var(--bordure);
+  border-radius: 999px;
+  transition: background-color 0.25s var(--ease);
+}
+
+.ville:hover {
+  background: var(--fond-survol);
+}
+
+/* Hub : une ligne par ville */
+.lignes {
+  border-bottom: 1px solid var(--bordure-legere);
+}
+
+.ligne {
+  align-items: center;
+  padding: 24px var(--g);
+  border-top: 1px solid var(--bordure-legere);
+  transition: background-color 0.25s var(--ease);
+}
+
+.ligne:hover {
+  background: var(--fond-survol);
+}
+
+.ligneInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ligneInfo span:first-child {
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .formules {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .block {
+    padding-bottom: 80px;
+  }
+  .formules,
+  .projets {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .aside {
+    padding-right: 0;
+    margin-bottom: 24px;
+  }
+  .ligne {
+    row-gap: 4px;
+  }
+}

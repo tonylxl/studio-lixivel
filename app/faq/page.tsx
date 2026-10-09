@@ -55,12 +55,12 @@ export default function FaqPage() {
       </Opening>
 
       <main id="contenu" className={styles.main}>
-        {FAQ.map((c, i) => (
+        {FAQ.map((c) => (
           <section key={c.id} id={c.id} className={styles.cat} aria-labelledby={`t-${c.id}`}>
             <h2 id={`t-${c.id}`} className={`t-section ${styles.catTitre}`}>
               {c.titre}
             </h2>
-            <Accordion items={c.items} defaultOpen={i === 0 ? 0 : -1} />
+            <Accordion items={c.items} />
           </section>
         ))}
       </main>

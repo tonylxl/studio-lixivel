@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Schibsted_Grotesk } from "next/font/google";
 import { SITE } from "@/lib/site";
+import { getVilles } from "@/lib/content";
+import { JsonLd, orgJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const schibsted = Schibsted_Grotesk({
@@ -39,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Aller au contenu
         </a>
         {children}
+        <JsonLd data={orgJsonLd(getVilles().map((v) => v.nom))} />
       </body>
     </html>
   );

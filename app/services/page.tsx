@@ -142,7 +142,7 @@ export default function ServicesPage() {
               Voir toute la FAQ
             </Link>
           </SectionHead>
-          <Accordion items={FAQ_SERVICES} defaultOpen={0} />
+          <Accordion items={FAQ_SERVICES} />
         </section>
       </main>
       <Footer source="footer-services" />

@@ -158,6 +158,10 @@ export type Article = {
   coverAlt: string;
   chapo: string;
   une: boolean;
+  /** Brouillon : la page existe (aperçu par son lien, non indexée) mais n’apparaît nulle part sur le site. */
+  brouillon: boolean;
+  /** Photos au format vertical (article tiré d’un réel) : affichées sans recadrage. */
+  vertical: boolean;
   reel?: { url?: string; vignette?: string; legende?: string };
   produits: { titre: string; prix?: string; image?: string; lien?: string }[];
   etiquettes: string[];
@@ -176,7 +180,8 @@ export const CATEGORIES = [
   "Avant / après",
 ];
 
-export function getArticles(): Article[] {
+/** Articles publiés ; `brouillons: true` pour inclure aussi les brouillons (aperçu). */
+export function getArticles({ brouillons = false } = {}): Article[] {
   return readCollection("journal")
     .map(({ slug, data, content }) => ({
       slug,
@@ -188,6 +193,8 @@ export function getArticles(): Article[] {
       coverAlt: data.coverAlt ?? "",
       chapo: data.chapo ?? "",
       une: Boolean(data.une),
+      brouillon: Boolean(data.brouillon),
+      vertical: Boolean(data.vertical),
       reel: data.reel?.url ? data.reel : undefined,
       produits: data.produits ?? [],
       etiquettes: data.etiquettes ?? [],
@@ -195,13 +202,57 @@ export function getArticles(): Article[] {
       seoDescription: data.seoDescription,
       content,
     }))
+    .filter((a) => brouillons || !a.brouillon)
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export function getArticle(slug: string) {
-  return getArticles().find((a) => a.slug === slug);
+  return getArticles({ brouillons: true }).find((a) => a.slug === slug);
 }
 
 export function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
 }
+
+/* --------------------------------------------------------------------------
+   Villes (pages locales « Architecte d’intérieur à … »)
+   -------------------------------------------------------------------------- */
+
+export type Ville = {
+  slug: string;
+  nom: string;
+  region: string;
+  ordre: number;
+  couleur: Tone;
+  intro: string;
+  deplacement: string;
+  quartiers: string[];
+  faq: { q: string; r: string }[];
+  seoTitle?: string;
+  seoDescription?: string;
+  content: string;
+};
+
+export function getVilles(): Ville[] {
+  return readCollection("villes")
+    .map(({ slug, data, content }) => ({
+      slug,
+      nom: data.nom ?? slug,
+      region: data.region ?? "",
+      ordre: Number(data.ordre ?? 99),
+      couleur: (data.couleur ?? "doux") as Tone,
+      intro: data.intro ?? "",
+      deplacement: data.deplacement ?? "",
+      quartiers: data.quartiers ?? [],
+      faq: (data.faq ?? []).filter((f: { q?: string; r?: string }) => f?.q && f?.r),
+      seoTitle: data.seoTitle,
+      seoDescription: data.seoDescription,
+      content,
+    }))
+    .sort((a, b) => a.ordre - b.ordre || a.nom.localeCompare(b.nom, "fr"));
+}
+
+export function getVille(slug: string) {
+  return getVilles().find((v) => v.slug === slug);
+}
+
