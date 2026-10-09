@@ -185,7 +185,7 @@ export default async function VillePage({ params }: { params: Promise<Params> })
       />
       <Footer
         source={`footer-${source}`}
-        bandText={`Que vous soyez à ${v.nom} ou ailleurs, répondez au questionnaire en 10 minutes : vos envies, vos contraintes, votre budget. Nous vous recontactons sous 48 h.`}
+        bandText={`Que vous soyez à ${v.nom} ou ailleurs, répondez au questionnaire en 5 minutes : vos envies, vos contraintes, votre budget. Nous vous recontactons sous 48 h.`}
       />
     </>
   );

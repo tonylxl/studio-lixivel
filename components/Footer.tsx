@@ -25,7 +25,7 @@ export default function Footer({
   band = true,
   source = "footer",
   bandTitle = TITRE_DEFAUT,
-  bandText = "Répondez au questionnaire en 10 minutes : vos envies, vos contraintes, votre budget. Nous vous recontactons sous 48 h pour en parler.",
+  bandText = "Répondez au questionnaire en 5 minutes : vos envies, vos contraintes, votre budget. Nous vous recontactons sous 48 h pour en parler.",
 }: Props) {
   return (
     <footer className={styles.footer} data-footer>

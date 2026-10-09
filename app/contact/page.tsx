@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import PageTone from "@/components/PageTone";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TallyEmbed from "@/components/TallyEmbed";
@@ -10,13 +9,12 @@ import styles from "./contact.module.css";
 export const metadata: Metadata = {
   title: "Prendre rendez-vous",
   description:
-    "Répondez au questionnaire en 10 minutes : vos envies, vos contraintes, votre budget. Le studio vous recontacte sous 48 h, sans engagement.",
+    "Répondez au questionnaire en 5 minutes : vos envies, vos contraintes, votre budget. Le studio vous recontacte sous 48 h, sans engagement.",
 };
 
 export default function ContactPage() {
   return (
     <>
-      <PageTone tone="moutarde" />
       <Header source="header-contact" />
       <main id="contenu" className={styles.page}>
         <div className={styles.left}>
@@ -26,7 +24,7 @@ export default function ContactPage() {
             rendez-vous.
           </h1>
           <p className={`t-serre c-2 ${styles.intro}`}>
-            Répondez au questionnaire en 10 minutes : vos envies, vos contraintes, votre budget. Nous vous recontactons
+            Répondez au questionnaire en 5 minutes : vos envies, vos contraintes, votre budget. Nous vous recontactons
             ensuite pour en parler, sans engagement.
           </p>
 
