@@ -1,6 +1,6 @@
 # Questionnaire « Débuter votre projet » (Tally)
 
-Remplace l’ancien formulaire (`studiolixivel.com/debuter-votre-projet`). Objectif : des réponses exploitables sans relance, en environ 6 minutes. Cindy reçoit ensuite assez d’infos pour envoyer une fourchette de prix.
+Remplace l’ancien formulaire (`studiolixivel.com/debuter-votre-projet`). Objectif : des réponses exploitables sans relance, en environ 5 minutes. Le studio reçoit ensuite assez d’infos pour envoyer une fourchette de prix.
 
 ## Ce qui n’allait pas dans l’ancien formulaire (constaté sur une vraie réponse)
 
@@ -19,7 +19,7 @@ Remplace l’ancien formulaire (`studiolixivel.com/debuter-votre-projet`). Objec
 
 ## Réglages Tally
 
-1. **Nouveau formulaire** → titre : « Débuter votre projet ». Pagination : *une page par section* (6 pages + remerciement).
+1. **Nouveau formulaire** → titre : « Débuter votre projet ». Pagination : 4 pages + remerciement. Formulaire en ligne : `obr965` (tally.so/forms/obr965/edit). Sous le titre : « Environ 5 minutes · 4 étapes · réponse sous 48 h ».
 2. **Champs cachés** (bloc *Hidden fields*, en haut) : `source`, `formule`, `surface`, `article`. Le site les remplit tout seul via l’URL (bouton cliqué, simulateur, article du journal).
 3. **Logique** : la question *Formule* ne s’affiche que si `formule` est vide ; la question *Surface* ne s’affiche que si `surface` est vide (sinon la valeur du simulateur est déjà connue).
 4. **Notifications** (Integrations → Email notifications) : envoyer chaque réponse à `contact@studiolixivel.com`, avec *Reply-to* = l’email du client (Cindy répond directement depuis sa boîte).
@@ -39,47 +39,43 @@ Remplace l’ancien formulaire (`studiolixivel.com/debuter-votre-projet`). Objec
 4. **Vous êtes** *(choix unique)* : Propriétaire / Locataire / En cours d’achat
 5. **Ville** *(texte court, obligatoire)*
 
-## Page 2 — L’espace
+## Page 2 — L’espace et vos envies
 
 6. **Pièces concernées** *(choix multiples, obligatoire)* : Pièce de vie / Cuisine / Chambre / Salle de bain / Bureau / Entrée / Tout le logement
 7. **Surface concernée** *(nombre, m², obligatoire, affichée seulement si `surface` vide)*
-8. **Qui vit (ou séjourne) ici ?** *(deux champs nombre)* : Adultes · Enfants
-9. **Ce qui ne va pas aujourd’hui** *(choix multiples)* : Manque de lumière / Manque de rangements / Pièce peu fonctionnelle / Circulation difficile / Déco datée / Rien de particulier
-
-## Page 3 — Vos envies
-
+8. **Qui vit (ou séjourne) ici ?** *(deux champs nombre côte à côte, facultatifs)* : Adultes · Enfants
+9. **Ce qui ne va pas aujourd’hui** *(choix multiples, facultatif)* : Manque de lumière / Manque de rangements / Pièce peu fonctionnelle / Circulation difficile / Déco datée / Rien de particulier
 10. **Ce que vous souhaitez faire** *(choix multiples, obligatoire)* : Réagencer / Décorer et meubler / Changer les sols / Peinture et revêtements / Travaux (cloisons, cuisine, salle de bain) / Home staging
-11. **Quelle ambiance ?** *(choix multiples en images, 2 max)* : Cosy / Minimaliste / Classique chic / Bohème / Coloré / Industriel doux
+11. **Quelle ambiance ?** *(choix multiples, 2 max, facultatif ; en images quand on aura 6 photos du studio)* : Cosy / Minimaliste / Classique chic / Bohème / Coloré / Industriel doux
 12. **Ce que vous aimez** *(texte long, facultatif)* : « Matières, couleurs, un hôtel ou un lieu qui vous inspire… »
 13. **Ce qu’il faut absolument éviter** *(texte long, facultatif)*
 14. **Un tableau Pinterest ou des photos d’inspiration ?** *(lien, facultatif)*
 
-## Page 4 — Budget et calendrier
+## Page 3 — Budget, calendrier et photos
 
 15. **Budget global mobilier + travaux** *(choix unique, obligatoire)* : Moins de 3 000 € / 3 000 – 8 000 € / 8 000 – 15 000 € / 15 000 – 40 000 € / Plus de 40 000 € / Je ne sais pas encore
    *Aide sous la question : « Hors honoraires du studio. »*
 16. **Quand souhaitez-vous démarrer ?** *(choix unique, obligatoire)* : Dès que possible / Dans 1 à 3 mois / Dans 3 à 6 mois / Pas encore défini
 17. **Avez-vous déjà des artisans ?** *(choix unique ; logique : affichée seulement si la formule est semi-complète ou complète, ou si « Travaux » est coché en 10)* : Oui / Non / En partie
 
-## Page 5 — Photos et plans
 
-18. **Photos de chaque mur, plan ou croquis coté** *(envoi de fichiers, facultatif, plusieurs fichiers)* : « 10 Mo max par fichier. Une photo par mur, prise depuis un coin de la pièce, c’est l’idéal. »
+18. **Vos photos et plans** *(envoi de fichiers, facultatif, plusieurs fichiers)* : « **Avec des photos, notre fourchette de prix sera bien plus précise.** Une photo par mur, prise depuis un coin de la pièce, c’est l’idéal. Un plan ou un croquis coté aide aussi. 10 Mo max par fichier. »
 19. **Autre chose à nous dire ?** *(texte long, facultatif)*
 
-## Page 6 — Vos coordonnées
+## Page 4 — Vos coordonnées
 
 20. **Prénom** · **Nom** *(texte court, obligatoires)*
 21. **Email** *(email, obligatoire)*
 22. **Téléphone** *(téléphone, facultatif)* : « Pour un premier échange plus rapide. »
-23. **Comment avez-vous connu le studio ?** *(choix unique)* : Instagram / TikTok / Google / Presse / Bouche-à-oreille / Autre
-24. **J’accepte que le studio partage l’avant/après de mon projet sur les réseaux** *(case, facultative)*
+23. **Comment nous avez-vous connus ?** *(choix unique)* : Instagram / TikTok / Google / Presse / Bouche-à-oreille / Autre
+24. **J’accepte que vous partagiez l’avant/après de mon projet sur vos réseaux** *(case, facultative)*
 25. **J’accepte que mes données soient utilisées pour être recontacté·e** *(case, obligatoire)* + lien vers `https://studiolixivel.com/mentions-legales`
 
 ## Page de remerciement
 
 > **Merci, c’est bien reçu !**
-> Cindy revient vers vous sous 48 h avec une première fourchette de prix, puis le tarif exact par email.
-> En attendant, retrouvez astuces et avant/après sur Instagram : @studiolixivel
+> Nous revenons vers vous sous 48 h avec une première fourchette de prix, puis le tarif exact par email.
+> En attendant, retrouvez nos astuces et nos avant/après sur Instagram : @studiolixivel
 
 ## Données personnelles
 

@@ -126,7 +126,7 @@ function creerQuestionnaire() {
   );
 
   form.setConfirmationMessage(
-    "Merci, c’est bien reçu ! Cindy revient vers vous sous 48 h avec une première fourchette de prix, puis le tarif exact par email.",
+    "Merci, c’est bien reçu ! Nous revenons vers vous sous 48 h avec une première fourchette de prix, puis le tarif exact par email.",
   );
 
   Logger.log("Formulaire à modifier : " + form.getEditUrl());

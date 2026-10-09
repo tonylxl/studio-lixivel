@@ -29,9 +29,9 @@ export default function TallyEmbed() {
   if (!FORM_ID) {
     return (
       <div className={styles.mock}>
-        <p className="t-petit c-2">Question 1 sur 6</p>
+        <p className="t-petit c-2">Question 1 sur 4</p>
         <span className={styles.progress} aria-hidden>
-          <span style={{ width: "16.6%" }} />
+          <span style={{ width: "25%" }} />
         </span>
         <p className={styles.question}>Quel est votre projet ?</p>
         <div className={styles.choices}>
@@ -49,7 +49,7 @@ export default function TallyEmbed() {
           ))}
         </div>
         <div className={styles.mockFooter}>
-          <span className="t-petit c-2">Environ 10 minutes</span>
+          <span className="t-petit c-2">Environ 5 minutes</span>
           <button type="button" className="btn" disabled={choice === null}>
             Continuer
           </button>
