@@ -24,6 +24,7 @@
    Taille à surface égale : largeur = √(surface × ratio), hauteur = √(surface / ratio),
    pour qu'un logo très large (Marie Claire) ne paraisse pas plus gros qu'un logo compact (Gala). */
 .presseLogo {
+  display: block;
   --surface: 3400;
   width: calc(sqrt(var(--surface) * var(--ratio)) * var(--poids) * 1px);
   aspect-ratio: var(--ratio);

@@ -21,13 +21,17 @@ export default function CountUp({ value, className }: { value: string; className
   }, [inView, reduce, value]);
 
   return (
-    <span ref={ref} className={className} aria-label={value}>
+    <span ref={ref} className={className}>
       {m ? (
-        <span aria-hidden>
-          {m[1]}
-          {n}
-          {m[3]}
-        </span>
+        <>
+          {/* La vraie valeur, pour les lecteurs d'écran, Google et les IA (l'animation part de 0). */}
+          <span className="sr-only">{value}</span>
+          <span aria-hidden>
+            {m[1]}
+            {n}
+            {m[3]}
+          </span>
+        </>
       ) : (
         value
       )}

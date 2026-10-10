@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { preload } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -79,6 +80,8 @@ const INSTA = [
 ];
 
 export default function Home() {
+  // Le tabouret du hero est un masque CSS : on le précharge pour qu’il ne soit pas découvert tard (LCP).
+  preload("/images/tabouret.webp", { as: "image", fetchPriority: "high" });
   const projets = getProjets().slice(0, 3);
 
   return (
@@ -92,20 +95,21 @@ export default function Home() {
           <p className="t-serre c-2">Vu dans</p>
           <ul className={styles.presseLogos}>
             {PRESSE.map((p) => (
-              <li
-                key={p.nom}
-                role="img"
-                aria-label={p.nom}
-                className={styles.presseLogo}
-                style={
-                  {
-                    "--ratio": p.ratio,
-                    "--poids": p.poids,
-                    maskImage: `url("${p.logo}")`,
-                    WebkitMaskImage: `url("${p.logo}")`,
-                  } as React.CSSProperties
-                }
-              />
+              <li key={p.nom}>
+                <span
+                  role="img"
+                  aria-label={p.nom}
+                  className={styles.presseLogo}
+                  style={
+                    {
+                      "--ratio": p.ratio,
+                      "--poids": p.poids,
+                      maskImage: `url("${p.logo}")`,
+                      WebkitMaskImage: `url("${p.logo}")`,
+                    } as React.CSSProperties
+                  }
+                />
+              </li>
             ))}
           </ul>
         </section>
