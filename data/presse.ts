@@ -1,6 +1,6 @@
 /**
  * Articles et émissions sur le studio (page Le studio, llms.txt), du plus récent au plus ancien.
- * `lien` vide : la ligne s'affiche sans être cliquable (en attendant le vrai lien de l'article).
+ * Sans `lien`, le média n'apparaît pas sur la page Le studio (seulement dans llms.txt).
  */
 export const PRESSE: { nom: string; titre: string; lien?: string }[] = [
   {

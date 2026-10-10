@@ -66,14 +66,14 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 - [ ] SEO local hors code : fiche Google Business Profile à Rouen, demander des avis Google aux clients, mêmes nom/adresse partout (annuaires, Houzz, Instagram).
 - [x] Questionnaire Tally « Débuter votre projet » publié le 9 oct. 2026 (`obr965`, 4 pages, voix « nous », jamais « Cindy »). Reste : notification vers `contact@studiolixivel.com` + Reply-to (Tally Pro), style aux couleurs du studio (Tally Pro), photos pour la question Ambiance.
 - [ ] Simulateur, à trancher avec Cindy : paliers dégressifs de la Décoration (aujourd’hui 55 €/m² fixe), minimum éventuel pour la semi-complète, curseur de surface inutile pour la Complète (forfait 5 000 €).
-- [x] Logos presse sur l’accueil (10 oct. 2026) : Marie Claire, Gala, Forbes, actu.fr, Maison & Jardin dans `public/images/presse/`, recadrés au plus juste, affichés en brun via `mask-image` à surface égale (`ratio` + `poids` dans `app/page.tsx`). Reste : ajouter Forbes (titre + lien) dans la liste presse de la page Le studio.
+- [x] Logos presse sur l’accueil (10 oct. 2026) : Marie Claire, Gala, Forbes, actu.fr, Maison & Jardin dans `public/images/presse/`, recadrés au plus juste, affichés en brun via `mask-image` à surface égale (`ratio` + `poids` dans `app/page.tsx`). ICI Normandie (radio, 28 sept. 2026) ajouté à la liste presse, pas de logo dans le bandeau.
 - [ ] Fiches projets : seul « Studio 30 m² » est complet, les 5 autres pages n’ont que titre, lieu, année et photo (à compléter dans Pages CMS).
 
 ## Feuille de route (tri du 10 oct. 2026)
 
 Les numéros renvoient à la liste d’idées triée par Tony. Un lot = vérification dans le navigateur puis commit.
 
-- **Lot 0 · Finir l’existant** : ~~`/journal` → `/blog` (25)~~ ; ~~vérification tablette (36)~~ ; liens presse réels + Forbes sur Le studio (23) : en attente des liens de Cindy (une ligne sans `lien` s’affiche non cliquable).
+- **Lot 0 · Finir l’existant** : ~~`/journal` → `/blog` (25)~~ ; ~~vérification tablette (36)~~ ; ~~liens presse (23)~~ : liste dans `data/presse.ts` ; la page Le studio n’affiche que les médias avec un lien d’article, le bandeau de logos de l’accueil (non cliquable) les garde tous.
 - **Lot 1 · Mise en ligne** : Vercel relié au repo (1) ; redirections de l’ancien site (24) ; IndexNow + sitemap à chaque publication (14) ; audit performance (38) ; garde-fous Pages CMS (limites de caractères SEO, champs obligatoires) (34).
 - **Lot 2 · Demandes clients** : prise de RDV visio après le questionnaire (4) ; webhook Tally → fourchette calculée → mail prêt pour Cindy (2) + suivi des demandes dans Sheet ou Notion (3).
 - **Lot 3 · Autonomie de Cindy** : FAQ, avis, presse, chiffres, formules éditables dans Pages CMS (33) ; textes alternatifs proposés par IA (15).

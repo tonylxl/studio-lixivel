@@ -207,11 +207,11 @@
   transition: color 0.25s var(--ease);
 }
 
-a.presseRow:hover {
+.presseRow:hover {
   background: var(--fond-survol);
 }
 
-a.presseRow:hover .arrow {
+.presseRow:hover .arrow {
   color: var(--texte);
 }
 

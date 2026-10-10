@@ -208,22 +208,15 @@ export default function StudioPage() {
           <section id="presse" className={styles.section}>
             <Head title="Dans la presse" />
             <ul className={styles.presse}>
-              {PRESSE.map((p) => (
+              {PRESSE.filter((p) => p.lien).map((p) => (
                 <li key={p.nom}>
-                  {p.lien ? (
-                    <a href={p.lien} target="_blank" rel="noopener noreferrer" className={styles.presseRow}>
-                      <span className={styles.presseNom}>{p.nom}</span>
-                      <span className="t-serre c-2">{p.titre}</span>
-                      <span aria-hidden className={styles.arrow}>
-                        ↗
-                      </span>
-                    </a>
-                  ) : (
-                    <div className={styles.presseRow}>
-                      <span className={styles.presseNom}>{p.nom}</span>
-                      <span className="t-serre c-2">{p.titre}</span>
-                    </div>
-                  )}
+                  <a href={p.lien} target="_blank" rel="noopener noreferrer" className={styles.presseRow}>
+                    <span className={styles.presseNom}>{p.nom}</span>
+                    <span className="t-serre c-2">{p.titre}</span>
+                    <span aria-hidden className={styles.arrow}>
+                      ↗
+                    </span>
+                  </a>
                 </li>
               ))}
             </ul>
