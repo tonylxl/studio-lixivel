@@ -57,7 +57,7 @@ export const TONES = {
   doux: "#f6f2ef",
   sauge: "#bcd4b4",
   moutarde: "#fcc976",
-  ardoise: "#5d7c86",
+  ardoise: "#4f6c78",
   blanc: "#ffffff",
 } as const;
 

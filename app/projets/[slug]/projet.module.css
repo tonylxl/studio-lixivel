@@ -11,9 +11,10 @@
   margin-bottom: 40px;
 }
 
+/* Opacités calculées pour un contraste suffisant sur toutes les couleurs d'ouverture. */
 .sub {
   display: block;
-  opacity: 0.55;
+  opacity: 0.7;
 }
 
 .fiche {
@@ -28,7 +29,11 @@
 
 .fiche dt {
   color: inherit;
-  opacity: 0.7;
+  opacity: 0.85;
+}
+
+.top[data-dark] .fiche dt {
+  opacity: 1;
 }
 
 /* Photo d'ouverture pleine largeur */

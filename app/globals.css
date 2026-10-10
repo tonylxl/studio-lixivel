@@ -15,7 +15,7 @@
 
   /* Textes */
   --texte: #494141;
-  --texte-2: #726d67;
+  --texte-2: #5a5450;
   --texte-inverse: #ffe5e3;
   --texte-accent: #8c373c;
 
@@ -25,9 +25,9 @@
 
   /* Illustrations */
   --sauge: #bcd4b4;
-  --ardoise: #5d7c86;
+  --ardoise: #4f6c78;
   --moutarde: #fcc976;
-  --ocre: #d29e59;
+  --ocre: #dcad6c;
 
   /* Arrondis (règle : ≥300 px → xl, 200–299 → l, 80–199 → m, <80 → s) */
   --r-xl: 70px;

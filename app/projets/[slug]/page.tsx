@@ -141,7 +141,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
               {etapes.map(([label, src], i) => (
                 <Reveal as="li" key={label} delay={i * 0.1}>
                   <div className={`media ${styles.etapeImg}`} data-plan={label === "Plan 2D" || undefined}>
-                    <Image src={src} alt={label} fill sizes="(max-width: 760px) 100vw, 33vw" />
+                    <Image src={src} alt={`${label} du projet ${p.titre}`} fill sizes="(max-width: 760px) 100vw, 33vw" />
                   </div>
                   <p className="t-petit">{label}</p>
                 </Reveal>
