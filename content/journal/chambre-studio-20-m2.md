@@ -1,44 +1,41 @@
 ---
-titre: "Créer une chambre dans un studio de 20 m²"
+titre: Créer une chambre dans un studio de 20 m²
 categorie: Petits espaces
 date: 2026-09-27
 duree: 6 min
+brouillon: false
 une: false
-brouillon: true
 vertical: true
 cover: /images/journal/chambre-studio-20-m2/cover.jpg
-coverAlt: Coin nuit aux murs rouges derrière une verrière en bois et verre cannelé, lit et lampes de chevet allumées
-chapo: "Dans un studio, on aimerait avoir un minimum d’intimité, mais la place manque souvent pour une vraie chambre. Sur 20 m², le studio a créé un coin nuit derrière une verrière, sans sacrifier la cuisine ni le coin repas. Voici la méthode, étape par étape."
+coverAlt: Coin nuit aux murs rouges derrière une verrière en bois et verre
+  cannelé, lit et lampes de chevet allumées
+chapo: Dans un studio, on aimerait avoir un minimum d’intimité, mais la place
+  manque souvent pour une vraie chambre. Sur 20 m², le studio a créé un coin
+  nuit derrière une verrière, sans sacrifier la cuisine ni le coin repas. Voici
+  la méthode, étape par étape.
 reel:
   url: https://www.instagram.com/reel/DdzQoh2x1j1/
   vignette: /images/journal/chambre-studio-20-m2/vignette.jpg
-  legende: "20 m² pour créer une chambre dans un studio"
+  legende: 20 m² pour créer une chambre dans un studio
 produits:
   - titre: Verrière en bois et verre cannelé
-    prix: ""
     image: /images/journal/chambre-studio-20-m2/cover.jpg
-    lien: ""
   - titre: Table bistrot de 60 cm
-    prix: ""
     image: /images/journal/chambre-studio-20-m2/table.jpg
-    lien: ""
   - titre: Tabourets en velours rose
-    prix: ""
     image: /images/journal/chambre-studio-20-m2/table.jpg
-    lien: ""
   - titre: Suspension dorée à disques
-    prix: ""
     image: /images/journal/chambre-studio-20-m2/table.jpg
-    lien: ""
 etiquettes:
   - Petits espaces
   - Studio
   - Chambre
   - Verrière
-seoTitle: "Créer une chambre dans un studio de 20 m²"
-seoDescription: "Coin nuit derrière une verrière, cuisine complète, table pour deux : la méthode d’une architecte d’intérieur pour créer une chambre dans un studio de 20 m²."
+seoTitle: Créer une chambre dans un studio de 20 m²
+seoDescription: "Coin nuit derrière une verrière, cuisine complète, table pour
+  deux : la méthode d’une architecte d’intérieur pour créer une chambre dans un
+  studio de 20 m²."
 ---
-
 Le défi : **20 m² pour créer une chambre dans un studio**, sans renoncer à une vraie cuisine ni à un coin pour recevoir. Le projet a été conçu en 3D par le studio pour une cliente qui voulait surtout une chose : pouvoir accueillir ses invités ailleurs que dans son lit.
 
 ## Chambre ou coin nuit : ce que dit la règle
