@@ -3,38 +3,37 @@ titre: "Aménager une cuisine de studio : un îlot pour cuisiner et manger"
 categorie: Cuisine
 date: 2026-10-04
 duree: 6 min
+brouillon: false
 une: false
-brouillon: true
 vertical: true
 cover: /images/journal/amenager-cuisine-studio/cover.jpg
-coverAlt: Cuisine de studio sous poutres apparentes, colonnes en bois foncé avec four micro-ondes encastré, îlot habillé d’inox avec plaque à induction
-chapo: "Petit frigo, plaque collée à l’évier, aucun plan de travail : dans un studio, la cuisine est souvent sacrifiée. Avec des électroménagers bien choisis et un îlot monté sur des caissons IKEA, on peut pourtant cuisiner, ranger et manger dans quelques mètres carrés, sans exploser le budget."
+coverAlt: Cuisine de studio sous poutres apparentes, colonnes en bois foncé avec
+  four micro-ondes encastré, îlot habillé d’inox avec plaque à induction
+chapo: "Petit frigo, plaque collée à l’évier, aucun plan de travail : dans un
+  studio, la cuisine est souvent sacrifiée. Avec des électroménagers bien
+  choisis et un îlot monté sur des caissons IKEA, on peut pourtant cuisiner,
+  ranger et manger dans quelques mètres carrés, sans exploser le budget."
 reel:
   url: https://www.instagram.com/reel/DeFSiPbxVk7/
   vignette: /images/journal/amenager-cuisine-studio/vignette.jpg
   legende: "10 000 € et pas 1 € de plus, épisode 4 : la cuisine"
 produits:
   - titre: Caissons de cuisine IKEA (base de l’îlot)
-    prix: ""
     image: /images/journal/amenager-cuisine-studio/cover.jpg
-    lien: ""
   - titre: Plaque de cuisson à induction 2 feux
-    prix: ""
     image: /images/journal/amenager-cuisine-studio/plaque.jpg
-    lien: ""
   - titre: Panneaux d’habillage en inox
-    prix: ""
     image: /images/journal/amenager-cuisine-studio/cover.jpg
-    lien: ""
 etiquettes:
   - Petits espaces
   - Cuisine
   - Studio
   - Petit budget
 seoTitle: "Aménager une cuisine de studio : l’îlot qui change tout"
-seoDescription: "Petit frigo, plaque collée à l’évier, pas de plan de travail ? Les solutions d’une architecte d’intérieur pour une cuisine de studio fonctionnelle à petit budget."
+seoDescription: Petit frigo, plaque collée à l’évier, pas de plan de travail ?
+  Les solutions d’une architecte d’intérieur pour une cuisine de studio
+  fonctionnelle à petit budget.
 ---
-
 Ce projet, c’est un studio à **aménager et décorer pour 10 000 €**, pas un euro de plus. Après les poutres et le sol, l’épisode 4 de la série s’attaque à la pièce qui pose problème dans presque tous les studios : la cuisine. Voici comment le studio l’a transformée, et ce que vous pouvez reprendre chez vous.
 
 ## Pourquoi la cuisine de studio est toujours ratée
