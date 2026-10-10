@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { titreSeo } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -26,8 +27,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const p = getProjet(slug);
   if (!p) return {};
   return {
-    title: `${p.titre} · ${p.sousTitre}`,
-    description: (p.brief ?? `${p.titre}, ${p.sousTitre.toLowerCase()} à ${p.ville}, par Studio Lixivel.`).slice(0, 155),
+    title: titreSeo(`${p.titre} à ${p.ville}`),
+    description: (
+      p.brief ??
+      `${p.titre} à ${p.ville} (${p.annee}) : un projet d’architecture intérieure en formule « ${p.sousTitre} » par Studio Lixivel. Le projet en images.`
+    ).slice(0, 160),
     openGraph: { images: [p.cover] },
   };
 }

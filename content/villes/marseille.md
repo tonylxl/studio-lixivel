@@ -13,7 +13,7 @@ quartiers:
   - Castellane
   - Roucas-Blanc
   - Les Goudes
-seoTitle: Architecte d’intérieur à Marseille · Aménagement et décoration à distance
+seoTitle: Architecte d’intérieur à Marseille · Déco à distance
 seoDescription: "Architecte d’intérieur pour votre appartement ou votre maison à Marseille : aménagement, décoration, plans 2D et rendus 3D, à distance dès 35 €/m²."
 faq:
   - q: Comment aménager un trois-fenêtres marseillais ?

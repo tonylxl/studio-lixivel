@@ -49,7 +49,7 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 - Process tarifaire de Cindy : après le questionnaire, elle envoie une fourchette, puis le prix exact par email (le simulateur sert à prévenir, pas à chiffrer).
 - Simulateur (page Services, ancre `#simulateur`) : honoraires du studio seulement, « À partir de » = surface × tarif de base (min. 5 000 € pour la complète), arrondi à 10 € ; CTA vers le formulaire avec formule + surface.
 - **Pages villes (9 oct. 2026)** : `/architecte-interieur/[ville]`, une par fichier `content/villes/*.md` (éditable dans Pages CMS). Intervention **mixte** : conseils/déco à distance partout, déplacement possible pour semi-complète/complète. Premier lot : Rouen, Paris, Lyon, Bordeaux, Nantes, Lille, Marseille, Toulouse. Chaque page ville liste les 6 derniers projets du studio (par année), sans tri par ville. **Règle SEO : chaque page doit avoir un texte vraiment propre à la ville** (logements typiques, quartiers, façon d’intervenir), jamais un copier-coller avec le nom changé (pages satellites pénalisées par Google). Le domaine actuel du studio est repris (redirections 301 à prévoir).
-- Journal : un article peut être écrit à partir d’un réel Instagram ; champ « réel » (lien, vignette, légende) affiché dans la colonne de gauche de l’article. Articles tirés d’un réel : `vertical: true`, photos en 4:5 extraites du réel en 1080 px, affichées sans recadrage dans le texte ; la couverture reste en hero pleine largeur. Texte des articles : colonne jusqu’à 760 px (sommaire à gauche, 300 px max). **Brouillons** : `brouillon: true` = article absent du journal, du sitemap, de `llms.txt` et des suggestions, visible seulement par son lien (bandeau, noindex) ; on publie en décochant la case dans Pages CMS. Les articles générés depuis un réel sont toujours créés en brouillon. **File de réels** : Cindy colle un lien dans Pages CMS (collection « Réels à transformer », `content/reels/`), puis `/article-reel` sans argument traite les demandes « à traiter ».
+- Journal, affiché **« Blog »** sur le site depuis le 10 oct. 2026 (menu, titre de page, fil d’Ariane, Pages CMS) ; l’URL reste `/journal`. Un article peut être écrit à partir d’un réel Instagram ; champ « réel » (lien, vignette, légende) affiché dans la colonne de gauche de l’article. Articles tirés d’un réel : `vertical: true`, photos en 4:5 extraites du réel en 1080 px, affichées sans recadrage dans le texte ; la couverture reste en hero pleine largeur. Texte des articles : colonne jusqu’à 760 px (sommaire à gauche, 300 px max). **Brouillons** : `brouillon: true` = article absent du journal, du sitemap, de `llms.txt` et des suggestions, visible seulement par son lien (bandeau, noindex) ; on publie en décochant la case dans Pages CMS. Les articles générés depuis un réel sont toujours créés en brouillon. **File de réels** : Cindy colle un lien dans Pages CMS (collection « Réels à transformer », `content/reels/`), puis `/article-reel` sans argument traite les demandes « à traiter ».
 
 ## À faire / à valider
 
@@ -59,14 +59,25 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 - [ ] Tester Pages CMS (app.pagescms.org) : vérifier que le champ `body` en rich-text s’affiche bien (intertitres, citation → encadré, `[[produits]]`).
 - [ ] Contenus inventés à valider avec Cindy : réponses FAQ, 3 avis sur 4 (seul Matthieu est réel), texte « L’histoire », chiffres, fiche projet « Studio 30 m² », villes/années des projets, 6 articles d’exemple du journal, liens presse (actuellement `#`), comptes Instagram/TikTok.
 - [ ] Mentions légales : nom, adresse, SIRET (champs entre crochets).
-- [ ] Remplacer les photos provisoires par les vraies photos de Cindy, logos presse en SVG, logo.
+- [ ] Remplacer les photos provisoires par les vraies photos de Cindy, logo.
 - [ ] Domaine (ancien domaine repris), redirections 301 depuis l’ancien site, analytics, Google Search Console (envoyer le sitemap).
 - [ ] Pages villes : faire relire les textes par Cindy, ajouter des villes au fur et à mesure.
 - [ ] SEO local hors code : fiche Google Business Profile à Rouen, demander des avis Google aux clients, mêmes nom/adresse partout (annuaires, Houzz, Instagram).
 - [x] Questionnaire Tally « Débuter votre projet » publié le 9 oct. 2026 (`obr965`, 4 pages, voix « nous », jamais « Cindy »). Reste : notification vers `contact@studiolixivel.com` + Reply-to (Tally Pro), style aux couleurs du studio (Tally Pro), photos pour la question Ambiance.
 - [ ] Simulateur, à trancher avec Cindy : paliers dégressifs de la Décoration (aujourd’hui 55 €/m² fixe), minimum éventuel pour la semi-complète, curseur de surface inutile pour la Complète (forfait 5 000 €).
-- [ ] Logos presse (Marie Claire, Gala, actu.fr, Maison & Jardin) : à fournir en SVG dans `public/images/presse/` ; en attendant, noms en texte comme sur la maquette.
+- [x] Logos presse sur l’accueil (10 oct. 2026) : Marie Claire, Gala, Forbes, actu.fr, Maison & Jardin dans `public/images/presse/`, recadrés au plus juste, affichés en brun via `mask-image` à surface égale (`ratio` + `poids` dans `app/page.tsx`). Reste : ajouter Forbes (titre + lien) dans la liste presse de la page Le studio.
 - [ ] Fiches projets : seul « Studio 30 m² » est complet, les 5 autres pages n’ont que titre, lieu, année et photo (à compléter dans Pages CMS).
+
+## Feuille de route (tri du 10 oct. 2026)
+
+Les numéros renvoient à la liste d’idées triée par Tony. Un lot = vérification dans le navigateur puis commit.
+
+- **Lot 0 · Finir l’existant** : `/journal` → `/blog` avec redirection 301 (25) ; vérification tablette (36) ; liens presse réels + Forbes sur Le studio (23).
+- **Lot 1 · Mise en ligne** : Vercel relié au repo (1) ; redirections de l’ancien site (24) ; IndexNow + sitemap à chaque publication (14) ; audit performance (38) ; garde-fous Pages CMS (limites de caractères SEO, champs obligatoires) (34).
+- **Lot 2 · Demandes clients** : prise de RDV visio après le questionnaire (4) ; webhook Tally → fourchette calculée → mail prêt pour Cindy (2) + suivi des demandes dans Sheet ou Notion (3).
+- **Lot 3 · Autonomie de Cindy** : FAQ, avis, presse, chiffres, formules éditables dans Pages CMS (33) ; textes alternatifs proposés par IA (15).
+- **Lot 4 · Contenu** : plan éditorial (22) ; page Ressources avec guides à télécharger contre un email (27) ; réels intégrés aux articles + VideoObject (21) ; réels → articles automatiquement (5) ; fil Instagram automatique (6) ; fiches projets complètes (16).
+- **Lot 5 · Mesure** : statistiques (31, proposé en plus) puis tableau de bord (32).
 
 ## Mode de travail
 

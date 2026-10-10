@@ -96,7 +96,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--fond-accent);
+  background: var(--fond-sombre);
 }
 
 @media (max-width: 1024px) {

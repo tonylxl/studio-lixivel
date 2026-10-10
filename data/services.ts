@@ -28,7 +28,7 @@ export const FORMULES: Formule[] = [
     resume:
       "Plans 2D et 3D pour repenser la disposition de vos pièces et optimiser chaque mètre carré. Vous gardez la main sur le choix du mobilier.",
     description:
-      "Vous avez le mobilier en tête, il vous manque le bon plan. Nous repensons la disposition de vos pièces pour optimiser chaque mètre carré.",
+      "Pour ceux qui ont le mobilier en tête mais pas le bon plan. Le studio repense la disposition de vos pièces en plans 2D et 3D pour optimiser chaque mètre carré, puis vous gardez la main sur le choix du mobilier. Tout se fait à distance, en 15 jours.",
     inclus: [
       "Questionnaire et appel de lancement",
       "Plans 2D et 3D de l’aménagement",
@@ -49,7 +49,7 @@ export const FORMULES: Formule[] = [
     resume:
       "Plan 2D, rendus 3D en 4K et liste shopping complète avec toutes les références : il ne vous reste plus qu’à commander.",
     description:
-      "La formule la plus demandée : tout ce qu’il faut pour aménager et décorer, avec la liste shopping clé en main. Vous commandez, vous installez.",
+      "La formule la plus demandée, pour aménager et décorer sans travaux. Vous recevez un plan 2D coté, des rendus 3D en 4K et une liste shopping avec toutes les références, pensée pour votre budget. Vous commandez, vous installez.",
     inclus: [
       "Plan 2D coté",
       "Rendus 3D en 4K, et vidéo en option",
@@ -71,7 +71,7 @@ export const FORMULES: Formule[] = [
     resume:
       "Nous concevons votre projet, sélectionnons les artisans et vous accompagnons à distance pendant les travaux, que vous pilotez vous-même.",
     description:
-      "Nous concevons le projet et préparons le terrain pour les travaux. Vous restez maître d’œuvre, avec le studio en soutien tout au long du chantier.",
+      "Pour une rénovation que vous pilotez vous-même, avec un architecte d’intérieur à vos côtés. Le studio conçoit le projet, consulte les artisans et prépare les descriptifs de travaux ; vous restez maître d’œuvre, avec le studio en soutien à distance jusqu’à la réception du chantier.",
     inclus: [
       "Plans 2D, rendus 3D 4K et liste shopping",
       "Consultation des artisans et descriptifs de travaux",
@@ -94,7 +94,7 @@ export const FORMULES: Formule[] = [
     resume:
       "Nous nous occupons de tout : conception, démarches, artisans, suivi de chantier quotidien et réception des travaux.",
     description:
-      "Nous nous occupons de tout, de la visite à la remise des clés. Vous validez les grandes étapes, nous gérons le reste sur le chantier.",
+      "Pour une rénovation sans rien gérer. Le studio s’occupe de tout, de la visite à la remise des clés : conception, démarches, artisans et suivi de chantier sur place. Vous validez les grandes étapes, nous gérons le reste.",
     inclus: [
       "Visite et prise de mesures sur place",
       "Conception 2D puis 3D et sélection du mobilier",
@@ -125,7 +125,7 @@ export const COMPARATIF: { label: string; valeurs: string[] }[] = [
 export const ETAPES = [
   {
     titre: "Le questionnaire",
-    texte: "Vos envies, vos contraintes, votre budget : dix minutes pour tout nous raconter.",
+    texte: "Vos envies, vos contraintes, votre budget : cinq minutes pour tout nous raconter.",
     couleur: "sauge",
   },
   {

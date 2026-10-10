@@ -35,7 +35,7 @@ const BLOCS = [
   {
     titre: "Liens affiliés",
     texte:
-      "Certains articles du journal contiennent des liens affiliés. Ils ne changent rien au prix pour vous ; le studio peut percevoir une petite commission qui soutient le journal.",
+      "Certains articles du blog contiennent des liens affiliés. Ils ne changent rien au prix pour vous ; le studio peut percevoir une petite commission qui soutient le blog.",
   },
 ];
 

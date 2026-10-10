@@ -9,7 +9,7 @@ import { CATEGORIES, getArticles } from "@/lib/content";
 import styles from "./journal.module.css";
 
 export const metadata: Metadata = {
-  title: "Conseils d’architecte d’intérieur · Le journal",
+  title: "Conseils d’architecte d’intérieur · Le blog",
   description:
     "Aménager, décorer, rénover : les conseils du Studio Lixivel pour des intérieurs pratiques et chaleureux, même avec un petit budget.",
 };
@@ -24,7 +24,7 @@ export default function JournalPage() {
 
   return (
     <JournalProvider>
-      <Opening tone="ardoise" source="header-journal" surtitre="Le journal" title="Conseils d’architecte d’intérieur">
+      <Opening tone="ardoise" source="header-journal" surtitre="Le blog" title="Conseils d’architecte d’intérieur">
         <p>
           Aménager, décorer, rénover : les astuces du studio pour des intérieurs pratiques et chaleureux, même avec un
           petit budget. Un nouvel article chaque mois.

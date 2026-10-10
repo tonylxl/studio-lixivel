@@ -15,11 +15,11 @@ const schibsted = Schibsted_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Studio Lixivel · Architecte d’intérieur",
+    default: "Studio Lixivel · Architecte d’intérieur dès 35 €/m²",
     template: "%s · Studio Lixivel",
   },
   description:
-    "Studio Lixivel, studio d’architecture intérieure : agencement, décoration et rénovation, à distance partout en France ou sur place en Normandie, quel que soit votre budget.",
+    "Studio Lixivel, architecte d’intérieur fondé par Cindy : agencement, décoration et rénovation dès 35 €/m², à distance en France ou sur place en Normandie.",
   openGraph: {
     type: "website",
     locale: "fr_FR",

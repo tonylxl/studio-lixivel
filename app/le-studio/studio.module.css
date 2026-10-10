@@ -1,8 +1,8 @@
-/* Corps : menu en tuiles collant (178 px) + contenu */
+/* Corps : menu en tuiles collant (178 px), 64 px d'air, puis le contenu */
 .page {
   display: grid;
   grid-template-columns: 178px minmax(0, 1fr);
-  gap: 24px;
+  gap: 64px;
   padding: calc(var(--header-h) + 24px) 24px 0;
 }
 
@@ -123,7 +123,7 @@
   background: var(--fond-rose);
 }
 
-/* En chiffres : les cartes arrivent inclinées et se rangent au scroll */
+/* En chiffres : cartes grises qui arrivent inclinées et se rangent au scroll */
 .chiffres {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -137,25 +137,9 @@
   height: 380px;
   padding: 28px 24px;
   border-radius: var(--r-l);
-  background: var(--fond-rose);
+  /* Cartes neutres : le menu à gauche apporte déjà la couleur à l'écran */
+  background: var(--fond-doux);
   color: var(--texte);
-}
-
-.chiffre[data-couleur="sauge"] {
-  background: var(--sauge);
-}
-
-.chiffre[data-couleur="rose"] :global(.t-chiffre) {
-  color: var(--texte-accent);
-}
-
-.chiffre[data-couleur="ardoise"] {
-  background: var(--ardoise);
-  color: var(--texte-inverse);
-}
-
-.chiffre[data-couleur="moutarde"] {
-  background: var(--moutarde);
 }
 
 .chiffreLabel {

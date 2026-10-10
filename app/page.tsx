@@ -12,12 +12,26 @@ import MaskReveal from "@/components/MaskReveal";
 import ScrollZoom from "@/components/ScrollZoom";
 import ProcessCards from "@/components/ProcessCards";
 import Avis, { type AvisItem } from "@/components/Avis";
+import Accordion from "@/components/Accordion";
 import { FORMULES } from "@/data/services";
+import { FAQ_ACCUEIL } from "@/data/faq";
+import { JsonLd, faqJsonLd } from "@/lib/seo";
 import { getProjets } from "@/lib/content";
 import { SITE } from "@/lib/site";
 import styles from "./home.module.css";
 
-const PRESSE = ["Marie Claire", "Gala", "actu.fr", "Maison & Jardin"];
+/**
+ * Logos presse (public/images/presse, recadrés au plus juste). `ratio` = largeur / hauteur du logo ;
+ * la taille affichée en découle pour que chaque logo ait la même surface à l'œil (voir .presseLogo).
+ * `poids` corrige les logos plus fins ou plus gras que la moyenne.
+ */
+const PRESSE = [
+  { nom: "Marie Claire", logo: "/images/presse/marie-claire.svg", ratio: 6.89, poids: 1 },
+  { nom: "Gala", logo: "/images/presse/gala.svg", ratio: 2.27, poids: 0.9 },
+  { nom: "Forbes", logo: "/images/presse/forbes.svg", ratio: 3.99, poids: 1 },
+  { nom: "actu.fr", logo: "/images/presse/actu.svg", ratio: 3.5, poids: 1 },
+  { nom: "Maison & Jardin", logo: "/images/presse/maison-jardin.png", ratio: 2.31, poids: 1.1 },
+];
 
 const AVIS: AvisItem[] = [
   {
@@ -76,18 +90,31 @@ export default function Home() {
         {/* Presse */}
         <section className={styles.presse} aria-label="Ils parlent du studio">
           <p className="t-serre c-2">Vu dans</p>
-          {PRESSE.map((p) => (
-            <p key={p} className={`t-accordeon ${styles.presseNom}`}>
-              {p}
-            </p>
-          ))}
+          <ul className={styles.presseLogos}>
+            {PRESSE.map((p) => (
+              <li
+                key={p.nom}
+                role="img"
+                aria-label={p.nom}
+                className={styles.presseLogo}
+                style={
+                  {
+                    "--ratio": p.ratio,
+                    "--poids": p.poids,
+                    maskImage: `url("${p.logo}")`,
+                    WebkitMaskImage: `url("${p.logo}")`,
+                  } as React.CSSProperties
+                }
+              />
+            ))}
+          </ul>
         </section>
 
         {/* Intro */}
         <section className={`wrap ${styles.intro}`}>
           <ScrollFadeText
             className="t-projet"
-            text="Studio Lixivel est un studio d’architecture intérieure basé à Rouen. Agencement, décoration, rénovation : nous concevons des lieux pratiques et chaleureux, à distance partout en France ou sur place en Normandie, quel que soit votre budget."
+            text="Studio Lixivel est un studio d’architecture intérieure fondé par Cindy à Rouen. Agencement, décoration, rénovation : plus de 60 intérieurs pratiques et chaleureux conçus à distance partout en France ou sur place en Normandie, quel que soit votre budget."
           />
           <Link href="/le-studio" className="link">
             En savoir plus sur le studio
@@ -140,8 +167,8 @@ export default function Home() {
         {/* Services */}
         <section className={styles.services} aria-labelledby="titre-services">
           <SectionHead id="titre-services" title="Services" plain>
-            De l’idée au lieu fini, le studio conçoit et pilote vos projets d’aménagement : à votre rythme, dans le
-            respect du brief et du budget. À distance partout en France, ou sur place en Normandie.
+            Quatre formules, du plan d’aménagement à la rénovation complète, dès 35 €/m². Trois se font entièrement à
+            distance partout en France ; la prise en charge complète se fait sur place, en Normandie.
           </SectionHead>
           <ul className={styles.servicesGrid}>
             {FORMULES.map((f, i) => (
@@ -169,7 +196,8 @@ export default function Home() {
         {/* Le studio */}
         <section className={styles.studio} aria-labelledby="titre-studio">
           <SectionHead id="titre-studio" title="Le studio">
-            Architecte d’intérieur, créatrice de contenus déco et défenseuse des beaux intérieurs à petit budget.
+            Cindy, fondatrice du studio : architecte d’intérieur, créatrice de contenus déco et défenseuse des beaux
+            intérieurs à petit budget.
           </SectionHead>
           <div className={styles.studioImgs}>
             <figure>
@@ -189,8 +217,9 @@ export default function Home() {
             <span />
             <div className="col-2 stack" style={{ gap: 24, alignItems: "flex-start" }}>
               <p className="t-serre c-2">
-                Remarquée sur TikTok et Instagram, relayée par Marie Claire, Gala et Maison &amp; Jardin, Cindy partage
-                chaque semaine ses astuces pour un intérieur réussi sans exploser son budget.
+                Remarquée sur TikTok et Instagram, citée par Marie Claire, Gala, Forbes et Maison &amp; Jardin, Cindy
+                partage chaque semaine ses astuces pour un intérieur réussi sans exploser son budget. Elle suit
+                elle-même chaque projet du studio, du premier questionnaire à la remise des clés.
               </p>
               <Link href="/le-studio" className="link">
                 Découvrir le studio
@@ -202,7 +231,8 @@ export default function Home() {
         {/* Processus */}
         <section className={styles.processus} aria-labelledby="titre-processus">
           <SectionHead id="titre-processus" title="Processus">
-            Quatre étapes simples, du premier message à la remise des clés. Vous savez toujours où en est votre projet.
+            Quatre étapes, du questionnaire à la remise des clés. Nous vous répondons sous 48 h, et vous savez toujours
+            où en est votre projet.
           </SectionHead>
           <ProcessCards />
         </section>
@@ -213,6 +243,18 @@ export default function Home() {
             Ce qu’ils en disent, et ce que ça donne. Faites glisser pour comparer.
           </SectionHead>
           <Avis items={AVIS} />
+        </section>
+
+        {/* Questions fréquentes */}
+        <section className={styles.faq} aria-labelledby="titre-faq">
+          <SectionHead id="titre-faq" title="Questions fréquentes">
+            <p>Tarifs, projets à distance, premier contact : l’essentiel avant de vous lancer.</p>
+            <Link href="/faq" className="link" style={{ color: "var(--texte)" }}>
+              Voir toute la FAQ
+            </Link>
+          </SectionHead>
+          <Accordion items={FAQ_ACCUEIL} />
+          <JsonLd data={faqJsonLd(FAQ_ACCUEIL)} />
         </section>
 
         {/* Instagram */}

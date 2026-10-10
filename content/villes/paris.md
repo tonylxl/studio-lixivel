@@ -14,7 +14,7 @@ quartiers:
   - Boulogne-Billancourt
   - Vincennes
   - Montreuil
-seoTitle: Architecte d’intérieur à Paris · Petits espaces, décoration, rénovation
+seoTitle: Architecte d’intérieur à Paris · Petits espaces et déco
 seoDescription: "Architecte d’intérieur pour votre appartement parisien : optimisation des petits espaces, décoration et rénovation. À distance dès 35 €/m², suivi de chantier sur place."
 faq:
   - q: Pouvez-vous aménager un petit appartement parisien à distance ?

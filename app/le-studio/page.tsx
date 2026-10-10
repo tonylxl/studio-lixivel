@@ -11,9 +11,9 @@ import { SITE } from "@/lib/site";
 import styles from "./studio.module.css";
 
 export const metadata: Metadata = {
-  title: "Le studio",
+  title: "Le studio : Cindy, architecte d’intérieur",
   description:
-    "Studio Lixivel, studio d’architecture intérieure fondé par Cindy à Rouen : une approche accessible, des intérieurs pratiques et chaleureux, à distance partout en France.",
+    "Studio Lixivel, fondé par Cindy à Rouen : une architecture intérieure accessible, plus de 60 projets, des intérieurs pratiques et chaleureux partout en France.",
 };
 
 const SECTIONS: StudioNavItem[] = [
@@ -21,17 +21,17 @@ const SECTIONS: StudioNavItem[] = [
   { id: "approche", label: "L’approche", couleur: "sauge" },
   { id: "fondatrice", label: "La fondatrice", couleur: "rose" },
   { id: "chiffres", label: "En chiffres", couleur: "sombre" },
-  { id: "valeurs", label: "Ce qui nous guide", couleur: "bordeaux" },
-  { id: "histoire", label: "L’histoire", couleur: "moutarde" },
-  { id: "presse", label: "Dans la presse", couleur: "ardoise" },
+  { id: "valeurs", label: "Ce qui nous guide", couleur: "moutarde" },
+  { id: "histoire", label: "L’histoire", couleur: "ardoise" },
+  { id: "presse", label: "Dans la presse", couleur: "ocre" },
   { id: "coulisses", label: "En coulisses", couleur: "lin" },
 ];
 
 const CHIFFRES = [
-  { valeur: "+60", label: "projets accompagnés", couleur: "sauge", rotate: 3, y: 60 },
-  { valeur: "4", label: "magazines en ont parlé", couleur: "rose", rotate: -2, y: 20 },
-  { valeur: "3", label: "formules sur 4 entièrement à distance", couleur: "ardoise", rotate: 2, y: 90 },
-  { valeur: "48 h", label: "pour vous répondre", couleur: "moutarde", rotate: -3, y: 40 },
+  { valeur: "+60", label: "projets accompagnés", rotate: 3, y: 60 },
+  { valeur: "5", label: "médias en ont parlé", rotate: -2, y: 20 },
+  { valeur: "3", label: "formules sur 4 entièrement à distance", rotate: 2, y: 90 },
+  { valeur: "48 h", label: "pour vous répondre", rotate: -3, y: 40 },
 ];
 
 const VALEURS = [
@@ -106,8 +106,8 @@ export default function StudioPage() {
                 stagger={0.12}
               />
               <p className={styles.heroLead}>
-                Studio Lixivel est un studio d’architecture intérieure basé à Rouen. Il conçoit des intérieurs pratiques
-                et chaleureux, à distance partout en France et sur place en Normandie.
+                Studio Lixivel est un studio d’architecture intérieure fondé par Cindy à Rouen. Il conçoit des
+                intérieurs pratiques et chaleureux, à distance partout en France et sur place en Normandie.
               </p>
             </div>
           </section>
@@ -121,8 +121,9 @@ export default function StudioPage() {
             </p>
             <div className={styles.cols}>
               <p className="t-serre c-2">
-                Le studio conçoit des intérieurs pensés pour votre façon de vivre. Plans 2D, rendus 3D et listes shopping
-                clés en main permettent d’aménager chez soi à son rythme, même à des centaines de kilomètres de Rouen.
+                Le studio conçoit des intérieurs pensés pour votre façon de vivre, à partir de 35 €/m². Plans 2D, rendus
+                3D et listes shopping clés en main permettent d’aménager chez soi à son rythme, même à des centaines de
+                kilomètres de Rouen.
               </p>
               <p className="t-serre c-2">
                 Sur TikTok et Instagram, le studio partage chaque semaine astuces, trouvailles à petit prix et
@@ -175,7 +176,7 @@ export default function StudioPage() {
             <Head title="En chiffres" />
             <ul className={styles.chiffres}>
               {CHIFFRES.map((c, i) => (
-                <SettleCard key={c.label} index={i} rotate={c.rotate} y={c.y} className={styles.chiffre} data-couleur={c.couleur}>
+                <SettleCard key={c.label} index={i} rotate={c.rotate} y={c.y} className={styles.chiffre}>
                   <CountUp value={c.valeur} className="t-chiffre" />
                   <span className={styles.chiffreLabel}>{c.label}</span>
                 </SettleCard>

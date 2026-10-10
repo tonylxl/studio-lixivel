@@ -10,12 +10,13 @@ import Reveal from "@/components/Reveal";
 import { COMPARATIF, FORMULES } from "@/data/services";
 import { FAQ_SERVICES } from "@/data/faq";
 import { rdvHref } from "@/lib/site";
+import { JsonLd, faqJsonLd, servicesJsonLd } from "@/lib/seo";
 import styles from "./services.module.css";
 
 export const metadata: Metadata = {
-  title: "Services d’architecte d’intérieur",
+  title: "Tarifs et formules d’architecte d’intérieur",
   description:
-    "Quatre formules, du simple conseil à la prise en charge complète, dont trois entièrement à distance partout en France. Tarifs, délais et simulateur de budget.",
+    "Quatre formules d’architecte d’intérieur dès 35 €/m², du plan d’aménagement à la rénovation complète, dont trois à distance. Délais et simulateur de budget.",
 };
 
 export default function ServicesPage() {
@@ -27,8 +28,8 @@ export default function ServicesPage() {
         title="Services d’architecte d’intérieur"
       >
         <p className="c-2">
-          Quatre formules, du simple conseil à la prise en charge complète. Trois d’entre elles se font entièrement à
-          distance, partout en France.
+          Quatre formules, du plan d’aménagement à la rénovation complète, dès 35 €/m². Trois d’entre elles se font
+          entièrement à distance, partout en France.
         </p>
         <nav className={styles.ancres} aria-label="Formules">
           {FORMULES.map((f) => (
@@ -89,7 +90,10 @@ export default function ServicesPage() {
 
         {/* Comparatif */}
         <section className={styles.comparatif} aria-labelledby="t-comparer">
-          <SectionHead id="t-comparer" title="Comparer les formules" />
+          <SectionHead id="t-comparer" title="Comparer les formules">
+            Ce que comprend chaque formule, en un coup d’œil. Les tarifs sont les honoraires du studio, hors mobilier et
+            travaux.
+          </SectionHead>
           <table className={styles.table}>
             <thead>
               <tr>
@@ -145,6 +149,7 @@ export default function ServicesPage() {
           <Accordion items={FAQ_SERVICES} />
         </section>
       </main>
+      <JsonLd data={[servicesJsonLd(), faqJsonLd(FAQ_SERVICES)]} />
       <Footer source="footer-services" />
     </>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
 import { NAV, SITE, rdvHref } from "@/lib/site";
+import { getVilles } from "@/lib/content";
 import MaskReveal from "./MaskReveal";
 import FooterStool from "./FooterStool";
 import styles from "./Footer.module.css";
@@ -27,6 +28,7 @@ export default function Footer({
   bandTitle = TITRE_DEFAUT,
   bandText = "Répondez au questionnaire en 5 minutes : vos envies, vos contraintes, votre budget. Nous vous recontactons sous 48 h pour en parler.",
 }: Props) {
+  const villes = getVilles();
   return (
     <footer className={styles.footer} data-footer>
       {band && (
@@ -66,6 +68,18 @@ export default function Footer({
               {SITE.email}
             </a>
           </address>
+          {/* Maillage vers les pages villes, sur toutes les pages du site */}
+          <nav aria-label="Architecte d’intérieur par ville" className={styles.villes}>
+            <span>Architecte d’intérieur à</span>{" "}
+            {villes.map((v, i) => (
+              <Fragment key={v.slug}>
+                {i > 0 && ", "}
+                <Link href={`/architecte-interieur/${v.slug}`} className={styles.lien}>
+                  {v.nom}
+                </Link>
+              </Fragment>
+            ))}
+          </nav>
         </div>
 
         <div className={styles.symbol} aria-hidden>

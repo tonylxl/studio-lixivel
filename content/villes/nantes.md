@@ -13,7 +13,7 @@ quartiers:
   - Zola
   - Doulon
   - Rezé
-seoTitle: Architecte d’intérieur à Nantes · Aménagement et décoration à distance
+seoTitle: Architecte d’intérieur à Nantes · Aménagement à distance
 seoDescription: "Architecte d’intérieur pour votre logement à Nantes : aménagement, décoration, plans 2D et rendus 3D. Accompagnement à distance dès 35 €/m²."
 faq:
   - q: Comment aménager une maison nantaise tout en longueur ?

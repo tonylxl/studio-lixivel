@@ -3,26 +3,47 @@
   top: calc(var(--header-h) + 24px);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  /* La colonne occupe la hauteur de l'écran : la tuile active prend la place libre */
+  height: min(860px, calc(100svh - var(--header-h) - 48px));
+  /* Même respiration que le bas des sections : en fin de page, le menu s'arrête avant le bandeau rose */
+  margin-bottom: 120px;
 }
 
 .list {
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
+}
+
+/* Rebond léger : la tuile dépasse à peine sa taille puis se cale, comme un meuble qu'on ajuste */
+.item {
+  --cale: cubic-bezier(0.34, 1.32, 0.5, 1);
+  display: flex;
+  flex: 0 0 70px;
+  min-height: 0;
+  transition: flex-grow 0.75s var(--cale), flex-basis 0.75s var(--cale);
+}
+
+.item[data-active] {
+  flex: 1 1 70px;
 }
 
 .tile {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 104px;
-  padding: 14px 16px;
-  border: 2px solid transparent;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding: 14px 18px;
   border-radius: var(--r-m);
   background: var(--fond-page);
   color: var(--texte);
-  transition: border-color 0.25s var(--ease), transform 0.35s var(--ease);
+  transition: transform 0.35s var(--ease), padding 0.6s var(--ease), background-color 0.6s var(--ease),
+    color 0.6s var(--ease);
 }
 
 .tile:hover {
@@ -30,7 +51,45 @@
 }
 
 .tile[aria-current] {
-  border-color: var(--texte);
+  padding: 18px 20px 20px;
+}
+
+/* Jauge de lecture : visible dans la tuile active, du haut à la fin de la section */
+.jauge {
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  right: 16px;
+  width: 3px;
+  border-radius: 999px;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.4s var(--ease);
+}
+
+.jauge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0.18;
+}
+
+.jaugeFill {
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  transform-origin: top;
+  transform: scaleY(var(--p, 0));
+}
+
+.tile[aria-current] .jauge {
+  opacity: 1;
+  transition-delay: 0.3s;
+}
+
+.tile:not([aria-current]) .jaugeFill {
+  transform: scaleY(0);
 }
 
 .tile[data-couleur="sauge"] {
@@ -43,9 +102,14 @@
   background: var(--fond-sombre);
   color: var(--texte-inverse);
 }
-.tile[data-couleur="bordeaux"] {
-  background: var(--fond-accent);
+/* Tuile 00 : blanche sur l'ouverture crème, brune dès que la page repasse en blanc */
+:global(html[data-toned="false"]) .tile[data-couleur="blanc"] {
+  background: var(--fond-sombre);
   color: var(--texte-inverse);
+}
+
+.tile[data-couleur="ocre"] {
+  background: var(--ocre);
 }
 .tile[data-couleur="moutarde"] {
   background: var(--moutarde);
@@ -58,14 +122,6 @@
   background: var(--fond-lin);
 }
 
-/* Fond foncé : la tuile active est entourée en rose pour rester visible */
-.tile[data-couleur="sombre"][aria-current],
-.tile[data-couleur="bordeaux"][aria-current],
-.tile[data-couleur="ardoise"][aria-current] {
-  border-color: var(--texte);
-  box-shadow: inset 0 0 0 2px var(--texte-inverse);
-}
-
 .num {
   font-size: 14px;
   line-height: 1.5;
@@ -75,25 +131,39 @@
 
 .label {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.3;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: font-size 0.6s var(--ease);
 }
 
-.cta {
-  width: 100%;
-  justify-content: flex-start;
+.tile[aria-current] .label {
+  max-width: calc(100% - 16px);
+  font-size: 22px;
+  line-height: 1.15;
+  white-space: normal;
 }
 
-/* Écrans peu hauts : la colonne de tuiles doit tenir dans la fenêtre */
-@media (min-width: 901px) and (max-height: 1040px) {
-  .nav,
-  .list {
-    gap: 8px;
+/* Écrans peu hauts : tuiles repliées plus basses pour laisser de la place à la tuile active */
+@media (min-width: 901px) and (max-height: 820px) {
+  .item {
+    flex-basis: 48px;
   }
   .tile {
-    height: 84px;
-    padding: 10px 16px;
+    padding: 8px 14px;
+    border-radius: var(--r-s);
+  }
+  .num {
+    display: none;
+  }
+  .tile:not([aria-current]) {
+    justify-content: center;
+  }
+  .tile[aria-current] .num {
+    display: block;
   }
 }
 
@@ -111,8 +181,11 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 -1px 0 var(--bordure-legere);
+    height: auto;
+    margin-bottom: 0;
   }
   .list {
+    flex: none;
     flex-direction: row;
     gap: 8px;
     overflow-x: auto;
@@ -126,12 +199,32 @@
     transition: flex-basis 0.4s var(--ease);
   }
   .item[data-active] {
-    flex-basis: 156px;
+    flex: 0 0 156px;
   }
-  .tile {
+  .tile,
+  .tile[aria-current] {
     height: 64px;
     padding: 8px 10px;
     border-radius: var(--r-s);
+  }
+  .tile[aria-current] .label {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .jauge {
+    top: auto;
+    bottom: 6px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    height: 2px;
+  }
+  .jaugeFill {
+    transform-origin: left;
+    transform: scaleX(var(--p, 0));
+  }
+  .tile:not([aria-current]) .jaugeFill {
+    transform: scaleX(0);
   }
   .tile:hover {
     transform: none;
@@ -149,8 +242,5 @@
   }
   .num {
     font-size: 12px;
-  }
-  .cta {
-    display: none;
   }
 }

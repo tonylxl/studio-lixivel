@@ -13,7 +13,7 @@ quartiers:
   - Minimes
   - Côte Pavée
   - Borderouge
-seoTitle: Architecte d’intérieur à Toulouse · Aménagement et décoration à distance
+seoTitle: Architecte d’intérieur à Toulouse · Déco à distance
 seoDescription: "Architecte d’intérieur pour votre maison ou votre appartement à Toulouse : aménagement, décoration, plans 2D et rendus 3D, à distance dès 35 €/m²."
 faq:
   - q: Comment moderniser une toulousaine sans perdre son charme ?

@@ -14,7 +14,7 @@ quartiers:
   - La Madeleine
   - Marcq-en-Barœul
   - Lambersart
-seoTitle: Architecte d’intérieur à Lille · Maisons de ville, aménagement, décoration
+seoTitle: Architecte d’intérieur à Lille · Maisons de ville et déco
 seoDescription: "Architecte d’intérieur pour votre maison ou votre appartement à Lille : aménagement, décoration, plans 2D et rendus 3D, à distance dès 35 €/m²."
 faq:
   - q: Comment rendre une maison lilloise plus lumineuse ?

@@ -12,7 +12,7 @@ export function orgJsonLd(villes: string[] = []) {
     "@id": ORG_ID,
     name: SITE.name,
     description:
-      "Studio d’architecture intérieure fondé par Cindy : agencement, décoration et rénovation, à distance partout en France ou sur place.",
+      "Studio d’architecture intérieure fondé par Cindy à Rouen : agencement, décoration et rénovation dès 35 €/m², à distance partout en France ou sur place en Normandie. Plus de 60 projets accompagnés.",
     url: SITE.url,
     email: SITE.email,
     image: `${SITE.url}/images/bureau.jpg`,
@@ -20,8 +20,32 @@ export function orgJsonLd(villes: string[] = []) {
     address: { "@type": "PostalAddress", addressLocality: "Rouen", addressRegion: "Normandie", addressCountry: "FR" },
     areaServed: [{ "@type": "Country", name: "France" }, ...villes.map((name) => ({ "@type": "City", name }))],
     founder: { "@type": "Person", name: "Cindy", jobTitle: "Architecte d’intérieur" },
-    knowsAbout: ["Architecture d’intérieur", "Décoration d’intérieur", "Aménagement de petits espaces", "Rénovation"],
+    knowsAbout: [
+      "Architecture d’intérieur",
+      "Décoration d’intérieur",
+      "Aménagement de petits espaces",
+      "Rénovation d’appartement",
+      "Plans 2D et rendus 3D",
+      "Décoration à petit budget",
+    ],
     sameAs: [SITE.instagram, SITE.tiktok],
+  };
+}
+
+/** Les quatre formules et leurs tarifs « à partir de ». */
+function offerCatalog() {
+  return {
+    "@type": "OfferCatalog",
+    name: "Formules",
+    itemListElement: FORMULES.map((f) => ({
+      "@type": "Offer",
+      name: f.titre,
+      description: f.resume,
+      priceCurrency: "EUR",
+      ...(f.prix
+        ? { priceSpecification: { "@type": "UnitPriceSpecification", minPrice: f.prix, priceCurrency: "EUR", unitText: "m²" } }
+        : f.minimum && { priceSpecification: { "@type": "PriceSpecification", minPrice: f.minimum, priceCurrency: "EUR" } }),
+    })),
   };
 }
 
@@ -39,19 +63,21 @@ export function serviceJsonLd(ville: { nom: string; region: string; slug: string
       name: ville.nom,
       ...(ville.region && { containedInPlace: { "@type": "AdministrativeArea", name: ville.region } }),
     },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Formules",
-      itemListElement: FORMULES.map((f) => ({
-        "@type": "Offer",
-        name: f.titre,
-        description: f.resume,
-        priceCurrency: "EUR",
-        ...(f.prix
-          ? { priceSpecification: { "@type": "UnitPriceSpecification", minPrice: f.prix, priceCurrency: "EUR", unitText: "m²" } }
-          : f.minimum && { priceSpecification: { "@type": "PriceSpecification", minPrice: f.minimum, priceCurrency: "EUR" } }),
-      })),
-    },
+    hasOfferCatalog: offerCatalog(),
+  };
+}
+
+/** Page Services : la prestation, partout en France, avec les quatre formules. */
+export function servicesJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Architecture d’intérieur",
+    name: "Services d’architecte d’intérieur",
+    url: `${SITE.url}/services`,
+    provider: { "@id": ORG_ID },
+    areaServed: { "@type": "Country", name: "France" },
+    hasOfferCatalog: offerCatalog(),
   };
 }
 

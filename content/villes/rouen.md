@@ -14,7 +14,7 @@ quartiers:
   - Mont-Saint-Aignan
   - Bihorel
   - Petit-Quevilly
-seoTitle: Architecte d’intérieur à Rouen · Agencement, décoration, rénovation
+seoTitle: Architecte d’intérieur à Rouen · Déco et rénovation
 seoDescription: Studio Lixivel, architecte d’intérieur à Rouen. Agencement, décoration et rénovation sur place, dès 35 €/m². Plans 2D, rendus 3D et suivi de chantier.
 faq:
   - q: Le studio se déplace-t-il chez moi à Rouen ?

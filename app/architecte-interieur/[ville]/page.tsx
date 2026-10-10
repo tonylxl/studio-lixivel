@@ -10,7 +10,7 @@ import Reveal from "@/components/Reveal";
 import { FORMULES } from "@/data/services";
 import { getProjets, getVille, getVilles, renderMarkdown } from "@/lib/content";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo";
-import { rdvHref } from "@/lib/site";
+import { rdvHref, titreSeo } from "@/lib/site";
 import styles from "../villes.module.css";
 
 type Params = { ville: string };
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const v = getVille(ville);
   if (!v) return {};
   return {
-    title: v.seoTitle ?? `Architecte d’intérieur à ${v.nom}`,
+    title: titreSeo(v.seoTitle ?? `Architecte d’intérieur à ${v.nom}`),
     description: (
       v.seoDescription ??
       `Architecte d’intérieur à ${v.nom} : agencement, décoration et rénovation, à distance ou sur place. Plans 2D, rendus 3D, liste shopping. Dès 35 €/m².`

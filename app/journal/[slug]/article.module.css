@@ -140,6 +140,40 @@
   padding-left: 1.2em;
 }
 
+/* Tableaux (ex. exemples de prix) : filets fins, texte à gauche, montants alignés à droite sans coupure */
+.prose :global(table) {
+  width: 100%;
+  margin: 32px 0;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.prose :global(th),
+.prose :global(td) {
+  padding: 12px 16px 12px 0;
+  border-bottom: 1px solid var(--bordure-legere);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose :global(th) {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--texte-2);
+}
+
+.prose :global(td) {
+  color: var(--texte);
+}
+
+.prose :global(th:last-child),
+.prose :global(td:last-child) {
+  padding-right: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+
 .prose :global(.article-figure) {
   display: flex;
   flex-direction: column;

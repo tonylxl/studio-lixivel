@@ -9,7 +9,7 @@ import ArticleAside from "@/components/ArticleAside";
 import ArticleCard from "@/components/ArticleCard";
 import SectionHead from "@/components/SectionHead";
 import { formatDate, getArticle, getArticles, renderMarkdown } from "@/lib/content";
-import { SITE, rdvHref } from "@/lib/site";
+import { SITE, rdvHref, titreSeo } from "@/lib/site";
 import styles from "./article.module.css";
 
 type Params = { slug: string };
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const a = getArticle(slug);
   if (!a) return {};
   return {
-    title: { absolute: `${a.seoTitle ?? a.titre} · Conseils d’architecte d’intérieur · Studio Lixivel` },
+    title: titreSeo(a.seoTitle ?? a.titre),
     description: a.seoDescription ?? a.chapo.slice(0, 155),
     openGraph: { type: "article", images: [a.cover], publishedTime: a.date },
     ...(a.brouillon && { robots: { index: false, follow: false } }),
@@ -58,7 +58,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Journal", item: `${SITE.url}/journal` },
+        { "@type": "ListItem", position: 1, name: "Blog", item: `${SITE.url}/journal` },
         { "@type": "ListItem", position: 2, name: a.titre, item: `${SITE.url}/journal/${a.slug}` },
       ],
     },
@@ -94,7 +94,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
             );
           })}
         </ul>
-        <p className="t-petit c-2">Liens affiliés : ils ne changent rien au prix pour vous et soutiennent le journal.</p>
+        <p className="t-petit c-2">Liens affiliés : ils ne changent rien au prix pour vous et soutiennent le blog.</p>
       </div>
     ) : null;
 
@@ -110,7 +110,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
             </p>
           )}
           <nav className={`t-surtitre ${styles.ariane}`} aria-label="Fil d’Ariane">
-            <Link href="/journal">Journal</Link>
+            <Link href="/journal">Blog</Link>
             <span aria-hidden>/</span>
             <span>{a.categorie}</span>
           </nav>

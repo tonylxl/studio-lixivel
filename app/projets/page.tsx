@@ -5,9 +5,9 @@ import ProjetsHub from "@/components/ProjetsHub";
 import { getProjets } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Projets d’architecture intérieure",
+  title: "Réalisations d’architecte d’intérieur",
   description:
-    "Appartements, maisons, bureaux, ateliers : une sélection de projets menés par Studio Lixivel, à distance partout en France et sur place en Normandie.",
+    "Studios, appartements, bureaux, ateliers : les réalisations de Studio Lixivel, avant/après et plans, à distance partout en France et sur place en Normandie.",
 };
 
 export default function ProjetsPage() {

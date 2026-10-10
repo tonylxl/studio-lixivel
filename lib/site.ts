@@ -14,10 +14,19 @@ export const NAV = [
   { href: "/projets", label: "Projets" },
   { href: "/services", label: "Services" },
   { href: "/le-studio", label: "Le studio" },
-  { href: "/journal", label: "Journal" },
+  { href: "/journal", label: "Blog" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
+
+/**
+ * Titre de page SEO : « titre · Studio Lixivel » si ça tient dans les 60 caractères
+ * qu'affiche Google, sinon le titre seul (le mot-clé reste en tête).
+ */
+export function titreSeo(titre: string) {
+  const complet = `${titre} · ${SITE.name}`;
+  return { absolute: complet.length <= 60 ? complet : titre };
+}
 
 /** Lien vers la page de prise de rendez-vous, avec la source du clic (suivi). */
 export function rdvHref(source: string, extra?: Record<string, string>) {

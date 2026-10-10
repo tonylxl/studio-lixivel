@@ -8,7 +8,7 @@ media:
 
 content:
   - name: journal
-    label: Journal
+    label: Blog
     type: collection
     path: content/journal
     filename: "{fields.titre}.md"

@@ -14,7 +14,7 @@ import styles from "./villes.module.css";
 export const metadata: Metadata = {
   title: "Architecte d’intérieur partout en France",
   description:
-    "Studio Lixivel accompagne vos projets d’aménagement et de décoration à distance dans toute la France, et sur place pour les rénovations. Paris, Lyon, Bordeaux, Nantes, Lille…",
+    "Architecte d’intérieur à distance dans toute la France, sur place pour les rénovations : Rouen, Paris, Lyon, Bordeaux, Nantes, Lille, Marseille, Toulouse.",
   alternates: { canonical: "/architecte-interieur" },
 };
 

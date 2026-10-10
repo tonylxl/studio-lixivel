@@ -13,7 +13,7 @@ quartiers:
   - Bastide
   - Nansouty
   - Le Bouscat
-seoTitle: Architecte d’intérieur à Bordeaux · Échoppes, appartements, décoration
+seoTitle: Architecte d’intérieur à Bordeaux · Échoppes et déco
 seoDescription: "Architecte d’intérieur pour votre échoppe ou votre appartement à Bordeaux : aménagement, décoration, plans 2D et rendus 3D, à distance dès 35 €/m²."
 faq:
   - q: Comment faire entrer la lumière dans une échoppe bordelaise ?

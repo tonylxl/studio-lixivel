@@ -545,8 +545,8 @@ a:focus-visible > .trait {
 
 .pill[aria-pressed="true"],
 .pill.is-active {
-  background: var(--fond-accent);
-  border-color: var(--fond-accent);
+  background: var(--fond-sombre);
+  border-color: var(--fond-sombre);
   color: var(--texte-inverse);
 }
 

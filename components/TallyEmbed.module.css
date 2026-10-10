@@ -29,7 +29,7 @@
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: var(--fond-accent);
+  background: var(--fond-sombre);
 }
 
 .question {
@@ -61,8 +61,8 @@
 }
 
 .choice[aria-pressed="true"] {
-  border-color: var(--fond-accent);
-  background: var(--fond-accent);
+  border-color: var(--fond-sombre);
+  background: var(--fond-sombre);
   color: var(--texte-inverse);
 }
 

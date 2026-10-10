@@ -13,7 +13,7 @@ quartiers:
   - Confluence
   - Monplaisir
   - Villeurbanne
-seoTitle: Architecte d’intérieur à Lyon · Aménagement et décoration à distance
+seoTitle: Architecte d’intérieur à Lyon · Aménagement à distance
 seoDescription: "Architecte d’intérieur pour votre appartement à Lyon : aménagement, décoration, plans 2D et rendus 3D. Accompagnement à distance dès 35 €/m², rénovation sur devis."
 faq:
   - q: Comment aménager un appartement de canut avec une grande hauteur sous plafond ?

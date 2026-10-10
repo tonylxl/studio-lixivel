@@ -7,9 +7,9 @@ import { SITE } from "@/lib/site";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
-  title: "Prendre rendez-vous",
+  title: "Rendez-vous avec un architecte d’intérieur",
   description:
-    "Répondez au questionnaire en 5 minutes : vos envies, vos contraintes, votre budget. Le studio vous recontacte sous 48 h, sans engagement.",
+    "Décrivez votre projet en 5 minutes : envies, contraintes, budget. Le studio vous recontacte sous 48 h pour en parler et vous orienter, sans engagement.",
 };
 
 export default function ContactPage() {
@@ -25,7 +25,7 @@ export default function ContactPage() {
           </h1>
           <p className={`t-serre c-2 ${styles.intro}`}>
             Répondez au questionnaire en 5 minutes : vos envies, vos contraintes, votre budget. Nous vous recontactons
-            ensuite pour en parler, sans engagement.
+            sous 48 h pour en parler et vous orienter vers la bonne formule, sans engagement.
           </p>
 
           <section aria-labelledby="t-etapes" className={styles.etapes}>

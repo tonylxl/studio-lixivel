@@ -9,13 +9,36 @@
   border-bottom: 1px solid var(--bordure-legere);
 }
 
-/* Noms des magazines : 60 % → 100 % au survol */
-.presseNom {
+.presseLogos {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 48px;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin-left: auto;
+}
+
+/* Logos presse ton sur ton (brun du texte), 60 % → 100 % au survol.
+   Taille à surface égale : largeur = √(surface × ratio), hauteur = √(surface / ratio),
+   pour qu'un logo très large (Marie Claire) ne paraisse pas plus gros qu'un logo compact (Gala). */
+.presseLogo {
+  --surface: 3400;
+  width: calc(sqrt(var(--surface) * var(--ratio)) * var(--poids) * 1px);
+  aspect-ratio: var(--ratio);
+  background: var(--texte);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
   opacity: 0.6;
   transition: opacity 0.25s var(--ease);
 }
 
-.presseNom:hover {
+.presseLogo:hover {
   opacity: 1;
 }
 
@@ -43,7 +66,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: min(900px, 100svh);
+  /* Plein écran à toutes les tailles : sinon la zone de pause (blanche) apparaît sous la photo */
+  height: 100svh;
   padding: 36px var(--g);
   overflow: hidden;
   color: var(--texte-inverse);
@@ -64,12 +88,7 @@
   transition: transform 1.2s var(--ease);
 }
 
-.projet:hover .projetFond {
-  position: absolute;
-  inset: 0;
-}
-
-.projetImg {
+.projet:hover .projetImg {
   transform: scale(1.03);
 }
 
@@ -188,6 +207,11 @@
   background: var(--fond-lin);
 }
 
+/* Questions fréquentes */
+.faq {
+  padding-block: 160px;
+}
+
 /* Instagram */
 .insta {
   padding-block: 0 160px;
@@ -250,7 +274,6 @@
     padding-block: 100px 120px;
   }
   .projet {
-    height: min(700px, 100svh);
     padding: 32px var(--g);
   }
   .services {
@@ -263,6 +286,9 @@
   .studio,
   .processus {
     padding-bottom: 120px;
+  }
+  .faq {
+    padding-block: 120px;
   }
   .studioImg {
     height: 560px;
@@ -295,18 +321,28 @@
 }
 
 @media (max-width: 640px) {
+  .faq {
+    padding-block: 80px;
+  }
   .presse {
     justify-content: flex-start;
   }
   .presse > p:first-child {
     width: 100%;
   }
+  .presseLogos {
+    margin-left: 0;
+    justify-content: flex-start;
+    gap: 20px 32px;
+  }
+  .presseLogo {
+    --surface: 2000;
+  }
   .intro {
     padding-block: 64px 80px;
     gap: 32px;
   }
   .projet {
-    height: 520px;
     padding: 24px var(--g);
   }
   .services {
