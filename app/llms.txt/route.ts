@@ -2,6 +2,7 @@ import { ETAPES, FORMULES } from "@/data/services";
 import { FAQ } from "@/data/faq";
 import { getArticles, getProjets, getVilles } from "@/lib/content";
 import { SITE } from "@/lib/site";
+import { PRESSE } from "@/data/presse";
 
 export const dynamic = "force-static";
 
@@ -21,12 +22,16 @@ export function GET() {
     "- Basé à Rouen (Normandie) ; trois formules sur quatre entièrement à distance, partout en France.",
     "- Tarifs (honoraires, hors mobilier et travaux) : dès 35 €/m², 55 €/m², 90 €/m², prise en charge complète à partir de 5 000 €.",
     "- Délais : 15 jours pour un plan d’aménagement, environ 6 mois pour une rénovation.",
-    "- Plus de 60 projets accompagnés ; cité par Marie Claire, Gala, Forbes, actu.fr et Maison & Jardin.",
+    "- Plus de 60 projets accompagnés ; cité par Marie Claire, Gala, Forbes, ICI Normandie (radio), actu.fr et Maison & Jardin.",
     "- Premier contact : questionnaire en 5 minutes, réponse sous 48 h, sans engagement.",
     "",
     "## Formules et tarifs",
     "",
     ...FORMULES.map((f) => `- [${f.titre}](${u(`/services#${f.slug}`)}) : ${f.tarif}. ${f.surtitre}. Délai : ${f.delai}. ${f.resume}`),
+    "",
+    "## Dans la presse",
+    "",
+    ...PRESSE.map((p) => (p.lien ? `- ${p.nom} : [${p.titre}](${p.lien})` : `- ${p.nom} : ${p.titre}`)),
     "",
     "## Comment se passe un projet",
     "",

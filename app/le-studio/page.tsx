@@ -8,6 +8,7 @@ import MaskReveal from "@/components/MaskReveal";
 import SettleCard from "@/components/SettleCard";
 import CountUp from "@/components/CountUp";
 import { SITE } from "@/lib/site";
+import { PRESSE } from "@/data/presse";
 import styles from "./studio.module.css";
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ const SECTIONS: StudioNavItem[] = [
 
 const CHIFFRES = [
   { valeur: "+60", label: "projets accompagnés", rotate: 3, y: 60 },
-  { valeur: "5", label: "médias en ont parlé", rotate: -2, y: 20 },
+  { valeur: "6", label: "médias en ont parlé", rotate: -2, y: 20 },
   { valeur: "3", label: "formules sur 4 entièrement à distance", rotate: 2, y: 90 },
   { valeur: "48 h", label: "pour vous répondre", rotate: -3, y: 40 },
 ];
@@ -49,20 +50,6 @@ const VALEURS = [
     titre: "Rien de caché.",
     texte: "Un devis clair, des délais tenus et des points réguliers : vous savez toujours où en est votre projet.",
   },
-];
-
-/** `lien` vide : la ligne s'affiche sans être cliquable (en attendant le vrai lien de l'article). */
-const PRESSE: { nom: string; titre: string; lien?: string }[] = [
-  { nom: "Marie Claire", titre: "Studio Lixivel dans les adresses incontournables" },
-  {
-    nom: "Gala",
-    titre: "Cette architecte d’intérieur s’est fait connaître sur TikTok et nous livre les dessous de son métier",
-  },
-  {
-    nom: "actu.fr",
-    titre: "Rouen : sur TikTok, cette architecte d’intérieur vous montre comment bien aménager votre chez-vous",
-  },
-  { nom: "Maison & Jardin", titre: "Design et décoration en ligne (2023)" },
 ];
 
 const REELS = [

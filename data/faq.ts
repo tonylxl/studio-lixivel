@@ -11,7 +11,7 @@ export const FAQ: { id: string; titre: string; items: QR[] }[] = [
     items: [
       {
         q: "Qui est derrière Studio Lixivel ?",
-        r: "Cindy, architecte d’intérieur et créatrice de contenus déco, qui a fondé le studio à Rouen. Elle suit chaque projet de près, du premier questionnaire à la remise des clés. Le studio a accompagné plus de 60 projets et a été cité par Marie Claire, Gala, Forbes, actu.fr et Maison & Jardin.",
+        r: "Cindy, architecte d’intérieur et créatrice de contenus déco, qui a fondé le studio à Rouen. Elle suit chaque projet de près, du premier questionnaire à la remise des clés. Le studio a accompagné plus de 60 projets et a été cité par Marie Claire, Gala, Forbes, ICI Normandie, actu.fr et Maison & Jardin.",
       },
       {
         q: "Quelle différence entre un architecte d’intérieur et un décorateur ?",

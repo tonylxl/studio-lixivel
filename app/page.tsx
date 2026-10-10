@@ -217,7 +217,7 @@ export default function Home() {
             <span />
             <div className="col-2 stack" style={{ gap: 24, alignItems: "flex-start" }}>
               <p className="t-serre c-2">
-                Remarquée sur TikTok et Instagram, citée par Marie Claire, Gala, Forbes et Maison &amp; Jardin, Cindy
+                Remarquée sur TikTok et Instagram, citée par Marie Claire, Gala, Forbes, ICI Normandie et Maison &amp; Jardin, Cindy
                 partage chaque semaine ses astuces pour un intérieur réussi sans exploser son budget. Elle suit
                 elle-même chaque projet du studio, du premier questionnaire à la remise des clés.
               </p>
