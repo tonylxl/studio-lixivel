@@ -1,3 +1,9 @@
+/**
+ * Le site n'est indexable que sur le vrai domaine : en production Vercel ET avec NEXT_PUBLIC_SITE_URL renseigné.
+ * Tant que l'ancien site tourne sur le domaine, l'adresse .vercel.app reste invisible pour Google (pas de contenu en double).
+ */
+export const INDEXABLE = process.env.VERCEL_ENV === "production" && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
+
 export const SITE = {
   name: "Studio Lixivel",
   baseline: "Architecte d’intérieur",

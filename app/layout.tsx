@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Schibsted_Grotesk } from "next/font/google";
-import { SITE } from "@/lib/site";
+import { INDEXABLE, SITE } from "@/lib/site";
 import { getVilles } from "@/lib/content";
 import { JsonLd, orgJsonLd } from "@/lib/seo";
 import "./globals.css";
@@ -14,6 +14,7 @@ const schibsted = Schibsted_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
+  ...(!INDEXABLE && { robots: { index: false, follow: false } }),
   title: {
     default: "Studio Lixivel · Architecte d’intérieur dès 35 €/m²",
     template: "%s · Studio Lixivel",

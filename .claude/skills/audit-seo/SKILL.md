@@ -33,7 +33,7 @@ Faire un petit script Node dans le scratchpad plutôt que des dizaines de curl �
 ## 4. GEO (IA)
 
 - `{base}/llms.txt` répond et liste formules, villes, projets, articles.
-- `robots.txt` n’interdit pas GPTBot, ClaudeBot, PerplexityBot, Google-Extended.
+- `robots.txt` n’interdit pas GPTBot, ClaudeBot, PerplexityBot, Google-Extended. Exception voulue : tant que `NEXT_PUBLIC_SITE_URL` n’est pas renseigné dans Vercel (ou en local), tout est en `Disallow` + `noindex` (`INDEXABLE` dans `lib/site.ts`).
 - Les réponses de FAQ et les chapôs donnent une réponse directe en 1-2 phrases.
 
 ## 5. Hors code (à rappeler, pas à vérifier)
