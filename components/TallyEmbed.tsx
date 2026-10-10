@@ -4,7 +4,8 @@ import Script from "next/script";
 import { useEffect, useState } from "react";
 import styles from "./TallyEmbed.module.css";
 
-const FORM_ID = process.env.NEXT_PUBLIC_TALLY_FORM_ID ?? "";
+/** Questionnaire « Débuter votre projet » (public : il apparaît dans la page). Une variable d'environnement peut le remplacer. */
+const FORM_ID = process.env.NEXT_PUBLIC_TALLY_FORM_ID || "obr965";
 
 const DEMO_CHOIX = [
   "Aménager ou décorer une pièce",
@@ -16,7 +17,7 @@ const DEMO_CHOIX = [
 /**
  * Formulaire Tally intégré. Les paramètres de l'URL (source, formule, surface)
  * sont transmis au formulaire en champs cachés.
- * Tant que NEXT_PUBLIC_TALLY_FORM_ID n'est pas renseigné, une maquette s'affiche.
+ * Si FORM_ID est vide, une maquette s'affiche.
  */
 export default function TallyEmbed() {
   const [query, setQuery] = useState("");
