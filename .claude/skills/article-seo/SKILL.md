@@ -9,6 +9,8 @@ Les articles sont des fichiers `content/journal/{slug}.md`. Relire un article ex
 
 ## 1. Choisir l’angle
 
+- **Sans sujet donné** : prendre le premier sujet « À faire » de la priorité la plus haute dans `docs/plan-editorial.md`, l’annoncer à Tony, puis passer son statut à « Brouillon » une fois l’article écrit.
+
 - **Une requête principale** que les gens tapent vraiment (« aménager un studio de 30 m² », « quelle couleur pour une chambre sombre »). La mettre dans le titre, le `seoTitle`, le premier paragraphe et un intertitre.
 - Préférer les sujets où Cindy a une vraie expertise : petits espaces, agencement, décoration à petit budget, rénovation légère.
 - Vérifier qu’aucun article existant ne vise déjà la même requête (sinon on optimise l’existant).

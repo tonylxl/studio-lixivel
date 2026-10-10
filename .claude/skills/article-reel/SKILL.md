@@ -30,7 +30,7 @@ Le script télécharge le réel et produit `infos.json` (légende, date, durée)
 
 ## 3. Choisir l’angle SEO
 
-Une requête principale que les gens tapent vraiment, liée au sujet du réel (ex. réel « mon astuce pour agrandir une entrée » → « aménager une petite entrée »). Vérifier dans `content/journal/` qu’aucun article ne vise déjà cette requête. Annoncer la requête choisie à Tony en une ligne.
+Une requête principale que les gens tapent vraiment, liée au sujet du réel (ex. réel « mon astuce pour agrandir une entrée » → « aménager une petite entrée »). Vérifier dans `content/journal/` qu’aucun article ne vise déjà cette requête. Si le sujet du réel correspond à une ligne de `docs/plan-editorial.md`, reprendre sa requête et mettre la ligne à jour (« Brouillon »). Annoncer la requête choisie à Tony en une ligne.
 
 ## 4. Rédiger
 
