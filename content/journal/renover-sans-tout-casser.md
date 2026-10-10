@@ -4,7 +4,7 @@ categorie: Rénovation
 date: 2026-07-01
 duree: 8 min
 cover: /images/plan.jpg
-coverAlt: ""
+coverAlt: "Plan 2D d’un appartement avec le nom et les dimensions de chaque pièce"
 chapo: "Peinture, sol, lumière, rangements : l’ordre dans lequel le studio attaque une rénovation légère pour transformer une pièce sans gros chantier."
 etiquettes:
   - Rénovation

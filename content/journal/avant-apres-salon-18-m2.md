@@ -4,7 +4,7 @@ categorie: Avant / après
 date: 2026-06-12
 duree: 3 min
 cover: /images/chambre.jpg
-coverAlt: ""
+coverAlt: "Chambre avec tête de lit en bois, couvre-lit vert anis, coussin rayé et étagère chargée de livres"
 chapo: "Un canapé mal placé, une télé qui écrase la pièce : comment le studio a redonné de l’air à un salon de 18 m², sans changer de canapé."
 etiquettes:
   - Avant / après

@@ -9,7 +9,7 @@ import ArticleAside from "@/components/ArticleAside";
 import ArticleCard from "@/components/ArticleCard";
 import SectionHead from "@/components/SectionHead";
 import { formatDate, getArticle, getArticles, renderMarkdown } from "@/lib/content";
-import { SITE, rdvHref, titreSeo } from "@/lib/site";
+import { SITE, descriptionSeo, rdvHref, titreSeo } from "@/lib/site";
 import styles from "./article.module.css";
 
 type Params = { slug: string };
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!a) return {};
   return {
     title: titreSeo(a.seoTitle ?? a.titre),
-    description: a.seoDescription ?? a.chapo.slice(0, 155),
+    description: descriptionSeo(a.seoDescription ?? a.chapo),
     openGraph: { type: "article", images: [a.cover], publishedTime: a.date },
     ...(a.brouillon && { robots: { index: false, follow: false } }),
   };

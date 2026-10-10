@@ -4,7 +4,7 @@ categorie: Chambre
 date: 2026-08-05
 duree: 7 min
 cover: /images/bureau.jpg
-coverAlt: ""
+coverAlt: "Bureau sur mesure en bois clair le long d’un mur sombre, chaise rouge et lampadaire en rotin"
 chapo: "Un plafonnier trop blanc, pas de lumière pour lire, des ampoules trop froides… Les erreurs les plus fréquentes, et comment les corriger sans travaux."
 etiquettes:
   - Chambre

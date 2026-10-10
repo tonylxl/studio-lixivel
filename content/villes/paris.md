@@ -15,7 +15,7 @@ quartiers:
   - Vincennes
   - Montreuil
 seoTitle: Architecte d’intérieur à Paris · Petits espaces et déco
-seoDescription: "Architecte d’intérieur pour votre appartement parisien : optimisation des petits espaces, décoration et rénovation. À distance dès 35 €/m², suivi de chantier sur place."
+seoDescription: "Architecte d’intérieur pour votre appartement parisien : petits espaces, décoration et rénovation. À distance dès 35 €/m², suivi de chantier sur place."
 faq:
   - q: Pouvez-vous aménager un petit appartement parisien à distance ?
     r: Oui, c’est même le projet que le studio fait le plus souvent. Vous envoyez photos, plan et mesures, nous vous livrons les plans 2D, les rendus 3D et, avec la formule décoration, la liste shopping complète.

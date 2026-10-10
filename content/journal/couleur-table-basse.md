@@ -4,7 +4,7 @@ categorie: Salon
 date: 2026-09-02
 duree: 4 min
 cover: /images/chambre.jpg
-coverAlt: ""
+coverAlt: "Chambre avec tête de lit en bois, couvre-lit vert anis, coussin rayé et étagère chargée de livres"
 chapo: "Bois clair, laque colorée ou noir mat : la bonne couleur de table basse dépend surtout de votre canapé et de votre sol. Le studio vous aide à choisir."
 etiquettes:
   - Salon

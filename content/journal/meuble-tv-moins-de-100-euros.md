@@ -4,7 +4,7 @@ categorie: Petit budget
 date: 2026-08-21
 duree: 5 min
 cover: /images/plan.jpg
-coverAlt: ""
+coverAlt: "Plan 2D d’un appartement avec le nom et les dimensions de chaque pièce"
 chapo: "Caissons de cuisine, plateau en bois et quelques poignées bien choisies : la méthode du studio pour un meuble TV sur mesure qui ne ressemble pas à un meuble en kit."
 etiquettes:
   - Petit budget

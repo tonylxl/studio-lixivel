@@ -34,6 +34,16 @@ export function titreSeo(titre: string) {
   return { absolute: complet.length <= 60 ? complet : titre };
 }
 
+/**
+ * Description pour Google : coupée proprement à la fin d'un mot (avec « … ») si elle dépasse `max`,
+ * au lieu d'être tronquée au milieu d'un mot.
+ */
+export function descriptionSeo(texte: string, max = 158) {
+  const t = texte.replace(/\s+/g, " ").trim();
+  if (t.length <= max) return t;
+  return t.slice(0, max - 1).replace(/[\s,;:.!?\u00a0]+\S*$/, "") + "…";
+}
+
 /** Lien vers la page de prise de rendez-vous, avec la source du clic (suivi). */
 export function rdvHref(source: string, extra?: Record<string, string>) {
   const params = new URLSearchParams({ source, ...(extra ?? {}) });

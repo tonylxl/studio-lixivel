@@ -4,7 +4,7 @@ categorie: Cuisine
 date: 2026-07-18
 duree: 6 min
 cover: /images/bureau.jpg
-coverAlt: ""
+coverAlt: "Bureau sur mesure en bois clair le long d’un mur sombre, chaise rouge et lampadaire en rotin"
 chapo: "Un îlot mal placé gêne plus qu’il ne sert. Distances, circulations, prises : les règles à connaître avant de dessiner votre cuisine ouverte."
 etiquettes:
   - Cuisine

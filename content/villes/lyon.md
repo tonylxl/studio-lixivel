@@ -14,7 +14,7 @@ quartiers:
   - Monplaisir
   - Villeurbanne
 seoTitle: Architecte d’intérieur à Lyon · Aménagement à distance
-seoDescription: "Architecte d’intérieur pour votre appartement à Lyon : aménagement, décoration, plans 2D et rendus 3D. Accompagnement à distance dès 35 €/m², rénovation sur devis."
+seoDescription: "Architecte d’intérieur pour votre appartement à Lyon : aménagement, décoration, plans 2D et rendus 3D. À distance dès 35 €/m², rénovation sur devis."
 faq:
   - q: Comment aménager un appartement de canut avec une grande hauteur sous plafond ?
     r: Les 4 mètres sous plafond des appartements de canut permettent souvent de créer une mezzanine ou des rangements en hauteur. Le studio étudie la faisabilité sur plan avant de vous proposer un aménagement.

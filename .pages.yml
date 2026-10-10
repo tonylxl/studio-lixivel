@@ -20,7 +20,12 @@ content:
         sort: date
         order: desc
     fields:
-      - { name: titre, label: Titre (H1), type: string, required: true }
+      - name: titre
+        label: Titre (H1)
+        type: string
+        required: true
+        options: { maxlength: 90 }
+        description: "Reprendre la question que les gens tapent dans Google, ex. « Comment aménager un studio de 30 m² ? »."
       - name: categorie
         label: Catégorie
         type: select
@@ -28,18 +33,35 @@ content:
         options:
           values: [Petits espaces, Salon, Chambre, Cuisine, Petit budget, Rénovation, Avant / après]
       - { name: date, label: Date de publication, type: date, required: true }
-      - { name: duree, label: Durée de lecture (ex. 6 min), type: string }
+      - name: duree
+        label: Durée de lecture
+        type: string
+        pattern: { regex: "^$|^\\d+\\s?min$", message: "Format attendu : 6 min" }
+        description: "Ex. 6 min (environ 200 mots par minute)."
       - { name: brouillon, label: "Brouillon (non publié : visible seulement par son lien)", type: boolean }
       - { name: une, label: Article à la une, type: boolean }
       - { name: vertical, label: "Photos verticales (article tiré d’un réel, format 4:5)", type: boolean }
       - { name: cover, label: Photo de couverture, type: image, required: true }
-      - { name: coverAlt, label: Description de la photo (accessibilité), type: string }
-      - { name: chapo, label: Chapô (introduction), type: text }
+      - name: coverAlt
+        label: Description de la photo
+        type: string
+        required: true
+        options: { minlength: 15, maxlength: 200 }
+        description: "Décrire ce qu’on voit, ex. « Cuisine blanche avec îlot en bois et deux tabourets roses ». Lu par Google et par les personnes malvoyantes."
+      - name: chapo
+        label: Chapô (introduction)
+        type: text
+        required: true
+        options: { minlength: 100, maxlength: 350 }
+        description: "2 ou 3 phrases qui répondent directement à la question du titre : c’est ce que reprennent Google et les IA."
       - name: reel
         label: Réel Instagram lié
         type: object
         fields:
-          - { name: url, label: Lien du réel, type: string }
+          - name: url
+            label: Lien du réel
+            type: string
+            pattern: { regex: "^$|^https://(www\\.)?instagram\\.com/", message: "Coller un lien Instagram (https://www.instagram.com/…)" }
           - { name: vignette, label: Vignette du réel, type: image }
           - { name: legende, label: Légende du réel, type: string }
       - name: produits
@@ -50,10 +72,22 @@ content:
           - { name: titre, label: Nom du produit, type: string }
           - { name: prix, label: Prix, type: string }
           - { name: image, label: Photo, type: image }
-          - { name: lien, label: Lien (affilié), type: string }
-      - { name: etiquettes, label: Étiquettes, type: string, list: true }
-      - { name: seoTitle, label: Titre pour Google (optionnel), type: string }
-      - { name: seoDescription, label: Description pour Google (optionnel), type: text }
+          - name: lien
+            label: Lien (affilié)
+            type: string
+            pattern: { regex: "^$|^https?://", message: "Le lien doit commencer par https://" }
+      - { name: etiquettes, label: Étiquettes, type: string, list: true, description: "2 à 4 mots-clés, ex. Petits espaces, Rangement." }
+      - name: seoTitle
+        label: Titre pour Google (optionnel)
+        type: string
+        options: { maxlength: 60 }
+        description: "60 caractères maximum, sinon Google le coupe. Vide = le titre de la page est repris."
+      - name: seoDescription
+        label: Description pour Google (optionnel)
+        type: text
+        pattern: { regex: "^$|^[\\s\\S]{110,160}$", message: "Entre 110 et 160 caractères, ou laisser vide." }
+        options: { maxlength: 160 }
+        description: "Le texte gris sous le titre dans Google. Entre 110 et 160 caractères, avec la requête principale et ce que le lecteur y gagne. Vide = le chapô est repris."
       - name: body
         label: Contenu
         type: rich-text
@@ -69,7 +103,11 @@ content:
       primary: sujet
     fields:
       - { name: sujet, label: Sujet en quelques mots, type: string, required: true, description: "Ex. « cuisine du studio à 10 000 € ». Sert seulement à retrouver la demande." }
-      - { name: url, label: Lien du réel Instagram, type: string, required: true }
+      - name: url
+        label: Lien du réel Instagram
+        type: string
+        required: true
+        pattern: { regex: "^https://(www\\.)?instagram\\.com/(reel|reels|p)/", message: "Coller le lien d’un réel, ex. https://www.instagram.com/reel/…" }
       - { name: notes, label: "Consignes pour l’article (optionnel)", type: text, description: "Angle souhaité, infos à ajouter (ville, budget, marques des produits, liens), ce qu’il ne faut pas dire…" }
       - name: statut
         label: Statut
@@ -93,7 +131,7 @@ content:
       - { name: sousTitre, label: Sous-titre (formule), type: string }
       - { name: ville, label: Ville, type: string }
       - { name: lieu, label: Lieu (fiche), type: string }
-      - { name: annee, label: Année, type: number }
+      - { name: annee, label: Année, type: number, required: true }
       - { name: ordre, label: Ordre d’affichage, type: number }
       - name: couleur
         label: Couleur d’ouverture
@@ -101,7 +139,11 @@ content:
         options:
           values: [rose, sauge, moutarde, lin, doux, ardoise]
       - { name: cover, label: Photo principale, type: image, required: true }
-      - { name: coverAlt, label: Description de la photo, type: string }
+      - name: coverAlt
+        label: Description de la photo
+        type: string
+        options: { maxlength: 200 }
+        description: "Décrire ce qu’on voit, ex. « Bureau sur mesure en bois sous une fenêtre, chaise rouge ». Lu par Google et par les personnes malvoyantes."
       - { name: surface, label: Surface, type: string }
       - { name: formule, label: Formule, type: string }
       - { name: duree, label: Durée, type: string }
@@ -158,7 +200,12 @@ content:
         type: select
         options:
           values: [rose, sauge, moutarde, lin, doux, ardoise]
-      - { name: intro, label: Introduction (en haut à droite), type: text, required: true }
+      - name: intro
+        label: Introduction (en haut à droite)
+        type: text
+        required: true
+        options: { maxlength: 220 }
+        description: "2 phrases propres à la ville (pas un copier-coller d’une autre ville)."
       - { name: deplacement, label: "Comment le studio intervient dans cette ville", type: text }
       - { name: quartiers, label: Quartiers et communes, type: string, list: true }
       - name: faq
@@ -168,8 +215,17 @@ content:
         fields:
           - { name: q, label: Question, type: string }
           - { name: r, label: Réponse, type: text }
-      - { name: seoTitle, label: Titre pour Google (optionnel), type: string }
-      - { name: seoDescription, label: Description pour Google (optionnel), type: text }
+      - name: seoTitle
+        label: Titre pour Google (optionnel)
+        type: string
+        options: { maxlength: 60 }
+        description: "60 caractères maximum, sinon Google le coupe. Vide = le titre de la page est repris."
+      - name: seoDescription
+        label: Description pour Google (optionnel)
+        type: text
+        pattern: { regex: "^$|^[\\s\\S]{110,160}$", message: "Entre 110 et 160 caractères, ou laisser vide." }
+        options: { maxlength: 160 }
+        description: "Le texte gris sous le titre dans Google. Entre 110 et 160 caractères, avec la requête principale et ce que le lecteur y gagne. Vide = le chapô est repris."
       - name: body
         label: Contenu propre à la ville
         type: rich-text
