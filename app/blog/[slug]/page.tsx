@@ -58,8 +58,8 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Blog", item: `${SITE.url}/journal` },
-        { "@type": "ListItem", position: 2, name: a.titre, item: `${SITE.url}/journal/${a.slug}` },
+        { "@type": "ListItem", position: 1, name: "Blog", item: `${SITE.url}/blog` },
+        { "@type": "ListItem", position: 2, name: a.titre, item: `${SITE.url}/blog/${a.slug}` },
       ],
     },
   ];
@@ -94,14 +94,14 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
             );
           })}
         </ul>
-        <p className="t-petit c-2">Liens affiliés : ils ne changent rien au prix pour vous et soutiennent le blog.</p>
+        <p className="t-petit c-2">Liens affiliés : ils ne changent rien au prix pour vous et soutiennent le blog.</p>
       </div>
     ) : null;
 
   return (
     <>
       <PageTone tone="ardoise" />
-      <Header variant="dark" source={`journal-${a.slug}`} />
+      <Header variant="dark" source={`blog-${a.slug}`} />
       <main id="contenu">
         <header className={`tone-bg ${styles.hero}`} data-dark>
           {a.brouillon && (
@@ -110,7 +110,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
             </p>
           )}
           <nav className={`t-surtitre ${styles.ariane}`} aria-label="Fil d’Ariane">
-            <Link href="/journal">Blog</Link>
+            <Link href="/blog">Blog</Link>
             <span aria-hidden>/</span>
             <span>{a.categorie}</span>
           </nav>
@@ -171,7 +171,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
                 et liste shopping compris.
               </p>
               <div className={styles.ctaActions}>
-                <Link href={rdvHref("journal", { article: a.slug })} className="btn btn--rose">
+                <Link href={rdvHref("blog", { article: a.slug })} className="btn btn--rose">
                   Débuter votre projet
                 </Link>
                 <Link href="/services#simulateur" className="link">

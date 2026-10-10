@@ -55,7 +55,7 @@ export function GET() {
     "",
     "## Blog",
     "",
-    ...getArticles().map((a) => `- [${a.titre}](${u(`/journal/${a.slug}`)}) : ${a.chapo}`),
+    ...getArticles().map((a) => `- [${a.titre}](${u(`/blog/${a.slug}`)}) : ${a.chapo}`),
     "",
   ];
   return new Response(lignes.join("\n"), { headers: { "Content-Type": "text/plain; charset=utf-8" } });

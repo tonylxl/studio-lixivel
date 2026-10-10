@@ -73,6 +73,11 @@
   margin: 4px 0 0;
 }
 
+/* Le tarif ne se coupe jamais (« Dès 55 €/m² » sur deux lignes à 768 px). */
+.meta > div:last-child dd {
+  white-space: nowrap;
+}
+
 /* Comparatif */
 .comparatif {
   border-top: 0;

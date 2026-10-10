@@ -51,19 +51,18 @@ const VALEURS = [
   },
 ];
 
-const PRESSE = [
-  { nom: "Marie Claire", titre: "Studio Lixivel dans les adresses incontournables", lien: "#" },
+/** `lien` vide : la ligne s'affiche sans être cliquable (en attendant le vrai lien de l'article). */
+const PRESSE: { nom: string; titre: string; lien?: string }[] = [
+  { nom: "Marie Claire", titre: "Studio Lixivel dans les adresses incontournables" },
   {
     nom: "Gala",
     titre: "Cette architecte d’intérieur s’est fait connaître sur TikTok et nous livre les dessous de son métier",
-    lien: "#",
   },
   {
     nom: "actu.fr",
     titre: "Rouen : sur TikTok, cette architecte d’intérieur vous montre comment bien aménager votre chez-vous",
-    lien: "#",
   },
-  { nom: "Maison & Jardin", titre: "Design et décoration en ligne (2023)", lien: "#" },
+  { nom: "Maison & Jardin", titre: "Design et décoration en ligne (2023)" },
 ];
 
 const REELS = [
@@ -224,13 +223,20 @@ export default function StudioPage() {
             <ul className={styles.presse}>
               {PRESSE.map((p) => (
                 <li key={p.nom}>
-                  <a href={p.lien} target="_blank" rel="noopener noreferrer" className={styles.presseRow}>
-                    <span className={styles.presseNom}>{p.nom}</span>
-                    <span className="t-serre c-2">{p.titre}</span>
-                    <span aria-hidden className={styles.arrow}>
-                      ↗
-                    </span>
-                  </a>
+                  {p.lien ? (
+                    <a href={p.lien} target="_blank" rel="noopener noreferrer" className={styles.presseRow}>
+                      <span className={styles.presseNom}>{p.nom}</span>
+                      <span className="t-serre c-2">{p.titre}</span>
+                      <span aria-hidden className={styles.arrow}>
+                        ↗
+                      </span>
+                    </a>
+                  ) : (
+                    <div className={styles.presseRow}>
+                      <span className={styles.presseNom}>{p.nom}</span>
+                      <span className="t-serre c-2">{p.titre}</span>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>

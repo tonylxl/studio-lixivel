@@ -48,6 +48,20 @@
   border-top: 0;
 }
 
+/* Tablette : l'image passe au-dessus du texte (sinon la colonne de texte est écrasée). */
+@media (max-width: 900px) {
+  .une {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+  .uneMedia {
+    height: 480px;
+  }
+  .uneText {
+    max-width: 600px;
+  }
+}
+
 @media (max-width: 760px) {
   .une {
     grid-template-columns: minmax(0, 1fr);

@@ -100,6 +100,6 @@ Une table de 60 cm suffit pour deux personnes et se glisse presque partout. Les 
 
 ## Et chez vous ?
 
-Chaque studio a son plan, ses fenêtres et ses arrivées d’eau. Pour savoir où placer un coin nuit chez vous, la formule [Agencement & conseils](/services#conseils) vous donne les plans 2D et 3D de l’aménagement, et la formule [Agencement & décoration](/services#decoration) y ajoute les rendus et la liste shopping complète. Pour aller plus loin, lisez aussi [comment aménager la cuisine d’un studio](/journal/amenager-cuisine-studio) et [comment créer un vrai bureau dans un studio de 30 m²](/journal/amenager-studio-30-m2-bureau).
+Chaque studio a son plan, ses fenêtres et ses arrivées d’eau. Pour savoir où placer un coin nuit chez vous, la formule [Agencement & conseils](/services#conseils) vous donne les plans 2D et 3D de l’aménagement, et la formule [Agencement & décoration](/services#decoration) y ajoute les rendus et la liste shopping complète. Pour aller plus loin, lisez aussi [comment aménager la cuisine d’un studio](/blog/amenager-cuisine-studio) et [comment créer un vrai bureau dans un studio de 30 m²](/blog/amenager-studio-30-m2-bureau).
 
 Vous avez un studio à repenser ? [Répondez au questionnaire](/contact?source=article-chambre-studio-20-m2) : nous vous recontactons sous 48 h.

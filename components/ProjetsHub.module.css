@@ -204,3 +204,12 @@
     display: none;
   }
 }
+
+/* Tablette : galerie sur deux colonnes (une photo par écran, c'est trop long). */
+@media (min-width: 641px) and (max-width: 900px) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px 24px;
+  }
+}

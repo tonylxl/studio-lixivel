@@ -33,6 +33,24 @@ function readCollection(dir: string) {
     });
 }
 
+/**
+ * Typographie française : espace insécable avant « : ; ! ? » et à l'intérieur des guillemets,
+ * pour qu'un signe ne se retrouve jamais seul en début de ligne (« studio / : un îlot »).
+ * Appliquée aux textes saisis dans Pages CMS, où l'on tape des espaces normales.
+ */
+export function typo(text: string): string;
+export function typo(text: string | undefined): string | undefined;
+export function typo(text?: string) {
+  return text
+    ?.replace(/[ \u00a0\u202f]+([:;!?»])/g, "\u00a0$1")
+    .replace(/«[ \u00a0\u202f]+/g, "«\u00a0");
+}
+
+/** Même chose sur du HTML, seulement dans le texte (jamais dans les balises ni les attributs). */
+function typoHtml(html: string) {
+  return html.replace(/>([^<]+)</g, (_m, t: string) => `>${typo(t)}<`);
+}
+
 export type TocItem = { id: string; label: string };
 
 /** Markdown → HTML, avec ancres sur les H2 et encadrés « Le conseil du studio ». */
@@ -75,7 +93,7 @@ export function renderMarkdown(markdown: string): { html: string; toc: TocItem[]
     (_m, inner: string) =>
       `<aside class="conseil"><span class="conseil__art" aria-hidden="true"></span><div><p class="conseil__titre">Le conseil du studio</p>${inner}</div></aside>`,
   );
-  return { html, toc };
+  return { html: typoHtml(html), toc: toc.map((t) => ({ ...t, label: typo(t.label) })) };
 }
 
 /* --------------------------------------------------------------------------
@@ -113,8 +131,8 @@ export function getProjets(): Projet[] {
   return readCollection("projets")
     .map(({ slug, data }) => ({
       slug,
-      titre: data.titre ?? slug,
-      sousTitre: data.sousTitre ?? "",
+      titre: typo(data.titre ?? slug),
+      sousTitre: typo(data.sousTitre ?? ""),
       ville: data.ville ?? "",
       lieu: data.lieu ?? data.ville ?? "",
       annee: Number(data.annee ?? new Date().getFullYear()),
@@ -126,7 +144,7 @@ export function getProjets(): Projet[] {
       ordre: Number(data.ordre ?? 99),
       cover: data.cover ?? "/images/bureau.jpg",
       coverAlt: data.coverAlt ?? data.titre ?? "",
-      brief: data.brief,
+      brief: typo(data.brief),
       contraintes: data.contraintes ?? [],
       avant: data.avant,
       apres: data.apres,
@@ -185,17 +203,17 @@ export function getArticles({ brouillons = false } = {}): Article[] {
   return readCollection("journal")
     .map(({ slug, data, content }) => ({
       slug,
-      titre: data.titre ?? slug,
+      titre: typo(data.titre ?? slug),
       categorie: data.categorie ?? "Conseils",
       date: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
       duree: data.duree ?? "5 min",
       cover: data.cover ?? "/images/bureau.jpg",
       coverAlt: data.coverAlt ?? "",
-      chapo: data.chapo ?? "",
+      chapo: typo(data.chapo ?? ""),
       une: Boolean(data.une),
       brouillon: Boolean(data.brouillon),
       vertical: Boolean(data.vertical),
-      reel: data.reel?.url ? data.reel : undefined,
+      reel: data.reel?.url ? { ...data.reel, legende: typo(data.reel.legende) } : undefined,
       produits: data.produits ?? [],
       etiquettes: data.etiquettes ?? [],
       seoTitle: data.seoTitle,
@@ -241,8 +259,8 @@ export function getVilles(): Ville[] {
       region: data.region ?? "",
       ordre: Number(data.ordre ?? 99),
       couleur: (data.couleur ?? "doux") as Tone,
-      intro: data.intro ?? "",
-      deplacement: data.deplacement ?? "",
+      intro: typo(data.intro ?? ""),
+      deplacement: typo(data.deplacement ?? ""),
       quartiers: data.quartiers ?? [],
       faq: (data.faq ?? []).filter((f: { q?: string; r?: string }) => f?.q && f?.r),
       seoTitle: data.seoTitle,

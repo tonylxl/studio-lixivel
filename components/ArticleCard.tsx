@@ -13,7 +13,7 @@ export type ArticleCardData = {
 
 export default function ArticleCard({ a }: { a: ArticleCardData }) {
   return (
-    <Link href={`/journal/${a.slug}`} className={styles.card}>
+    <Link href={`/blog/${a.slug}`} className={styles.card}>
       <div className={`media ${styles.media}`}>
         <Image src={a.cover} alt={a.coverAlt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
       </div>

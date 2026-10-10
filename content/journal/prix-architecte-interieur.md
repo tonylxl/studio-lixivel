@@ -78,7 +78,7 @@ Le budget total d’un projet se compose de trois parts : les honoraires, le mob
 
 Pour donner un ordre d’idée, la rénovation du [Studio 30 m² à Rouen](/projets/studio-30-m2), menée en prise en charge complète, représentait 25 000 € de travaux et de mobilier, en plus des honoraires. À l’inverse, un projet de décoration sans travaux peut se faire en gardant une partie de vos meubles et en complétant avec des pièces chinées ou à petit prix.
 
-Si vous hésitez entre un rafraîchissement et de vrais travaux, l’article [Rénover sans tout casser : par où commencer ?](/journal/renover-sans-tout-casser) vous aide à faire le tri.
+Si vous hésitez entre un rafraîchissement et de vrais travaux, l’article [Rénover sans tout casser : par où commencer ?](/blog/renover-sans-tout-casser) vous aide à faire le tri.
 
 ## Un architecte d’intérieur à distance coûte-t-il moins cher ?
 

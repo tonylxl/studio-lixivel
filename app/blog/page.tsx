@@ -24,7 +24,7 @@ export default function JournalPage() {
 
   return (
     <JournalProvider>
-      <Opening tone="ardoise" source="header-journal" surtitre="Le blog" title="Conseils d’architecte d’intérieur">
+      <Opening tone="ardoise" source="header-blog" surtitre="Le blog" title="Conseils d’architecte d’intérieur">
         <p>
           Aménager, décorer, rénover : les astuces du studio pour des intérieurs pratiques et chaleureux, même avec un
           petit budget. Un nouvel article chaque mois.
@@ -35,7 +35,7 @@ export default function JournalPage() {
       <main id="contenu" className="sur-blanc">
         {une && (
           <section className={styles.une} aria-label="À la une">
-            <Link href={`/journal/${une.slug}`} className={`media ${styles.uneMedia}`}>
+            <Link href={`/blog/${une.slug}`} className={`media ${styles.uneMedia}`}>
               <Image src={une.cover} alt={une.coverAlt} fill priority sizes="(max-width: 760px) 100vw, 48vw" />
             </Link>
             <div className={styles.uneText}>
@@ -45,12 +45,12 @@ export default function JournalPage() {
                 <span className="t-surtitre c-2">{une.duree}</span>
               </p>
               <h2 className="t-projet">
-                <Link href={`/journal/${une.slug}`} className="trait">
+                <Link href={`/blog/${une.slug}`} className="trait">
                   {une.titre}
                 </Link>
               </h2>
               <p className="t-serre c-2">{une.chapo}</p>
-              <Link href={`/journal/${une.slug}`} className="link link--accent">
+              <Link href={`/blog/${une.slug}`} className="link link--accent">
                 Lire l’article
               </Link>
             </div>
@@ -65,7 +65,7 @@ export default function JournalPage() {
           <JournalList articles={reste} />
         </section>
       </main>
-      <Footer source="footer-journal" />
+      <Footer source="footer-blog" />
     </JournalProvider>
   );
 }

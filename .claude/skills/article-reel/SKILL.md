@@ -59,5 +59,5 @@ Ne copier que les images utilisées. Ne rien mettre dans le repo depuis le dossi
 ## 6. Vérifier et rendre la main
 
 - YAML valide (guillemets si « : » dans une valeur) : `node -e 'require("gray-matter")(require("fs").readFileSync("content/journal/{slug}.md","utf8"))'`.
-- `curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/journal/{slug}` → 200, et les liens internes de l’article répondent 200. Si un nouvel article répond 404 alors que le fichier est valide, le serveur de dev a gardé l’ancienne liste : `touch "app/journal/[slug]/page.tsx"` puis réessayer.
+- `curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/blog/{slug}` → 200, et les liens internes de l’article répondent 200. Si un nouvel article répond 404 alors que le fichier est valide, le serveur de dev a gardé l’ancienne liste : `touch "app/blog/[slug]/page.tsx"` puis réessayer.
 - Résumé pour Tony : requête visée, titre, lien local, nombre de mots, liens ajoutés, et la liste **à valider par Cindy** (passages complétés hors réel, produits sans lien, mots mal transcrits incertains).

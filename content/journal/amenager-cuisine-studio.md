@@ -105,6 +105,6 @@ C’est une technique que vous pouvez reprendre partout : **une base standard, u
 
 ## Et chez vous ?
 
-Chaque cuisine de studio a ses contraintes : arrivées d’eau, murs porteurs, fenêtre mal placée. Si vous voulez savoir ce qui est possible chez vous, la formule [Agencement & décoration](/services#decoration) vous donne le plan, les rendus 3D et la liste shopping complète, entièrement à distance. Pour l’organisation globale d’un petit logement, lisez aussi [comment aménager un studio de 30 m² sans sacrifier le bureau](/journal/amenager-studio-30-m2-bureau), et si votre cuisine est ouverte sur un séjour plus grand, [où placer l’îlot](/journal/cuisine-ouverte-ilot).
+Chaque cuisine de studio a ses contraintes : arrivées d’eau, murs porteurs, fenêtre mal placée. Si vous voulez savoir ce qui est possible chez vous, la formule [Agencement & décoration](/services#decoration) vous donne le plan, les rendus 3D et la liste shopping complète, entièrement à distance. Pour l’organisation globale d’un petit logement, lisez aussi [comment aménager un studio de 30 m² sans sacrifier le bureau](/blog/amenager-studio-30-m2-bureau), et si votre cuisine est ouverte sur un séjour plus grand, [où placer l’îlot](/blog/cuisine-ouverte-ilot).
 
 Vous avez un projet ? [Répondez au questionnaire](/contact?source=article-amenager-cuisine-studio) : nous vous recontactons sous 48 h.

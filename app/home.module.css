@@ -270,6 +270,13 @@
 }
 
 @media (max-width: 1024px) {
+  /* Tablette : logos un peu plus petits pour tenir sur une ligne. */
+  .presseLogos {
+    gap: 20px 28px;
+  }
+  .presseLogo {
+    --surface: 2600;
+  }
   .intro {
     padding-block: 100px 120px;
   }
