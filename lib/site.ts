@@ -1,6 +1,7 @@
 /**
  * Le site n'est indexable que sur le vrai domaine : en production Vercel ET avec NEXT_PUBLIC_SITE_URL renseigné.
  * Tant que l'ancien site tourne sur le domaine, l'adresse .vercel.app reste invisible pour Google (pas de contenu en double).
+ * Migration vers Cloudflare : remplacer VERCEL_ENV par la variable équivalente (CF_PAGES_BRANCH === "main").
  */
 export const INDEXABLE = process.env.VERCEL_ENV === "production" && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
 
@@ -14,6 +15,8 @@ export const SITE = {
   instagram: "https://www.instagram.com/studiolixivel/",
   tiktok: "https://www.tiktok.com/@studiolixivel",
   handle: "@studiolixivel",
+  /** Appel de lancement sur Cal.com, au format « utilisateur/type-de-rdv ». Vide tant que le compte n'existe pas. */
+  cal: "",
 };
 
 export const NAV = [
