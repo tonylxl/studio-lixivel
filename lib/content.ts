@@ -3,6 +3,9 @@ import path from "node:path";
 import matter from "gray-matter";
 import { Marked } from "marked";
 import type { Tone } from "./site";
+import { typo } from "./typo";
+
+export { typo };
 
 const CONTENT = path.join(process.cwd(), "content");
 
@@ -31,19 +34,6 @@ function readCollection(dir: string) {
       const { data, content } = matter(raw);
       return { slug: file.replace(/\.md$/, ""), data, content };
     });
-}
-
-/**
- * Typographie française : espace insécable avant « : ; ! ? » et à l'intérieur des guillemets,
- * pour qu'un signe ne se retrouve jamais seul en début de ligne (« studio / : un îlot »).
- * Appliquée aux textes saisis dans Pages CMS, où l'on tape des espaces normales.
- */
-export function typo(text: string): string;
-export function typo(text: string | undefined): string | undefined;
-export function typo(text?: string) {
-  return text
-    ?.replace(/[ \u00a0\u202f]+([:;!?»])/g, "\u00a0$1")
-    .replace(/«[ \u00a0\u202f]+/g, "«\u00a0");
 }
 
 /** Même chose sur du HTML, seulement dans le texte (jamais dans les balises ni les attributs). */
@@ -122,7 +112,7 @@ export type Projet = {
   plan?: string;
   rendu?: string;
   realise?: string;
-  galerie: string[];
+  galerie: { image: string; alt: string }[];
   shopping: { piece: string; ou?: string; prix?: string }[];
   avis?: { texte: string; nom: string; contexte?: string };
 };
@@ -151,7 +141,10 @@ export function getProjets(): Projet[] {
       plan: data.plan,
       rendu: data.rendu,
       realise: data.realise,
-      galerie: data.galerie ?? [],
+      // Ancien format accepté : simple liste de chemins d'images.
+      galerie: ((data.galerie ?? []) as (string | { image?: string; alt?: string })[])
+        .map((g) => (typeof g === "string" ? { image: g, alt: "" } : { image: g?.image ?? "", alt: g?.alt ?? "" }))
+        .filter((g) => g.image),
       shopping: data.shopping ?? [],
       avis: data.avis,
     }))

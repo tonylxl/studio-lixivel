@@ -154,9 +154,14 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
           <section className={`sur-blanc ${styles.block}`} aria-labelledby="t-images">
             <SectionHead id="t-images" title="En images" />
             <ul className={`wrap ${styles.galerie}`}>
-              {p.galerie.map((src, i) => (
-                <Reveal as="li" key={`${src}-${i}`} className={`media ${styles.galImg}`}>
-                  <Image src={src} alt="" fill sizes="(max-width: 760px) 100vw, 50vw" />
+              {p.galerie.map((g, i) => (
+                <Reveal as="li" key={`${g.image}-${i}`} className={`media ${styles.galImg}`}>
+                  <Image
+                    src={g.image}
+                    alt={g.alt || `${p.titre} à ${p.ville}, photo ${i + 1}`}
+                    fill
+                    sizes="(max-width: 760px) 100vw, 50vw"
+                  />
                 </Reveal>
               ))}
             </ul>

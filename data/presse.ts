@@ -1,27 +1,12 @@
+import donnees from "@/content/donnees/presse.json";
+import { typo } from "@/lib/typo";
+
 /**
  * Articles et émissions sur le studio (page Le studio, llms.txt), du plus récent au plus ancien.
+ * Modifiables dans Pages CMS (content/donnees/presse.json).
  * Sans `lien`, le média n'apparaît pas sur la page Le studio (seulement dans llms.txt).
+ * Les logos de l'accueil restent dans app/page.tsx (fichiers et réglages de taille).
  */
-export const PRESSE: { nom: string; titre: string; lien?: string }[] = [
-  {
-    nom: "ICI Normandie",
-    titre: "Cindy Lixivel imagine des intérieurs qui vous ressemblent (L’éco d’ICI, 2026)",
-    lien: "https://www.ici.fr/emissions/l-eco-d-ici-ici-normandie/cindy-lixivel-imagine-des-interieurs-qui-vous-ressemblent-9846052",
-  },
-  {
-    nom: "Marie Claire",
-    titre: "Studio Lixivel dans les adresses incontournables",
-    lien: "https://www.marieclaire.fr/adresses-incontournables/studio-lixivel/",
-  },
-  {
-    nom: "Gala",
-    titre: "Cette architecte d’intérieur s’est fait connaître sur TikTok et nous livre les dessous de son métier",
-    lien: "https://www.gala.fr/lifestyle/cette-architecte-dinterieur-sest-fait-connaitre-sur-tiktok-et-nous-livre-les-dessous-de-son-metier_513424",
-  },
-  {
-    nom: "actu.fr",
-    titre: "Rouen : sur TikTok, cette architecte d’intérieur vous montre comment bien aménager votre chez-vous",
-    lien: "https://actu.fr/normandie/rouen_76540/rouen-sur-tiktok-cette-architecte-d-interieur-vous-montre-comment-bien-amenager-votre-chez-vous_55934488.html",
-  },
-  { nom: "Maison & Jardin", titre: "Design et décoration en ligne (2023)" },
-];
+export const PRESSE: { nom: string; titre: string; lien?: string }[] = donnees
+  .filter((p) => p.nom)
+  .map((p) => ({ nom: p.nom, titre: typo(p.titre), lien: p.lien || undefined }));

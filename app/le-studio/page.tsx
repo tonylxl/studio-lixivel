@@ -9,6 +9,7 @@ import SettleCard from "@/components/SettleCard";
 import CountUp from "@/components/CountUp";
 import { SITE } from "@/lib/site";
 import { PRESSE } from "@/data/presse";
+import { CHIFFRES } from "@/data/chiffres";
 import styles from "./studio.module.css";
 
 export const metadata: Metadata = {
@@ -28,11 +29,12 @@ const SECTIONS: StudioNavItem[] = [
   { id: "coulisses", label: "En coulisses", couleur: "lin" },
 ];
 
-const CHIFFRES = [
-  { valeur: "+60", label: "projets accompagnés", rotate: 3, y: 60 },
-  { valeur: "6", label: "médias en ont parlé", rotate: -2, y: 20 },
-  { valeur: "3", label: "formules sur 4 entièrement à distance", rotate: 2, y: 90 },
-  { valeur: "48 h", label: "pour vous répondre", rotate: -3, y: 40 },
+/** Inclinaison et décalage des cartes « En chiffres » (dans l'ordre), le contenu vient de Pages CMS. */
+const POSE = [
+  { rotate: 3, y: 60 },
+  { rotate: -2, y: 20 },
+  { rotate: 2, y: 90 },
+  { rotate: -3, y: 40 },
 ];
 
 const VALEURS = [
@@ -162,7 +164,7 @@ export default function StudioPage() {
             <Head title="En chiffres" />
             <ul className={styles.chiffres}>
               {CHIFFRES.map((c, i) => (
-                <SettleCard key={c.label} index={i} rotate={c.rotate} y={c.y} className={styles.chiffre}>
+                <SettleCard key={c.label} index={i} {...POSE[i % POSE.length]} className={styles.chiffre}>
                   <CountUp value={c.valeur} className="t-chiffre" />
                   <span className={styles.chiffreLabel}>{c.label}</span>
                 </SettleCard>

@@ -12,10 +12,11 @@ import ScrollFadeText from "@/components/ScrollFadeText";
 import MaskReveal from "@/components/MaskReveal";
 import ScrollZoom from "@/components/ScrollZoom";
 import ProcessCards from "@/components/ProcessCards";
-import Avis, { type AvisItem } from "@/components/Avis";
+import Avis from "@/components/Avis";
 import Accordion from "@/components/Accordion";
 import { FORMULES } from "@/data/services";
 import { FAQ_ACCUEIL } from "@/data/faq";
+import { AVIS } from "@/data/avis";
 import { JsonLd, faqJsonLd } from "@/lib/seo";
 import { getProjets } from "@/lib/content";
 import { SITE } from "@/lib/site";
@@ -32,43 +33,6 @@ const PRESSE = [
   { nom: "Forbes", logo: "/images/presse/forbes.svg", ratio: 3.99, poids: 1 },
   { nom: "actu.fr", logo: "/images/presse/actu.svg", ratio: 3.5, poids: 1 },
   { nom: "Maison & Jardin", logo: "/images/presse/maison-jardin.png", ratio: 2.31, poids: 1.1 },
-];
-
-const AVIS: AvisItem[] = [
-  {
-    nom: "Matthieu",
-    projet: "Pièce de vie",
-    contexte: "Pièce de vie · Rouen · Agencement & décoration",
-    texte:
-      "Très à l’écoute, chaleureuse et inspirante, elle a su me proposer un projet en parfaite adéquation avec mes attentes.",
-    avant: "/images/bureau-nb.jpg",
-    apres: "/images/bureau.jpg",
-  },
-  {
-    nom: "Véronique",
-    projet: "Studio photo",
-    contexte: "Studio photo · Rouen · Agencement & décoration",
-    texte:
-      "Un vrai sens de l’espace : mon studio est enfin pratique pour travailler, et beau pour recevoir mes clients.",
-    avant: "/images/plan.jpg",
-    apres: "/images/chambre.jpg",
-  },
-  {
-    nom: "Kevin",
-    projet: "Studio 14 m²",
-    contexte: "Studio 14 m² · Lille · Agencement & conseils",
-    texte: "Je pensais qu’on ne pouvait rien faire de 14 m². Les plans m’ont prouvé le contraire, et sans exploser mon budget.",
-    avant: "/images/bureau-nb.jpg",
-    apres: "/images/chambre.jpg",
-  },
-  {
-    nom: "Fatoumata",
-    projet: "Appartement entier",
-    contexte: "Appartement entier · Paris · Prestation semi-complète",
-    texte: "Disponible, rigoureuse et pleine d’idées. Le suivi à distance des travaux m’a enlevé un poids énorme.",
-    avant: "/images/plan.jpg",
-    apres: "/images/bureau.jpg",
-  },
 ];
 
 const INSTA = [

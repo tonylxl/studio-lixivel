@@ -27,10 +27,14 @@ plan: /images/plan.jpg
 rendu: /images/bureau-nb.jpg
 realise: /images/bureau.jpg
 galerie:
-  - /images/bureau.jpg
-  - /images/chambre.jpg
-  - /images/bureau-nb.jpg
-  - /images/chambre.jpg
+  - image: /images/bureau.jpg
+    alt: Bureau sur mesure en bois clair le long d’un mur sombre, chaise rouge et lampadaire en rotin
+  - image: /images/chambre.jpg
+    alt: Chambre avec tête de lit en bois, couvre-lit vert anis et étagère chargée de livres
+  - image: /images/bureau-nb.jpg
+    alt: Le coin bureau en noir et blanc, avec la tapisserie murale au-dessus du plan de travail
+  - image: /images/chambre.jpg
+    alt: Vue d’ensemble du coin nuit, murs rouges et suspension en papier
 shopping:
   - piece: Chaise laquée rouge
     ou: Fabricant à préciser

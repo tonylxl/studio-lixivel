@@ -22,7 +22,8 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 - `lib/site.ts` : constantes (nav, email, réseaux, couleurs d’ouverture `TONES`, `rdvHref(source)`).
 - `lib/seo.tsx` : données structurées (entreprise `ProfessionalService` sur toutes les pages, `Service` par ville, `FAQPage`, fil d’Ariane).
 - `lib/content.ts` : lecture des collections Markdown (projets, journal, villes), rendu Markdown (ancres H2 → sommaire, citation → encadré « Le conseil du studio », marqueur `[[produits]]`).
-- `data/` : `services.ts` (4 formules, comparatif, étapes), `faq.ts`.
+- `content/donnees/*.json` : textes repris sur plusieurs pages, **modifiables dans Pages CMS** (« Réglages · … ») : `formules.json` (formules, tarifs, comparatif, étapes), `faq.json` (cases « accueil » / « services » pour les extraits), `avis.json`, `presse.json`, `chiffres.json`.
+- `data/` : lit ces JSON et expose les mêmes exports qu’avant (`FORMULES`, `COMPARATIF`, `ETAPES`, `FAQ`, `FAQ_ACCUEIL`, `FAQ_SERVICES`, `AVIS`, `PRESSE`, `CHIFFRES`), avec `typo()` (`lib/typo.ts`). Ne plus écrire ces contenus dans le code.
 - `content/projets/*.md`, `content/journal/*.md`, `content/villes/*.md` : contenus (frontmatter).
 - `public/images/` : visuels provisoires exportés de Figma (bureau, bureau-nb, chambre, plan, portrait, tabouret, tabouret-rose, fauteuil, fauteuil-lin, lampe).
 - `.pages.yml` : configuration Pages CMS (à tester en vrai).
@@ -76,7 +77,7 @@ Les numéros renvoient à la liste d’idées triée par Tony. Un lot = vérific
 - **Lot 0 · Finir l’existant** : ~~`/journal` → `/blog` (25)~~ ; ~~vérification tablette (36)~~ ; ~~liens presse (23)~~ : liste dans `data/presse.ts` ; la page Le studio n’affiche que les médias avec un lien d’article, le bandeau de logos de l’accueil (non cliquable) les garde tous.
 - **Lot 1 · Mise en ligne** : ~~Vercel relié au repo (1)~~ ; ~~redirections de l’ancien site (24)~~ : les 59 URL du WordPress (`docs/anciennes-urls-wordpress.txt`) redirigent dans `next.config.mjs` (projets → `/projets` en attendant de reprendre les 32 anciens projets) ; IndexNow + sitemap à chaque publication (14) ; ~~audit performance (38)~~ (Lighthouse mobile 10 oct. 2026 : perf 95-99 sur toutes les pages, accueil LCP 3,2 → ~2,2 s ; masque du hero en WebP préchargé, titre animé en CSS) ; ~~garde-fous Pages CMS (34)~~ : limites de longueur, formats (durée, liens Instagram, liens affiliés) et aides sous les champs dans `.pages.yml` ; descriptions coupées proprement à la fin d’un mot (`descriptionSeo`, `lib/site.ts`).
 - **Lot 2 · Demandes clients** (code prêt le 10 oct. 2026, voir `docs/suivi-demandes.md`) : Tally → Google Sheet (intégration native, compte Google de Tony) ; script Apps Script `scripts/google-sheet/suivi-demandes.gs` toutes les 5 min : prix « à partir de » (le haut de la fourchette est fixé par Cindy), statut, mail à contact@ avec réponse prête ; après envoi, `TallyEmbed` redirige vers `/contact/merci` (noindex) avec l’agenda Cal.com (`SITE.cal`, vide tant que le compte n’existe pas). Reste : installation par Tony (Sheet, script, Cal.com).
-- **Lot 3 · Autonomie de Cindy** : FAQ, avis, presse, chiffres, formules éditables dans Pages CMS (33) ; textes alternatifs proposés par IA (15).
+- **Lot 3 · Autonomie de Cindy** : ~~FAQ, avis, presse, chiffres, formules éditables dans Pages CMS (33)~~ (10 oct. 2026, `content/donnees/`) ; ~~textes alternatifs (15)~~ : champ « Description » par photo de galerie des projets + skill `/textes-alt` (gratuit, sans clé d’API).
 - **Lot 4 · Contenu** : plan éditorial (22) ; page Ressources avec guides à télécharger contre un email (27) ; réels intégrés aux articles + VideoObject (21) ; réels → articles automatiquement (5) ; fil Instagram automatique (6) ; fiches projets complètes (16).
 - **Lot 5 · Mesure** : statistiques (31, proposé en plus) puis tableau de bord (32).
 
@@ -84,5 +85,5 @@ Les numéros renvoient à la liste d’idées triée par Tony. Un lot = vérific
 
 - Tony est sur Mac, édite avec Cursor, et lance Claude Code en local dans le dossier du projet. Donner les commandes pour macOS uniquement.
 - `npm run dev` tourne pendant qu’on travaille : vérifier dans le navigateur, puis commit + `git push origin main` seulement quand Tony valide.
-- Skills SEO du projet (`.claude/skills/`) : `/nouvelle-ville`, `/article-seo`, `/audit-seo`.
+- Skills du projet (`.claude/skills/`) : `/nouvelle-ville`, `/article-seo`, `/audit-seo`, `/textes-alt` (décrit les images de contenu sans texte alternatif).
 - Article depuis un réel Instagram : `/article-reel <lien>` (script `scripts/reel.sh`, outils Homebrew `yt-dlp`, `ffmpeg`, `whisper-cpp`, modèle `~/.cache/whisper-cpp/ggml-large-v3-turbo-q5_0.bin`).

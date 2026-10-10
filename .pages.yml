@@ -165,7 +165,13 @@ content:
       - { name: plan, label: Plan 2D, type: image }
       - { name: rendu, label: Rendu 3D, type: image }
       - { name: realise, label: Photo du réalisé, type: image }
-      - { name: galerie, label: Galerie, type: image, list: true }
+      - name: galerie
+        label: Galerie
+        type: object
+        list: true
+        fields:
+          - { name: image, label: Photo, type: image, required: true }
+          - { name: alt, label: Description de la photo, type: string, options: { maxlength: 200 }, description: "Ce qu’on voit, ex. « Coin bureau en bois sous la fenêtre, chaise rouge ». Laisser vide : /textes-alt la proposera." }
       - name: shopping
         label: Liste shopping
         type: object
@@ -230,3 +236,117 @@ content:
         label: Contenu propre à la ville
         type: rich-text
         description: "Important pour Google : un texte vraiment propre à la ville (types de logements, quartiers, façon d’intervenir). Intertitres en « Titre 2 »."
+
+  # --- Réglages du site : textes et chiffres repris sur plusieurs pages (fichiers JSON dans content/donnees) ---
+
+  - name: formules
+    label: "Réglages · Formules et tarifs"
+    type: file
+    format: json
+    path: content/donnees/formules.json
+    fields:
+      - name: formules
+        label: Formules
+        type: object
+        list: true
+        description: "Les 4 formules, dans l’ordre d’affichage. Les tarifs servent aussi au simulateur : penser à prévenir Tony pour mettre à jour le Google Sheet des demandes."
+        fields:
+          - { name: slug, label: "Identifiant (ne pas modifier)", type: string, readonly: true }
+          - { name: titre, label: Nom de la formule, type: string, required: true }
+          - { name: court, label: Nom court (simulateur), type: string, required: true }
+          - { name: surtitre, label: "Surtitre (ex. 100 % à distance)", type: string }
+          - { name: resume, label: Résumé (accueil et pages villes), type: text, required: true, options: { maxlength: 220 } }
+          - { name: description, label: Description (page Services), type: text, required: true }
+          - { name: inclus, label: Ce qui est inclus, type: string, list: true }
+          - { name: delai, label: Délai, type: string, required: true }
+          - { name: tarif, label: "Tarif affiché (ex. Dès 55 €/m²)", type: string, required: true }
+          - { name: prixM2, label: "Tarif de base en €/m² (simulateur, vide pour un forfait)", type: number }
+          - { name: minimum, label: "Forfait minimum en € (prise en charge complète)", type: number }
+          - { name: noteTarif, label: Précision sous l’estimation du simulateur, type: string }
+          - { name: modifs, label: Modifications, type: string }
+          - { name: image, label: Image, type: image }
+          - { name: illustration, label: "L’image est une illustration (fond coloré)", type: boolean }
+      - name: comparatif
+        label: Tableau comparatif (page Services)
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Ligne, type: string, required: true }
+          - { name: conseils, label: Conseils, type: string, description: "✓ ou — ou un texte court" }
+          - { name: decoration, label: Décoration, type: string }
+          - { name: semiComplete, label: Semi-complète, type: string }
+          - { name: complete, label: Complète, type: string }
+      - name: etapes
+        label: Les étapes d’un projet (accueil, contact)
+        type: object
+        list: true
+        fields:
+          - { name: titre, label: Titre, type: string, required: true }
+          - { name: texte, label: Texte, type: text, required: true, options: { maxlength: 160 } }
+          - name: couleur
+            label: Couleur de la carte
+            type: select
+            options:
+              values: [sauge, rose, ardoise, moutarde, lin]
+
+  - name: faq
+    label: "Réglages · FAQ"
+    type: file
+    format: json
+    path: content/donnees/faq.json
+    fields:
+      - name: categories
+        label: Catégories
+        type: object
+        list: true
+        fields:
+          - { name: id, label: "Identifiant (ne pas modifier)", type: string, readonly: true }
+          - { name: titre, label: Titre de la catégorie, type: string, required: true }
+          - name: questions
+            label: Questions
+            type: object
+            list: true
+            fields:
+              - { name: question, label: Question, type: string, required: true, description: "Formulée comme on la tape dans Google." }
+              - { name: reponse, label: Réponse, type: text, required: true, description: "Commencer par la réponse directe en une phrase (c’est ce que reprennent Google et les IA), puis le détail. Pas de lien ni de bouton." }
+              - { name: accueil, label: Afficher aussi sur l’accueil (4 questions max), type: boolean }
+              - { name: services, label: Afficher aussi sur la page Services (5 questions max), type: boolean }
+
+  - name: avis
+    label: "Réglages · Avis clients"
+    type: file
+    format: json
+    path: content/donnees/avis.json
+    list: true
+    fields:
+      - { name: nom, label: Prénom, type: string, required: true }
+      - { name: projet, label: "Projet (onglet, ex. Studio 14 m²)", type: string, required: true }
+      - { name: contexte, label: "Contexte (ex. Studio 14 m² · Lille · Agencement & conseils)", type: string }
+      - { name: texte, label: Avis, type: text, required: true, options: { maxlength: 260 } }
+      - { name: avant, label: Photo avant, type: image, required: true }
+      - { name: apres, label: Photo après, type: image, required: true }
+
+  - name: presse
+    label: "Réglages · Presse"
+    type: file
+    format: json
+    path: content/donnees/presse.json
+    list: true
+    fields:
+      - { name: nom, label: Média, type: string, required: true }
+      - { name: titre, label: Titre de l’article ou de l’émission, type: string, required: true }
+      - name: lien
+        label: Lien
+        type: string
+        pattern: { regex: "^$|^https?://", message: "Le lien doit commencer par https://" }
+        description: "Sans lien, le média n’apparaît pas sur la page Le studio. Le bandeau de logos de l’accueil se modifie avec Tony (fichier du logo)."
+
+  - name: chiffres
+    label: "Réglages · En chiffres"
+    type: file
+    format: json
+    path: content/donnees/chiffres.json
+    list: true
+    fields:
+      - { name: valeur, label: "Chiffre (ex. +60, 48 h)", type: string, required: true, options: { maxlength: 6 } }
+      - { name: label, label: Légende, type: string, required: true, options: { maxlength: 50 } }
