@@ -63,3 +63,20 @@
     translate: -50% 0;
   }
 }
+
+.titre {
+  animation: titre-entree 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes titre-entree {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .titre {
+    animation: none;
+  }
+}

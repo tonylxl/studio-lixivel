@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { useReducedMotion } from "motion/react";
 import styles from "./HeroHome.module.css";
 
 /**
@@ -29,16 +29,12 @@ export default function HeroHome() {
   return (
     <section className={styles.hero} style={{ ["--hero-fond" as string]: etat.fond }}>
       <div className={styles.inner}>
-        <motion.h1
-          className="t-hero"
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        >
+        {/* Apparition en CSS (pas en JS) : le titre s'affiche dès le premier rendu, sans attendre l'hydratation (LCP). */}
+        <h1 className={`t-hero ${styles.titre}`}>
           Architecte d’intérieur,
           <br />
           des lieux qui vous racontent.
-        </motion.h1>
+        </h1>
       </div>
 
       <div className={styles.objet} aria-hidden>
