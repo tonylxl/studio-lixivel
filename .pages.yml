@@ -237,6 +237,34 @@ content:
         type: rich-text
         description: "Important pour Google : un texte vraiment propre à la ville (types de logements, quartiers, façon d’intervenir). Intertitres en « Titre 2 »."
 
+  - name: ressources
+    label: Ressources (guides)
+    type: collection
+    path: content/ressources
+    filename: "{fields.titre}.md"
+    view:
+      fields: [titre, statut, ordre]
+      primary: titre
+      sort: [ordre]
+    fields:
+      - { name: titre, label: Titre du guide, type: string, required: true, options: { maxlength: 60 } }
+      - { name: description, label: Description, type: text, required: true, options: { maxlength: 260 }, description: "2 phrases : ce que contient le guide et à quoi il sert." }
+      - { name: fichier, label: Fichier PDF, type: file, description: "Le guide à télécharger. Sans fichier, la carte s’affiche « Bientôt disponible »." }
+      - { name: apercu, label: Aperçu de la couverture, type: image, description: "Image de la première page du guide (format A4 vertical)." }
+      - { name: format, label: "Format affiché (ex. PDF · 4 pages)", type: string }
+      - name: couleur
+        label: Couleur de la carte
+        type: select
+        options:
+          values: [rose, sauge, moutarde, lin, ardoise, doux]
+      - name: statut
+        label: Statut
+        type: select
+        default: bientôt
+        options:
+          values: [disponible, bientôt]
+      - { name: ordre, label: Ordre d’affichage, type: number }
+
   # --- Réglages du site : textes et chiffres repris sur plusieurs pages (fichiers JSON dans content/donnees) ---
 
   - name: formules

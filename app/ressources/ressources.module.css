@@ -1,0 +1,127 @@
+.grille {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  padding-block: 80px 160px;
+}
+
+.carte {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  min-height: 440px;
+  padding: 40px;
+  border-radius: var(--r-xl);
+  background: var(--fond-doux);
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+/* Le premier guide disponible prend deux colonnes. */
+.carte:not([data-bientot]):first-child {
+  grid-column: span 2;
+}
+
+.carte[data-couleur="rose"] {
+  background: var(--fond-rose);
+}
+.carte[data-couleur="sauge"] {
+  background: var(--sauge);
+}
+.carte[data-couleur="moutarde"] {
+  background: var(--moutarde);
+}
+.carte[data-couleur="lin"] {
+  background: var(--fond-lin);
+}
+.carte[data-couleur="ardoise"] {
+  background: var(--ardoise);
+  color: var(--texte-inverse);
+}
+
+/* Aperçu de la couverture, posé de biais à droite de la grande carte. */
+.apercu {
+  position: absolute;
+  right: 48px;
+  bottom: -24px;
+  width: 210px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 18px 40px rgb(73 65 65 / 0.18);
+  rotate: 5deg;
+}
+
+.carte:has(.apercu) {
+  overflow: hidden;
+  padding-right: 300px;
+}
+
+.carte:has(.apercu) form {
+  max-width: 460px;
+}
+
+.haut {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 560px;
+}
+
+.titre {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+@media (max-width: 1024px) {
+  .grille {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-block: 64px 120px;
+  }
+  .carte {
+    min-height: 360px;
+    padding: 32px;
+    border-radius: var(--r-l);
+  }
+  .titre {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .carte:has(.apercu) {
+    padding-right: 32px;
+  }
+  .apercu {
+    position: static;
+    width: 160px;
+    margin: 8px 0 -8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .grille {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding-block: 40px 80px;
+  }
+  .carte:not([data-bientot]):first-child {
+    grid-column: auto;
+  }
+  .carte {
+    min-height: 0;
+    padding: 28px 24px;
+  }
+  .titre {
+    font-size: 28px;
+  }
+}

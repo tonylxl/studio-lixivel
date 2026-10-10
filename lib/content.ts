@@ -267,3 +267,37 @@ export function getVille(slug: string) {
   return getVilles().find((v) => v.slug === slug);
 }
 
+
+/* --------------------------------------------------------------------------
+   Ressources (guides à télécharger, page /ressources)
+   -------------------------------------------------------------------------- */
+
+export type Ressource = {
+  slug: string;
+  titre: string;
+  description: string;
+  fichier?: string;
+  /** Image de la couverture du guide (aperçu sur la carte). */
+  apercu?: string;
+  format: string;
+  couleur: Tone;
+  disponible: boolean;
+  ordre: number;
+};
+
+export function getRessources(): Ressource[] {
+  return readCollection("ressources")
+    .map(({ slug, data }) => ({
+      slug,
+      titre: typo(data.titre ?? slug),
+      description: typo(data.description ?? ""),
+      fichier: data.fichier || undefined,
+      apercu: data.apercu || undefined,
+      format: data.format ?? "PDF",
+      couleur: (data.couleur ?? "rose") as Tone,
+      // Disponible seulement avec un fichier : un guide « bientôt » s'affiche sans bouton.
+      disponible: data.statut !== "bientôt" && Boolean(data.fichier),
+      ordre: Number(data.ordre ?? 99),
+    }))
+    .sort((a, b) => a.ordre - b.ordre);
+}

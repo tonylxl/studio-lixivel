@@ -1,6 +1,6 @@
 import { ETAPES, FORMULES } from "@/data/services";
 import { FAQ } from "@/data/faq";
-import { getArticles, getProjets, getVilles } from "@/lib/content";
+import { getArticles, getProjets, getRessources, getVilles } from "@/lib/content";
 import { SITE } from "@/lib/site";
 import { PRESSE } from "@/data/presse";
 
@@ -28,6 +28,12 @@ export function GET() {
     "## Formules et tarifs",
     "",
     ...FORMULES.map((f) => `- [${f.titre}](${u(`/services#${f.slug}`)}) : ${f.tarif}. ${f.surtitre}. Délai : ${f.delai}. ${f.resume}`),
+    "",
+    "## Guides gratuits",
+    "",
+    ...getRessources()
+      .filter((r) => r.disponible)
+      .map((r) => `- [${r.titre}](${u(`/ressources#${r.slug}`)}) : ${r.description}`),
     "",
     "## Dans la presse",
     "",

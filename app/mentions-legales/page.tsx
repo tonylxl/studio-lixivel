@@ -25,7 +25,7 @@ const BLOCS = [
   },
   {
     titre: "Données personnelles",
-    texte: `Les informations transmises via le questionnaire de contact servent uniquement à répondre à votre demande et à préparer votre projet. Elles ne sont ni vendues ni cédées. Conformément au RGPD, vous pouvez y accéder, les corriger ou demander leur suppression en écrivant à ${SITE.email}.`,
+    texte: `Les informations transmises via le questionnaire de contact (formulaire Tally) servent uniquement à répondre à votre demande et à préparer votre projet ; elles sont conservées dans le tableau de suivi des demandes du studio (Google). La réservation d’un appel passe par Cal.com. Si vous téléchargez un guide en laissant votre email, il est enregistré chez Brevo (données hébergées dans l’Union européenne) pour vous envoyer les guides et les conseils du studio, une à deux fois par mois ; chaque email contient un lien de désinscription. Ces données ne sont ni vendues ni cédées. Conformément au RGPD, vous pouvez y accéder, les corriger ou demander leur suppression en écrivant à ${SITE.email}.`,
   },
   {
     titre: "Cookies",

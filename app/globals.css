@@ -395,6 +395,16 @@ a:focus-visible > .trait {
   background: #f1c9cc;
 }
 
+/* Action secondaire (le bordeaux est réservé à la prise de rendez-vous). */
+.btn--sombre {
+  background: var(--fond-sombre);
+  color: var(--texte-inverse);
+}
+
+.btn--sombre:hover {
+  background: #352f2f;
+}
+
 .btn--ghost {
   background: transparent;
   color: var(--texte);

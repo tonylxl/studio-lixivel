@@ -1,0 +1,63 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.champs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.champ input {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--bordure);
+  border-radius: var(--r-s);
+  background: var(--fond-page);
+  color: var(--texte);
+  font: inherit;
+}
+
+.champ input:focus-visible {
+  outline: 2px solid var(--texte);
+  outline-offset: 1px;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.consent input {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--fond-sombre);
+}
+
+.merci {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .champs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

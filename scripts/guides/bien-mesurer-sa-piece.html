@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Bien mesurer sa pièce · Studio Lixivel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<!--
+  Guide PDF de la page Ressources. Pour régénérer le PDF :
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer \
+    --print-to-pdf=public/ressources/bien-mesurer-sa-piece.pdf scripts/guides/bien-mesurer-sa-piece.html
+-->
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --texte: #494141; --texte-2: #5a5450; --accent: #8c373c; --rose: #f7dddf; --lin: #e0d9d2; --doux: #f6f2ef; --sauge: #bcd4b4; --moutarde: #fcc976; }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: "Schibsted Grotesk", Helvetica, Arial, sans-serif; color: var(--texte); font-size: 10.5pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; padding: 18mm 18mm 16mm; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; gap: 7mm; }
+  .page:last-child { page-break-after: auto; }
+  .pied { position: absolute; left: 18mm; right: 18mm; bottom: 9mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--texte-2); }
+  h1 { font-size: 40pt; font-weight: 500; line-height: 1; letter-spacing: -0.03em; }
+  h2 { font-size: 17pt; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 2.5mm; }
+  h3 { font-size: 11pt; font-weight: 600; margin-bottom: 1mm; }
+  p + p { margin-top: 2mm; }
+  .surtitre { font-size: 8.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+  .c2 { color: var(--texte-2); }
+  .couv { background: var(--rose); justify-content: space-between; }
+  .couv .lead { font-size: 14pt; max-width: 125mm; }
+  .couv .bas { display: flex; justify-content: space-between; align-items: flex-end; font-size: 9pt; }
+  .num { display: inline-grid; place-items: center; width: 7mm; height: 7mm; border-radius: 999px; background: var(--accent); color: #fff; font-size: 9pt; font-weight: 600; margin-right: 2mm; vertical-align: middle; }
+  .etape { break-inside: avoid; }
+  .etape h3 { display: flex; align-items: center; }
+  ul { padding-left: 4.5mm; }
+  li { margin: 0.8mm 0; }
+  .grille { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm 8mm; }
+  .carte { border-radius: 6mm; padding: 6mm; }
+  .conseil { background: var(--doux); border-radius: 6mm; padding: 5mm 6mm; }
+  .conseil b { color: var(--accent); }
+  .schema { background: var(--doux); border-radius: 6mm; padding: 4mm; }
+  .check { list-style: none; padding: 0; columns: 2; column-gap: 8mm; }
+  .check li { break-inside: avoid; padding-left: 7mm; position: relative; margin: 1.6mm 0; }
+  .check li::before { content: ""; position: absolute; left: 0; top: 0.6mm; width: 3.6mm; height: 3.6mm; border: 0.35mm solid var(--texte); border-radius: 1mm; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  td, th { text-align: left; padding: 2mm 2mm 2mm 0; border-bottom: 0.2mm solid #d8d1cb; vertical-align: top; }
+  th { font-weight: 600; }
+  .fin { background: var(--sauge); }
+</style>
+</head>
+<body>
+
+<!-- 1. Couverture -->
+<section class="page couv">
+  <img src="../../public/images/tabouret.png" alt="" style="position:absolute;right:-6mm;bottom:30mm;width:88mm;opacity:0.9">
+  <div>
+    <p class="surtitre">Studio Lixivel · Les guides du studio</p>
+  </div>
+  <div>
+    <h1>Bien mesurer<br>sa pièce</h1>
+    <p class="lead" style="margin-top:8mm">Les relevés qui permettent de concevoir un aménagement juste, au centimètre près, même à distance. Comptez 30 minutes par pièce.</p>
+  </div>
+  <div class="bas">
+    <span>studiolixivel.com</span>
+    <span>Architecte d’intérieur · Rouen et partout en France</span>
+  </div>
+</section>
+
+<!-- 2. Matériel + méthode -->
+<section class="page">
+  <div>
+    <p class="surtitre">Avant de commencer</p>
+    <h2>Pourquoi des mesures précises changent tout</h2>
+    <p>Un canapé trop profond de 10 cm, une porte qui bute sur un meuble, une étagère qui ne passe pas sous la fenêtre : la plupart des erreurs d’aménagement viennent d’une mesure oubliée. Avec un relevé complet, le plan tombe juste du premier coup, et la liste d’achats aussi.</p>
+  </div>
+
+  <div class="grille">
+    <div class="carte" style="background:var(--lin)">
+      <h3>Le matériel</h3>
+      <ul>
+        <li>Un mètre ruban de 5 m (ou un télémètre laser)</li>
+        <li>Une feuille, idéalement quadrillée, et un crayon</li>
+        <li>Votre téléphone pour les photos</li>
+        <li>Une deuxième personne, si possible, pour tenir le mètre</li>
+      </ul>
+    </div>
+    <div class="carte" style="background:var(--moutarde)">
+      <h3>La méthode</h3>
+      <ul>
+        <li>Dessinez d’abord la pièce à main levée, sans échelle</li>
+        <li>Faites le tour dans le sens des aiguilles d’une montre</li>
+        <li>Notez toutes les mesures en centimètres, directement sur le croquis</li>
+        <li>Mesurez au sol, d’angle à angle, au ras des plinthes</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="schema">
+    <svg viewBox="0 0 600 330" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Schibsted Grotesk, Helvetica, sans-serif" font-size="13" fill="#494141">
+      <!-- murs -->
+      <rect x="90" y="40" width="420" height="230" fill="#fff" stroke="#494141" stroke-width="6"/>
+      <!-- fenêtre -->
+      <rect x="250" y="34" width="120" height="12" fill="#bcd4b4" stroke="#494141" stroke-width="2"/>
+      <!-- porte + débattement -->
+      <line x1="90" y1="190" x2="90" y2="268" stroke="#fff" stroke-width="8"/>
+      <path d="M90 190 A78 78 0 0 1 168 268" fill="none" stroke="#8c373c" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <line x1="90" y1="190" x2="168" y2="190" stroke="#8c373c" stroke-width="2.5"/>
+      <!-- radiateur -->
+      <rect x="400" y="252" width="80" height="12" fill="#e0d9d2" stroke="#494141" stroke-width="1.5"/>
+      <!-- prises -->
+      <circle cx="505" cy="120" r="6" fill="#fcc976" stroke="#494141"/>
+      <circle cx="200" cy="265" r="6" fill="#fcc976" stroke="#494141"/>
+      <!-- cotes -->
+      <g stroke="#8c373c" stroke-width="1.2">
+        <line x1="90" y1="300" x2="510" y2="300"/><line x1="90" y1="292" x2="90" y2="308"/><line x1="510" y1="292" x2="510" y2="308"/>
+        <line x1="545" y1="40" x2="545" y2="270"/><line x1="537" y1="40" x2="553" y2="40"/><line x1="537" y1="270" x2="553" y2="270"/>
+        <line x1="90" y1="18" x2="250" y2="18"/><line x1="250" y1="18" x2="370" y2="18"/><line x1="90" y1="12" x2="90" y2="24"/><line x1="250" y1="12" x2="250" y2="24"/><line x1="370" y1="12" x2="370" y2="24"/>
+      </g>
+      <g fill="#8c373c" font-weight="600">
+        <text x="300" y="322" text-anchor="middle">412 cm</text>
+        <text x="575" y="160" text-anchor="middle" transform="rotate(90 575 160)">305 cm</text>
+        <text x="170" y="12" text-anchor="middle">158</text>
+        <text x="310" y="12" text-anchor="middle">fenêtre 120 (allège 92)</text>
+      </g>
+      <g font-size="12" fill="#5a5450">
+        <text x="100" y="180">porte 83, ouvre vers l’intérieur</text>
+        <text x="380" y="245">radiateur 80 × 60</text>
+        <text x="425" y="125">prise</text>
+        <text x="212" y="258">prise</text>
+        <text x="300" y="160" text-anchor="middle" font-size="14" fill="#494141">HSP 252 cm</text>
+      </g>
+    </svg>
+    <p class="c2" style="font-size:8.5pt;margin-top:2mm">Exemple de croquis coté. HSP : hauteur sous plafond. Allège : hauteur entre le sol et le bas de la fenêtre.</p>
+  </div>
+  <div class="pied"><span>Studio Lixivel · Bien mesurer sa pièce</span><span>2</span></div>
+</section>
+
+<!-- 3. Les 6 étapes -->
+<section class="page">
+  <div>
+    <p class="surtitre">Pas à pas</p>
+    <h2>Les 6 relevés à faire</h2>
+  </div>
+
+  <div class="etape">
+    <h3><span class="num">1</span>Les murs</h3>
+    <p>La longueur de chaque mur, d’angle à angle, au sol. Si la pièce n’est pas rectangulaire, mesurez aussi les deux diagonales : c’est ce qui permet de redessiner les angles qui ne sont pas droits (fréquent dans l’ancien).</p>
+  </div>
+  <div class="etape">
+    <h3><span class="num">2</span>La hauteur sous plafond</h3>
+    <p>À deux endroits au moins, les plafonds sont rarement parfaitement plats. Notez aussi les poutres, les soupentes et les décrochés : hauteur au point bas et largeur.</p>
+  </div>
+  <div class="etape">
+    <h3><span class="num">3</span>Les fenêtres et les portes</h3>
+    <ul>
+      <li><b>Fenêtres</b> : largeur, hauteur, hauteur d’allège (sol → bas de la fenêtre), distance à l’angle le plus proche, sens d’ouverture.</li>
+      <li><b>Portes</b> : largeur, distance à l’angle, sens d’ouverture (vers l’intérieur ou l’extérieur, à gauche ou à droite). Le débattement de la porte, c’est de la place qu’aucun meuble ne pourra prendre.</li>
+    </ul>
+  </div>
+  <div class="etape">
+    <h3><span class="num">4</span>Tout ce qui ne bouge pas</h3>
+    <p>Radiateurs (largeur, hauteur, position), prises, interrupteurs, points lumineux au plafond, arrivées et évacuations d’eau, tableau électrique, conduits et gaines. Ce sont eux qui décident souvent où va le lit, le canapé ou la cuisine.</p>
+  </div>
+  <div class="etape">
+    <h3><span class="num">5</span>Les meubles que vous gardez</h3>
+    <p>Largeur × profondeur × hauteur de chaque meuble conservé. Pour un canapé, ajoutez la hauteur d’assise et la profondeur des accoudoirs.</p>
+  </div>
+  <div class="etape">
+    <h3><span class="num">6</span>Les photos</h3>
+    <p>Une photo par mur, prise depuis l’angle opposé, en lumière du jour, pièce rangée si possible. Ajoutez une photo du sol et du plafond, et une vue depuis la porte d’entrée.</p>
+  </div>
+
+  <div class="conseil">
+    <p><b>Le conseil du studio.</b> Notez le nord sur votre croquis (la boussole du téléphone suffit) et l’heure à laquelle la pièce est la plus lumineuse. C’est ce qui guide le choix des couleurs et l’emplacement d’un bureau ou d’un coin lecture.</p>
+  </div>
+  <div class="pied"><span>Studio Lixivel · Bien mesurer sa pièce</span><span>3</span></div>
+</section>
+
+<!-- 4. Pièges + checklist -->
+<section class="page">
+  <div>
+    <p class="surtitre">Les pièges</p>
+    <h2>Les erreurs les plus fréquentes</h2>
+    <table>
+      <tr><th style="width:42%">Erreur</th><th>Comment l’éviter</th></tr>
+      <tr><td>Mesurer à hauteur de main</td><td>Mesurez au sol, au ras des plinthes : les murs ne sont jamais parfaitement droits.</td></tr>
+      <tr><td>Arrondir les mesures</td><td>Gardez le centimètre près. 3 cm d’écart sur un mur, c’est une bibliothèque qui ne rentre plus.</td></tr>
+      <tr><td>Oublier le débattement des portes</td><td>Notez le sens d’ouverture de chaque porte et de chaque fenêtre.</td></tr>
+      <tr><td>Oublier les plinthes et les radiateurs</td><td>Ils réduisent la place réelle d’un meuble contre le mur.</td></tr>
+      <tr><td>Mesurer une seule fois</td><td>Vérifiez : la somme des segments d’un mur doit retomber sur sa longueur totale.</td></tr>
+    </table>
+  </div>
+
+  <div>
+    <p class="surtitre">Avant d’envoyer</p>
+    <h2>La checklist</h2>
+    <ul class="check">
+      <li>Croquis de la pièce, avec le nord</li>
+      <li>Longueur de chaque mur</li>
+      <li>Diagonales (pièce non rectangulaire)</li>
+      <li>Hauteur sous plafond, à deux endroits</li>
+      <li>Poutres, soupentes, décrochés</li>
+      <li>Fenêtres : largeur, hauteur, allège, position</li>
+      <li>Portes : largeur, position, sens d’ouverture</li>
+      <li>Radiateurs, prises, interrupteurs</li>
+      <li>Points lumineux et arrivées d’eau</li>
+      <li>Dimensions des meubles conservés</li>
+      <li>Une photo par mur + sol et plafond</li>
+      <li>Vos images d’inspiration</li>
+    </ul>
+  </div>
+
+  <div class="carte fin">
+    <h3>Et maintenant ?</h3>
+    <p>Avec ces relevés, le studio peut concevoir votre aménagement entièrement à distance : plans 2D et 3D, rendus et liste shopping, à partir de 35 €/m². Décrivez votre projet en 5 minutes sur <b>studiolixivel.com/contact</b> : nous vous répondons sous 48 h.</p>
+  </div>
+  <div class="pied"><span>Studio Lixivel · Bien mesurer sa pièce</span><span>4</span></div>
+</section>
+
+</body>
+</html>

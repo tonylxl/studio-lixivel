@@ -17,6 +17,11 @@ export const SITE = {
   handle: "@studiolixivel",
   /** Appel de lancement sur Cal.com, au format « utilisateur/type-de-rdv ». Vide tant que le compte n'existe pas. */
   cal: "",
+  /**
+   * Adresse du formulaire Brevo (« https://….sibforms.com/serve/… ») qui inscrit à la liste « Ressources du studio ».
+   * Vide : les guides se téléchargent librement, sans formulaire.
+   */
+  brevo: "",
 };
 
 export const NAV = [
@@ -24,6 +29,7 @@ export const NAV = [
   { href: "/services", label: "Services" },
   { href: "/le-studio", label: "Le studio" },
   { href: "/blog", label: "Blog" },
+  { href: "/ressources", label: "Ressources" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
