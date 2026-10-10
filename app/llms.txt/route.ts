@@ -1,6 +1,6 @@
 import { ETAPES, FORMULES } from "@/data/services";
 import { FAQ } from "@/data/faq";
-import { getArticles, getProjets, getRessources, getVilles } from "@/lib/content";
+import { getArticles, getProjets, getGuides, getVilles } from "@/lib/content";
 import { SITE } from "@/lib/site";
 import { PRESSE } from "@/data/presse";
 
@@ -31,9 +31,9 @@ export function GET() {
     "",
     "## Guides gratuits",
     "",
-    ...getRessources()
+    ...getGuides()
       .filter((r) => r.disponible)
-      .map((r) => `- [${r.titre}](${u(`/ressources#${r.slug}`)}) : ${r.description}`),
+      .map((r) => `- [${r.titre}](${u(`/guides#${r.slug}`)}) : ${r.description}`),
     "",
     "## Dans la presse",
     "",

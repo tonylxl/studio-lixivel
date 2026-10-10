@@ -237,10 +237,10 @@ content:
         type: rich-text
         description: "Important pour Google : un texte vraiment propre à la ville (types de logements, quartiers, façon d’intervenir). Intertitres en « Titre 2 »."
 
-  - name: ressources
-    label: Ressources (guides)
+  - name: guides
+    label: Guides (Ressources)
     type: collection
-    path: content/ressources
+    path: content/guides
     filename: "{fields.titre}.md"
     view:
       fields: [titre, statut, ordre]

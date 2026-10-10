@@ -8,6 +8,8 @@ type Props = {
   tone: Tone;
   title: ReactNode;
   surtitre?: string;
+  /** Remplace le surtitre (ex. onglets du hub Ressources). */
+  avantTitre?: ReactNode;
   children?: ReactNode;
   /** Contenu pleine largeur sous le titre (filtres, image…) */
   below?: ReactNode;
@@ -16,7 +18,7 @@ type Props = {
 };
 
 /** Ouverture de page : couleur de fond (qui passe au blanc au scroll), header, H1 à gauche, texte à droite. */
-export default function Opening({ tone, title, surtitre, children, below, source, className }: Props) {
+export default function Opening({ tone, title, surtitre, avantTitre, children, below, source, className }: Props) {
   const dark = tone === "ardoise";
   return (
     <>
@@ -25,7 +27,7 @@ export default function Opening({ tone, title, surtitre, children, below, source
       <section className={`tone-bg ${styles.opening} ${className ?? ""}`} data-dark={dark || undefined}>
         <div className="split">
           <div className={styles.titleCol}>
-            {surtitre && <p className="t-surtitre">{surtitre}</p>}
+            {avantTitre ?? (surtitre && <p className="t-surtitre">{surtitre}</p>)}
             <h1 className="t-hero">{title}</h1>
           </div>
           {children && <div className={`col-2 ${styles.side}`}>{children}</div>}

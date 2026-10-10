@@ -3,7 +3,7 @@ import { getArticles, getProjets, getVilles } from "@/lib/content";
 import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["", "/services", "/projets", "/le-studio", "/blog", "/ressources", "/faq", "/contact", "/architecte-interieur"].map((p) => ({
+  const pages = ["", "/services", "/projets", "/le-studio", "/blog", "/guides", "/faq", "/contact", "/architecte-interieur"].map((p) => ({
     url: `${SITE.url}${p}`,
     lastModified: new Date(),
   }));

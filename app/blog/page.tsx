@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Opening from "@/components/Opening";
+import RessourcesOnglets from "@/components/RessourcesOnglets";
 import Footer from "@/components/Footer";
 import SectionHead from "@/components/SectionHead";
 import JournalList, { JournalFilters, JournalProvider } from "@/components/JournalList";
@@ -24,7 +25,12 @@ export default function JournalPage() {
 
   return (
     <JournalProvider>
-      <Opening tone="ardoise" source="header-blog" surtitre="Le blog" title="Conseils d’architecte d’intérieur">
+      <Opening
+        tone="ardoise"
+        source="header-blog"
+        avantTitre={<RessourcesOnglets actif="/blog" inverse />}
+        title="Conseils d’architecte d’intérieur"
+      >
         <p>
           Aménager, décorer, rénover : les astuces du studio pour des intérieurs pratiques et chaleureux, même avec un
           petit budget. Un nouvel article chaque mois.

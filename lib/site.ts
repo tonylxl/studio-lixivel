@@ -24,12 +24,17 @@ export const SITE = {
   brevo: "",
 };
 
-export const NAV = [
+/** Hub « Ressources » : deux pages, articles du blog et guides à télécharger (onglets en haut de chacune). */
+export const RESSOURCES = [
+  { href: "/blog", label: "Articles" },
+  { href: "/guides", label: "Guides" },
+];
+
+export const NAV: { href: string; label: string; sous?: typeof RESSOURCES }[] = [
   { href: "/projets", label: "Projets" },
   { href: "/services", label: "Services" },
   { href: "/le-studio", label: "Le studio" },
-  { href: "/blog", label: "Blog" },
-  { href: "/ressources", label: "Ressources" },
+  { href: "/blog", label: "Ressources", sous: RESSOURCES },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];

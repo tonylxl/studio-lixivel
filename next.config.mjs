@@ -8,6 +8,8 @@ const nextConfig = {
     return [
       { source: "/journal", destination: "/blog", permanent: true },
       { source: "/journal/:slug*", destination: "/blog/:slug*", permanent: true },
+      // Hub Ressources : /ressources n’est pas une page, les articles sont sur /blog et les guides sur /guides.
+      { source: "/ressources", destination: "/blog", permanent: true },
 
       // Ancien site WordPress (OVH), liste relevée dans son sitemap le 10 oct. 2026.
       { source: "/a-propos", destination: "/le-studio", permanent: true },

@@ -1,6 +1,6 @@
 # Brevo : inscription aux guides de la page Ressources
 
-Sur `/ressources`, le visiteur laisse son prénom et son email, coche le consentement, et télécharge le guide. Son contact est ajouté à la liste Brevo « Ressources du studio ». Une fois inscrit, il télécharge tous les autres guides sans formulaire (mémorisé dans son navigateur).
+Sur `/guides` (hub Ressources), le visiteur laisse son prénom et son email, coche le consentement, et télécharge le guide. Son contact est ajouté à la liste Brevo « Ressources du studio ». Une fois inscrit, il télécharge tous les autres guides sans formulaire (mémorisé dans son navigateur).
 
 Tant que `SITE.brevo` est vide (`lib/site.ts`), les guides se téléchargent librement, sans formulaire.
 
@@ -21,7 +21,7 @@ Le site envoie les données directement au formulaire hébergé par Brevo (« si
 
 ## Vérifier
 
-Remplir le formulaire de `/ressources` avec son propre email : le contact doit apparaître dans la liste « Ressources du studio » (après confirmation si le double opt-in est activé). Le site ne peut pas lire la réponse de Brevo : si rien n’arrive dans la liste, vérifier les noms techniques des champs (`EMAIL`, `PRENOM`, `OPT_IN`).
+Remplir le formulaire de `/guides` avec son propre email : le contact doit apparaître dans la liste « Ressources du studio » (après confirmation si le double opt-in est activé). Le site ne peut pas lire la réponse de Brevo : si rien n’arrive dans la liste, vérifier les noms techniques des champs (`EMAIL`, `PRENOM`, `OPT_IN`).
 
 ## Ensuite (facultatif)
 
@@ -31,5 +31,5 @@ Remplir le formulaire de `/ressources` avec son propre email : le contact doit a
 ## Ajouter un guide
 
 1. Écrire le guide en HTML sur le modèle de `scripts/guides/bien-mesurer-sa-piece.html`, puis le convertir en PDF :
-   `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer --print-to-pdf=public/ressources/NOM.pdf scripts/guides/NOM.html`
-2. Dans Pages CMS (collection « Ressources ») : ajouter le PDF, l’aperçu de la couverture, et passer le statut à « disponible ».
+   `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer --print-to-pdf=public/guides/NOM.pdf scripts/guides/NOM.html`
+2. Dans Pages CMS (collection « Guides ») : ajouter le PDF, l’aperçu de la couverture, et passer le statut à « disponible ».

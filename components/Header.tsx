@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { NAV, SITE, rdvHref } from "@/lib/site";
 import styles from "./Header.module.css";
@@ -124,11 +124,29 @@ export default function Header({ variant = "light", source = "header" }: Props) 
                     <Link
                       href={item.href}
                       className={styles.navLink}
-                      aria-current={pathname.startsWith(item.href) ? "page" : undefined}
+                      aria-current={
+                        (item.sous ?? [item]).some((s) => pathname.startsWith(s.href)) ? "page" : undefined
+                      }
                     >
                       <span className={styles.navIndex}>0{i + 1}</span>
                       {item.label}
                     </Link>
+                    {item.sous && (
+                      <span className={styles.sous}>
+                        {item.sous.map((s, j) => (
+                          <Fragment key={s.href}>
+                            {j > 0 && <span aria-hidden> · </span>}
+                            <Link
+                              href={s.href}
+                              className={styles.lien}
+                              aria-current={pathname.startsWith(s.href) ? "page" : undefined}
+                            >
+                              {s.label}
+                            </Link>
+                          </Fragment>
+                        ))}
+                      </span>
+                    )}
                   </motion.li>
                 ))}
               </ul>

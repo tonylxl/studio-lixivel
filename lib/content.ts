@@ -269,10 +269,10 @@ export function getVille(slug: string) {
 
 
 /* --------------------------------------------------------------------------
-   Ressources (guides à télécharger, page /ressources)
+   Guides à télécharger (page /guides, hub Ressources)
    -------------------------------------------------------------------------- */
 
-export type Ressource = {
+export type Guide = {
   slug: string;
   titre: string;
   description: string;
@@ -285,8 +285,8 @@ export type Ressource = {
   ordre: number;
 };
 
-export function getRessources(): Ressource[] {
-  return readCollection("ressources")
+export function getGuides(): Guide[] {
+  return readCollection("guides")
     .map(({ slug, data }) => ({
       slug,
       titre: typo(data.titre ?? slug),

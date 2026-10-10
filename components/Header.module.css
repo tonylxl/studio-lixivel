@@ -176,6 +176,19 @@
   transition: color 0.25s var(--ease);
 }
 
+/* Sous-liens d'une entrée (Ressources : Articles · Guides) */
+.sous {
+  display: block;
+  padding: 0 0 10px 37px;
+  font-size: clamp(18px, 2vw, 24px);
+  letter-spacing: -0.02em;
+  color: var(--texte-2);
+}
+
+.sous .lien[aria-current="page"] {
+  color: var(--texte-accent);
+}
+
 .navIndex {
   font-size: 13px;
   letter-spacing: 0;
