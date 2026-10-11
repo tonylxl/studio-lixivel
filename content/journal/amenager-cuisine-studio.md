@@ -3,7 +3,7 @@ titre: "Aménager une cuisine de studio : un îlot pour cuisiner et manger"
 categorie: Cuisine
 date: 2026-10-04
 duree: 6 min
-brouillon: false
+brouillon: true
 une: false
 vertical: true
 cover: /images/journal/amenager-cuisine-studio/cover.jpg
@@ -30,7 +30,9 @@ etiquettes:
   - Studio
   - Petit budget
 seoTitle: "Aménager une cuisine de studio : l’îlot qui change tout"
-seoDescription: "Petit frigo, plaque collée à l’évier, pas de plan de travail ? Les solutions d’une architecte d’intérieur pour une cuisine de studio à petit budget."
+seoDescription: Petit frigo, plaque collée à l’évier, pas de plan de travail ?
+  Les solutions d’une architecte d’intérieur pour une cuisine de studio à petit
+  budget.
 ---
 Ce projet, c’est un studio à **aménager et décorer pour 10 000 €**, pas un euro de plus. Après les poutres et le sol, l’épisode 4 de la série s’attaque à la pièce qui pose problème dans presque tous les studios : la cuisine. Voici comment le studio l’a transformée, et ce que vous pouvez reprendre chez vous.
 
