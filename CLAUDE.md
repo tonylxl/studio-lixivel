@@ -83,6 +83,10 @@ Les numéros renvoient à la liste d’idées triée par Tony. Un lot = vérific
 - **Lot 4 · Contenu** : ~~plan éditorial (22)~~ (`docs/plan-editorial.md`, 24 sujets + 5 guides, utilisé par `/article-seo` sans sujet) ; ~~page Guides (27)~~ : `/guides` (ouverture moutarde, collection Pages CMS `content/guides/`), guide « Bien mesurer sa pièce » (source `scripts/guides/*.html` → PDF dans `public/guides/`), 4 guides « bientôt » ; inscription Brevo via `SITE.brevo` (vide = téléchargement libre), voir `docs/brevo.md` ; réels intégrés aux articles + VideoObject (21) ; réels → articles automatiquement (5) ; fil Instagram automatique (6) ; fiches projets complètes (16).
 - **Lot 5 · Mesure** : statistiques (31, proposé en plus) puis tableau de bord (32).
 
+## Projet lié
+
+- **Plateforme de suivi** (listes shopping façon Houzz Pro, suivi des demandes, suivi de projet client) : projet **séparé** dans `~/studio-lixivel-shopping` (dépôt privé, Cloudflare), décision du 11 oct. 2026. Ne pas la développer ici. Côté site, il restera à brancher le webhook Tally vers elle et à compléter les mentions légales.
+
 ## Mode de travail
 
 - Tony est sur Mac, édite avec Cursor, et lance Claude Code en local dans le dossier du projet. Donner les commandes pour macOS uniquement.
