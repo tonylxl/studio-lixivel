@@ -193,9 +193,17 @@ h3 {
   color: #5a5450;
 }
 
-/* Les aides sous les champs : un peu plus lisibles que le gris clair d'origine. */
+/* Hiérarchie : le libellé du champ bien marqué, l'aide en dessous plus petite et plus claire. */
+[data-slot="form-label"],
+[data-slot="form-item"] > div > label,
+[data-slot="form-item"] > div > div > label {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #494141 !important;
+}
+
 [data-slot="form-description"] {
-  font-size: 13.5px !important;
+  font-size: 12px !important;
   line-height: 1.45 !important;
-  color: #5a5450 !important;
+  color: #8f8781 !important;
 }
