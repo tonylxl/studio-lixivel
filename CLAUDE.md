@@ -27,6 +27,7 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 - `content/projets/*.md`, `content/journal/*.md`, `content/villes/*.md` : contenus (frontmatter).
 - `public/images/` : visuels provisoires exportés de Figma (bureau, bureau-nb, chambre, plan, portrait, tabouret, tabouret-rose, fauteuil, fauteuil-lin, lampe).
 - `.pages.yml` : configuration Pages CMS (à tester en vrai).
+- `outils/habillage-pagescms/` : extension Chrome qui habille app.pagescms.org aux couleurs du site (variables CSS shadcn remplacées, police, éditeur proche du rendu des articles). Installation : `LISEZMOI.md` du dossier.
 
 ## Règles de design (issues des maquettes)
 

@@ -1,0 +1,138 @@
+/*
+ * Habillage de Pages CMS aux couleurs du site Studio Lixivel.
+ * Pages CMS (interface shadcn/ui) se règle par variables CSS : on les remplace, sans toucher à son code.
+ * Couleurs : voir app/globals.css du site. Le bordeaux est réservé aux actions de suppression (« danger ») ;
+ * les boutons principaux sont bruns, comme les actions secondaires du site.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&display=swap");
+
+:root,
+:root.light,
+.dark,
+html {
+  --background: #ffffff !important;
+  --foreground: #494141 !important;
+  --card: #ffffff !important;
+  --card-foreground: #494141 !important;
+  --popover: #ffffff !important;
+  --popover-foreground: #494141 !important;
+
+  --primary: #494141 !important;
+  --primary-foreground: #ffe5e3 !important;
+  --secondary: #f6f2ef !important;
+  --secondary-foreground: #494141 !important;
+  --muted: #f6f2ef !important;
+  --muted-foreground: #5a5450 !important;
+  --accent: #fff2f2 !important;
+  --accent-foreground: #494141 !important;
+  --destructive: #8c373c !important;
+
+  --border: #e0d9d2 !important;
+  --input: #e0d9d2 !important;
+  --ring: #beb7b0 !important;
+  --radius: 0.75rem !important;
+
+  --chart-1: #bcd4b4 !important;
+  --chart-2: #f7dddf !important;
+  --chart-3: #fcc976 !important;
+  --chart-4: #4f6c78 !important;
+  --chart-5: #dcad6c !important;
+
+  --sidebar: #f6f2ef !important;
+  --sidebar-foreground: #494141 !important;
+  --sidebar-primary: #494141 !important;
+  --sidebar-primary-foreground: #ffe5e3 !important;
+  --sidebar-accent: #f7dddf !important;
+  --sidebar-accent-foreground: #494141 !important;
+  --sidebar-border: #e0d9d2 !important;
+  --sidebar-ring: #beb7b0 !important;
+
+  /* Police du site à la place d'Inter (la police à chasse fixe du code reste inchangée). */
+  --font-inter: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif !important;
+  color-scheme: light !important;
+}
+
+/* La variable de police est posée sur une classe de Next.js : on la remplace aussi là. */
+[class*="__variable"] {
+  --font-inter: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif !important;
+}
+
+html,
+body {
+  font-family: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif !important;
+  letter-spacing: -0.01em;
+}
+
+/* Titres de l'interface : graisse et interlettrage du site. */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em !important;
+}
+
+::selection {
+  background: #f7dddf;
+  color: #494141;
+}
+
+/* -------------------------------------------------------------------------
+   Éditeur de texte (Tiptap) : un rendu proche des articles du site
+   ------------------------------------------------------------------------- */
+
+.ProseMirror {
+  font-size: 17px !important;
+  line-height: 1.6 !important;
+  color: #5a5450 !important;
+}
+
+.ProseMirror h2 {
+  font-size: 26px !important;
+  font-weight: 600 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.01em !important;
+  color: #494141 !important;
+  margin: 1.6em 0 0.5em !important;
+}
+
+.ProseMirror h3 {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: #494141 !important;
+}
+
+.ProseMirror strong {
+  color: #494141 !important;
+  font-weight: 500 !important;
+}
+
+.ProseMirror a {
+  color: #494141 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+/* Une citation devient l'encadré « Le conseil du studio » sur le site : même allure ici. */
+.ProseMirror blockquote {
+  border-left: 0 !important;
+  margin: 1.5em 0 !important;
+  padding: 18px 22px !important;
+  border-radius: 24px !important;
+  background: #f6f2ef !important;
+  color: #494141 !important;
+  font-style: normal !important;
+}
+
+.ProseMirror blockquote::before {
+  content: "Le conseil du studio";
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #8c373c;
+}
+
+.ProseMirror img {
+  border-radius: 24px !important;
+}
