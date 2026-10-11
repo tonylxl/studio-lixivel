@@ -136,3 +136,66 @@ h3 {
 .ProseMirror img {
   border-radius: 24px !important;
 }
+
+/* -------------------------------------------------------------------------
+   Aides ajoutées par aides.js : bandeau « mode d'emploi » et intertitres
+   ------------------------------------------------------------------------- */
+
+.lx-bandeau {
+  margin: 0 0 16px;
+  padding: 18px 22px;
+  border-radius: 24px;
+  background: #f7dddf;
+  color: #494141;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.lx-bandeau__titre {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.lx-bandeau ol {
+  margin: 0;
+  padding-left: 1.3em;
+  list-style: decimal;
+}
+
+.lx-bandeau li + li {
+  margin-top: 4px;
+}
+
+.lx-bandeau a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+.lx-section {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid #494141;
+}
+
+.lx-section__titre {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #494141;
+}
+
+.lx-section__texte {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: #5a5450;
+}
+
+/* Les aides sous les champs : un peu plus lisibles que le gris clair d'origine. */
+[data-slot="form-description"] {
+  font-size: 13.5px !important;
+  line-height: 1.45 !important;
+  color: #5a5450 !important;
+}

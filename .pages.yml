@@ -1,5 +1,7 @@
-# Configuration de Pages CMS (https://pagescms.org) : interface d'édition pour Cindy.
+# Configuration de Pages CMS (https://pagescms.org) : interface d'édition du site.
 # Connexion sur app.pagescms.org avec le compte GitHub qui a accès au repo.
+# Les aides sous les champs sont écrites pour une personne qui découvre l'outil : tutoiement, un exemple à chaque fois,
+# et ce que le champ change sur le site. L'extension outils/habillage-pagescms ajoute les intertitres et les bandeaux d'aide.
 
 # Médiathèque : tout public/images (photos du site, dossiers journal/{article} créés depuis les réels, uploads).
 media:
@@ -7,120 +9,6 @@ media:
   output: /images
 
 content:
-  - name: journal
-    label: Blog
-    type: collection
-    path: content/journal
-    filename: "{fields.titre}.md"
-    view:
-      fields: [titre, categorie, date, une]
-      primary: titre
-      sort: [date]
-      default:
-        sort: date
-        order: desc
-    fields:
-      - name: titre
-        label: Titre (H1)
-        type: string
-        required: true
-        options: { maxlength: 90 }
-        description: "Reprendre la question que les gens tapent dans Google, ex. « Comment aménager un studio de 30 m² ? »."
-      - name: categorie
-        label: Catégorie
-        type: select
-        required: true
-        options:
-          values: [Petits espaces, Salon, Chambre, Cuisine, Petit budget, Rénovation, Avant / après]
-      - { name: date, label: Date de publication, type: date, required: true }
-      - name: duree
-        label: Durée de lecture
-        type: string
-        pattern: { regex: "^$|^\\d+\\s?min$", message: "Format attendu : 6 min" }
-        description: "Ex. 6 min (environ 200 mots par minute)."
-      - name: brouillon
-        label: "Brouillon (non publié : visible seulement par son lien)"
-        type: boolean
-        default: true
-        description: "Aperçu de tous les brouillons : studio-lixivel.vercel.app/apercu (environ 1 minute après l’enregistrement). Décocher puis enregistrer pour publier."
-      - { name: une, label: Article à la une, type: boolean }
-      - { name: vertical, label: "Photos verticales (article tiré d’un réel, format 4:5)", type: boolean }
-      - { name: cover, label: Photo de couverture, type: image, required: true }
-      - name: coverAlt
-        label: Description de la photo
-        type: string
-        required: true
-        options: { minlength: 15, maxlength: 200 }
-        description: "Décrire ce qu’on voit, ex. « Cuisine blanche avec îlot en bois et deux tabourets roses ». Lu par Google et par les personnes malvoyantes."
-      - name: chapo
-        label: Chapô (introduction)
-        type: text
-        required: true
-        options: { minlength: 100, maxlength: 350 }
-        description: "2 ou 3 phrases qui répondent directement à la question du titre : c’est ce que reprennent Google et les IA."
-      - name: reel
-        label: Réel Instagram lié
-        type: object
-        fields:
-          - name: url
-            label: Lien du réel
-            type: string
-            pattern: { regex: "^$|^https://(www\\.)?instagram\\.com/", message: "Coller un lien Instagram (https://www.instagram.com/…)" }
-          - { name: vignette, label: Vignette du réel, type: image }
-          - { name: legende, label: Légende du réel, type: string }
-      - name: produits
-        label: La sélection du studio (produits)
-        type: object
-        list: true
-        fields:
-          - { name: titre, label: Nom du produit, type: string }
-          - { name: prix, label: Prix, type: string }
-          - { name: image, label: Photo, type: image }
-          - name: lien
-            label: Lien (affilié)
-            type: string
-            pattern: { regex: "^$|^https?://", message: "Le lien doit commencer par https://" }
-      - { name: etiquettes, label: Étiquettes, type: string, list: true, description: "2 à 4 mots-clés, ex. Petits espaces, Rangement." }
-      - name: seoTitle
-        label: Titre pour Google (optionnel)
-        type: string
-        options: { maxlength: 60 }
-        description: "60 caractères maximum, sinon Google le coupe. Vide = le titre de la page est repris."
-      - name: seoDescription
-        label: Description pour Google (optionnel)
-        type: text
-        pattern: { regex: "^$|^[\\s\\S]{110,160}$", message: "Entre 110 et 160 caractères, ou laisser vide." }
-        options: { maxlength: 160 }
-        description: "Le texte gris sous le titre dans Google. Entre 110 et 160 caractères, avec la requête principale et ce que le lecteur y gagne. Vide = le chapô est repris."
-      - name: body
-        label: Contenu
-        type: rich-text
-        description: "Intertitres en « Titre 2 ». Une citation devient l’encadré « Le conseil du studio ». Écrire [[produits]] seul sur une ligne pour placer la sélection."
-
-  - name: reels
-    label: Réels à transformer en article
-    type: collection
-    path: content/reels
-    filename: "{year}-{month}-{day}-{fields.sujet}.md"
-    view:
-      fields: [sujet, statut, article]
-      primary: sujet
-    fields:
-      - { name: sujet, label: Sujet en quelques mots, type: string, required: true, description: "Ex. « cuisine du studio à 10 000 € ». Sert seulement à retrouver la demande." }
-      - name: url
-        label: Lien du réel Instagram
-        type: string
-        required: true
-        pattern: { regex: "^https://(www\\.)?instagram\\.com/(reel|reels|p)/", message: "Coller le lien d’un réel, ex. https://www.instagram.com/reel/…" }
-      - { name: notes, label: "Consignes pour l’article (optionnel)", type: text, description: "Angle souhaité, infos à ajouter (ville, budget, marques des produits, liens), ce qu’il ne faut pas dire…" }
-      - name: statut
-        label: Statut
-        type: select
-        default: à traiter
-        options:
-          values: [à traiter, brouillon créé, erreur]
-      - { name: article, label: "Article créé (rempli automatiquement)", type: string }
-
   - name: projets
     label: Projets
     type: collection
@@ -131,68 +19,262 @@ content:
       primary: titre
       sort: [ordre]
     fields:
-      - { name: titre, label: Titre, type: string, required: true }
-      - { name: sousTitre, label: Sous-titre (formule), type: string }
-      - { name: ville, label: Ville, type: string }
-      - { name: lieu, label: Lieu (fiche), type: string }
-      - { name: annee, label: Année, type: number, required: true }
-      - { name: ordre, label: Ordre d’affichage, type: number }
+      - name: titre
+        label: Nom du projet
+        type: string
+        required: true
+        options: { maxlength: 40 }
+        description: "Court et parlant, ex. « Studio 30 m² » ou « Atelier couture ». Il s’affiche en grand sur la page Projets et en haut de la fiche."
+      - name: sousTitre
+        label: Sous-titre
+        type: string
+        description: "Affiché sous le nom du projet, en plus clair. En général le type de travaux ou la formule, ex. « Rénovation complète »."
+      - name: ville
+        label: Ville
+        type: string
+        description: "Juste le nom de la ville, ex. Rouen. Affiché sur la page Projets à côté de l’année."
+      - name: lieu
+        label: Lieu (sur la fiche)
+        type: string
+        description: "Le lieu plus précis, affiché dans le tableau de la fiche, ex. « Rouen, Normandie » ou « Bois-Guillaume (76) »."
+      - name: annee
+        label: Année
+        type: number
+        required: true
+        description: "L’année de fin du projet, ex. 2025."
+      - name: ordre
+        label: Ordre d’affichage
+        type: number
+        description: "La place du projet sur la page Projets : 1 = en premier. Laisse vide pour le mettre à la fin."
       - name: couleur
-        label: Couleur d’ouverture
+        label: Couleur de la page
         type: select
         options:
           values: [rose, sauge, moutarde, lin, doux, ardoise]
-      - { name: cover, label: Photo principale, type: image, required: true }
+        description: "La couleur de fond en haut de la fiche, avant qu’on fasse défiler. Choisis celle qui va le mieux avec la photo principale."
+      - name: cover
+        label: Photo principale
+        type: image
+        required: true
+        description: "La photo qui représente le projet partout sur le site. Une photo horizontale, lumineuse, d’au moins 1 600 pixels de large."
       - name: coverAlt
-        label: Description de la photo
+        label: Ce qu’on voit sur la photo principale
         type: string
         options: { maxlength: 200 }
-        description: "Décrire ce qu’on voit, ex. « Bureau sur mesure en bois sous une fenêtre, chaise rouge ». Lu par Google et par les personnes malvoyantes."
-      - { name: surface, label: Surface, type: string }
-      - { name: formule, label: Formule, type: string }
-      - { name: duree, label: Durée, type: string }
-      - { name: budget, label: Budget indicatif, type: string }
-      - { name: brief, label: "Le brief (rempli = page détail créée)", type: text }
-      - { name: contraintes, label: Contraintes, type: string, list: true }
+        description: "Décris la photo en une phrase, comme à quelqu’un qui ne la voit pas, ex. « Bureau sur mesure en bois sous une fenêtre, chaise rouge ». Google la lit, ainsi que les personnes malvoyantes."
+      - name: surface
+        label: Surface
+        type: string
+        description: "Avec l’unité, ex. 30 m². Affichée dans le tableau de la fiche (une ligne vide n’apparaît pas)."
+      - name: formule
+        label: Formule
+        type: string
+        description: "Le nom de la formule choisie par le client, ex. « Prise en charge complète » ou « Agencement & décoration »."
+      - name: duree
+        label: Durée
+        type: string
+        description: "Ex. « 4 mois, dont 6 semaines de travaux »."
+      - name: budget
+        label: Budget indicatif
+        type: string
+        description: "Ex. « 25 000 € travaux et mobilier ». Laisse vide si le client préfère ne pas l’afficher."
+      - name: brief
+        label: Le brief
+        type: text
+        description: "Ce que voulait le client, en 2 ou 3 phrases, ex. « Clara venait d’acheter un studio sombre… Elle voulait un vrai coin bureau… ». Sans brief, la section « Le brief » n’apparaît pas sur la fiche."
+      - name: contraintes
+        label: Contraintes
+        type: string
+        list: true
+        description: "Les difficultés du projet, une par ligne (bouton « Ajouter un élément » pour chacune), ex. « Une seule fenêtre, plein nord ». Affichées sous le brief."
       - name: avant
-        label: Avant
+        label: Photo avant
         type: object
+        description: "Avec la photo après, elle forme le curseur avant / après de la fiche. Choisis les deux photos prises du même endroit."
         fields:
           - { name: image, label: Photo avant, type: image }
-          - { name: legende, label: Légende, type: text }
+          - { name: legende, label: Légende, type: text, description: "Une phrase sur l’état de départ, ex. « Une cloison qui coupait la lumière, des murs jaunis »." }
       - name: apres
-        label: Après
+        label: Photo après
         type: object
         fields:
           - { name: image, label: Photo après, type: image }
-          - { name: legende, label: Légende, type: text }
-      - { name: planInitial, label: Plan initial (état existant), type: image, description: "Le plan du logement avant le projet." }
-      - { name: plan, label: Plan 2D, type: image }
-      - { name: rendu, label: Plan 3D, type: image }
-      - { name: realise, label: Photo du projet réalisé, type: image, description: "Optionnelle : sans photo, le bloc n’apparaît pas." }
-      - { name: masquerRealise, label: Masquer la photo du projet réalisé, type: boolean, description: "Cocher pour ne pas afficher la photo du réalisé, même si elle est renseignée." }
+          - { name: legende, label: Légende, type: text, description: "Une phrase sur ce qui a changé, ex. « Cloison supprimée, bureau sur mesure le long du mur »." }
+      - name: planInitial
+        label: Plan initial (avant le projet)
+        type: image
+        description: "Le plan du logement tel qu’il était. Les plans s’affichent dans la section « Du plan au réalisé » ; un plan vide n’apparaît pas."
+      - { name: plan, label: Plan 2D (le projet), type: image, description: "Le plan vu de dessus avec le nouvel aménagement." }
+      - { name: rendu, label: Plan 3D, type: image, description: "L’image en 3D du projet." }
+      - { name: realise, label: Photo du projet réalisé, type: image, description: "Facultative : la photo une fois le projet terminé, à comparer avec le plan 3D. Sans photo, le bloc n’apparaît pas." }
+      - { name: masquerRealise, label: Cacher la photo du projet réalisé, type: boolean, description: "Coche pour ne pas afficher la photo du réalisé (par exemple si elle n’est pas encore assez belle), sans avoir à l’effacer." }
       - name: galerie
-        label: Galerie
+        label: Galerie de photos
         type: object
-        list: true
+        list:
+          collapsible: { collapsed: true, summary: "Photo {index} · {fields.alt}" }
+        description: "Les photos du projet terminé, dans l’ordre d’affichage (glisse avec la poignée ⋮⋮ pour changer l’ordre). Compte 4 à 8 photos."
         fields:
           - { name: image, label: Photo, type: image, required: true }
-          - { name: alt, label: Description de la photo, type: string, options: { maxlength: 200 }, description: "Ce qu’on voit, ex. « Coin bureau en bois sous la fenêtre, chaise rouge ». Laisser vide : /textes-alt la proposera." }
+          - { name: alt, label: Ce qu’on voit sur la photo, type: string, options: { maxlength: 200 }, description: "Une phrase, ex. « Coin bureau en bois sous la fenêtre, chaise rouge ». Tu peux laisser vide : Tony la complétera." }
       - name: shopping
         label: Liste shopping
         type: object
-        list: true
+        list:
+          collapsible: { collapsed: true, summary: "{fields.piece} · {fields.prix}" }
+        description: "Les meubles et objets du projet, affichés en tableau sur la fiche. Une ligne par objet."
         fields:
-          - { name: piece, label: Pièce, type: string }
-          - { name: ou, label: Où la trouver, type: string }
-          - { name: prix, label: Prix, type: string }
+          - { name: piece, label: Objet, type: string, description: "Ex. « Chaise laquée rouge »." }
+          - { name: ou, label: Où le trouver, type: string, description: "La marque ou le magasin, ex. « Maisons du Monde » ou « Artisan local »." }
+          - { name: prix, label: Prix, type: string, description: "Ex. 180 € ou ≈ 180 € si c’est approximatif." }
       - name: avis
-        label: Avis client
+        label: Avis du client
         type: object
+        description: "Facultatif : affiché en bas de la fiche sous le titre « L’avis de [prénom] »."
         fields:
-          - { name: texte, label: Citation, type: text }
-          - { name: nom, label: Prénom, type: string }
-          - { name: contexte, label: Contexte, type: string }
+          - { name: texte, label: Ce qu’a dit le client, type: text, description: "Sans guillemets (ils sont ajoutés automatiquement)." }
+          - { name: nom, label: Prénom, type: string, description: "Le prénom seul, ex. Clara." }
+          - { name: contexte, label: Projet en quelques mots, type: string, description: "Ex. « Studio 30 m² · Rouen »." }
+
+  - name: journal
+    label: Blog
+    type: collection
+    path: content/journal
+    filename: "{fields.titre}.md"
+    view:
+      fields: [titre, categorie, date, brouillon]
+      primary: titre
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: titre
+        label: Titre de l’article
+        type: string
+        required: true
+        options: { maxlength: 90 }
+        description: "Écris-le comme la question qu’on taperait dans Google, ex. « Comment aménager un studio de 30 m² ? ». 90 caractères maximum."
+      - name: categorie
+        label: Catégorie
+        type: select
+        required: true
+        options:
+          values: [Petits espaces, Salon, Chambre, Cuisine, Petit budget, Rénovation, Avant / après]
+        description: "Une seule, celle qui correspond le mieux. Elle sert de filtre sur la page Blog."
+      - name: date
+        label: Date de publication
+        type: date
+        required: true
+        description: "Affichée sous le titre. Les articles sont classés du plus récent au plus ancien."
+      - name: duree
+        label: Temps de lecture
+        type: string
+        pattern: { regex: "^$|^\\d+\\s?min$", message: "Écris un nombre suivi de « min », ex. 6 min" }
+        description: "Un nombre suivi de « min », ex. 6 min. Compte environ 1 minute pour 200 mots."
+      - name: brouillon
+        label: "Brouillon (pas encore publié)"
+        type: boolean
+        default: true
+        description: "Tant que c’est coché, l’article n’est pas sur le site. Pour relire tous les brouillons : studio-lixivel.vercel.app/apercu (attends environ 1 minute après avoir enregistré). Pour publier : décoche, puis Enregistrer."
+      - name: une
+        label: Mettre à la une
+        type: boolean
+        description: "Coche pour afficher l’article en grand en haut de la page Blog. Un seul à la fois : pense à décocher l’ancien. Si aucun n’est coché, c’est le plus récent."
+      - name: vertical
+        label: "Photos en hauteur (article tiré d’un réel)"
+        type: boolean
+        description: "À cocher seulement si les photos du texte viennent d’un réel Instagram (format en hauteur) : elles s’affichent alors entières. Sinon, laisse décoché."
+      - name: cover
+        label: Photo de couverture
+        type: image
+        required: true
+        description: "La grande photo en haut de l’article, reprise sur la page Blog. Une photo horizontale et lumineuse, d’au moins 1 600 pixels de large."
+      - name: coverAlt
+        label: Ce qu’on voit sur la photo de couverture
+        type: string
+        required: true
+        options: { minlength: 15, maxlength: 200 }
+        description: "Décris la photo en une phrase, comme à quelqu’un qui ne la voit pas, ex. « Cuisine blanche avec îlot en bois et deux tabourets roses ». Google la lit, ainsi que les personnes malvoyantes."
+      - name: chapo
+        label: Introduction
+        type: text
+        required: true
+        options: { minlength: 100, maxlength: 350 }
+        description: "Le paragraphe juste sous le titre : 2 ou 3 phrases qui répondent tout de suite à la question du titre. C’est ce que Google et les IA reprennent. Entre 100 et 350 caractères."
+      - name: body
+        label: Texte de l’article
+        type: rich-text
+        description: "Intertitres : sélectionne la ligne et choisis « Titre 2 » ; ils forment le sommaire à gauche de l’article. Encadré « Le conseil du studio » : bouton citation (guillemets). Pour placer la sélection de produits : écris [[produits]] seul sur une ligne."
+      - name: produits
+        label: Sélection de produits
+        type: object
+        list:
+          collapsible: { collapsed: true, summary: "{fields.titre} · {fields.prix}" }
+        description: "Facultatif : les produits conseillés dans l’article (lampe, tapis…). Ils s’affichent à l’endroit du texte où tu as écrit [[produits]]."
+        fields:
+          - { name: titre, label: Nom du produit, type: string, description: "Ex. « Lampe Eda, Maisons du Monde »." }
+          - { name: prix, label: Prix, type: string, description: "Ex. 49 €." }
+          - { name: image, label: Photo, type: image, description: "Le produit sur fond blanc de préférence (enregistre l’image depuis le site du magasin)." }
+          - name: lien
+            label: Lien vers le produit
+            type: string
+            pattern: { regex: "^$|^https?://", message: "Colle l’adresse complète, qui commence par https://" }
+            description: "Copie l’adresse de la page du produit dans la barre du navigateur, ex. https://www.maisonsdumonde.com/…"
+      - name: reel
+        label: Réel Instagram lié
+        type: object
+        description: "Facultatif : si l’article vient d’un réel, il s’affiche dans la colonne de gauche de l’article."
+        fields:
+          - name: url
+            label: Lien du réel
+            type: string
+            pattern: { regex: "^$|^https://(www\\.)?instagram\\.com/", message: "Colle un lien Instagram (https://www.instagram.com/…)" }
+            description: "Sur Instagram : ⋯ sous le réel, puis « Copier le lien »."
+          - { name: vignette, label: Image du réel, type: image, description: "Une image tirée du réel, en hauteur." }
+          - { name: legende, label: Légende, type: string, description: "Une phrase courte sous l’image." }
+      - name: etiquettes
+        label: Mots-clés
+        type: string
+        list: true
+        description: "2 à 4 mots-clés affichés en bas de l’article, un par ligne (bouton « Ajouter un élément » pour chacun), ex. Petits espaces, Rangement."
+      - name: seoTitle
+        label: Titre pour Google
+        type: string
+        options: { maxlength: 60 }
+        description: "Facultatif, le plus souvent à laisser vide : le titre de l’article est alors repris. Sert seulement si le titre dépasse 60 caractères (Google le couperait)."
+      - name: seoDescription
+        label: Description pour Google
+        type: text
+        pattern: { regex: "^$|^[\\s\\S]{110,160}$", message: "Entre 110 et 160 caractères, ou laisse vide." }
+        options: { maxlength: 160 }
+        description: "Facultatif : le petit texte gris sous le titre dans Google. Laisse vide et l’introduction sera reprise. Sinon, entre 110 et 160 caractères."
+
+  - name: reels
+    label: Réels à transformer en article
+    type: collection
+    path: content/reels
+    filename: "{year}-{month}-{day}-{fields.sujet}.md"
+    view:
+      fields: [sujet, statut, article]
+      primary: sujet
+    fields:
+      - { name: sujet, label: Sujet en quelques mots, type: string, required: true, description: "Juste pour retrouver la demande, ex. « cuisine du studio à 10 000 € »." }
+      - name: url
+        label: Lien du réel Instagram
+        type: string
+        required: true
+        pattern: { regex: "^https://(www\\.)?instagram\\.com/(reel|reels|p)/", message: "Colle le lien d’un réel, ex. https://www.instagram.com/reel/…" }
+        description: "Sur Instagram : ⋯ sous le réel, puis « Copier le lien »."
+      - { name: notes, label: "Consignes pour l’article", type: text, description: "Facultatif : l’angle voulu, des infos à ajouter (ville, budget, marques des produits, liens), ce qu’il ne faut pas dire…" }
+      - name: statut
+        label: Statut
+        type: select
+        default: à traiter
+        options:
+          values: [à traiter, brouillon créé, erreur]
+        description: "Laisse « à traiter » : il passe à « brouillon créé » quand l’article est prêt à relire dans Blog."
+      - { name: article, label: "Article créé", type: string, readonly: true, description: "Rempli automatiquement." }
 
   - name: villes
     label: Pages villes
@@ -206,9 +288,9 @@ content:
     fields:
       - { name: nom, label: Ville, type: string, required: true, description: "Le titre de la page sera « Architecte d’intérieur à … »." }
       - { name: region, label: Région, type: string }
-      - { name: ordre, label: Ordre d’affichage, type: number }
+      - { name: ordre, label: Ordre d’affichage, type: number, description: "1 = en premier. Vide = à la fin." }
       - name: couleur
-        label: Couleur d’ouverture
+        label: Couleur de la page
         type: select
         options:
           values: [rose, sauge, moutarde, lin, doux, ardoise]
@@ -217,29 +299,30 @@ content:
         type: text
         required: true
         options: { maxlength: 220 }
-        description: "2 phrases propres à la ville (pas un copier-coller d’une autre ville)."
+        description: "2 phrases propres à la ville (jamais un copier-coller d’une autre ville)."
       - { name: deplacement, label: "Comment le studio intervient dans cette ville", type: text }
       - { name: quartiers, label: Quartiers et communes, type: string, list: true }
       - name: faq
         label: Questions fréquentes de la ville
         type: object
-        list: true
+        list:
+          collapsible: { collapsed: true, summary: "{fields.q}" }
         fields:
           - { name: q, label: Question, type: string }
           - { name: r, label: Réponse, type: text }
       - name: seoTitle
-        label: Titre pour Google (optionnel)
+        label: Titre pour Google
         type: string
         options: { maxlength: 60 }
-        description: "60 caractères maximum, sinon Google le coupe. Vide = le titre de la page est repris."
+        description: "Facultatif : 60 caractères maximum, sinon Google le coupe. Vide = le titre de la page est repris."
       - name: seoDescription
-        label: Description pour Google (optionnel)
+        label: Description pour Google
         type: text
-        pattern: { regex: "^$|^[\\s\\S]{110,160}$", message: "Entre 110 et 160 caractères, ou laisser vide." }
+        pattern: { regex: "^$|^[\\s\\S]{110,160}$", message: "Entre 110 et 160 caractères, ou laisse vide." }
         options: { maxlength: 160 }
-        description: "Le texte gris sous le titre dans Google. Entre 110 et 160 caractères, avec la requête principale et ce que le lecteur y gagne. Vide = le chapô est repris."
+        description: "Facultatif : le texte gris sous le titre dans Google, entre 110 et 160 caractères. Vide = l’introduction est reprise."
       - name: body
-        label: Contenu propre à la ville
+        label: Texte propre à la ville
         type: rich-text
         description: "Important pour Google : un texte vraiment propre à la ville (types de logements, quartiers, façon d’intervenir). Intertitres en « Titre 2 »."
 
@@ -255,7 +338,7 @@ content:
     fields:
       - { name: titre, label: Titre du guide, type: string, required: true, options: { maxlength: 60 } }
       - { name: description, label: Description, type: text, required: true, options: { maxlength: 260 }, description: "2 phrases : ce que contient le guide et à quoi il sert." }
-      - { name: fichier, label: Fichier PDF, type: file, description: "Le guide à télécharger. Sans fichier, la carte s’affiche « Bientôt disponible »." }
+      - { name: fichier, label: Fichier PDF, type: file, description: "Le guide à télécharger. Sans fichier, la carte affiche « Bientôt disponible »." }
       - { name: apercu, label: Aperçu de la couverture, type: image, description: "Image de la première page du guide (format A4 vertical)." }
       - { name: format, label: "Format affiché (ex. PDF · 4 pages)", type: string }
       - name: couleur
@@ -282,8 +365,9 @@ content:
       - name: formules
         label: Formules
         type: object
-        list: true
-        description: "Les 4 formules, dans l’ordre d’affichage. Les tarifs servent aussi au simulateur : penser à prévenir Tony pour mettre à jour le Google Sheet des demandes."
+        list:
+          collapsible: { collapsed: true, summary: "{fields.titre} · {fields.tarif}" }
+        description: "Les 4 formules, dans l’ordre d’affichage. Les tarifs servent aussi au simulateur : préviens Tony pour mettre à jour le Google Sheet des demandes."
         fields:
           - { name: slug, label: "Identifiant (ne pas modifier)", type: string, readonly: true }
           - { name: titre, label: Nom de la formule, type: string, required: true }
@@ -303,7 +387,8 @@ content:
       - name: comparatif
         label: Tableau comparatif (page Services)
         type: object
-        list: true
+        list:
+          collapsible: { collapsed: true, summary: "{fields.label}" }
         fields:
           - { name: label, label: Ligne, type: string, required: true }
           - { name: conseils, label: Conseils, type: string, description: "✓ ou — ou un texte court" }
@@ -313,7 +398,8 @@ content:
       - name: etapes
         label: Les étapes d’un projet (accueil, contact)
         type: object
-        list: true
+        list:
+          collapsible: { collapsed: true, summary: "{fields.titre}" }
         fields:
           - { name: titre, label: Titre, type: string, required: true }
           - { name: texte, label: Texte, type: text, required: true, options: { maxlength: 160 } }
@@ -332,17 +418,19 @@ content:
       - name: categories
         label: Catégories
         type: object
-        list: true
+        list:
+          collapsible: { collapsed: true, summary: "{fields.titre}" }
         fields:
           - { name: id, label: "Identifiant (ne pas modifier)", type: string, readonly: true }
           - { name: titre, label: Titre de la catégorie, type: string, required: true }
           - name: questions
             label: Questions
             type: object
-            list: true
+            list:
+              collapsible: { collapsed: true, summary: "{fields.question}" }
             fields:
               - { name: question, label: Question, type: string, required: true, description: "Formulée comme on la tape dans Google." }
-              - { name: reponse, label: Réponse, type: text, required: true, description: "Commencer par la réponse directe en une phrase (c’est ce que reprennent Google et les IA), puis le détail. Pas de lien ni de bouton." }
+              - { name: reponse, label: Réponse, type: text, required: true, description: "Commence par la réponse directe en une phrase (c’est ce que reprennent Google et les IA), puis le détail. Pas de lien ni de bouton." }
               - { name: accueil, label: Afficher aussi sur l’accueil (4 questions max), type: boolean }
               - { name: services, label: Afficher aussi sur la page Services (5 questions max), type: boolean }
 

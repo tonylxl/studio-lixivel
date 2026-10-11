@@ -7,6 +7,8 @@ elle ajoute seulement une feuille de style et une traduction sur Pages CMS.
 
 **Traduction** (`traduction.js`) : Pages CMS n’existe qu’en anglais ; le script remplace les textes de l’interface par leur version française (environ 200 textes relevés dans le code source de Pages CMS, plus les dates relatives « il y a 2 heures »). Il ne touche jamais au contenu saisi (éditeur, champs). Un texte resté en anglais : l’ajouter au dictionnaire `FR` en haut du fichier.
 
+**Aides** (`aides.js`) : pour une personne qui découvre l’outil. En haut des collections Projets, Blog et Réels, et en haut de leurs formulaires, un bandeau rose explique quoi faire en 2 ou 3 étapes (avec les liens vers le site et vers l’aperçu des brouillons). Les longs formulaires (Projets, Blog) sont découpés en sections numérotées (« 1. L’essentiel », « 2. La photo principale »…). Les champs sont repérés par leur libellé dans `.pages.yml` : si un libellé change, le changer aussi dans `SECTIONS`. Les aides sous chaque champ, elles, s’écrivent directement dans `.pages.yml` (`description`).
+
 ## Installer (2 minutes, sur chaque ordinateur)
 
 1. Récupérer ce dossier `habillage-pagescms` sur l’ordinateur (Tony peut l’envoyer en .zip, à décompresser).
