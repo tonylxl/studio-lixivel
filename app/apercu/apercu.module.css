@@ -1,0 +1,49 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-block: 64px 120px;
+}
+
+.liste {
+  border-bottom: 1px solid var(--bordure-legere);
+}
+
+.ligne {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  margin-inline: -16px;
+  border-top: 1px solid var(--bordure-legere);
+  transition: background-color 0.25s var(--ease);
+}
+
+.ligne:hover {
+  background: var(--fond-survol);
+}
+
+.vignette {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-s);
+}
+
+.texte {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.voir {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .ligne {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+  .voir {
+    display: none;
+  }
+}
