@@ -109,9 +109,14 @@ export type Projet = {
   contraintes: string[];
   avant?: { image: string; legende?: string };
   apres?: { image: string; legende?: string };
+  /** Plan de l'état existant, avant le projet. */
+  planInitial?: string;
   plan?: string;
+  /** Plan 3D (rendu). */
   rendu?: string;
   realise?: string;
+  /** Photo du réalisé masquée (projet pas encore photographié, ou pas réalisé). */
+  masquerRealise: boolean;
   galerie: { image: string; alt: string }[];
   shopping: { piece: string; ou?: string; prix?: string }[];
   avis?: { texte: string; nom: string; contexte?: string };
@@ -138,9 +143,11 @@ export function getProjets(): Projet[] {
       contraintes: data.contraintes ?? [],
       avant: data.avant,
       apres: data.apres,
-      plan: data.plan,
-      rendu: data.rendu,
-      realise: data.realise,
+      planInitial: data.planInitial || undefined,
+      plan: data.plan || undefined,
+      rendu: data.rendu || undefined,
+      realise: data.realise || undefined,
+      masquerRealise: Boolean(data.masquerRealise),
       // Ancien format accepté : simple liste de chemins d'images.
       galerie: ((data.galerie ?? []) as (string | { image?: string; alt?: string })[])
         .map((g) => (typeof g === "string" ? { image: g, alt: "" } : { image: g?.image ?? "", alt: g?.alt ?? "" }))

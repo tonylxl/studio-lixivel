@@ -69,6 +69,7 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 - [x] Questionnaire Tally « Débuter votre projet » publié le 9 oct. 2026 (`obr965`, 4 pages, voix « nous », jamais « Cindy »). Reste : notification vers `contact@studiolixivel.com` + Reply-to (Tally Pro), style aux couleurs du studio (Tally Pro), photos pour la question Ambiance.
 - [ ] Simulateur, à trancher avec Cindy : paliers dégressifs de la Décoration (aujourd’hui 55 €/m² fixe), minimum éventuel pour la semi-complète, curseur de surface inutile pour la Complète (forfait 5 000 €).
 - [x] Logos presse sur l’accueil (10 oct. 2026) : Marie Claire, Gala, Forbes, actu.fr, Maison & Jardin dans `public/images/presse/`, recadrés au plus juste, affichés en brun via `mask-image` à surface égale (`ratio` + `poids` dans `app/page.tsx`). ICI Normandie (radio, 28 sept. 2026) ajouté à la liste presse, pas de logo dans le bandeau.
+- Fiche projet, section « Du plan au réalisé » (11 oct. 2026) : jusqu’à 4 blocs, chacun affiché seulement si son image existe : plan initial (`planInitial`), plan 2D (`plan`), plan 3D (`rendu`), projet réalisé (`realise`, masquable avec `masquerRealise`). Sans réalisé, le titre devient « Les plans du projet ».
 - [ ] Fiches projets : seul « Studio 30 m² » est complet, les 5 autres pages n’ont que titre, lieu, année et photo (à compléter dans Pages CMS).
 
 ## Feuille de route (tri du 10 oct. 2026)

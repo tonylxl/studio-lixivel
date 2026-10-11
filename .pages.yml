@@ -162,9 +162,11 @@ content:
         fields:
           - { name: image, label: Photo après, type: image }
           - { name: legende, label: Légende, type: text }
+      - { name: planInitial, label: Plan initial (état existant), type: image, description: "Le plan du logement avant le projet." }
       - { name: plan, label: Plan 2D, type: image }
-      - { name: rendu, label: Rendu 3D, type: image }
-      - { name: realise, label: Photo du réalisé, type: image }
+      - { name: rendu, label: Plan 3D, type: image }
+      - { name: realise, label: Photo du projet réalisé, type: image, description: "Optionnelle : sans photo, le bloc n’apparaît pas." }
+      - { name: masquerRealise, label: Masquer la photo du projet réalisé, type: boolean, description: "Cocher pour ne pas afficher la photo du réalisé, même si elle est renseignée." }
       - name: galerie
         label: Galerie
         type: object

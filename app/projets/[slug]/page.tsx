@@ -54,11 +54,17 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
     ["Année", String(p.annee)],
   ].filter(([, v]) => v) as [string, string][];
 
+  // Du plan initial au réalisé : chaque bloc n'apparaît que si son image est renseignée ; le réalisé peut être masqué.
   const etapes = [
-    ["Plan 2D", p.plan],
-    ["Rendu 3D", p.rendu],
-    ["Réalisé", p.realise],
-  ].filter(([, v]) => v) as [string, string][];
+    { label: "Plan initial", src: p.planInitial, plan: true },
+    { label: "Plan 2D", src: p.plan, plan: true },
+    { label: "Plan 3D", src: p.rendu, plan: false },
+    { label: "Projet réalisé", src: p.masquerRealise ? undefined : p.realise, plan: false },
+  ].filter((e): e is { label: string; src: string; plan: boolean } => Boolean(e.src));
+  const avecRealise = etapes.some((e) => e.label === "Projet réalisé");
+  const listeEtapes = etapes.map((e) => e.label.charAt(0).toLowerCase() + e.label.slice(1));
+  const resumeEtapes =
+    listeEtapes.length > 1 ? `${listeEtapes.slice(0, -1).join(", ")} et ${listeEtapes.at(-1)}` : listeEtapes[0];
 
   return (
     <>
@@ -134,16 +140,21 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
 
         {etapes.length > 0 && (
           <section className={`sur-blanc ${styles.block}`} aria-labelledby="t-plan">
-            <SectionHead id="t-plan" title="Du plan au réalisé">
-              Ce que vous recevez avec la formule : le plan 2D, les rendus 3D en 4K, puis la pièce terminée.
+            <SectionHead id="t-plan" title={avecRealise ? "Du plan au réalisé" : "Les plans du projet"}>
+              Les étapes du projet : {resumeEtapes}.
             </SectionHead>
-            <ol className={`wrap ${styles.etapes}`}>
-              {etapes.map(([label, src], i) => (
-                <Reveal as="li" key={label} delay={i * 0.1}>
-                  <div className={`media ${styles.etapeImg}`} data-plan={label === "Plan 2D" || undefined}>
-                    <Image src={src} alt={`${label} du projet ${p.titre}`} fill sizes="(max-width: 760px) 100vw, 33vw" />
+            <ol className={`wrap ${styles.etapes}`} style={{ ["--n" as string]: etapes.length }} data-n={etapes.length}>
+              {etapes.map((e, i) => (
+                <Reveal as="li" key={e.label} delay={i * 0.1}>
+                  <div className={`media ${styles.etapeImg}`} data-plan={e.plan || undefined}>
+                    <Image
+                      src={e.src}
+                      alt={`${e.label} du projet ${p.titre}`}
+                      fill
+                      sizes={`(max-width: 760px) 100vw, ${Math.round(100 / etapes.length)}vw`}
+                    />
                   </div>
-                  <p className="t-petit">{label}</p>
+                  <p className="t-petit">{e.label}</p>
                 </Reveal>
               ))}
             </ol>
