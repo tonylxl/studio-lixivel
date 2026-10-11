@@ -1,9 +1,11 @@
-# Habillage de Pages CMS aux couleurs du studio
+# Habillage et traduction de Pages CMS
 
 Petite extension Chrome qui habille **app.pagescms.org** avec la police (Schibsted Grotesk) et les couleurs du site :
 textes et boutons bruns, fonds crème et rose, arrondis du site, et un éditeur de texte proche du rendu des articles
 (intertitres, encadré « Le conseil du studio » pour les citations). Elle ne lit ni n’envoie aucune donnée :
-elle ajoute seulement une feuille de style sur Pages CMS.
+elle ajoute seulement une feuille de style et une traduction sur Pages CMS.
+
+**Traduction** (`traduction.js`) : Pages CMS n’existe qu’en anglais ; le script remplace les textes de l’interface par leur version française (environ 200 textes relevés dans le code source de Pages CMS, plus les dates relatives « il y a 2 heures »). Il ne touche jamais au contenu saisi (éditeur, champs). Un texte resté en anglais : l’ajouter au dictionnaire `FR` en haut du fichier.
 
 ## Installer (2 minutes, sur chaque ordinateur)
 

@@ -1,14 +1,31 @@
 {
   "manifest_version": 3,
   "name": "Studio Lixivel · Pages CMS",
-  "description": "Habille Pages CMS (app.pagescms.org) aux couleurs et à la police du site Studio Lixivel.",
-  "version": "1.0.0",
-  "icons": { "16": "icone-16.png", "48": "icone-48.png", "128": "icone-128.png" },
+  "description": "Habille Pages CMS (app.pagescms.org) aux couleurs du site Studio Lixivel et le traduit en français.",
+  "version": "1.1.0",
+  "icons": {
+    "16": "icone-16.png",
+    "48": "icone-48.png",
+    "128": "icone-128.png"
+  },
   "content_scripts": [
     {
-      "matches": ["https://app.pagescms.org/*"],
-      "css": ["habillage.css"],
+      "matches": [
+        "https://app.pagescms.org/*"
+      ],
+      "css": [
+        "habillage.css"
+      ],
       "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://app.pagescms.org/*"
+      ],
+      "js": [
+        "traduction.js"
+      ],
+      "run_at": "document_end"
     }
   ]
 }
