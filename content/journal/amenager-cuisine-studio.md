@@ -3,7 +3,7 @@ titre: "Aménager une cuisine de studio : un îlot pour cuisiner et manger"
 categorie: Cuisine
 date: 2026-10-04
 duree: 6 min
-brouillon: true
+brouillon: false
 une: false
 vertical: true
 cover: /images/journal/amenager-cuisine-studio/cover.jpg
@@ -13,10 +13,6 @@ chapo: "Petit frigo, plaque collée à l’évier, aucun plan de travail : dans 
   studio, la cuisine est souvent sacrifiée. Avec des électroménagers bien
   choisis et un îlot monté sur des caissons IKEA, on peut pourtant cuisiner,
   ranger et manger dans quelques mètres carrés, sans exploser le budget."
-reel:
-  url: https://www.instagram.com/reel/DeFSiPbxVk7/
-  vignette: /images/journal/amenager-cuisine-studio/vignette.jpg
-  legende: "10 000 € et pas 1 € de plus, épisode 4 : la cuisine"
 produits:
   - titre: Caissons de cuisine IKEA (base de l’îlot)
     image: /images/journal/amenager-cuisine-studio/cover.jpg
@@ -24,6 +20,10 @@ produits:
     image: /images/journal/amenager-cuisine-studio/plaque.jpg
   - titre: Panneaux d’habillage en inox
     image: /images/journal/amenager-cuisine-studio/cover.jpg
+reel:
+  url: https://www.instagram.com/reel/DeFSiPbxVk7/
+  vignette: /images/journal/amenager-cuisine-studio/vignette.jpg
+  legende: "10 000 € et pas 1 € de plus, épisode 4 : la cuisine"
 etiquettes:
   - Petits espaces
   - Cuisine
