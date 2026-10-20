@@ -1,14 +1,13 @@
-/* Corps : sommaire en barre collante, puis le contenu sur la grille du site (--g, --col) */
+/* Corps : menu en tuiles à gauche, contenu sur la grille du site. Toute la page respecte --g (largeur max 1 600 px). */
 .page {
-  padding: calc(var(--header-h) + 24px) 0 0;
+  display: grid;
+  grid-template-columns: 178px minmax(0, 1fr);
+  gap: 64px;
+  padding: calc(var(--header-h) + 24px) var(--g) 0;
 }
 
-/* Sommaire : barre horizontale collante sous l'en-tête, dans la gouttière de la grille */
 .aside {
-  position: sticky;
-  top: var(--header-h);
-  z-index: 5;
-  background: var(--page-tone);
+  position: relative;
 }
 
 .content {
@@ -20,7 +19,7 @@
   position: relative;
   overflow: hidden;
   height: 720px;
-  margin: 0 var(--g) 24px;
+  margin: 0 0 24px;
   border-radius: var(--r-xl);
   background: var(--fond-lin);
 }
@@ -53,7 +52,7 @@
 
 /* Sections : même gouttière que le reste du site */
 .section {
-  padding: 0 var(--g) 120px;
+  padding: 0 0 120px;
 }
 
 .hero + .section {
@@ -268,9 +267,9 @@
 }
 
 @media (max-width: 900px) {
-  .aside {
-    position: static;
-    background: none;
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+    padding: calc(var(--header-h) + 8px) var(--g) 96px;
   }
   .hero {
     height: auto;
@@ -292,7 +291,7 @@
     font-size: 20px;
   }
   .section {
-    padding: 0 var(--g) 80px;
+    padding: 0 0 80px;
   }
   .hero {
     margin-bottom: 40px;
