@@ -167,7 +167,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
             </h2>
             <div className={styles.ctaText}>
               <p className="t-serre">
-                Un article donne des pistes, un plan règle tout. Le studio conçoit le vôtre à distance, dès 35 €/m², plans
+                Un article donne des pistes, un plan règle tout. Le studio conçoit le vôtre à distance, à partir de 35 €/m², plans
                 et liste shopping compris.
               </p>
               <div className={styles.ctaActions}>

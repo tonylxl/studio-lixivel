@@ -82,7 +82,7 @@ export default function Home() {
         <section className={`wrap ${styles.intro}`}>
           <ScrollFadeText
             className="t-projet"
-            text="Studio Lixivel est un studio d’architecture intérieure fondé par Cindy à Rouen. Agencement, décoration, rénovation : plus de 60 intérieurs pratiques et chaleureux conçus à distance partout en France ou sur place en Normandie, quel que soit votre budget."
+            text="Studio Lixivel est un studio d’architecture intérieure et de décoration fondé par Cindy Lixivel à Rouen. Agencement, décoration et rénovation : plus de 60 projets imaginés pour créer des intérieurs élégants, chaleureux et fonctionnels. Un accompagnement personnalisé, à distance ou sur place, partout en France et en Europe, en tenant compte de vos envies, de vos besoins et de votre budget."
           />
           <Link href="/le-studio" className="link">
             En savoir plus sur le studio
@@ -135,8 +135,8 @@ export default function Home() {
         {/* Services */}
         <section className={styles.services} aria-labelledby="titre-services">
           <SectionHead id="titre-services" title="Services" plain>
-            Quatre formules, du plan d’aménagement à la rénovation complète, dès 35 €/m². Trois se font entièrement à
-            distance partout en France ; la prise en charge complète se fait sur place, en Normandie.
+            Des prestations d’architecture intérieure modulables, de la conception à l’accompagnement des travaux, avec une
+            formule à distance à partir de 35 €/m².
           </SectionHead>
           <ul className={styles.servicesGrid}>
             {FORMULES.map((f, i) => (
@@ -178,7 +178,7 @@ export default function Home() {
               <ScrollZoom className={styles.studioImg}>
                 <Image src="/images/plan.jpg" alt="Plan 2D d’un appartement" fill sizes="(max-width: 760px) 100vw, 50vw" />
               </ScrollZoom>
-              <figcaption className="t-carte">Plans &amp; rendus 3D</figcaption>
+              <figcaption className="t-carte">Plans &amp; visuels 3D</figcaption>
             </figure>
           </div>
           <div className={`split wrap ${styles.studioText}`}>

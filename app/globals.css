@@ -75,6 +75,13 @@
   box-sizing: border-box;
 }
 
+/* Jamais de défilement horizontal de la page : les éléments animés (cartes inclinées, zooms) peuvent dépasser
+   un instant de l'écran. « clip » plutôt que « hidden » pour ne pas casser les éléments en position sticky. */
+html,
+body {
+  overflow-x: clip;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;

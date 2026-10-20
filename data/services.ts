@@ -59,3 +59,13 @@ export const ETAPES: { titre: string; texte: string; couleur: string }[] = donne
   texte: typo(e.texte),
   couleur: e.couleur,
 }));
+
+/**
+ * Type de bien du simulateur. Le PDF précise : « Les tarifs indiqués ne s’appliquent pas aux studios »,
+ * donc un studio n’a pas d’estimation affichée (devis sur demande).
+ */
+export const TYPES_BIEN: { slug: string; label: string; surDevis?: boolean }[] = [
+  { slug: "appartement", label: "Appartement" },
+  { slug: "maison", label: "Maison" },
+  { slug: "studio", label: "Studio", surDevis: true },
+];

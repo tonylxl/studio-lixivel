@@ -36,7 +36,7 @@ deplacement: "Comment le studio intervient ici."
 quartiers:
   - Quartier 1
 seoTitle: "Architecte d’intérieur à {Ville} · {angle local}"     # ≤ 60 caractères si possible
-seoDescription: "≤ 155 caractères, avec « architecte d’intérieur », la ville, un bénéfice et « dès 35 €/m² »."
+seoDescription: "≤ 155 caractères, avec « architecte d’intérieur », la ville, un bénéfice et « à partir de 35 €/m² »."
 faq:
   - q: "Question ?"
     r: "Réponse factuelle en 2-3 phrases."

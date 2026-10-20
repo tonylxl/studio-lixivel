@@ -14,7 +14,7 @@ quartiers:
   - Doulon
   - Rezé
 seoTitle: Architecte d’intérieur à Nantes · Aménagement à distance
-seoDescription: "Architecte d’intérieur pour votre logement à Nantes : aménagement, décoration, plans 2D et rendus 3D. Accompagnement à distance dès 35 €/m²."
+seoDescription: "Architecte d’intérieur pour votre logement à Nantes : aménagement, décoration, plans 2D et visuels 3D. Accompagnement à distance à partir de 35 €/m²."
 faq:
   - q: Comment aménager une maison nantaise tout en longueur ?
     r: Les maisons de ville nantaises ont souvent une façade étroite et des pièces en enfilade. On travaille la circulation, les ouvertures entre les pièces et les rangements intégrés pour garder de la lumière partout.
@@ -35,4 +35,4 @@ Nantes mêle les **immeubles en tuffeau** du centre, autour de Graslin et du Bou
 
 ## Comment ça se passe
 
-Vous remplissez le questionnaire, nous en parlons en visio, puis vous envoyez photos et mesures. Vous recevez plans, rendus 3D et, avec la formule décoration, la liste shopping complète.
+Vous remplissez le questionnaire, nous en parlons en visio, puis vous envoyez photos et mesures. Vous recevez plans, visuels 3D et, avec la formule décoration, la liste shopping complète.

@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: titreSeo(v.seoTitle ?? `Architecte d’intérieur à ${v.nom}`),
     description: descriptionSeo(
       v.seoDescription ??
-        `Architecte d’intérieur à ${v.nom} : agencement, décoration et rénovation, à distance ou sur place. Plans 2D, rendus 3D, liste shopping. Dès 35 €/m².`,
+        `Architecte d’intérieur à ${v.nom} : agencement, décoration et rénovation, à distance ou sur place. Plans 2D, visuels 3D, liste shopping. À partir de 35 €/m².`,
     ),
     alternates: { canonical: `/architecte-interieur/${v.slug}` },
   };

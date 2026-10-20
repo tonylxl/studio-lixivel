@@ -3,8 +3,8 @@ nom: Paris
 region: Île-de-France
 ordre: 2
 couleur: moutarde
-intro: Optimiser chaque mètre carré d’un appartement parisien, c’est le cœur du métier du studio. Plans, rendus 3D et liste shopping à distance, et suivi sur place pour les rénovations.
-deplacement: Paris est à un peu plus d’une heure de train du studio. L’agencement et la décoration se font à distance ; pour les projets avec travaux, Cindy se déplace pour la visite et le suivi du chantier.
+intro: Optimiser chaque mètre carré d’un appartement parisien, c’est le cœur du métier du studio. Plans, visuels 3D et liste shopping à distance, et coordination sur place pour les rénovations.
+deplacement: Paris est à un peu plus d’une heure de train du studio. L’agencement et la décoration se font à distance ; pour les projets avec travaux, Cindy se déplace pour la visite et la coordination du chantier.
 quartiers:
   - Marais
   - Batignolles
@@ -15,10 +15,10 @@ quartiers:
   - Vincennes
   - Montreuil
 seoTitle: Architecte d’intérieur à Paris · Petits espaces et déco
-seoDescription: "Architecte d’intérieur pour votre appartement parisien : petits espaces, décoration et rénovation. À distance dès 35 €/m², suivi de chantier sur place."
+seoDescription: "Architecte d’intérieur pour votre appartement parisien : petits espaces, décoration et rénovation. À distance à partir de 35 €/m², coordination de chantier sur place."
 faq:
   - q: Pouvez-vous aménager un petit appartement parisien à distance ?
-    r: Oui, c’est même le projet que le studio fait le plus souvent. Vous envoyez photos, plan et mesures, nous vous livrons les plans 2D, les rendus 3D et, avec la formule décoration, la liste shopping complète.
+    r: Oui, c’est même le projet que le studio fait le plus souvent. Vous envoyez photos, plan et mesures, nous vous livrons les plans 2D, les visuels 3D et, avec la formule décoration, la liste shopping complète.
   - q: Le studio se déplace-t-il à Paris ?
     r: Oui, pour les formules semi-complète et complète. Paris est à un peu plus d’une heure de Rouen en train, ce qui permet de suivre un chantier régulièrement.
   - q: Faut-il l’accord de la copropriété pour des travaux ?

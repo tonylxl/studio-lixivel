@@ -1,13 +1,14 @@
-/* Corps : menu en tuiles collant (178 px), 64 px d'air, puis le contenu */
+/* Corps : sommaire en barre collante, puis le contenu sur la grille du site (--g, --col) */
 .page {
-  display: grid;
-  grid-template-columns: 178px minmax(0, 1fr);
-  gap: 64px;
-  padding: calc(var(--header-h) + 24px) 24px 0;
+  padding: calc(var(--header-h) + 24px) 0 0;
 }
 
+/* Sommaire : barre horizontale collante sous l'en-tête, dans la gouttière de la grille */
 .aside {
-  position: relative;
+  position: sticky;
+  top: var(--header-h);
+  z-index: 5;
+  background: var(--page-tone);
 }
 
 .content {
@@ -19,7 +20,7 @@
   position: relative;
   overflow: hidden;
   height: 720px;
-  margin-bottom: 24px;
+  margin: 0 var(--g) 24px;
   border-radius: var(--r-xl);
   background: var(--fond-lin);
 }
@@ -50,26 +51,22 @@
   letter-spacing: -0.01em;
 }
 
-/* Sections */
+/* Sections : même gouttière que le reste du site */
 .section {
-  padding: 0 40px 120px 24px;
+  padding: 0 var(--g) 120px;
 }
 
 .hero + .section {
   margin-top: 0;
 }
 
+/* En-tête de section : filet fin, titre dans la colonne de gauche, texte à partir de --col */
 .head {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: var(--col) minmax(0, 1fr);
+  align-items: start;
   border-top: 1px solid var(--bordure-legere);
   padding: 31px 0 60px;
-}
-
-.head h2 {
-  width: 461px;
-  flex-shrink: 0;
 }
 
 .headSide {
@@ -82,45 +79,46 @@
 }
 
 .headArt {
+  justify-self: end;
   width: 140px;
   height: auto;
-  margin-left: auto;
   rotate: -6deg;
 }
 
+/* Corps de section : accroche à gauche, textes à partir de --col */
+.body {
+  display: grid;
+  grid-template-columns: var(--col) minmax(0, 1fr);
+  align-items: start;
+}
+
 .accroche {
-  max-width: 760px;
   font-size: 40px;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
 .cols {
-  display: grid;
-  grid-template-columns: 421px 330px;
-  gap: 40px;
-  padding: 40px 0 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 330px;
+  padding-top: 15px;
 }
 
 .photos {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: var(--col) minmax(0, 1fr);
   gap: 24px;
+  padding-top: 56px;
 }
 
 .photo {
   height: 620px;
 }
 
-.quote {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 32px;
-  height: 620px;
-  padding: 48px;
-  border-radius: var(--r-xl);
-  background: var(--fond-rose);
+.photo:last-child {
+  grid-column: 2;
 }
 
 /* En chiffres : cartes grises qui arrivent inclinées et se rangent au scroll */
@@ -137,7 +135,7 @@
   height: 380px;
   padding: 28px 24px;
   border-radius: var(--r-l);
-  /* Cartes neutres : le menu à gauche apporte déjà la couleur à l'écran */
+  /* Cartes neutres : la barre de sommaire apporte déjà la couleur à l'écran */
   background: var(--fond-doux);
   color: var(--texte);
 }
@@ -153,14 +151,19 @@
 /* Ce qui nous guide */
 .valeurs li {
   display: grid;
-  grid-template-columns: 461px 330px;
-  gap: 24px;
+  grid-template-columns: var(--col) minmax(0, 1fr);
+  gap: 0;
   align-items: start;
   padding: 24px 0 32px;
 }
 
 .valeurs li + li {
   border-top: 1px solid var(--bordure-legere);
+}
+
+.valeurs li > p:last-child {
+  max-width: 330px;
+  padding-top: 15px;
 }
 
 .valeur {
@@ -185,7 +188,7 @@
 
 .presseRow {
   display: grid;
-  grid-template-columns: 445px minmax(0, 360px) 1fr;
+  grid-template-columns: var(--col) minmax(0, 1fr) 40px;
   align-items: center;
   padding: 14px 16px 16px 16px;
   margin-inline: -16px;
@@ -252,15 +255,8 @@
 }
 
 @media (max-width: 1200px) {
-  .head h2 {
-    width: 40%;
-  }
-  .cols,
-  .valeurs li {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
-  .presseRow {
-    grid-template-columns: 34% minmax(0, 1fr) 40px;
+  .accroche {
+    font-size: 34px;
   }
   .valeur {
     font-size: 52px;
@@ -272,9 +268,9 @@
 }
 
 @media (max-width: 900px) {
-  .page {
-    grid-template-columns: minmax(0, 1fr);
-    padding: calc(var(--header-h) + 8px) var(--g) 96px;
+  .aside {
+    position: static;
+    background: none;
   }
   .hero {
     height: auto;
@@ -296,13 +292,32 @@
     font-size: 20px;
   }
   .section {
-    padding: 0 0 80px;
+    padding: 0 var(--g) 80px;
   }
   .hero {
     margin-bottom: 40px;
   }
+  .head,
+  .body,
+  .photos,
+  .valeurs li,
+  .presseRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .headArt {
+    display: none;
+  }
   .accroche {
     font-size: 28px;
+  }
+  .cols,
+  .valeurs li > p:last-child,
+  .headSide {
+    max-width: none;
+    padding-top: 0;
+  }
+  .photo:last-child {
+    grid-column: auto;
   }
   .chiffres {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -310,36 +325,21 @@
   .chiffre {
     height: 300px;
   }
-  .photo,
-  .quote {
+  .photo {
     height: 480px;
   }
 }
 
 @media (max-width: 640px) {
   .head {
-    flex-wrap: wrap;
     padding: 28px 0 32px;
-  }
-  .head h2 {
-    width: auto;
-  }
-  .headSide {
-    max-width: none;
-    padding-top: 0;
-    width: 100%;
-  }
-  .headArt {
-    display: none;
-  }
-  .cols,
-  .valeurs li,
-  .photos {
-    grid-template-columns: minmax(0, 1fr);
   }
   .cols {
     gap: 16px;
-    padding: 24px 0 32px;
+    padding-top: 24px;
+  }
+  .photos {
+    padding-top: 24px;
   }
   .valeurs li {
     gap: 12px;
@@ -349,11 +349,6 @@
   }
   .photo {
     height: 440px;
-  }
-  .quote {
-    height: auto;
-    padding: 32px;
-    border-radius: var(--r-l);
   }
   .chiffres {
     grid-template-columns: minmax(0, 1fr);

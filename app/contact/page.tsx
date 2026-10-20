@@ -51,6 +51,10 @@ export default function ContactPage() {
               <dd>
                 <a href={`mailto:${SITE.email}`} className="link">
                   {SITE.email}
+                </a>{" "}
+                /{" "}
+                <a href="mailto:assistante@studiolixivel.com" className="link">
+                  assistante@studiolixivel.com
                 </a>
               </dd>
             </div>
@@ -60,7 +64,7 @@ export default function ContactPage() {
             </div>
             <div>
               <dt>Zone</dt>
-              <dd>Partout en France à distance, Normandie sur place</dd>
+              <dd>Partout en France, Normandie et dans toute l’Europe</dd>
             </div>
             <div>
               <dt>Réseaux</dt>

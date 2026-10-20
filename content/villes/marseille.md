@@ -14,7 +14,7 @@ quartiers:
   - Roucas-Blanc
   - Les Goudes
 seoTitle: Architecte d’intérieur à Marseille · Déco à distance
-seoDescription: "Architecte d’intérieur pour votre appartement ou votre maison à Marseille : aménagement, décoration, plans 2D et rendus 3D, à distance dès 35 €/m²."
+seoDescription: "Architecte d’intérieur pour votre appartement ou votre maison à Marseille : aménagement, décoration, plans 2D et visuels 3D, à distance à partir de 35 €/m²."
 faq:
   - q: Comment aménager un trois-fenêtres marseillais ?
     r: Ces immeubles étroits ont une pièce sur rue, une pièce sur cour et un centre souvent sombre. On place les pièces de vie côté lumière, les rangements et la salle d’eau au centre, et on ouvre ce qui peut l’être.
@@ -35,4 +35,4 @@ Le **trois-fenêtres marseillais** est l’immeuble typique de la ville : une fa
 
 ## Comment ça se passe
 
-Vous remplissez le questionnaire, nous en parlons en visio, vous envoyez photos et mesures. Vous recevez plans, rendus 3D et, avec la formule décoration, la liste shopping complète.
+Vous remplissez le questionnaire, nous en parlons en visio, vous envoyez photos et mesures. Vous recevez plans, visuels 3D et, avec la formule décoration, la liste shopping complète.

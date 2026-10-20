@@ -4,7 +4,7 @@ region: Normandie
 ordre: 1
 couleur: rose
 intro: Le studio est installé à Rouen. Cindy vous accompagne sur place, de l’agencement d’un studio à la rénovation complète d’un appartement ou d’une maison.
-deplacement: C’est ici que le studio est installé. Toutes les formules sont possibles sur place, avec visite de votre logement et suivi du chantier pour les rénovations.
+deplacement: C’est ici que le studio est installé. Toutes les formules sont possibles sur place, avec visite de votre logement et coordination du chantier pour les rénovations.
 quartiers:
   - Vieux-Marché
   - Saint-Marc
@@ -15,7 +15,7 @@ quartiers:
   - Bihorel
   - Petit-Quevilly
 seoTitle: Architecte d’intérieur à Rouen · Déco et rénovation
-seoDescription: Studio Lixivel, architecte d’intérieur à Rouen. Agencement, décoration et rénovation sur place, dès 35 €/m². Plans 2D, rendus 3D et suivi de chantier.
+seoDescription: Studio Lixivel, architecte d’intérieur à Rouen. Agencement, décoration et rénovation sur place, à partir de 35 €/m². Plans 2D, visuels 3D et coordination de chantier.
 faq:
   - q: Le studio se déplace-t-il chez moi à Rouen ?
     r: Oui. À Rouen et dans la métropole, Cindy peut visiter votre logement pour prendre les mesures et comprendre la lumière, quelle que soit la formule choisie.

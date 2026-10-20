@@ -16,7 +16,7 @@ import styles from "./services.module.css";
 export const metadata: Metadata = {
   title: "Tarifs et formules d’architecte d’intérieur",
   description:
-    "Quatre formules d’architecte d’intérieur dès 35 €/m², du plan d’aménagement à la rénovation complète, dont trois à distance. Délais et simulateur de budget.",
+    "Quatre formules d’architecte d’intérieur, de la conception à l’accompagnement des travaux, à partir de 35 €/m². Délais, tarifs et simulateur de budget.",
 };
 
 export default function ServicesPage() {
@@ -28,8 +28,8 @@ export default function ServicesPage() {
         title="Services d’architecte d’intérieur"
       >
         <p className="c-2">
-          Quatre formules, du plan d’aménagement à la rénovation complète, dès 35 €/m². Trois d’entre elles se font
-          entièrement à distance, partout en France.
+          Des prestations d’architecture intérieure modulables, de la conception à l’accompagnement des travaux, avec une
+          formule à distance à partir de 35 €/m².
         </p>
         <nav className={styles.ancres} aria-label="Formules">
           {FORMULES.map((f) => (
@@ -130,8 +130,8 @@ export default function ServicesPage() {
         {/* Simulateur */}
         <section id="simulateur" className={styles.simulateur} aria-labelledby="t-simulateur">
           <SectionHead id="t-simulateur" title="Simulateur de budget">
-            Choisissez une formule et la surface de votre projet : le simulateur estime les honoraires du studio, hors
-            mobilier et travaux.
+            Choisissez une formule et la surface de votre projet : le simulateur estime les honoraires de votre projet
+            avec Studio Lixivel, hors mobilier et travaux. Les tarifs indiqués ne s’appliquent pas aux studios.
           </SectionHead>
           <div className="wrap">
             <Simulateur />
