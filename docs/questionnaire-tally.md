@@ -29,10 +29,10 @@ Remplace l’ancien formulaire (`studiolixivel.com/debuter-votre-projet`). Objec
 ## Page 1 — Votre projet
 
 1. **Quelle formule vous intéresse ?** *(choix unique, obligatoire, affichée seulement si `formule` vide)*
-   - Agencement & conseils · dès 35 €/m²
-   - Agencement & décoration · dès 55 €/m²
-   - Prestation semi-complète · dès 90 €/m²
-   - Prise en charge complète · à partir de 5 000 €
+   - Agencement & conseils · à partir de 35 €/m²
+   - Agencement & décoration · à partir de 55 €/m²
+   - Prestation semi-complète · à partir de 90 €/m²
+   - Prise en charge complète · sur devis
    - Je ne sais pas encore, aidez-moi à choisir
 2. **Type de bien** *(choix unique, obligatoire)* : Appartement / Studio / Maison / Local professionnel
 3. **Usage du logement** *(choix unique, obligatoire)* : Résidence principale / Résidence secondaire / Location courte durée (Airbnb, voyageurs d’affaires) / Location longue durée / Bien à vendre (home staging)

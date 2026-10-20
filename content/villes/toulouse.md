@@ -14,12 +14,12 @@ quartiers:
   - Côte Pavée
   - Borderouge
 seoTitle: Architecte d’intérieur à Toulouse · Déco à distance
-seoDescription: "Architecte d’intérieur pour votre maison ou votre appartement à Toulouse : aménagement, décoration, plans 2D et rendus 3D, à distance dès 35 €/m²."
+seoDescription: "Architecte d’intérieur pour votre maison ou votre appartement à Toulouse : aménagement, décoration, plans 2D et visuels 3D, à distance à partir de 35 €/m²."
 faq:
   - q: Comment moderniser une toulousaine sans perdre son charme ?
     r: On garde la brique, les tomettes et les cheminées quand elles sont en bon état, et on modernise la cuisine, la salle de bains et la circulation. L’idée est d’ouvrir les pièces sans effacer ce qui fait le caractère de la maison.
   - q: Combien de temps dure un projet de décoration à distance ?
-    r: Comptez 15 jours pour l’agencement, puis 1 à 4 mois pour la décoration selon les modifications demandées.
+    r: Comptez 1 mois pour l’agencement, puis 1 à 6 mois pour la décoration selon les modifications demandées.
 ---
 
 ## Les intérieurs toulousains
@@ -35,4 +35,4 @@ La **toulousaine** est la maison de ville typique : de plain-pied, en briques ro
 
 ## Comment ça se passe
 
-Le questionnaire, un appel en visio, puis vos photos et mesures. Vous recevez plans, rendus 3D et, selon la formule, la liste shopping.
+Le questionnaire, un appel en visio, puis vos photos et mesures. Vous recevez plans, visuels 3D et, selon la formule, la liste shopping.

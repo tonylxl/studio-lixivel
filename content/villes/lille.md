@@ -15,12 +15,12 @@ quartiers:
   - Marcq-en-Barœul
   - Lambersart
 seoTitle: Architecte d’intérieur à Lille · Maisons de ville et déco
-seoDescription: "Architecte d’intérieur pour votre maison ou votre appartement à Lille : aménagement, décoration, plans 2D et rendus 3D, à distance dès 35 €/m²."
+seoDescription: "Architecte d’intérieur pour votre maison ou votre appartement à Lille : aménagement, décoration, plans 2D et visuels 3D, à distance à partir de 35 €/m²."
 faq:
   - q: Comment rendre une maison lilloise plus lumineuse ?
     r: Les maisons de ville en briques sont souvent étroites, avec une pièce centrale peu éclairée. On ouvre les cloisons entre séjour et salle à manger, on choisit des teintes claires et on ajoute parfois une verrière vers la cuisine.
   - q: Le studio travaille-t-il sur des maisons entières à Lille ?
-    r: Oui. La formule semi-complète couvre la conception de toute la maison, avec plans techniques, rendus 3D et accompagnement pendant les travaux.
+    r: Oui. La formule semi-complète couvre la conception de toute la maison, avec plans techniques, visuels 3D et accompagnement pendant les travaux.
 ---
 
 ## Les intérieurs lillois
@@ -36,4 +36,4 @@ La **maison de ville en briques**, et notamment la « 1930 », est l’habitat t
 
 ## Comment ça se passe
 
-Le questionnaire, puis un appel en visio pour comprendre votre façon de vivre. Avec vos photos et mesures, nous préparons plans, rendus 3D et, selon la formule, la liste shopping.
+Le questionnaire, puis un appel en visio pour comprendre votre façon de vivre. Avec vos photos et mesures, nous préparons plans, visuels 3D et, selon la formule, la liste shopping.

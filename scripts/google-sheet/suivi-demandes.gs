@@ -27,7 +27,14 @@ const TARIFS = {
   conseils: { nom: "Agencement & conseils", parM2: 35 },
   decoration: { nom: "Agencement & décoration", parM2: 55 },
   "semi-complete": { nom: "Prestation semi-complète", parM2: 90 },
-  complete: { nom: "Prise en charge complète", forfait: 5000 },
+  complete: { nom: "Prise en charge complète", surDevis: true },
+};
+
+/** Types de bien (même règle que TYPES_BIEN dans data/services.ts : pas de tarif affiché pour un studio). */
+const BIENS = {
+  appartement: { nom: "Appartement", surDevis: false },
+  maison: { nom: "Maison", surDevis: false },
+  studio: { nom: "Studio", surDevis: true },
 };
 
 /** Colonnes ajoutées par le script, à droite de celles de Tally. */
@@ -68,12 +75,13 @@ function traiterNouvellesDemandes() {
       if (!valeur_(d, ["email"])) return; // ligne vide ou incomplète
 
       const formule = formule_(d);
+      const bien = bien_(d);
       const surface = surface_(d);
-      const prix = prixDeBase_(formule, surface);
+      const prix = prixDeBase_(formule, surface, bien);
 
       sh.getRange(r, col(COL.prix)).setValue(prix == null ? "" : prix);
       if (!ligne[col(COL.statut) - 1]) sh.getRange(r, col(COL.statut)).setValue(CONFIG.statuts[0]);
-      notifier_(d, formule, surface, prix);
+      notifier_(d, formule, bien, surface, prix);
       sh.getRange(r, col(COL.notifie)).setValue(new Date());
     });
   } finally {
@@ -142,13 +150,20 @@ function surface_(d) {
   return isNaN(n) ? null : n;
 }
 
-/** Même calcul que le simulateur du site : surface × tarif de base, arrondi à 10 €. */
-function prixDeBase_(formule, surface) {
-  if (!formule) return null;
-  const t = TARIFS[formule];
-  if (t.forfait) return t.forfait;
+/** Type de bien (champ caché « bien » ou question « Type de bien »). Vide → appartement. */
+function bien_(d) {
+  const v = String(d["bien"] || valeur_(d, ["type de bien"]) || "").toLowerCase();
+  if (v.indexOf("studio") !== -1) return "studio";
+  if (v.indexOf("maison") !== -1) return "maison";
+  return "appartement";
+}
+
+/** Même calcul que le simulateur du site : surface × tarif de base, arrondi à 10 € (pas de prix pour un studio). */
+function prixDeBase_(formule, surface, bien) {
+  if (!formule || TARIFS[formule].surDevis) return null;
+  if (BIENS[bien] && BIENS[bien].surDevis) return null;
   if (!surface) return null;
-  return Math.round((surface * t.parM2) / 10) * 10;
+  return Math.round((surface * TARIFS[formule].parM2) / 10) * 10;
 }
 
 function euros_(n) {
@@ -161,31 +176,35 @@ function echapper_(s) {
 
 /* -------------------------------------------------------------------------- */
 
-function notifier_(d, formule, surface, prix) {
+function notifier_(d, formule, bien, surface, prix) {
   const prenom = valeur_(d, ["prenom"]);
   const nom = d["Nom"] || ""; // entête exact : « nom » se trouve aussi dans « Prénom »
   const email = valeur_(d, ["email"]);
   const nomFormule = formule ? TARIFS[formule].nom : "Formule à définir ensemble";
+  const bienTxt = BIENS[bien] ? BIENS[bien].nom : "Appartement";
   const surfaceTxt = surface ? `${surface} m²` : "surface non précisée";
 
   const sujet = `Nouvelle demande · ${[prenom, nom].join(" ").trim()} · ${nomFormule} · ${surfaceTxt}`;
 
   let prixTxt;
-  if (prix == null) prixTxt = "Pas de prix calculé (formule ou surface manquante) : à estimer.";
-  else if (formule === "complete") prixTxt = `À partir de ${euros_(prix)} (forfait minimum de la prise en charge complète).`;
-  else prixTxt = `À partir de ${euros_(prix)} (${surface} m² × ${TARIFS[formule].parM2} €/m², arrondi).`;
+  if (formule && TARIFS[formule].surDevis) prixTxt = "Prise en charge complète : tarif sur devis, à établir après le questionnaire.";
+  else if (BIENS[bien] && BIENS[bien].surDevis) prixTxt = "Studio : les tarifs ne s’appliquent pas, devis à établir.";
+  else if (prix == null) prixTxt = "Pas de prix calculé (formule ou surface manquante) : à estimer.";
+  else prixTxt = `À partir de ${euros_(prix)} (${bienTxt.toLowerCase()}, ${surface} m² × ${TARIFS[formule].parM2} €/m², arrondi).`;
 
   // Réponse proposée au client : voix « nous », jamais de prénom de l'équipe.
   const fourchette =
-    prix == null
-      ? "entre [à compléter] et [à compléter]"
-      : `entre ${euros_(prix)} et [à compléter]`;
+    (formule && TARIFS[formule].surDevis) || (BIENS[bien] && BIENS[bien].surDevis)
+      ? "sur devis, après le questionnaire"
+      : prix == null
+        ? "entre [à compléter] et [à compléter]"
+        : `entre ${euros_(prix)} et [à compléter]`;
   const reponse = [
     `Bonjour ${prenom},`,
     "",
     "Merci pour votre demande et pour le temps passé sur le questionnaire.",
     "",
-    `Pour votre projet (${nomFormule.toLowerCase()}, ${surfaceTxt}), nos honoraires se situeraient ${fourchette}. Ce montant ne comprend ni le mobilier ni les travaux.`,
+    `Pour votre projet (${nomFormule.toLowerCase()}, ${bienTxt.toLowerCase()}, ${surfaceTxt}), nos honoraires se situeraient ${fourchette}. Ce montant ne comprend ni le mobilier ni les travaux.`,
     "",
     CONFIG.rdv
       ? `Nous vous enverrons le tarif exact par email après un premier échange. Si ce n’est pas déjà fait, vous pouvez réserver un appel de lancement ici : ${CONFIG.rdv}`

@@ -32,10 +32,10 @@ function creerQuestionnaire() {
   // 1. Votre projet
   form.addSectionHeaderItem().setTitle("Votre projet");
   choixUnique("Quelle formule vous intéresse ?", [
-    "Agencement & conseils · dès 35 €/m²",
-    "Agencement & décoration · dès 55 €/m²",
-    "Prestation semi-complète · dès 90 €/m²",
-    "Prise en charge complète · à partir de 5 000 €",
+    "Agencement & conseils · à partir de 35 €/m²",
+    "Agencement & décoration · à partir de 55 €/m²",
+    "Prestation semi-complète · à partir de 90 €/m²",
+    "Prise en charge complète · sur devis",
     "Je ne sais pas encore, aidez-moi à choisir",
   ]);
   choixUnique("Type de bien", ["Appartement", "Studio", "Maison", "Local professionnel"]);

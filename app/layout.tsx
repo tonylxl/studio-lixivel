@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   ...(!INDEXABLE && { robots: { index: false, follow: false } }),
   title: {
-    default: "Studio Lixivel · Architecte d’intérieur dès 35 €/m²",
+    default: "Studio Lixivel · Architecte d’intérieur à partir de 35 €/m²",
     template: "%s · Studio Lixivel",
   },
   description:
-    "Studio Lixivel, architecte d’intérieur fondé par Cindy : agencement, décoration et rénovation dès 35 €/m², à distance en France ou sur place en Normandie.",
+    "Studio Lixivel, architecte d’intérieur fondé par Cindy : agencement, décoration et rénovation à partir de 35 €/m², à distance en France ou sur place en Normandie.",
   openGraph: {
     type: "website",
     locale: "fr_FR",

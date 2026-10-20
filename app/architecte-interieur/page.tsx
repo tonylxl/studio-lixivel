@@ -67,8 +67,8 @@ export default function ZonesPage() {
         <section className={styles.block} aria-labelledby="t-comment">
           <SectionHead id="t-comment" title="À distance ou sur place">
             <p>
-              Trois formules sur quatre se font entièrement à distance, par mail et en visio. Pour la prise en charge
-              complète, le studio se déplace pour suivre le chantier.
+              Conseils et Décoration se font entièrement à distance, par mail et en visio. Pour la semi-complète et la
+              prise en charge complète, le studio se déplace sur le chantier selon le projet.
             </p>
           </SectionHead>
           <ul className={`wrap ${styles.formules}`}>

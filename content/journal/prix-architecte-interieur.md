@@ -13,23 +13,23 @@ etiquettes:
   - Petit budget
   - Rénovation
 seoTitle: "Combien coûte un architecte d’intérieur ? Tarifs 2026"
-seoDescription: "Prix au m², forfait, pourcentage des travaux : combien coûte un architecte d’intérieur, avec des exemples chiffrés de 1 050 € à plus de 5 000 €."
+seoDescription: "Prix au m², forfait, pourcentage des travaux : combien coûte un architecte d’intérieur, avec des exemples chiffrés à partir de 1 050 € et des formules détaillées."
 ---
 
-Faire appel à un **architecte d’intérieur**, beaucoup de gens y pensent sans oser demander le prix, par peur que ce soit réservé aux gros budgets. En réalité, le coût dépend surtout de ce que vous attendez : un plan pour réorganiser une pièce ne coûte pas du tout la même chose qu’une rénovation suivie de A à Z. Voici comment le prix se construit, ce qu’il comprend, et des exemples chiffrés avec les tarifs du studio.
+Faire appel à un **architecte d’intérieur**, beaucoup de gens y pensent sans oser demander le prix, par peur que ce soit réservé aux gros budgets. En réalité, le coût dépend surtout de ce que vous attendez : un plan pour réorganiser une pièce ne coûte pas du tout la même chose qu’une rénovation accompagnée de A à Z. Voici comment le prix se construit, ce qu’il comprend, et des exemples chiffrés avec les tarifs du studio.
 
 ## Combien coûte un architecte d’intérieur en moyenne ?
 
-Il n’y a pas de prix unique : tout dépend de la mission, de la surface et de la présence ou non de travaux. Un simple plan d’aménagement peut coûter quelques centaines d’euros, une rénovation complète avec suivi de chantier plusieurs milliers.
+Il n’y a pas de prix unique : tout dépend de la mission, de la surface, du type de bien et de la présence ou non de travaux. Un simple plan d’aménagement peut coûter quelques centaines d’euros, une rénovation complète avec coordination de chantier plusieurs milliers.
 
 Au Studio Lixivel, les honoraires démarrent à :
 
-- **35 €/m²** pour l’agencement et les conseils (plans 2D et 3D) ;
-- **55 €/m²** pour l’agencement et la décoration (avec rendus 3D en 4K et liste shopping) ;
-- **90 €/m²** pour la prestation semi-complète (conception et suivi des travaux à distance) ;
-- **5 000 €** pour la prise en charge complète (le studio gère tout, sur place).
+- **35 €/m²** pour l’agencement et les conseils (plan d’agencement en 2D, guide des couleurs et matériaux) ;
+- **55 €/m²** pour l’agencement et la décoration (plan 3D décoré, moodboard et liste shopping) ;
+- **90 €/m²** pour la prestation semi-complète (conception, consultation des artisans et coordination des travaux à distance) ;
+- **sur devis** pour la prise en charge complète, où le studio coordonne l’ensemble des intervenants.
 
-Ces montants sont des honoraires : ils rémunèrent le travail de conception et de suivi. Le mobilier, la décoration et les travaux s’ajoutent à part.
+Ces montants sont des honoraires : ils rémunèrent le travail de conception et de coordination. Le mobilier, la décoration et les travaux s’ajoutent à part.
 
 ## Comment un architecte d’intérieur calcule-t-il ses honoraires ?
 
@@ -43,32 +43,32 @@ La plupart des architectes d’intérieur utilisent l’une de ces quatre métho
 
 **Au pourcentage des travaux.** Fréquent pour les grosses rénovations : les honoraires représentent une part du montant des travaux, parce que le temps passé à coordonner le chantier grandit avec lui.
 
-Quelle que soit la méthode, demandez toujours ce qui est inclus : nombre de modifications, rendus 3D ou non, liste d’achats, visites de chantier. Deux devis au même prix peuvent cacher deux prestations très différentes.
+Quelle que soit la méthode, demandez toujours ce qui est inclus : nombre de modifications, visuels 3D ou non, liste d’achats, déplacements sur le chantier. Deux devis au même prix peuvent cacher deux prestations très différentes.
 
 ## Que comprend le prix d’un architecte d’intérieur ?
 
-Le prix couvre le temps de conception, les documents livrés et, selon la formule, le suivi des travaux. Concrètement, au studio :
+Le prix couvre le temps de conception, les documents livrés et, selon la formule, la coordination des travaux. Concrètement, au studio :
 
-- **Agencement & conseils** : questionnaire et appel de lancement, plans 2D et 3D de l’aménagement, une série de modifications incluse. Délai : 15 jours.
-- **Agencement & décoration** : plan 2D coté, rendus 3D en 4K, liste shopping avec toutes les références. Délai : 15 jours pour l’agencement, puis 1 à 4 mois pour la décoration.
-- **Semi-complète** : tout ce qui précède, plus la consultation des artisans, les descriptifs de travaux, le dossier administratif et le suivi à distance jusqu’à la réception. Délai : environ 6 mois.
-- **Complète** : visite et mesures sur place, conception, démarches, artisans, suivi de chantier sur place, achats en option. Délai : environ 6 mois.
+- **Agencement & conseils** : échange de lancement, plan d’agencement en 2D, guide des couleurs et matériaux, plusieurs ajustements possibles avant validation. Délai : 1 mois.
+- **Agencement & décoration** : plan d’agencement en 2D, plan 3D avec décoration, moodboard, liste shopping détaillée et accès aux prix fournisseurs. Délai : 1 mois pour l’agencement, puis 1 à 6 mois pour la décoration.
+- **Semi-complète** : plans 2D et 3D, liste shopping, mise en relation avec nos artisans, descriptifs de travaux, dossier administratif et devis, accompagnement à distance jusqu’à la réception. Délai : environ 8 mois.
+- **Prise en charge complète** : conception, mise en relation avec nos artisans et notre menuisier, coordination des différents intervenants, déplacements réguliers sur le chantier, accompagnement jusqu’à la réception. Réception et aménagement du mobilier, ainsi que le nettoyage, en option. Délai : environ 12 mois.
 
 Le détail de chaque formule est sur la [page Services](/services).
 
 ## Exemples de prix selon votre projet
 
-Le plus simple pour se projeter, c’est un calcul sur une surface réelle. Les montants ci-dessous sont des prix « à partir de », calculés comme le fait le [simulateur du studio](/services#simulateur) : surface × tarif de base.
+Le plus simple pour se projeter, c’est un calcul sur une surface réelle. Les montants ci-dessous sont des prix « à partir de », calculés comme le fait le [simulateur du studio](/services#simulateur) : surface × tarif de base. Pour un studio, les tarifs ne s’appliquent pas : le studio établit un devis.
 
 | Votre projet | Formule | À partir de |
 |---|---|---|
-| Réorganiser un studio de 30 m² | Agencement & conseils | 1 050 € |
+| Réorganiser un appartement de 30 m² | Agencement & conseils | 1 050 € |
 | Aménager et décorer un T2 de 30 m² | Agencement & décoration | 1 650 € |
 | Réorganiser un appartement de 50 m² | Agencement & conseils | 1 750 € |
 | Rénover un appartement de 60 m² en pilotant les travaux | Semi-complète | 5 400 € |
-| Rénovation sans rien gérer | Prise en charge complète | 5 000 € |
+| Rénovation sans rien gérer | Prise en charge complète | Sur devis |
 
-Pour la décoration, le prix au mètre carré baisse quand la surface augmente. Pour la prise en charge complète, le devis dépend de la surface et de l’ampleur des travaux.
+La prise en charge complète se chiffre sur devis.
 
 > Annoncez votre budget global dès le premier échange, mobilier et travaux compris. Ce n’est pas un piège : c’est ce qui permet de vous proposer un projet qui tient vraiment dans l’enveloppe, au lieu d’un beau plan que vous ne pourrez pas réaliser.
 
@@ -82,9 +82,9 @@ Si vous hésitez entre un rafraîchissement et de vrais travaux, l’article [R�
 
 ## Un architecte d’intérieur à distance coûte-t-il moins cher ?
 
-Souvent, oui : sans déplacement, le temps passé est entièrement consacré à votre projet. Trois des quatre formules du studio se font entièrement à distance, par mail et en visio, partout en France. Vous envoyez photos et mesures, le studio vous livre plans, rendus 3D et liste shopping.
+Souvent, oui : sans déplacement, le temps passé est entièrement consacré à votre projet. Les formules Conseils et Décoration se font entièrement à distance, par mail et en visio, partout en France. Vous envoyez photos et mesures, le studio vous livre le plan 2D et, selon la formule, le plan 3D décoré et la liste shopping.
 
-Le déplacement reste utile quand il y a un chantier à suivre de près. C’est pour cela que la prise en charge complète se fait sur place, en Normandie, autour de [Rouen](/architecte-interieur/rouen).
+Le déplacement reste utile quand il y a un chantier. La semi-complète prévoit un déplacement en fin de chantier, la prise en charge complète des déplacements réguliers. Le studio est basé à [Rouen](/architecte-interieur/rouen).
 
 ## Un architecte d’intérieur, est-ce rentable ?
 
@@ -94,15 +94,15 @@ Un bon plan permet aussi d’acheter juste : les bonnes dimensions, le bon nombr
 
 ## Comment obtenir un prix exact ?
 
-En décrivant votre projet : surface, pièces concernées, envies, contraintes et budget. Au studio, cela passe par un questionnaire de 5 minutes. Vous recevez une réponse sous 48 h, puis une fourchette de prix, et enfin le tarif exact par email, sans engagement.
+En décrivant votre projet : type de bien, surface, pièces concernées, envies, contraintes et budget. Au studio, cela passe par un questionnaire de 5 minutes. Vous recevez une réponse sous 48 h, puis une fourchette de prix, et enfin le tarif exact par email, sans engagement.
 
 Vous pouvez aussi lire les réponses aux autres questions sur les tarifs dans la [FAQ](/faq#tarifs).
 
 ## En résumé
 
-- Le prix d’un architecte d’intérieur dépend de la mission : un plan, une décoration complète ou une rénovation suivie.
-- Au Studio Lixivel : dès 35 €/m², 55 €/m², 90 €/m², ou à partir de 5 000 € pour une prise en charge complète.
+- Le prix d’un architecte d’intérieur dépend de la mission : un plan, une décoration complète ou une rénovation accompagnée.
+- Au Studio Lixivel : à partir de 35 €/m², 55 €/m² et 90 €/m² selon la formule ; prise en charge complète sur devis.
 - Ce sont des honoraires, hors mobilier et travaux.
-- Les formules à distance fonctionnent partout en France.
+- Les formules Conseils et Décoration fonctionnent entièrement à distance, partout en France.
 
 Vous voulez savoir combien coûterait votre projet ? [Répondez au questionnaire](/contact?source=article-prix-architecte-interieur) : nous vous recontactons sous 48 h.

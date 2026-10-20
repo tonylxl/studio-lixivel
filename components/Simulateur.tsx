@@ -2,15 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { FORMULES } from "@/data/services";
+import { FORMULES, TYPES_BIEN } from "@/data/services";
 import { rdvHref } from "@/lib/site";
 import styles from "./Simulateur.module.css";
 
 const INCLUS: Record<string, string> = {
-  conseils: "Plans 2D et 3D, appel de lancement, une série de modifications",
-  decoration: "Plans 2D, rendus 3D en 4K, liste shopping référencée",
-  "semi-complete": "Conception complète, consultation des artisans, suivi à distance",
-  complete: "Visite sur place, conception, artisans et suivi de chantier",
+  conseils: "Plan d’agencement en 2D, guide des couleurs et matériaux",
+  decoration: "Plan 2D, plan 3D décoré, liste shopping, accès aux prix fournisseurs",
+  "semi-complete": "Conception complète, consultation des artisans, coordination à distance",
+  complete: "Conception, mise en relation avec nos artisans, coordination des intervenants",
 };
 
 const euro = (n: number) => `${new Intl.NumberFormat("fr-FR").format(n)} €`;
@@ -41,12 +41,19 @@ function useCountUp(target: number, duration = 400) {
 
 export default function Simulateur() {
   const [slug, setSlug] = useState("decoration");
+  const [bien, setBien] = useState("appartement");
   const [surface, setSurface] = useState(45);
 
   const f = FORMULES.find((x) => x.slug === slug)!;
+  const type = TYPES_BIEN.find((t) => t.slug === bien) ?? TYPES_BIEN[0];
+  /** Pas de tarif au m² ni de forfait : la prestation se chiffre sur devis (prise en charge complète). */
+  const surDevis = (f.prix === null && !f.minimum) || Boolean(type.surDevis);
   const prixM2 = f.prix;
-  const total =
-    prixM2 === null ? (f.minimum ?? 0) : Math.max(f.minimum ?? 0, Math.round((surface * prixM2) / 10) * 10);
+  const total = surDevis
+    ? 0
+    : prixM2 === null
+      ? (f.minimum ?? 0)
+      : Math.max(f.minimum ?? 0, Math.round((surface * prixM2) / 10) * 10);
   const shown = useCountUp(total);
 
   return (
@@ -73,9 +80,28 @@ export default function Simulateur() {
           </div>
         </fieldset>
 
+        <fieldset className={styles.step}>
+          <legend className={styles.legend}>
+            <span className={styles.num}>02</span> Type de bien
+          </legend>
+          <div className={styles.pills}>
+            {TYPES_BIEN.map((t) => (
+              <button
+                key={t.slug}
+                type="button"
+                className="pill"
+                aria-pressed={t.slug === bien}
+                onClick={() => setBien(t.slug)}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+
         <div className={styles.step}>
           <label htmlFor="surface" className={styles.legend}>
-            <span className={styles.num}>02</span> Surface
+            <span className={styles.num}>03</span> Surface
           </label>
           <output htmlFor="surface" className={styles.surface}>
             {surface >= 200 ? "200 m² et +" : `${surface} m²`}
@@ -102,13 +128,23 @@ export default function Simulateur() {
       <div className={`${styles.card} ${styles.result}`} aria-live="polite">
         <p className="t-surtitre">Estimation des honoraires</p>
         <p className={styles.amount}>
-          <span className={styles.from}>À partir de</span>
-          {euro(shown)}
+          {surDevis ? (
+            "Sur devis"
+          ) : (
+            <>
+              <span className={styles.from}>À partir de</span>
+              {euro(shown)}
+            </>
+          )}
         </p>
         <p className="t-petit c-2">
-          {prixM2 === null
-            ? `${f.titre} · forfait minimum`
-            : `${f.titre} · ${surface} m² × ${prixM2} €/m² (tarif de base)`}
+          {surDevis
+            ? type.surDevis
+              ? `${f.titre} · ${type.label.toLowerCase()} · les tarifs ne s’appliquent pas aux studios`
+              : `${f.titre} · tarif sur devis`
+            : prixM2 === null
+              ? `${f.titre} · forfait minimum`
+              : `${f.titre} · ${type.label.toLowerCase()} · ${surface} m² × ${prixM2} €/m²`}
           {f.noteTarif && (
             <>
               <br />
@@ -133,7 +169,7 @@ export default function Simulateur() {
         </dl>
 
         <Link
-          href={rdvHref("simulateur", { formule: f.slug, surface: String(surface) })}
+          href={rdvHref("simulateur", { formule: f.slug, bien: type.slug, surface: String(surface) })}
           className="btn btn--lg"
         >
           Prendre rendez-vous avec cette estimation

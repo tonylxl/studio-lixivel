@@ -11,7 +11,7 @@ export const SITE = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://studiolixivel.com",
   email: "contact@studiolixivel.com",
   ville: "Rouen, Normandie",
-  zone: "Partout en France à distance",
+  zone: "Partout en France",
   instagram: "https://www.instagram.com/studiolixivel/",
   tiktok: "https://www.tiktok.com/@studiolixivel",
   handle: "@studiolixivel",

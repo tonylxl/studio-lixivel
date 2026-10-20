@@ -14,12 +14,12 @@ quartiers:
   - Nansouty
   - Le Bouscat
 seoTitle: Architecte d’intérieur à Bordeaux · Échoppes et déco
-seoDescription: "Architecte d’intérieur pour votre échoppe ou votre appartement à Bordeaux : aménagement, décoration, plans 2D et rendus 3D, à distance dès 35 €/m²."
+seoDescription: "Architecte d’intérieur pour votre échoppe ou votre appartement à Bordeaux : aménagement, décoration, plans 2D et visuels 3D, à distance à partir de 35 €/m²."
 faq:
   - q: Comment faire entrer la lumière dans une échoppe bordelaise ?
     r: Les échoppes sont souvent longues et étroites, avec une pièce centrale sombre. On joue sur l’ouverture des cloisons, les verrières intérieures et les couleurs claires pour faire circuler la lumière de la rue au jardin.
   - q: Peut-on travailler à distance sur une rénovation à Bordeaux ?
-    r: "Oui pour la conception : plans, rendus 3D et choix des matériaux se font à distance. Pour le suivi du chantier, nous voyons ensemble ce qui est possible selon le projet."
+    r: "Oui pour la conception : plans, visuels 3D et choix des matériaux se font à distance. Pour la coordination du chantier, nous voyons ensemble ce qui est possible selon le projet."
 ---
 
 ## Les intérieurs bordelais
@@ -35,4 +35,4 @@ L’**échoppe** est la maison typique de Bordeaux : de plain-pied, en pierre, t
 
 ## Comment ça se passe
 
-Tout commence par le questionnaire et un appel en visio. Avec vos photos et vos mesures, nous préparons les plans 2D, les rendus 3D et, selon la formule, la liste shopping à commander.
+Tout commence par le questionnaire et un appel en visio. Avec vos photos et vos mesures, nous préparons les plans 2D, les visuels 3D et, selon la formule, la liste shopping à commander.

@@ -377,7 +377,7 @@ content:
           - { name: description, label: Description (page Services), type: text, required: true }
           - { name: inclus, label: Ce qui est inclus, type: string, list: true }
           - { name: delai, label: Délai, type: string, required: true }
-          - { name: tarif, label: "Tarif affiché (ex. Dès 55 €/m²)", type: string, required: true }
+          - { name: tarif, label: "Tarif affiché (ex. À partir de 55 €/m²)", type: string, required: true }
           - { name: prixM2, label: "Tarif de base en €/m² (simulateur, vide pour un forfait)", type: number }
           - { name: minimum, label: "Forfait minimum en € (prise en charge complète)", type: number }
           - { name: noteTarif, label: Précision sous l’estimation du simulateur, type: string }

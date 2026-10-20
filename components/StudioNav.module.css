@@ -243,3 +243,57 @@
     font-size: 12px;
   }
 }
+
+/* Bureau : sommaire en barre horizontale, dans la gouttière de la grille (sous l'en-tête, collée au défilement) */
+@media (min-width: 901px) {
+  .nav {
+    position: relative;
+    top: auto;
+    height: auto;
+    margin-bottom: 0;
+    padding: 12px var(--g);
+  }
+  .list {
+    flex-direction: row;
+    gap: 8px;
+  }
+  .item,
+  .item[data-active] {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .item[data-active] {
+    flex-grow: 2.2;
+  }
+  .tile,
+  .tile[aria-current] {
+    height: 76px;
+    padding: 12px 16px 14px;
+    border-radius: var(--r-m);
+  }
+  .tile:not([aria-current]) {
+    justify-content: space-between;
+  }
+  .tile:not([aria-current]) .num,
+  .tile[aria-current] .num {
+    display: block;
+  }
+  .tile[aria-current] .label {
+    font-size: 18px;
+  }
+  .jauge {
+    top: auto;
+    bottom: 0;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    height: 3px;
+  }
+  .jaugeFill {
+    transform-origin: left;
+    transform: scaleX(var(--p, 0));
+  }
+  .tile:not([aria-current]) .jaugeFill {
+    transform: scaleX(0);
+  }
+}

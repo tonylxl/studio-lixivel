@@ -107,6 +107,11 @@ export default function Footer({
               Mentions légales
             </Link>
           </li>
+          <li>
+            <Link href="/cgv" className={styles.lien}>
+              CGV
+            </Link>
+          </li>
           <li>© Studio Lixivel {new Date().getFullYear()}</li>
         </ul>
       </div>
