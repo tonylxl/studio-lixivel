@@ -12,7 +12,7 @@ export function orgJsonLd(villes: string[] = []) {
     "@id": ORG_ID,
     name: SITE.name,
     description:
-      "Studio d’architecture intérieure fondé par Cindy à Rouen : agencement, décoration et rénovation à partir de 35 €/m², à distance partout en France ou sur place en Normandie. Plus de 60 projets accompagnés.",
+      "Studio d’architecture intérieure fondé par Cindy à Rouen : agencement, décoration et rénovation à partir de 35 €/m², à distance partout en France ou sur place en Normandie. Plus de 300 projets accompagnés.",
     url: SITE.url,
     email: SITE.email,
     image: `${SITE.url}/images/bureau.jpg`,

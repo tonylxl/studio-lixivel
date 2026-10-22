@@ -21,7 +21,7 @@ Remplace l’ancien formulaire (`studiolixivel.com/debuter-votre-projet`). Objec
 
 1. **Nouveau formulaire** → titre : « Débuter votre projet ». Formulaire en ligne : `obr965` (tally.so/forms/obr965/edit). Une page d’accueil (« Parlons de votre projet », court texte, « Environ 5 minutes · 4 étapes · réponse sous 48 h », bouton « Commencer »), puis 4 pages de questions et la page de remerciement.
 2. **Champs cachés** (bloc *Hidden fields*, en haut) : `source`, `formule`, `surface`, `article`. Le site les remplit tout seul via l’URL (bouton cliqué, simulateur, article du journal).
-3. **Logique** : la question *Formule* ne s’affiche que si `formule` est vide ; la question *Surface* ne s’affiche que si `surface` est vide (sinon la valeur du simulateur est déjà connue).
+3. **Logique** : la question *Formule* ne s’affiche que si `formule` est vide ; la question *Surface* reste toujours affichée, mais son champ est prérempli avec `surface` (valeur du simulateur) : le client peut la corriger.
 4. **Notifications** (Integrations → Email notifications) : envoyer chaque réponse à `contact@studiolixivel.com`, avec *Reply-to* = l’email du client (Cindy répond directement depuis sa boîte).
 5. **Apparence** : police *Schibsted Grotesk* si disponible (sinon Inter), bouton bordeaux `#8c373c`, texte `#494141`, fond blanc. Masquer le titre (le site l’affiche déjà).
 6. **Publier**, puis copier l’identifiant dans l’URL `tally.so/r/XXXXXX` → variable `NEXT_PUBLIC_TALLY_FORM_ID` dans Vercel.
@@ -35,6 +35,8 @@ Remplace l’ancien formulaire (`studiolixivel.com/debuter-votre-projet`). Objec
    - Prise en charge complète · sur devis
    - Je ne sais pas encore, aidez-moi à choisir
 2. **Type de bien** *(choix unique, obligatoire)* : Appartement / Studio / Maison / Local professionnel
+   - **Quel type de local ?** *(choix unique, obligatoire, affichée seulement si « Local professionnel »)* : Bureau / Commerce ou boutique / Restaurant ou café / Hôtel ou hébergement / Espace d’accueil ou de réunion / Autre
+   - Si « Local professionnel » : *Usage du logement*, *Qui vit ici* (adultes, enfants) sont masqués.
 3. **Usage du logement** *(choix unique, obligatoire)* : Résidence principale / Résidence secondaire / Location courte durée (Airbnb, voyageurs d’affaires) / Location longue durée / Bien à vendre (home staging)
 4. **Vous êtes** *(choix unique)* : Propriétaire / Locataire / En cours d’achat
 5. **Ville** *(texte court, obligatoire)*

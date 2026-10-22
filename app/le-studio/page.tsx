@@ -15,7 +15,7 @@ import styles from "./studio.module.css";
 export const metadata: Metadata = {
   title: "Le studio : Cindy, architecte d’intérieur",
   description:
-    "Studio Lixivel, fondé par Cindy à Rouen : une architecture intérieure accessible, plus de 60 projets, des intérieurs pratiques et chaleureux partout en France.",
+    "Studio Lixivel, fondé par Cindy à Rouen : une architecture intérieure accessible, plus de 300 projets, des intérieurs pratiques et chaleureux partout en France.",
 };
 
 const SECTIONS: StudioNavItem[] = [

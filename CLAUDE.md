@@ -46,7 +46,7 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 
 - Voix : « Le studio » pour se décrire, « nous » quand on s’adresse au client ; mettre en avant la fondatrice, Cindy.
 - Navigation dans le menu burger (Projets, Services, Le studio, Ressources, FAQ, Contact). **Hub Ressources** (10 oct. 2026) : deux pages, **Articles** = `/blog` et **Guides** = `/guides`, avec des onglets en haut de chacune (`RessourcesOnglets`) et les deux sous-liens sous « Ressources » dans le menu (`RESSOURCES`, `lib/site.ts`) ; `/ressources` redirige vers `/blog`. Pas de carte cadeau, pas de CGV.
-- « +60 projets ». Pas de bouton dans les réponses de la FAQ.
+- « +300 projets ». Pas de bouton dans les réponses de la FAQ.
 - SEO : H1 avec « architecte d’intérieur », **sans** « Rouen » (Cindy vise plus large) ; Rouen a sa propre page ville. Objectif : premières places Google sur « architecte d’intérieur + ville », et être cité par les IA (GEO : `llms.txt`, données structurées, réponses factuelles).
 - Tous les boutons « Prendre rendez-vous » mènent à `/contact?source=…` (formulaire Tally intégré, la source est transmise au formulaire).
 - **Tarifs (validés par Cindy le 8 oct. 2026)**, toujours affichés « à partir de » : Agencement & conseils **35 €/m²** ; Agencement & décoration **dès 55 €/m²** (dégressif quand la surface augmente) ; Semi-complète **dès 90 €/m²** ; Prise en charge complète **à partir de 5 000 €**. **Plus d’offre 18–29 ans / étudiants / nouveaux propriétaires.**

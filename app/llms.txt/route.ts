@@ -12,7 +12,7 @@ export function GET() {
   const lignes = [
     `# ${SITE.name}`,
     "",
-    "> Studio d’architecture intérieure fondé par Cindy, basé à Rouen (Normandie). Agencement, décoration et rénovation d’intérieurs, à distance partout en France ou sur place pour les projets avec travaux. Plus de 60 projets réalisés.",
+    "> Studio d’architecture intérieure fondé par Cindy, basé à Rouen (Normandie). Agencement, décoration et rénovation d’intérieurs, à distance partout en France ou sur place pour les projets avec travaux. Plus de 300 projets réalisés.",
     "",
     `Contact : ${SITE.email} · Instagram : ${SITE.instagram} · TikTok : ${SITE.tiktok}`,
     "",
@@ -22,7 +22,7 @@ export function GET() {
     "- Basé à Rouen (Normandie). Conseils et Décoration se font entièrement à distance, partout en France ; la semi-complète et la complète prévoient des déplacements sur le chantier selon le projet.",
     "- Tarifs (honoraires, hors mobilier et travaux) : à partir de 35 €/m² (conseils), 55 €/m² (décoration), 90 €/m² (semi-complète) ; prise en charge complète sur devis. Pour un studio, les tarifs ne s’appliquent pas : devis sur demande.",
     "- Délais : 1 mois pour les conseils, 1 mois puis 1 à 6 mois pour la décoration, environ 8 mois pour la semi-complète, environ 12 mois pour la prise en charge complète.",
-    "- Plus de 60 projets accompagnés ; cité par Marie Claire, Gala, Forbes, ICI Normandie (radio), actu.fr et Maison & Jardin.",
+    "- Plus de 300 projets accompagnés ; cité par Marie Claire, Gala, Forbes, ICI Normandie (radio), actu.fr et Maison & Jardin.",
     "- Premier contact : questionnaire en 5 minutes, réponse sous 48 h, sans engagement.",
     "",
     "## Formules et tarifs",

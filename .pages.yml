@@ -470,5 +470,5 @@ content:
     path: content/donnees/chiffres.json
     list: true
     fields:
-      - { name: valeur, label: "Chiffre (ex. +60, 48 h)", type: string, required: true, options: { maxlength: 6 } }
+      - { name: valeur, label: "Chiffre (ex. +300, 48 h)", type: string, required: true, options: { maxlength: 6 } }
       - { name: label, label: Légende, type: string, required: true, options: { maxlength: 50 } }
