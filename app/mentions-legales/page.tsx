@@ -12,7 +12,12 @@ export const metadata: Metadata = {
 const BLOCS = [
   {
     titre: "Éditeur du site",
-    texte: `Studio Lixivel, entreprise individuelle de Cindy [Nom], architecte d’intérieur. Siège : [adresse], Rouen (76). SIRET : [à compléter]. Contact : ${SITE.email}. Directrice de la publication : Cindy [Nom].`,
+    texte: `Studio Lixivel, entreprise individuelle de Cindy LIXIVEL, architecte d’intérieur. Siège : 9 rue du Renard, Rouen (76). SIRET : 91233045300024. Contact : ${SITE.email}. Directrice de la publication : Cindy LIXIVEL.`,
+  },
+  {
+    titre: "Médiation de la consommation",
+    texte:
+      "Conformément aux articles L.612-1 et suivants du Code de la consommation, tout client consommateur peut recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable d’un litige. Médiateur désigné : ANM Conso, 2 rue de Colmar – 94300 Vincennes. Site : ANMconso.com",
   },
   {
     titre: "Hébergement",

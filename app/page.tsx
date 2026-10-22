@@ -82,7 +82,7 @@ export default function Home() {
         <section className={`wrap ${styles.intro}`}>
           <ScrollFadeText
             className="t-projet"
-            text="Studio Lixivel est un studio d’architecture intérieure et de décoration fondé par Cindy Lixivel à Rouen. Agencement, décoration et rénovation : plus de 60 projets imaginés pour créer des intérieurs élégants, chaleureux et fonctionnels. Un accompagnement personnalisé, à distance ou sur place, partout en France et en Europe, en tenant compte de vos envies, de vos besoins et de votre budget."
+            text="Studio Lixivel est un studio d’architecture intérieure et de décoration fondé par Cindy Lixivel à Rouen. Agencement, décoration et rénovation : plus de 300 projets imaginés pour créer des intérieurs élégants, chaleureux et fonctionnels. Un accompagnement personnalisé, à distance ou sur place, partout en France et en Europe, en tenant compte de vos envies, de vos besoins et de votre budget."
           />
           <Link href="/le-studio" className="link">
             En savoir plus sur le studio
@@ -185,9 +185,9 @@ export default function Home() {
             <span />
             <div className="col-2 stack" style={{ gap: 24, alignItems: "flex-start" }}>
               <p className="t-serre c-2">
-                Remarquée sur TikTok et Instagram, citée par Marie Claire, Gala, Forbes, ICI Normandie et Maison &amp; Jardin, Cindy
-                partage chaque semaine ses astuces pour un intérieur réussi sans exploser son budget. Elle suit
-                elle-même chaque projet du studio, du premier questionnaire à la remise des clés.
+                Sur Instagram et TikTok, Cindy partage son expertise en architecture intérieure, ses conseils, ses inspirations
+                et les coulisses de ses projets, tout en dévoilant avec naturel son quotidien de maman et de cheffe
+                d’entreprise. Un univers à la fois professionnel, spontané et proche de sa communauté.
               </p>
               <Link href="/le-studio" className="link">
                 Découvrir le studio
