@@ -2,23 +2,23 @@
   "categories": [
     {
       "id": "studio",
-      "titre": "Le studio",
+      "titre": "Le studio Lixivel",
       "questions": [
         {
           "question": "Qui est derrière Studio Lixivel ?",
-          "reponse": "Cindy, architecte d’intérieur et créatrice de contenus déco, qui a fondé le studio à Rouen. Elle suit chaque projet de près, du premier questionnaire à la remise des clés. Le studio a accompagné plus de 300 projets et a été cité par Marie Claire, Gala, Forbes, ICI Normandie, actu.fr et Maison & Jardin.",
+          "reponse": "Cindy, architecte d’intérieur et créatrice de contenus déco, a fondé Studio Lixivel à Rouen. Passionnée par son métier, elle s’implique dans chaque projet avec l’envie de créer des intérieurs qui vous ressemblent. Avec plus de 300 projets accompagnés, le studio a également été mis en lumière par Forbes, Gala, Marie Claire, Maison & Jardin, ICI Normandie et actu.fr.",
           "accueil": false,
           "services": false
         },
         {
           "question": "Quelle différence entre un architecte d’intérieur et un décorateur ?",
-          "reponse": "Le décorateur travaille surtout l’ambiance (couleurs, mobilier, objets), l’architecte d’intérieur travaille aussi l’espace lui-même : plans, circulations, cloisons, lumière et, si besoin, travaux. Le studio fait les deux, de l’agencement d’une pièce à la rénovation complète d’un logement.",
+          "reponse": "Le décorateur travaille surtout l’ambiance (couleurs, mobilier, objets), l’architecte d’intérieur travaille aussi l’espace lui-même : plans, circulations, cloisons, lumière et, si besoin, travaux. Le studio Lixivel fait les deux, de l’agencement d’une pièce à la rénovation complète d’un logement.",
           "accueil": true,
           "services": false
         },
         {
           "question": "Travaillez-vous aussi pour les professionnels ?",
-          "reponse": "Oui. En plus des logements, le studio aménage des locaux professionnels : bureaux, agence, atelier ou studio photo. Indiquez-le dans le questionnaire, nous adaptons la proposition à votre activité.",
+          "reponse": "Oui. En plus des logements, Studio Lixivel aménage des espaces professionnels : boutiques, cafés, restaurants, salons de coiffure, espaces événementiels et studios photo. Indiquez-le dans le questionnaire, nous adaptons la proposition à votre activité.",
           "accueil": false,
           "services": false
         }
@@ -30,7 +30,7 @@
       "questions": [
         {
           "question": "Quelle formule choisir ?",
-          "reponse": "Tout dépend de votre projet : Agencement & conseils pour réorganiser l’espace, Agencement & décoration pour savoir aussi quoi acheter, la semi-complète ou la complète dès qu’il y a des travaux. En cas de doute, le questionnaire nous aide à vous orienter.",
+          "reponse": "Tout dépend de votre projet : Agencement & conseils pour réorganiser l’espace, Agencement & décoration pour imaginer votre intérieur et vous guider dans le choix du mobilier, des matériaux et de la décoration, Semi-complète pour préparer vos travaux avec un accompagnement à distance, ou Complète pour bénéficier d’un accompagnement personnalisé sur place, y compris pendant les travaux. En cas de doute, le questionnaire nous aide à vous orienter.",
           "accueil": false,
           "services": true
         },
@@ -42,7 +42,7 @@
         },
         {
           "question": "Faut-il faire des travaux ?",
-          "reponse": "Non. Les formules Conseils et Décoration se font sans travaux : on réorganise, on meuble, on décore. Les formules semi-complète et complète sont pensées pour les projets avec travaux, de la rénovation légère à la rénovation complète.",
+          "reponse": "Non, pas nécessairement. Les formules Agencement & conseils et Agencement & décoration peuvent se faire sans travaux, simplement pour réaménager ou décorer votre intérieur. Si des travaux sont nécessaires, leur réalisation reste à votre charge. Les formules Semi-complète et Complète proposent un accompagnement plus poussé, de la préparation à la réalisation des travaux.",
           "accueil": false,
           "services": false
         },
@@ -66,13 +66,13 @@
       "questions": [
         {
           "question": "Comment se passe un projet à distance ?",
-          "reponse": "Tout se fait par mail et en visio, sans que le studio ait besoin de venir chez vous. Vous remplissez le questionnaire, vous nous envoyez photos et mesures, puis nous vous livrons le plan 2D et, selon la formule choisie, le plan 3D décoré et la liste shopping.",
+          "reponse": "Tout se fait par mail et en audio, sans que le studio ait besoin de venir chez vous. Vous remplissez le questionnaire, vous nous envoyez plans côtés, photos et vidéos, puis nous vous livrons le plan 2D et, selon la formule choisie, le plan 3D décoration et la liste shopping.",
           "accueil": false,
           "services": true
         },
         {
           "question": "Quelles informations dois-je fournir ?",
-          "reponse": "Un plan ou les mesures de la pièce, des photos de chaque mur, le mobilier que vous gardez et quelques images qui vous inspirent. Pour les mesures : longueurs, hauteur sous plafond, emplacement des fenêtres, portes et prises. Nous vous envoyons un guide pour ne rien oublier.",
+          "reponse": "Un plan ou les mesures de la pièce, des vidéos, des photos de chaque mur, le mobilier que vous gardez et quelques images qui vous inspirent. Pour les mesures : longueurs, hauteur sous plafond, emplacement des fenêtres, portes et prises. Nous vous envoyons un guide pour ne rien oublier.",
           "accueil": false,
           "services": false
         },
@@ -108,7 +108,7 @@
         },
         {
           "question": "Faut-il un gros budget ?",
-          "reponse": "Non. Nous partons de ce que vous voulez dépenser, pas l’inverse : chaque proposition tient dans l’enveloppe fixée ensemble, mobilier compris. Beaucoup de nos projets se font avec des pièces chinées ou à petit prix.",
+          "reponse": "Pas forcément ! Chaque projet est unique, et nous prenons toujours en compte votre budget pour vous proposer des solutions adaptées à vos envies et à vos besoins. Bien sûr, un certain budget reste nécessaire, mais l’essentiel est de trouver ensemble le bon équilibre entre vos souhaits et ce qui est réalisable.",
           "accueil": false,
           "services": false
         },
@@ -132,7 +132,7 @@
         },
         {
           "question": "Qui coordonne le chantier ?",
-          "reponse": "Cela dépend de la formule. Avec la semi-complète, vous gardez la gestion quotidienne du chantier et le studio reste à vos côtés à distance, en continuant d’échanger avec les artisans. Avec la prise en charge complète, le studio assure la coordination des différents intervenants, avec des déplacements réguliers sur le chantier, jusqu’à l’accompagnement à la réception.",
+          "reponse": "Cela dépend de la formule. Avec la semi-complète, vous gardez la gestion quotidienne du chantier et le studio Lixivel reste à vos côtés à distance, en continuant d’échanger avec les artisans. Avec la prise en charge complète, le studio assure la coordination des différents intervenants, avec des déplacements réguliers sur le chantier, jusqu’à l’accompagnement à la réception.",
           "accueil": false,
           "services": false
         },
