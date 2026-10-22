@@ -2,11 +2,11 @@
   "categories": [
     {
       "id": "studio",
-      "titre": "Le studio",
+      "titre": "Le studio Lixivel",
       "questions": [
         {
           "question": "Qui est derrière Studio Lixivel ?",
-          "reponse": "Cindy, architecte d’intérieur et créatrice de contenus déco, qui a fondé le studio à Rouen. Elle suit chaque projet de près, du premier questionnaire à la remise des clés. Le studio a accompagné plus de 60 projets et a été cité par Marie Claire, Gala, Forbes, ICI Normandie, actu.fr et Maison & Jardin.",
+          "reponse": "Cindy, architecte d’intérieur et créatrice de contenus déco, a fondé Studio Lixivel à Rouen. Passionnée par son métier, elle s’implique dans chaque projet avec l’envie de créer des intérieurs qui vous ressemblent. Avec plus de 300 projets accompagnés, le studio a également été mis en lumière par Forbes, Gala, Marie Claire, Maison & Jardin, ICI Normandie et actu.fr.",
           "accueil": false,
           "services": false
         },
