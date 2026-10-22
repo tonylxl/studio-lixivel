@@ -77,6 +77,12 @@
   padding: 120px var(--g) 120px;
 }
 
+/* La colonne prend toute la hauteur de l'article : le sommaire collant a de la place pour glisser. */
+.asideCol {
+  display: flex;
+  flex-direction: column;
+}
+
 .content {
   display: flex;
   flex-direction: column;

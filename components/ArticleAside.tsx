@@ -47,45 +47,6 @@ export default function ArticleAside({ toc, titre, reel }: Props) {
 
   return (
     <aside className={styles.aside}>
-      {toc.length > 0 && (
-        <nav aria-label="Sommaire">
-          <p className="t-surtitre">Sommaire</p>
-          <ol className={styles.toc}>
-            {toc.map((t, i) => (
-              <li key={t.id}>
-                <a href={`#${t.id}`} aria-current={active === t.id ? "true" : undefined}>
-                  <span className={styles.n}>{String(i + 1).padStart(2, "0")}</span>
-                  <span className="trait">{t.label}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
-      )}
-
-      <div className={styles.share}>
-        <span className="t-surtitre">Partager</span>
-        <a
-          className="link"
-          href={`https://pinterest.com/pin/create/button/?url=${enc(url)}&description=${enc(titre)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Pinterest
-        </a>
-        <a
-          className="link"
-          href={`https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Facebook
-        </a>
-        <button type="button" className="link" onClick={copy}>
-          {copied ? "Lien copié !" : "Copier le lien"}
-        </button>
-      </div>
-
       {reel?.url && (
         <a href={reel.url} target="_blank" rel="noopener noreferrer" className={styles.reel}>
           <span className="t-surtitre">Le réel</span>
@@ -100,6 +61,48 @@ export default function ArticleAside({ toc, titre, reel }: Props) {
           <span className="link link--accent">Voir le réel sur Instagram ↗</span>
         </a>
       )}
+
+      <div className={styles.collant}>
+        {toc.length > 0 && (
+          <nav aria-label="Sommaire">
+            <p className="t-surtitre">Sommaire</p>
+            <ol className={styles.toc}>
+              {toc.map((t, i) => (
+                <li key={t.id}>
+                  <a href={`#${t.id}`} aria-current={active === t.id ? "true" : undefined}>
+                    <span className={styles.n}>{String(i + 1).padStart(2, "0")}</span>
+                    <span className="trait">{t.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
+
+        <div className={styles.share}>
+          <span className="t-surtitre">Partager</span>
+          <a
+            className="link"
+            href={`https://pinterest.com/pin/create/button/?url=${enc(url)}&description=${enc(titre)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pinterest
+          </a>
+          <a
+            className="link"
+            href={`https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </a>
+          <button type="button" className="link" onClick={copy}>
+            {copied ? "Lien copié !" : "Copier le lien"}
+          </button>
+        </div>
+      </div>
+
     </aside>
   );
 }
