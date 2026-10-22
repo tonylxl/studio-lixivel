@@ -61,7 +61,7 @@ Remplace l’ancien formulaire (`studiolixivel.com/debuter-votre-projet`). Objec
 17. **Avez-vous déjà des artisans ?** *(choix unique ; logique : affichée seulement si la formule est semi-complète ou complète, ou si « Travaux » est coché en 10)* : Oui / Non / En partie
 
 
-18. **Vos photos et plans** *(envoi de fichiers, facultatif, plusieurs fichiers)* : « **Pour nous permettre d’estimer votre projet au plus juste, l’idéal est de nous transmettre un plan coté avec les dimensions, ainsi que quelques photos de l’espace.** Une photo de chaque mur, prise depuis un coin de la pièce, nous aidera également à bien comprendre les volumes. 10 Mo maximum par fichier. »
+18. **Vos photos et plans** *(envoi de fichiers, facultatif, plusieurs fichiers)* : « Pour nous permettre d’estimer votre projet au plus juste, l’idéal est de nous transmettre un plan coté avec les dimensions, ainsi que quelques photos de l’espace. Une photo de chaque mur, prise depuis un coin de la pièce, nous aidera également à bien comprendre les volumes. 10 Mo maximum par fichier. »
 19. **Autre chose à nous dire ?** *(texte long, facultatif)*
 
 ## Page 4 — Vos coordonnées
