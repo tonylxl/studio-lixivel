@@ -2,7 +2,7 @@
 nom: Strasbourg
 region: Alsace
 ordre: 1
-intro: À Strasbourg, Studio Lixivel a accompagné la rénovation d’une villa, en
-  imaginant des espaces élégants, chaleureux et adaptés au quotidien de ses
-  occupants. Un projet qui reflète notre approche de l’architecture intérieu
+intro: Appartement de charme au cœur de la Petite France, maison alsacienne ou
+  villa contemporaine, Studio Lixivel vous accompagne dans vos projets
+  d’agencement, de décoration et de rénovation à Strasbourg et ses environs.
 ---
