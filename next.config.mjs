@@ -16,8 +16,7 @@ const nextConfig = {
       { source: "/realisations", destination: "/projets", permanent: true },
       { source: "/debuter-votre-projet", destination: "/contact?source=ancien-site", permanent: true },
       { source: "/thank-you-page", destination: "/contact", permanent: true },
-      // Plus de CGV ni de boutique (carte cadeau supprimée) : vers les formules.
-      { source: "/cgv", destination: "/services", permanent: true },
+      // Plus de boutique (carte cadeau supprimée) : vers les formules. /cgv a sa propre page.
       { source: "/shop", destination: "/services", permanent: true },
       { source: "/panier", destination: "/services", permanent: true },
       { source: "/commande", destination: "/services", permanent: true },
