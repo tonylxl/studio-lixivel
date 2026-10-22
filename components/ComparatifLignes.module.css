@@ -1,0 +1,31 @@
+/* Ligne « Voir plus » du comparatif : pleine largeur, sur desktop comme sur mobile. */
+.plus td {
+  padding: 14px 0 0;
+  border-bottom: 1px solid var(--bordure-legere);
+}
+
+@media (max-width: 640px) {
+  .plus {
+    display: block;
+    padding: 0 var(--g) 18px;
+  }
+  .plus td {
+    display: block;
+    padding: 0;
+  }
+}
+
+.bouton {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.bouton:focus-visible {
+  outline: 2px solid var(--accent, currentColor);
+  outline-offset: 4px;
+}

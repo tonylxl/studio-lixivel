@@ -4,6 +4,7 @@ import Link from "next/link";
 import Opening from "@/components/Opening";
 import Footer from "@/components/Footer";
 import SectionHead from "@/components/SectionHead";
+import ComparatifLignes from "@/components/ComparatifLignes";
 import Accordion from "@/components/Accordion";
 import Simulateur from "@/components/Simulateur";
 import Reveal from "@/components/Reveal";
@@ -107,23 +108,7 @@ export default function ServicesPage() {
                 ))}
               </tr>
             </thead>
-            <tbody>
-              {COMPARATIF.map((row) => (
-                <tr key={row.label} data-tarif={row.label === "Tarif" || undefined}>
-                  <th scope="row">{row.label}</th>
-                  {row.valeurs.map((v, i) => (
-                    <td
-                      key={i}
-                      data-formule={FORMULES[i].court}
-                      data-vide={v === "—" || undefined}
-                      data-check={v === "✓" || undefined}
-                    >
-                      {v === "—" ? <span aria-label="Non inclus">—</span> : v === "✓" ? <span aria-label="Inclus">✓</span> : v}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
+            <ComparatifLignes lignes={COMPARATIF} formules={FORMULES} />
           </table>
         </section>
 
