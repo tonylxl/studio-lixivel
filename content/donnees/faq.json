@@ -30,7 +30,7 @@
       "questions": [
         {
           "question": "Quelle formule choisir ?",
-          "reponse": "Tout dépend de votre projet : Agencement & conseils pour réorganiser l’espace, Agencement & décoration pour savoir aussi quoi acheter, la semi-complète ou la complète dès qu’il y a des travaux. En cas de doute, le questionnaire nous aide à vous orienter.",
+          "reponse": "Tout dépend de votre projet : Agencement & conseils pour réorganiser l’espace, Agencement & décoration pour imaginer votre intérieur et vous guider dans le choix du mobilier, des matériaux et de la décoration, Semi-complète pour préparer vos travaux avec un accompagnement à distance, ou Complète pour bénéficier d’un accompagnement personnalisé sur place, y compris pendant les travaux. En cas de doute, le questionnaire nous aide à vous orienter.",
           "accueil": false,
           "services": true
         },
