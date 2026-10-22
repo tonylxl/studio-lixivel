@@ -42,7 +42,7 @@
         },
         {
           "question": "Faut-il faire des travaux ?",
-          "reponse": "Non. Les formules Conseils et Décoration se font sans travaux : on réorganise, on meuble, on décore. Les formules semi-complète et complète sont pensées pour les projets avec travaux, de la rénovation légère à la rénovation complète.",
+          "reponse": "Non, pas nécessairement. Les formules Agencement & conseils et Agencement & décoration peuvent se faire sans travaux, simplement pour réaménager ou décorer votre intérieur. Si des travaux sont nécessaires, leur réalisation reste à votre charge. Les formules Semi-complète et Complète proposent un accompagnement plus poussé, de la préparation à la réalisation des travaux.",
           "accueil": false,
           "services": false
         },
@@ -66,7 +66,7 @@
       "questions": [
         {
           "question": "Comment se passe un projet à distance ?",
-          "reponse": "Tout se fait par mail et en visio, sans que le studio ait besoin de venir chez vous. Vous remplissez le questionnaire, vous nous envoyez photos et mesures, puis nous vous livrons le plan 2D et, selon la formule choisie, le plan 3D décoré et la liste shopping.",
+          "reponse": "Tout se fait par mail et en audio, sans que le studio ait besoin de venir chez vous. Vous remplissez le questionnaire, vous nous envoyez plans côtés, photos et vidéos, puis nous vous livrons le plan 2D et, selon la formule choisie, le plan 3D décoration et la liste shopping.",
           "accueil": false,
           "services": true
         },
