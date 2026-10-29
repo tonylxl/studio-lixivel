@@ -31,8 +31,10 @@
   color: var(--texte-inverse);
 }
 
+/* Caché au défilement : sans son ombre, sinon il reste un trait d'1 px en haut de l'écran */
 .header[data-hidden] {
   transform: translateY(-100%);
+  box-shadow: none;
 }
 
 .brand {

@@ -46,7 +46,9 @@ button.ligne:focus-visible,
 }
 
 .plus {
+  align-self: flex-start;
   margin-top: 12px;
+  text-align: left;
   padding: 0;
   border: 0;
   background: none;

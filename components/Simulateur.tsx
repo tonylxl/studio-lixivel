@@ -1,24 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { FORMULES, TYPES_BIEN } from "@/data/services";
 import { rdvHref } from "@/lib/site";
 import styles from "./Simulateur.module.css";
 
-const INCLUS: Record<string, string> = {
-  conseils: "Plans d’agencement 2D et moodboard",
-  decoration: "Plans d’agencement 2D, moodboard, plans de décoration 3D, liste shopping, accès aux prix fournisseurs, mise en relation avec notre menuisier",
-  "semi-complete":
-    "Plans d’agencement 2D, moodboard, plans de décoration 3D, liste shopping, accès aux prix fournisseurs, mise en relation avec notre menuisier, mise en relation avec nos artisans, déplacement à la clôture du chantier en option",
-  complete: "Conception complète, intervention de nos artisans, coordination des intervenants, déplacements réguliers sur le chantier",
-};
-
 /** Bornes du curseur de surface (m²). */
 const SURFACE_MIN = 40;
 const SURFACE_MAX = 200;
+/** Lignes de « Ce qui est inclus » reprises dans le récapitulatif. */
+const INCLUS_VISIBLES = 4;
 
-const euro = (n: number) => `${new Intl.NumberFormat("fr-FR").format(n)} €`;
+const euro = (n: number) => `${new Intl.NumberFormat("fr-FR").format(n)} €`;
+
+/** « Dès 35 €/m² », « Sur devis » : le prix d'appel d'une formule. */
+function prixCourt(f: { prix: number | null; minimum?: number }) {
+  if (f.prix !== null) return `Dès ${f.prix} €/m²`;
+  if (f.minimum) return `Dès ${euro(f.minimum)}`;
+  return "Sur devis";
+}
 
 function useCountUp(target: number, duration = 400) {
   const [value, setValue] = useState(target);
@@ -44,144 +45,170 @@ function useCountUp(target: number, duration = 400) {
   return Math.round(value / 10) * 10;
 }
 
+type Option = { value: string; label: string; aside?: string };
+
+/** Groupe de choix : vrais boutons radio (clavier, lecteurs d'écran), masqués visuellement. */
+function Choix({
+  legend,
+  options,
+  value,
+  onChange,
+  groupe,
+  option,
+}: {
+  legend: React.ReactNode;
+  options: Option[];
+  value: string;
+  onChange: (v: string) => void;
+  groupe: string;
+  option: string;
+}) {
+  const name = useId();
+  return (
+    <fieldset className={styles.fieldset}>
+      <legend className={styles.question}>{legend}</legend>
+      <div className={groupe}>
+        {options.map((o) => (
+          <label key={o.value} className={option} data-actif={o.value === value || undefined}>
+            <input
+              type="radio"
+              name={name}
+              value={o.value}
+              checked={o.value === value}
+              onChange={() => onChange(o.value)}
+              className={styles.radio}
+            />
+            <span data-role="label">{o.label}</span>
+            {o.aside && <span data-role="aside">{o.aside}</span>}
+          </label>
+        ))}
+      </div>
+    </fieldset>
+  );
+}
+
+const Etape = ({ n, children }: { n: number; children: React.ReactNode }) => (
+  <>
+    <span className={styles.num}>{n}</span>
+    {children}
+  </>
+);
+
+/**
+ * Simulateur de la page Services : trois étapes à gauche (formule, type de bien, surface),
+ * un récapitulatif à droite (prix « à partir de », rendez-vous, ce qui est inclus).
+ * Honoraires seulement : surface × tarif de base, arrondi à 10 €. Les choix sont transmis au questionnaire.
+ */
 export default function Simulateur() {
   const [slug, setSlug] = useState("decoration");
   const [bien, setBien] = useState("appartement");
   const [surface, setSurface] = useState(SURFACE_MIN);
+  const surfaceId = useId();
 
   const f = FORMULES.find((x) => x.slug === slug)!;
   const type = TYPES_BIEN.find((t) => t.slug === bien) ?? TYPES_BIEN[0];
-  /** Pas de tarif au m² ni de forfait : la prestation se chiffre sur devis (prise en charge complète). */
+  /** Formule sans tarif au m² (complète) : la surface ne change rien, l'étape disparaît. */
+  const sansSurface = f.prix === null;
   const surDevis = (f.prix === null && !f.minimum) || Boolean(type.surDevis);
-  const prixM2 = f.prix;
   const total = surDevis
     ? 0
-    : prixM2 === null
+    : f.prix === null
       ? (f.minimum ?? 0)
-      : Math.max(f.minimum ?? 0, Math.round((surface * prixM2) / 10) * 10);
-  const shown = useCountUp(total);
+      : Math.max(f.minimum ?? 0, Math.round((surface * f.prix) / 10) * 10);
+  const affiche = useCountUp(total);
+  const pourcent = ((surface - SURFACE_MIN) / (SURFACE_MAX - SURFACE_MIN)) * 100;
+
+  const lien = rdvHref("simulateur", {
+    formule: f.slug,
+    bien: type.slug,
+    ...(sansSurface ? {} : { surface: String(surface) }),
+  });
 
   return (
     <div className={styles.root}>
-      <div className={styles.card}>
-        <p className="t-surtitre c-2">Votre projet</p>
-
-        <fieldset className={styles.step}>
-          <legend className={styles.legend}>
-            <span className={styles.num}>01</span> Formule
-          </legend>
-          <div className={styles.pills}>
-            {FORMULES.map((x) => (
-              <button
-                key={x.slug}
-                type="button"
-                className="pill"
-                aria-pressed={x.slug === slug}
-                onClick={() => setSlug(x.slug)}
-              >
-                {x.court}
-              </button>
-            ))}
+      <div className={styles.reglages}>
+        <Choix
+          legend={<Etape n={1}>Choisissez une formule</Etape>}
+          value={slug}
+          onChange={setSlug}
+          options={FORMULES.map((x) => ({ value: x.slug, label: x.court, aside: prixCourt(x) }))}
+          groupe={styles.tuiles}
+          option={styles.tuile}
+        />
+        <Choix
+          legend={<Etape n={2}>Type de bien</Etape>}
+          value={bien}
+          onChange={setBien}
+          options={TYPES_BIEN.map((t) => ({ value: t.slug, label: t.label }))}
+          groupe={styles.segments}
+          option={styles.segment}
+        />
+        {!sansSurface && (
+          <div className={styles.surface}>
+            <label htmlFor={surfaceId} className={styles.question}>
+              <Etape n={3}>Surface</Etape>
+              <output htmlFor={surfaceId} className={styles.surfaceValeur}>
+                {surface >= SURFACE_MAX ? `${SURFACE_MAX} m² et +` : `${surface} m²`}
+              </output>
+            </label>
+            <input
+              id={surfaceId}
+              type="range"
+              min={SURFACE_MIN}
+              max={SURFACE_MAX}
+              step={5}
+              value={surface}
+              onChange={(e) => setSurface(Number(e.target.value))}
+              className={styles.range}
+              style={{ ["--p" as string]: `${pourcent}%` }}
+            />
+            <div className={styles.bornes} aria-hidden>
+              <span>{SURFACE_MIN}&nbsp;m²</span>
+              <span>{SURFACE_MAX}&nbsp;m² et +</span>
+            </div>
           </div>
-        </fieldset>
-
-        <fieldset className={styles.step}>
-          <legend className={styles.legend}>
-            <span className={styles.num}>02</span> Type de bien
-          </legend>
-          <div className={styles.pills}>
-            {TYPES_BIEN.map((t) => (
-              <button
-                key={t.slug}
-                type="button"
-                className="pill"
-                aria-pressed={t.slug === bien}
-                onClick={() => setBien(t.slug)}
-              >
-                {t.label}
-              </button>
-            ))}
-          </div>
-        </fieldset>
-
-        <div className={styles.step}>
-          <label htmlFor="surface" className={styles.legend}>
-            <span className={styles.num}>03</span> Surface
-          </label>
-          <output htmlFor="surface" className={styles.surface}>
-            {surface >= SURFACE_MAX ? "200 m² et +" : `${surface} m²`}
-          </output>
-          <input
-            id="surface"
-            type="range"
-            min={SURFACE_MIN}
-            max={SURFACE_MAX}
-            step={5}
-            value={surface}
-            onChange={(e) => setSurface(Number(e.target.value))}
-            className={styles.range}
-            style={{ ["--p" as string]: `${((surface - SURFACE_MIN) / (SURFACE_MAX - SURFACE_MIN)) * 100}%` }}
-          />
-          <div className={styles.rangeLabels}>
-            <span>10 m²</span>
-            <span>200 m² et +</span>
-          </div>
-        </div>
-
+        )}
       </div>
 
-      <div className={`${styles.card} ${styles.result}`} aria-live="polite">
-        <p className="t-surtitre">Estimation des honoraires</p>
-        <p className={styles.amount}>
+      <div className={styles.recap} aria-live="polite">
+        <div className={styles.tete}>
+          <p className={styles.sur}>Votre estimation</p>
+          <p className={styles.formule}>{f.titre}</p>
+        </div>
+
+        <div className={styles.prix}>
           {surDevis ? (
-            "Sur devis"
+            <p className={styles.montant} data-texte>
+              Sur devis
+            </p>
           ) : (
             <>
-              <span className={styles.from}>À partir de</span>
-              {euro(shown)}
+              <p className={styles.sur}>À partir de</p>
+              <p className={styles.montant}>{euro(affiche)}</p>
             </>
           )}
-        </p>
-        <p className="t-petit c-2">
-          {surDevis
-            ? type.surDevis
-              ? `${f.titre} · ${type.label.toLowerCase()} · les tarifs ne s’appliquent pas aux studios`
-              : `${f.titre} · tarif sur devis`
-            : prixM2 === null
-              ? `${f.titre} · forfait minimum`
-              : `${f.titre} · ${type.label.toLowerCase()} · ${surface} m² × ${prixM2} €/m²`}
-          {f.noteTarif && (
-            <>
-              <br />
-              {f.noteTarif}
-            </>
-          )}
-        </p>
+          <p className={styles.aide}>
+            {surDevis
+              ? type.surDevis
+                ? "Nos tarifs au m² ne s’appliquent pas aux studios."
+                : "Chaque projet complet est chiffré sur mesure."
+              : `${surface} m² × ${f.prix} €/m², hors mobilier et travaux`}
+          </p>
+        </div>
 
-        <dl className={`info-rows ${styles.rows}`}>
-          <div>
-            <dt>Délai</dt>
-            <dd>{f.delai}</dd>
-          </div>
-          <div>
-            <dt>Inclus</dt>
-            <dd>{INCLUS[f.slug]}</dd>
-          </div>
-          <div>
-            <dt>Modifications</dt>
-            <dd>{f.modifs}</dd>
-          </div>
-        </dl>
-
-        <Link
-          href={rdvHref("simulateur", { formule: f.slug, bien: type.slug, surface: String(surface) })}
-          className="btn btn--lg"
-        >
-          Prendre rendez-vous avec cette estimation
+        <Link href={lien} className={`btn btn--lg ${styles.cta}`}>
+          Prendre rendez-vous
         </Link>
-        <p className="t-petit c-2">
-          Estimation indicative, hors mobilier et travaux. Après le questionnaire, nous vous envoyons une fourchette de prix, puis le tarif exact par email.
-        </p>
+
+        <div className={styles.detail}>
+          <p className={styles.detailTitre}>Ce qui est inclus</p>
+          <ul className={styles.coches}>
+            {f.inclus.slice(0, INCLUS_VISIBLES).map((x) => (
+              <li key={x.texte}>{x.texte}</li>
+            ))}
+          </ul>
+          <p className={styles.aide}>Délai&nbsp;: {f.delai.toLowerCase()}</p>
+        </div>
       </div>
     </div>
   );

@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Opening from "@/components/Opening";
 import Footer from "@/components/Footer";
 import SectionHead from "@/components/SectionHead";
 import ComparatifLignes from "@/components/ComparatifLignes";
 import Accordion from "@/components/Accordion";
-import InclusListe from "@/components/InclusListe";
+import FormulesOnglets from "@/components/FormulesOnglets";
 import Simulateur from "@/components/Simulateur";
-import Reveal from "@/components/Reveal";
 import { COMPARATIF, FORMULES } from "@/data/services";
 import { FAQ_SERVICES } from "@/data/faq";
 import { rdvHref } from "@/lib/site";
@@ -46,49 +44,15 @@ export default function ServicesPage() {
       </Opening>
 
       <main id="contenu">
-        {FORMULES.map((f, i) => (
-          <section key={f.slug} id={f.slug} className={styles.formule} aria-labelledby={`t-${f.slug}`}>
-            <Reveal className={`media ${styles.formuleMedia}`} data-fond={f.slug}>
-              {f.illustration ? (
-                <div className={styles.illuWrap}>
-                  <Image src={f.image} alt="" width={260} height={325} />
-                </div>
-              ) : (
-                <div className={styles.illuWrap}>
-                  <Image src={f.image} alt="" fill sizes="(max-width: 760px) 100vw, 48vw" priority={i === 0} />
-                </div>
-              )}
-            </Reveal>
-            <div className={styles.formuleText}>
-              <p className="t-surtitre c-accent">{f.surtitre}</p>
-              <h2 id={`t-${f.slug}`} className="t-projet">
-                {f.titre}
-              </h2>
-              <p className={`t-serre c-2 ${styles.description}`}>{f.description}</p>
-              <div className={styles.inclus}>
-                <p className="t-petit c-2">Ce qui est inclus</p>
-                <InclusListe items={f.inclus} />
-              </div>
-              <dl className={styles.meta}>
-                <div>
-                  <dt className="t-petit c-2">Délai</dt>
-                  <dd className="t-carte">{f.delai}</dd>
-                </div>
-                <div>
-                  <dt className="t-petit c-2">{f.prix === null ? "Tarif" : "Tarif (hors studio)"}</dt>
-                  <dd className="t-carte">{f.tarif}</dd>
-                </div>
-              </dl>
-              <Link href={rdvHref(`services-${f.slug}`, { formule: f.slug })} className="btn">
-                Prendre rendez-vous
-              </Link>
-            </div>
-          </section>
-        ))}
+        <section className={styles.formules} aria-label="Nos formules">
+          <div className="wrap">
+            <FormulesOnglets formules={FORMULES} />
+          </div>
+        </section>
 
         {/* Comparatif */}
         <section className={styles.comparatif} aria-labelledby="t-comparer">
-          <SectionHead id="t-comparer" title="Comparer les formules">
+          <SectionHead id="t-comparer" title="Comparer les formules" plain>
             Ce que comprend chaque formule, en un coup d’œil. Les tarifs correspondent à nos honoraires, hors mobilier
             et travaux.
           </SectionHead>
@@ -111,7 +75,7 @@ export default function ServicesPage() {
 
         {/* Simulateur */}
         <section id="simulateur" className={styles.simulateur} aria-labelledby="t-simulateur">
-          <SectionHead id="t-simulateur" title="Simulateur de budget">
+          <SectionHead id="t-simulateur" title="Simulateur de budget" plain>
             Choisissez une formule et la surface de votre projet : le simulateur estime nos honoraires pour votre projet, hors
             mobilier et travaux. Les tarifs indiqués ne s’appliquent pas aux studios.
           </SectionHead>
@@ -122,7 +86,7 @@ export default function ServicesPage() {
 
         {/* FAQ */}
         <section className={styles.faq} aria-labelledby="t-faq">
-          <SectionHead id="t-faq" title="Questions fréquentes">
+          <SectionHead id="t-faq" title="Questions fréquentes" plain>
             <p>Les réponses aux questions qu’on nous pose le plus souvent.</p>
             <Link href="/faq" className="link" style={{ color: "var(--texte)" }}>
               Voir toute la FAQ

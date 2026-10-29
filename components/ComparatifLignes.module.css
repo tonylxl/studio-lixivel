@@ -1,15 +1,21 @@
-/* Ligne « Voir plus » du comparatif : pleine largeur, sur desktop comme sur mobile. */
-.plus td {
-  padding: 14px 0 0;
-  border-bottom: 1px solid var(--bordure-legere);
+/* Ligne « Voir plus » du comparatif : alignée sur les intitulés des lignes, sans filet ni survol.
+   Sélecteurs plus précis que ceux du tableau (.table td, .table tbody tr, app/services/services.module.css). */
+table tbody tr.plus td {
+  padding: 20px 0 0 var(--g);
+  border-bottom: 0;
+}
+
+table tbody tr.plus:hover {
+  background: none;
 }
 
 @media (max-width: 640px) {
-  .plus {
+  table tbody tr.plus {
     display: block;
-    padding: 0 var(--g) 18px;
+    padding: 20px var(--g) 0;
+    border-bottom: 0;
   }
-  .plus td {
+  table tbody tr.plus td {
     display: block;
     padding: 0;
   }

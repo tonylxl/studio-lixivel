@@ -13,9 +13,9 @@ import { CHIFFRES } from "@/data/chiffres";
 import styles from "./studio.module.css";
 
 export const metadata: Metadata = {
-  title: "Le studio : Cindy, architecte d’intérieur",
+  title: "Le studio : Cindy, architecte d’intérieur",
   description:
-    "Studio Lixivel, fondé par Cindy à Rouen : une architecture intérieure accessible, plus de 300 projets, des intérieurs pratiques et chaleureux partout en France.",
+    "Studio Lixivel, fondé par Cindy à Rouen : une architecture intérieure accessible, plus de 300 projets, des intérieurs pratiques et chaleureux partout en France.",
 };
 
 const SECTIONS: StudioNavItem[] = [
@@ -41,17 +41,17 @@ const VALEURS = [
   {
     titre: "Le budget d’abord.",
     texte:
-      "Chaque projet est pensé en tenant compte de votre budget, de vos envies et de vos priorités. Cindy vous accompagne dans vos choix et vous propose des solutions adaptées, tout en veillant à trouver le meilleur équilibre entre esthétisme, fonctionnalité et faisabilité financière.",
+      "Chaque projet part de votre budget, de vos envies et de vos priorités. Nous cherchons le meilleur équilibre entre esthétique, fonctionnalité et coût.",
   },
   {
     titre: "Beau, mais vivable.",
     texte:
-      "Des rangements fonctionnels, des espaces où l’on circule naturellement et des matériaux choisis pour durer. Parce qu’un intérieur doit être aussi agréable à vivre qu’à regarder.",
+      "Des rangements pratiques, une circulation naturelle, des matériaux qui durent : un intérieur doit être aussi agréable à vivre qu’à regarder.",
   },
   {
     titre: "Rien de caché.",
     texte:
-      "Un devis transparent, des délais prévisionnels définis ensemble et des échanges réguliers pour vous accompagner sereinement et vous tenir informé de l’avancement de votre projet.",
+      "Un devis transparent, des délais fixés ensemble et des échanges réguliers pour suivre l’avancement de votre projet.",
   },
 ];
 
@@ -116,10 +116,9 @@ export default function StudioPage() {
               />
               <p className={styles.heroLead}>
                 Studio Lixivel est un studio d’architecture intérieure et de
-                décoration fondé par Cindy Lixivel à Rouen. Il imagine des
-                intérieurs élégants, chaleureux et fonctionnels, pensés sur
-                mesure pour chaque client, et accompagne des projets en
-                Normandie, partout en France et à l’international.
+                décoration fondé par Cindy Lixivel à Rouen : des intérieurs
+                élégants, chaleureux et fonctionnels, en Normandie, partout en
+                France et à l’international.
               </p>
             </div>
           </section>
@@ -129,21 +128,15 @@ export default function StudioPage() {
             <Head title="L’approche" />
             <div className={styles.body}>
               <p className={styles.accroche}>
-                Studio Lixivel est né d’une conviction simple : l’architecture
-                intérieure doit être accessible au plus grand nombre, avec des
-                solutions adaptées à chaque projet, à chaque besoin et à
-                différents budgets.
+                Studio Lixivel est né d’une conviction : l’architecture
+                intérieure doit être accessible au plus grand nombre, quel que
+                soit le budget.
               </p>
               <div className={styles.cols}>
                 <p className="t-serre c-2">
-                  Le studio conçoit des intérieurs sur mesure, pensés pour votre
-                  mode de vie, vos envies et votre budget. Studio Lixivel
-                  propose différentes formules, de la conception à distance,
-                  accessible à partir de 35 €/m², jusqu’aux prestations
-                  complètes intégrant la conception 3D, l’accompagnement et les
-                  conseils tout au long des travaux. Chaque projet bénéficie
-                  ainsi d’une approche personnalisée, adaptée aux besoins de
-                  chacun.
+                  De la conception à distance dès 35 €/m² à l’accompagnement
+                  complet des travaux, chaque formule est pensée pour votre mode
+                  de vie, vos envies et votre budget.
                 </p>
               </div>
             </div>
@@ -172,28 +165,15 @@ export default function StudioPage() {
             <Head title="La fondatrice" />
             <div className={styles.body}>
               <p className={styles.accroche}>
-                À la tête de Studio Lixivel, Cindy est architecte d’intérieur et
-                créatrice de contenus. Passionnée par son métier, elle
-                s’investit personnellement dans chaque projet, tout en
-                partageant avec authenticité son quotidien de maman et de cheffe
-                d’entreprise sur les réseaux sociaux.
+                Cindy est architecte d’intérieur et créatrice de contenus. Elle
+                suit personnellement chaque projet, du premier contact à sa
+                concrétisation.
               </p>
               <div className={styles.cols}>
                 <p className="t-serre c-2">
-                  Cindy a fondé Studio Lixivel avec la volonté de rendre
-                  l’architecture intérieure accessible au plus grand nombre. De
-                  la première prise de contact à la concrétisation du projet,
-                  elle s’investit personnellement dans chaque étape pour
-                  proposer un accompagnement attentif et sur mesure.
-                </p>
-                <p className="t-serre c-2">
-                  Sur Instagram et TikTok, Cindy partage sa passion pour
-                  l’architecture intérieure à travers des conseils pratiques,
-                  des astuces d’aménagement, des idées déco accessibles et les
-                  coulisses de ses projets. Elle y dévoile également ses
-                  découvertes, ses sélections de mobilier et ses réalisations,
-                  avec l’envie d’inspirer chacun à créer un intérieur qui lui
-                  ressemble.
+                  Sur Instagram et TikTok, elle partage conseils d’aménagement,
+                  idées déco accessibles, coulisses de ses projets et son
+                  quotidien de maman et de cheffe d’entreprise.
                 </p>
               </div>
             </div>
@@ -270,21 +250,15 @@ export default function StudioPage() {
               </p>
               <div className={styles.cols}>
                 <p className="t-serre c-2">
-                  En partageant sur les réseaux sociaux sa passion pour
-                  l’architecture intérieure, mais aussi son quotidien de maman
-                  et de cheffe d’entreprise, Cindy crée une véritable proximité
-                  avec sa communauté. Un mélange d’expertise, de spontanéité et
-                  d’authenticité qui devient sa signature. Les questions
-                  affluent alors sur l’aménagement, la décoration et les astuces
-                  pour transformer son intérieur à moindre coût.
+                  En partageant sa passion et son quotidien sur les réseaux
+                  sociaux, Cindy crée une vraie proximité avec sa communauté.
+                  Les questions affluent : comment aménager, décorer,
+                  transformer son intérieur à moindre coût ?
                 </p>
                 <p className="t-serre c-2">
-                  Pour répondre à ces attentes, Studio Lixivel développe des
-                  prestations d’architecture intérieure à distance. Une approche
-                  personnalisée, avec différentes formules adaptées aux besoins,
-                  aux envies et au budget de chaque projet, pour permettre au
-                  plus grand nombre de bénéficier de conseils et d’une véritable
-                  expertise professionnelle.
+                  Pour y répondre, Studio Lixivel lance ses prestations à
+                  distance, avec des formules adaptées à chaque besoin et à
+                  chaque budget.
                 </p>
               </div>
             </div>
@@ -317,9 +291,8 @@ export default function StudioPage() {
           <section id="coulisses" className={styles.section}>
             <Head title="En coulisses">
               <p>
-                Entre projets d’architecture intérieure, conseils déco, vie de
-                maman et quotidien de cheffe d’entreprise, découvrez l’univers
-                authentique de Cindy sur Instagram et TikTok.
+                Projets, conseils déco et coulisses du studio : suivez Cindy sur
+                Instagram et TikTok.
               </p>
               <a
                 href={SITE.instagram}

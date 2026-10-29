@@ -5,72 +5,9 @@
   margin-top: -8px;
 }
 
-/* Formules : visuel 655 × 620 à gauche, détail à droite */
-.formule {
-  display: grid;
-  grid-template-columns: minmax(0, 655px) minmax(0, 1fr);
-  gap: 40px;
-  align-items: start;
-  padding: 31px var(--g) 120px;
-  border-top: 1px solid var(--bordure-legere);
-  scroll-margin-top: var(--header-h);
-}
-
-.formuleMedia {
-  position: sticky;
-  top: calc(var(--header-h) + 24px);
-  height: 620px;
-}
-
-.formuleMedia[data-fond="conseils"] {
-  background: var(--fond-rose);
-}
-
-.formuleMedia[data-fond="conseils"] img {
-  object-fit: contain;
-  padding: 32px;
-  mix-blend-mode: multiply;
-}
-
-.illuWrap {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.formuleText {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  max-width: 580px;
-}
-
-.description {
-  max-width: 440px;
-}
-
-.inclus {
-  width: 100%;
-  padding-top: 12px;
-}
-
-.meta {
-  display: flex;
-  gap: 40px;
-  margin: 0;
-  padding-top: 8px;
-}
-
-.meta dd {
-  margin: 4px 0 0;
-}
-
-/* Le tarif ne se coupe jamais (« Dès 55 €/m² » sur deux lignes à 768 px). */
-.meta > div:last-child dd {
-  white-space: nowrap;
+/* Formules (onglets). Pas de filets entre les sections de cette page (demande du 29 oct. 2026). */
+.formules {
+  padding: 8px 0 120px;
 }
 
 /* Comparatif */
@@ -143,13 +80,8 @@
 }
 
 @media (max-width: 1024px) {
-  .formule {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 24px;
+  .formules {
     padding-bottom: 96px;
-  }
-  .formuleMedia {
-    height: 520px;
   }
   .table th:first-child {
     width: 36%;
@@ -162,21 +94,8 @@
 }
 
 @media (max-width: 760px) {
-  .formule {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
+  .formules {
     padding-bottom: 72px;
-  }
-  .formuleMedia {
-    position: relative;
-    top: 0;
-    height: 340px;
-  }
-  .meta {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 24px;
-    width: 100%;
   }
 }
 

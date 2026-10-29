@@ -1,66 +1,171 @@
+/* Simulateur (page Services). Hiérarchie courte : question (17) → réponse (15) → montant (très grand) → détail (14). */
+
 .root {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 16px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: var(--r-l);
+  box-shadow: inset 0 0 0 1px var(--bordure-legere);
 }
 
-.card {
+.reglages {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 56px;
+}
+
+.recap {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding: 48px 56px;
-  border-radius: var(--r-xl);
+  padding: 56px;
   background: var(--fond-doux);
 }
 
-.result {
-  gap: 20px;
-  background: var(--fond-rose);
-}
+/* ---------- Questions ---------- */
 
-.step {
-  border: 0;
+.fieldset {
+  min-width: 0;
   margin: 0;
   padding: 0;
+  border: 0;
+}
+
+/* L'intitulé d'un groupe (legend) échappe au « gap » : même écart qu'au-dessus du curseur de surface */
+.fieldset > legend {
+  margin-bottom: 16px;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--texte);
+}
+
+.num {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--fond-sombre);
+  color: var(--texte-inverse);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+label:has(.radio:focus-visible) {
+  outline: 2px solid var(--fond-sombre);
+  outline-offset: 2px;
+}
+
+/* Formules : nom + prix d'appel */
+.tuiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.tuile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+  border-radius: var(--r-s);
+  background: var(--fond-page);
+  box-shadow: inset 0 0 0 1px var(--bordure-legere);
+  cursor: pointer;
+  transition: box-shadow 0.25s var(--ease);
+}
+
+.tuile [data-role="label"] {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.tuile [data-role="aside"] {
+  font-size: 14px;
+  color: var(--texte-2);
+}
+
+.tuile:hover {
+  box-shadow: inset 0 0 0 1px var(--bordure);
+}
+
+.tuile[data-actif] {
+  box-shadow: inset 0 0 0 1.5px var(--fond-sombre);
+}
+
+/* Type de bien : contrôle segmenté */
+.segments {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--fond-page);
+  box-shadow: inset 0 0 0 1px var(--bordure-legere);
+}
+
+.segment {
+  position: relative;
+  padding: 11px 10px;
+  border-radius: 999px;
+  font-size: 15px;
+  line-height: 1.1;
+  text-align: center;
+  color: var(--texte-2);
+  cursor: pointer;
+  transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.segment:hover {
+  color: var(--texte);
+}
+
+.segment[data-actif] {
+  background: var(--fond-sombre);
+  color: var(--texte-inverse);
+}
+
+/* Surface */
+.surface {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.legend {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  padding: 0;
-  font-weight: 600;
-  font-size: 20px;
-  letter-spacing: -0.01em;
-}
-
-.num {
+.surfaceValeur {
+  margin-left: auto;
+  font-size: 17px;
   font-weight: 500;
-  font-size: 13px;
-  color: var(--texte-accent);
-}
-
-.pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.surface {
-  font-weight: 400;
-  font-size: clamp(48px, 5vw, 72px);
-  line-height: 1;
-  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
 }
 
 .range {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 4px;
+  height: 2px;
+  margin: 8px 0 0;
   border-radius: 999px;
   background: linear-gradient(to right, var(--fond-sombre) var(--p), var(--bordure-legere) var(--p));
   cursor: pointer;
@@ -68,116 +173,117 @@
 
 .range::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: #fff;
-  border: 2px solid var(--fond-sombre);
-  box-shadow: 0 4px 12px rgba(73, 65, 65, 0.15);
+  border: 1.5px solid var(--fond-sombre);
+  box-shadow: 0 2px 10px rgba(73, 65, 65, 0.18);
 }
 
 .range::-moz-range-thumb {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid var(--fond-sombre);
-}
-
-.rangeLabels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  color: var(--texte-2);
-}
-
-.toggle {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  cursor: pointer;
-}
-
-.toggle input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.switch {
-  position: relative;
-  flex-shrink: 0;
-  width: 44px;
-  height: 26px;
-  border-radius: 999px;
-  background: var(--bordure);
-  transition: background-color 0.25s var(--ease);
-}
-
-.switch::after {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 3px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   background: #fff;
-  transition: transform 0.25s var(--ease);
+  border: 1.5px solid var(--fond-sombre);
 }
 
-.toggle input:checked + .switch {
-  background: var(--fond-sombre);
-}
-
-.toggle input:checked + .switch::after {
-  transform: translateX(18px);
-}
-
-.toggle input:focus-visible + .switch {
+.range:focus-visible {
   outline: 2px solid var(--fond-sombre);
-  outline-offset: 3px;
+  outline-offset: 8px;
 }
 
-.amount {
-  font-weight: 400;
-  font-size: clamp(56px, 6.7vw, 96px);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+.bornes {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--texte-2);
+}
+
+/* ---------- Récapitulatif ---------- */
+
+.tete {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sur {
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--texte-2);
+}
+
+.formule {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.prix {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.montant {
+  font-size: clamp(56px, 5.6vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.045em;
   font-variant-numeric: tabular-nums;
   color: var(--texte-accent);
 }
 
-.from {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 20px;
-  letter-spacing: -0.01em;
-  color: var(--texte);
+/* « Sur devis » à la place d'un montant : un mot, plus petit qu'un prix */
+.montant[data-texte] {
+  font-size: clamp(36px, 3.4vw, 48px);
+  letter-spacing: -0.03em;
 }
 
-.plus {
-  display: block;
-  margin-top: 8px;
-  font-size: 20px;
-  letter-spacing: -0.01em;
-  color: var(--texte);
+.aide {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--texte-2);
 }
 
-.rows {
-  margin: 8px 0 12px;
+.cta {
+  width: 100%;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 32px;
+  border-top: 1px solid var(--bordure-legere);
+}
+
+.detailTitre {
   font-size: 15px;
+  font-weight: 500;
 }
 
-.rows > div {
-  grid-template-columns: 130px minmax(0, 1fr);
-  border-color: rgba(73, 65, 65, 0.12);
+.coches {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+  line-height: 1.35;
 }
 
-.result :global(.btn) {
-  white-space: normal;
-  text-align: center;
+.coches li {
+  display: flex;
+  gap: 10px;
 }
+
+.coches li::before {
+  content: "✓";
+  color: var(--texte-accent);
+}
+
+/* ---------- Adaptatif ---------- */
 
 @media (max-width: 1024px) {
   .root {
@@ -186,8 +292,12 @@
 }
 
 @media (max-width: 640px) {
-  .card {
-    padding: 32px 24px;
-    gap: 28px;
+  .reglages,
+  .recap {
+    padding: 32px 22px;
+  }
+  .segment {
+    padding: 10px 4px;
+    font-size: 14px;
   }
 }
