@@ -375,7 +375,19 @@ content:
           - { name: surtitre, label: "Surtitre (ex. 100 % à distance)", type: string }
           - { name: resume, label: Résumé (accueil et pages villes), type: text, required: true, options: { maxlength: 220 } }
           - { name: description, label: Description (page Services), type: text, required: true }
-          - { name: inclus, label: Ce qui est inclus, type: string, list: true }
+          - name: inclus
+            label: Ce qui est inclus
+            type: object
+            list:
+              collapsible: { collapsed: true, summary: "{fields.texte}" }
+            description: "Une ligne par prestation. Sur le site, on voit les 5 premières, puis un lien « Voir plus » pour les autres."
+            fields:
+              - { name: texte, label: Prestation, type: string, required: true, description: "Ex. Plan d’agencement en 2D" }
+              - name: detail
+                label: Petit descriptif (facultatif)
+                type: text
+                options: { maxlength: 300 }
+                description: "Si tu l’écris, le client peut cliquer sur la ligne pour le lire. Ex. pour « Moodboard » : Une planche d’inspiration qui réunit couleurs, matières et ambiances de votre futur intérieur. Laisse vide pour une ligne simple."
           - { name: delai, label: Délai, type: string, required: true }
           - { name: tarif, label: "Tarif affiché (ex. À partir de 55 €/m²)", type: string, required: true }
           - { name: prixM2, label: "Tarif de base en €/m² (simulateur, vide pour un forfait)", type: number }
@@ -390,7 +402,7 @@ content:
         list:
           collapsible: { collapsed: true, summary: "{fields.label}" }
         fields:
-          - { name: label, label: Ligne, type: string, required: true }
+          - { name: label, label: Ligne, type: string, required: true, description: "Les 9 premières lignes s’affichent, les autres sous « Voir plus ». Les lignes qui commencent par « Tarif » ou « Délai » restent toujours visibles, juste avant « Voir plus »." }
           - { name: conseils, label: Conseils, type: string, description: "✓ ou — ou un texte court" }
           - { name: decoration, label: Décoration, type: string }
           - { name: semiComplete, label: Semi-complète, type: string }

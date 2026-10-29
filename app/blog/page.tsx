@@ -32,7 +32,7 @@ export default function JournalPage() {
         title="Conseils d’architecte d’intérieur"
       >
         <p>
-          Aménager, décorer, rénover : les astuces du studio pour des intérieurs pratiques et chaleureux, même avec un
+          Aménager, décorer, rénover : nos astuces pour des intérieurs pratiques et chaleureux, même avec un
           petit budget. Un nouvel article chaque mois.
         </p>
         <JournalFilters categories={categories} />
@@ -65,7 +65,7 @@ export default function JournalPage() {
 
         <section id="tous" className={styles.tous} aria-labelledby="t-tous">
           <SectionHead id="t-tous" title="Tous les articles" plain>
-            Des conseils concrets, issus des projets du studio et des questions que vous nous posez sur Instagram et
+            Des conseils concrets, issus de nos projets et des questions que vous nous posez sur Instagram et
             TikTok.
           </SectionHead>
           <JournalList articles={reste} />

@@ -27,7 +27,7 @@ export default function GuidesPage() {
         title="Les guides du studio"
       >
         <p>
-          Les méthodes que le studio utilise sur chaque projet, en quelques pages à garder sous la main. Gratuits, à
+          Les méthodes que nous utilisons sur chaque projet, en quelques pages à garder sous la main. Gratuits, à
           télécharger{SITE.brevo ? " en laissant votre email" : ""}.
         </p>
       </Opening>

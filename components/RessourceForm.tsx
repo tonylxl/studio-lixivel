@@ -85,7 +85,7 @@ export default function RessourceForm({ fichier, titre }: { fichier: string; tit
       <label className={styles.consent} htmlFor={`${id}-optin`}>
         <input id={`${id}-optin`} name="OPT_IN" type="checkbox" value="1" required />
         <span className="t-petit">
-          J’accepte de recevoir les guides et les conseils du studio par email (une à deux fois par mois). Désinscription
+          J’accepte de recevoir vos guides et vos conseils par email (une à deux fois par mois). Désinscription
           en un clic.
         </span>
       </label>

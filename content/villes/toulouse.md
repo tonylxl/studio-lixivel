@@ -3,7 +3,7 @@ nom: Toulouse
 region: Occitanie
 ordre: 8
 couleur: rose
-intro: Toulousaine en briques, appartement des Carmes ou logement neuf, le studio vous aide à aménager et décorer votre intérieur, à distance.
+intro: Toulousaine en briques, appartement des Carmes ou logement neuf, nous vous aidons à aménager et décorer votre intérieur, à distance.
 deplacement: "L’agencement et la décoration se font entièrement à distance. Pour un projet avec travaux, une visite sur place peut être organisée : nous en parlons lors du premier échange."
 quartiers:
   - Carmes
@@ -26,7 +26,7 @@ faq:
 
 La **toulousaine** est la maison de ville typique : de plain-pied, en briques roses, avec un couloir central qui dessert les pièces de chaque côté et un jardin à l’arrière. Dans le centre, autour des Carmes et de Saint-Étienne, les appartements anciens ont de beaux parquets et des tomettes. Les nouveaux quartiers comme Borderouge offrent des logements récents à personnaliser.
 
-## Ce que le studio vous propose à Toulouse
+## Ce que nous vous proposons à Toulouse
 
 - Supprimer le couloir d’une toulousaine pour agrandir la pièce de vie
 - Ouvrir la maison sur le jardin

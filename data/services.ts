@@ -8,7 +8,8 @@ export type Formule = {
   surtitre: string;
   resume: string;
   description: string;
-  inclus: string[];
+  /** « Ce qui est inclus » : `detail` = petit descriptif qui se déroule au clic sur le + (facultatif). */
+  inclus: { texte: string; detail?: string }[];
   delai: string;
   tarif: string;
   image: string;
@@ -37,7 +38,9 @@ export const FORMULES: Formule[] = donnees.formules.map((f) => ({
   surtitre: f.surtitre,
   resume: typo(f.resume),
   description: typo(f.description),
-  inclus: f.inclus.filter(Boolean),
+  inclus: (f.inclus as ({ texte?: string; detail?: string } | string)[])
+    .map((x) => (typeof x === "string" ? { texte: x } : { texte: x.texte ?? "", detail: x.detail?.trim() ? typo(x.detail) : undefined }))
+    .filter((x) => x.texte),
   delai: f.delai,
   tarif: f.tarif,
   image: f.image,

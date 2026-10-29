@@ -6,7 +6,7 @@ Ce qui se passe quand quelqu’un remplit le questionnaire sur `/contact` :
 2. Toutes les 5 minutes, le **script** du Sheet (`scripts/google-sheet/suivi-demandes.gs`) traite les nouvelles lignes :
    - colonne **« À partir de (€) »** : surface × tarif de base de la formule, arrondi à 10 € (5 000 € pour la prise en charge complète) ;
    - colonne **« Statut »** : « À rappeler » (liste déroulante : Fourchette envoyée, Devis envoyé, Signé, Sans suite) ;
-   - **mail à contact@studiolixivel.com** : le prix de base, toutes les réponses, et une réponse prête à envoyer où il reste à écrire le haut de la fourchette. « Répondre » dans la boîte mail répond directement au client.
+   - **mail à assistante@studiolixivel.com** : le prix de base, toutes les réponses, et une réponse prête à envoyer où il reste à écrire le haut de la fourchette. « Répondre » dans la boîte mail répond directement au client.
 3. Le visiteur arrive sur **`/contact/merci`**, où il peut réserver l’**appel de lancement** dans l’agenda **Cal.com** (prénom et email déjà remplis).
 
 Tout est gratuit et ne dépend pas de l’hébergeur du site.

@@ -22,7 +22,7 @@ Remplace l’ancien formulaire (`studiolixivel.com/debuter-votre-projet`). Objec
 1. **Nouveau formulaire** → titre : « Débuter votre projet ». Formulaire en ligne : `obr965` (tally.so/forms/obr965/edit). Une page d’accueil (« Parlons de votre projet », court texte, « Environ 5 minutes · 4 étapes · réponse sous 48 h », bouton « Commencer »), puis 4 pages de questions et la page de remerciement.
 2. **Champs cachés** (bloc *Hidden fields*, en haut) : `source`, `formule`, `surface`, `article`. Le site les remplit tout seul via l’URL (bouton cliqué, simulateur, article du journal).
 3. **Logique** : la question *Formule* ne s’affiche que si `formule` est vide ; la question *Surface* reste toujours affichée, mais son champ est prérempli avec `surface` (valeur du simulateur) : le client peut la corriger.
-4. **Notifications** (Integrations → Email notifications) : envoyer chaque réponse à `contact@studiolixivel.com`, avec *Reply-to* = l’email du client (Cindy répond directement depuis sa boîte).
+4. **Notifications** (Integrations → Email notifications) : envoyer chaque réponse à `assistante@studiolixivel.com`, avec *Reply-to* = l’email du client (Cindy répond directement depuis sa boîte).
 5. **Apparence** : police *Schibsted Grotesk* si disponible (sinon Inter), bouton bordeaux `#8c373c`, texte `#494141`, fond blanc. Masquer le titre (le site l’affiche déjà).
 6. **Publier**, puis copier l’identifiant dans l’URL `tally.so/r/XXXXXX` → variable `NEXT_PUBLIC_TALLY_FORM_ID` dans Vercel.
 
@@ -34,34 +34,31 @@ Remplace l’ancien formulaire (`studiolixivel.com/debuter-votre-projet`). Objec
    - Prestation semi-complète · à partir de 90 €/m²
    - Prise en charge complète · sur devis
    - Je ne sais pas encore, aidez-moi à choisir
-2. **Type de bien** *(choix unique, obligatoire)* : Appartement / Studio / Maison / Local professionnel
+2. **Type de bien** *(choix unique, obligatoire, affichée seulement si `bien` vide : le simulateur la remplit)* : Appartement / Studio / Maison / Local professionnel
    - **Quel type de local ?** *(choix unique, obligatoire, affichée seulement si « Local professionnel »)* : Bureau / Commerce ou boutique / Restaurant ou café / Hôtel ou hébergement / Espace d’accueil ou de réunion / Autre
-   - Si « Local professionnel » : *Usage du logement*, *Qui vit ici* (adultes, enfants) sont masqués.
-3. **Usage du logement** *(choix unique, obligatoire)* : Résidence principale / Résidence secondaire / Location courte durée (Airbnb, voyageurs d’affaires) / Location longue durée / Bien à vendre (home staging)
+   - Si « Local professionnel » : *Usage du logement*, *Pièces concernées* et *Qui vit ici* (adultes, enfants) sont masqués.
+3. **Usage du logement** *(choix unique, obligatoire)* : Résidence principale / Résidence secondaire / Location courte durée (Airbnb, voyageurs d’affaires) / Location longue durée
 4. **Vous êtes** *(choix unique)* : Propriétaire / Locataire / En cours d’achat
 5. **Ville** *(texte court, obligatoire)*
 
 ## Page 2 — L’espace et vos envies
 
-6. **Pièces concernées** *(choix multiples, obligatoire)* : Pièce de vie / Cuisine / Chambre / Salle de bain / Bureau / Entrée / Tout le logement
+6. **Pièces concernées** *(choix multiples, obligatoire)* : Salon / Salle à manger / Cuisine / Chambre / Dressing / Salle de bain / Toilettes / Bureau / Entrée / Tout le logement
 7. **Surface concernée** *(nombre, m², obligatoire, affichée seulement si `surface` vide)*
 8. **Qui vit (ou séjourne) ici ?** *(deux champs nombre côte à côte, facultatifs)* : Adultes · Enfants
-9. **Ce qui ne va pas aujourd’hui** *(choix multiples, facultatif)* : Manque de lumière / Manque de rangements / Pièce peu fonctionnelle / Circulation difficile / Déco datée / Rien de particulier
-10. **Ce que vous souhaitez faire** *(choix multiples, obligatoire)* : Réagencer / Décorer et meubler / Changer les sols / Peinture et revêtements / Travaux (cloisons, cuisine, salle de bain) / Home staging
-11. **Quelle ambiance ?** *(choix multiples, 2 max, facultatif ; en images quand on aura 6 photos du studio)* : Cosy / Minimaliste / Classique chic / Bohème / Coloré / Industriel doux
-12. **Ce que vous aimez** *(texte long, facultatif)* : « Matières, couleurs, un hôtel ou un lieu qui vous inspire… »
-13. **Ce qu’il faut absolument éviter** *(texte long, facultatif)*
+9. **Ce qui ne va pas aujourd’hui** *(choix multiples, facultatif)* : Manque de lumière / Manque de rangements / Pièce peu fonctionnelle / Circulation difficile / Déco datée / Autre / Rien de particulier
+10. **Ce que vous souhaitez faire** *(texte long, obligatoire)* : « Ex. réagencer le salon, refaire la cuisine, choisir le mobilier et la déco… »
 14. **Un tableau Pinterest ou des photos d’inspiration ?** *(lien, facultatif)*
 
 ## Page 3 — Budget, calendrier et photos
 
 15. **Budget global mobilier + travaux** *(choix unique, obligatoire)* : Moins de 3 000 € / 3 000 – 8 000 € / 8 000 – 15 000 € / 15 000 – 40 000 € / Plus de 40 000 € / Je ne sais pas encore
-   *Aide sous la question : « Hors honoraires du studio. »*
+   *Aide sous la question : « Hors honoraires de Studio Lixivel. »*
 16. **Quand souhaitez-vous démarrer ?** *(choix unique, obligatoire)* : Dès que possible / Dans 1 à 3 mois / Dans 3 à 6 mois / Pas encore défini
-17. **Avez-vous déjà des artisans ?** *(choix unique ; logique : affichée seulement si la formule est semi-complète ou complète, ou si « Travaux » est coché en 10)* : Oui / Non / En partie
+17. **Avez-vous déjà des artisans ?** *(choix unique ; logique : affichée seulement si la formule est semi-complète ou complète)* : Oui / Non / En partie
 
 
-18. **Vos photos et plans** *(envoi de fichiers, facultatif, plusieurs fichiers)* : « Pour nous permettre d’estimer votre projet au plus juste, l’idéal est de nous transmettre un plan coté avec les dimensions, ainsi que quelques photos de l’espace. Une photo de chaque mur, prise depuis un coin de la pièce, nous aidera également à bien comprendre les volumes. 10 Mo maximum par fichier. »
+18. **Vos photos et plans** *(envoi de fichiers, facultatif, plusieurs fichiers)* : « Pour nous permettre d’estimer votre projet au plus juste, l’idéal est de nous transmettre un plan coté avec les dimensions, ainsi que quelques photos de l’espace. Les photos nous aideront à bien comprendre les volumes. 10 Mo maximum par fichier. »
 19. **Autre chose à nous dire ?** *(texte long, facultatif)*
 
 ## Page 4 — Vos coordonnées
@@ -70,7 +67,6 @@ Remplace l’ancien formulaire (`studiolixivel.com/debuter-votre-projet`). Objec
 21. **Email** *(email, obligatoire)*
 22. **Téléphone** *(téléphone, facultatif)* : « Pour un premier échange plus rapide. »
 23. **Comment nous avez-vous connus ?** *(choix unique)* : Instagram / TikTok / Google / Presse / Bouche-à-oreille / Autre
-24. **J’accepte que vous partagiez l’avant/après de mon projet sur vos réseaux** *(case, facultative)*
 25. **J’accepte que mes données soient utilisées pour être recontacté·e** *(case, obligatoire)* + lien vers `https://studiolixivel.com/mentions-legales`
 
 ## Page de remerciement

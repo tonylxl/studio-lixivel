@@ -68,7 +68,7 @@ export default async function VillePage({ params }: { params: Promise<Params> })
 
       <main id="contenu" className="sur-blanc">
         <section className={styles.block} aria-labelledby="t-intervention">
-          <SectionHead id="t-intervention" title={`Comment le studio intervient à ${v.nom}`}>
+          <SectionHead id="t-intervention" title={`Comment nous intervenons à ${v.nom}`}>
             {v.deplacement && <p>{v.deplacement}</p>}
             <Link href="/services" className="link" style={{ color: "var(--texte)" }}>
               Détail des formules
@@ -98,7 +98,7 @@ export default async function VillePage({ params }: { params: Promise<Params> })
         </section>
 
         <section className={styles.block} aria-labelledby="t-projets">
-          <SectionHead id="t-projets" title="Derniers projets du studio">
+          <SectionHead id="t-projets" title="Nos derniers projets">
             <Link href="/projets" className="link" style={{ color: "var(--texte)" }}>
               Tous les projets
             </Link>
@@ -154,7 +154,7 @@ export default async function VillePage({ params }: { params: Promise<Params> })
 
         {autres.length > 0 && (
           <nav className={styles.block} aria-labelledby="t-autres">
-            <SectionHead id="t-autres" title="Le studio intervient aussi à">
+            <SectionHead id="t-autres" title="Nous intervenons aussi à">
               <Link href="/architecte-interieur" className="link" style={{ color: "var(--texte)" }}>
                 Toutes les zones d’intervention
               </Link>

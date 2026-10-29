@@ -3,7 +3,7 @@ nom: Bordeaux
 region: Nouvelle-Aquitaine
 ordre: 4
 couleur: lin
-intro: Échoppe à rénover, appartement en pierre blonde ou maison à Caudéran, le studio vous accompagne à distance pour aménager et décorer votre intérieur bordelais.
+intro: Échoppe à rénover, appartement en pierre blonde ou maison à Caudéran, nous vous accompagnons à distance pour aménager et décorer votre intérieur bordelais.
 deplacement: "L’agencement et la décoration se font entièrement à distance. Pour un projet avec travaux, une visite sur place peut être organisée : nous en parlons lors du premier échange."
 quartiers:
   - Chartrons
@@ -26,7 +26,7 @@ faq:
 
 L’**échoppe** est la maison typique de Bordeaux : de plain-pied, en pierre, tout en longueur, avec un jardin à l’arrière. Son charme a un revers : une pièce centrale souvent sombre et des pièces en enfilade. Les appartements des **Chartrons** et du centre, en pierre blonde, ont de belles hauteurs et des parquets anciens à mettre en valeur.
 
-## Ce que le studio vous propose à Bordeaux
+## Ce que nous vous proposons à Bordeaux
 
 - Réorganiser une échoppe pour ouvrir la pièce de vie sur le jardin
 - Installer une verrière pour éclairer le centre de la maison

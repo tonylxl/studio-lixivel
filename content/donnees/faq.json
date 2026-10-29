@@ -6,13 +6,13 @@
       "questions": [
         {
           "question": "Qui est derrière Studio Lixivel ?",
-          "reponse": "Cindy, architecte d’intérieur et créatrice de contenus déco, a fondé Studio Lixivel à Rouen. Passionnée par son métier, elle s’implique dans chaque projet avec l’envie de créer des intérieurs qui vous ressemblent. Avec plus de 300 projets accompagnés, le studio a également été mis en lumière par Forbes, Gala, Marie Claire, Maison & Jardin, ICI Normandie et actu.fr.",
+          "reponse": "Cindy, architecte d’intérieur et créatrice de contenus déco, a fondé Studio Lixivel à Rouen. Passionnée par son métier, elle s’implique dans chaque projet avec l’envie de créer des intérieurs qui vous ressemblent. Avec plus de 300 projets accompagnés, nous avons également été mis en lumière par Forbes, Gala, Marie Claire, Maison & Jardin, ICI Normandie et actu.fr.",
           "accueil": false,
           "services": false
         },
         {
           "question": "Quelle différence entre un architecte d’intérieur et un décorateur ?",
-          "reponse": "Le décorateur travaille surtout l’ambiance (couleurs, mobilier, objets), l’architecte d’intérieur travaille aussi l’espace lui-même : plans, circulations, cloisons, lumière et, si besoin, travaux. Le studio Lixivel fait les deux, de l’agencement d’une pièce à la rénovation complète d’un logement.",
+          "reponse": "Le décorateur travaille surtout l’ambiance (couleurs, mobilier, objets), l’architecte d’intérieur travaille aussi l’espace lui-même : plans, circulations, cloisons, lumière et, si besoin, travaux. Nous faisons les deux, de l’agencement d’une pièce à la rénovation complète d’un logement.",
           "accueil": true,
           "services": false
         },
@@ -54,7 +54,7 @@
         },
         {
           "question": "Peut-on changer de formule en cours de route ?",
-          "reponse": "Oui. Il suffit d’en parler au studio : une modification du projet fait l’objet d’un nouveau devis ou d’un avenant, comme le prévoient les conditions générales de vente.",
+          "reponse": "Oui. Il suffit de nous en parler : une modification du projet fait l’objet d’un nouveau devis ou d’un avenant, comme le prévoient les conditions générales de vente.",
           "accueil": false,
           "services": false
         }
@@ -66,7 +66,7 @@
       "questions": [
         {
           "question": "Comment se passe un projet à distance ?",
-          "reponse": "Tout se fait par mail et en audio, sans que le studio ait besoin de venir chez vous. Vous remplissez le questionnaire, vous nous envoyez plans côtés, photos et vidéos, puis nous vous livrons le plan 2D et, selon la formule choisie, le plan 3D décoration et la liste shopping.",
+          "reponse": "Tout se fait par mail et en audio, sans que nous ayons besoin de venir chez vous. Vous remplissez le questionnaire, vous nous envoyez plans côtés, photos et vidéos, puis nous vous livrons le plan 2D et, selon la formule choisie, le plan 3D décoration et la liste shopping.",
           "accueil": false,
           "services": true
         },
@@ -90,7 +90,7 @@
       "questions": [
         {
           "question": "Combien coûte un architecte d’intérieur ?",
-          "reponse": "Au Studio Lixivel, à partir de 35 €/m² pour l’agencement et les conseils, à partir de 55 €/m² pour l’agencement et la décoration, à partir de 90 €/m² pour la semi-complète, et sur devis pour la prise en charge complète. Ce sont les honoraires du studio, hors mobilier et travaux.",
+          "reponse": "Au Studio Lixivel, à partir de 35 €/m² pour l’agencement et les conseils, à partir de 55 €/m² pour l’agencement et la décoration, à partir de 90 €/m² pour la semi-complète, et sur devis pour la prise en charge complète. Ce sont nos honoraires, hors mobilier et travaux.",
           "accueil": true,
           "services": true
         },
@@ -102,7 +102,7 @@
         },
         {
           "question": "Le simulateur donne-t-il le prix exact ?",
-          "reponse": "Non, il donne un ordre de grandeur « à partir de ». Le simulateur de la page Services multiplie la surface par le tarif de base de la formule. Pour un studio, les tarifs ne s’appliquent pas : le studio établit un devis. Le prix exact dépend de votre projet : nous vous l’envoyons par email après le questionnaire.",
+          "reponse": "Non, il donne un ordre de grandeur « à partir de ». Le simulateur de la page Services multiplie la surface par le tarif de base de la formule. Pour un studio, les tarifs ne s’appliquent pas : nous établissons un devis. Le prix exact dépend de votre projet : nous vous l’envoyons par email après le questionnaire.",
           "accueil": false,
           "services": true
         },
@@ -132,7 +132,7 @@
         },
         {
           "question": "Qui coordonne le chantier ?",
-          "reponse": "Cela dépend de la formule. Avec la semi-complète, vous gardez la gestion quotidienne du chantier et le studio Lixivel reste à vos côtés à distance, en continuant d’échanger avec les artisans. Avec la prise en charge complète, le studio assure la coordination des différents intervenants, avec des déplacements réguliers sur le chantier, jusqu’à l’accompagnement à la réception.",
+          "reponse": "Cela dépend de la formule. Avec la semi-complète, vous gardez la gestion quotidienne du chantier et nous restons à vos côtés à distance, en continuant d’échanger avec les artisans. Avec la prise en charge complète, nous assurons la coordination des différents intervenants, avec des déplacements réguliers sur le chantier, jusqu’à l’accompagnement à la réception.",
           "accueil": false,
           "services": false
         },

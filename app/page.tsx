@@ -82,7 +82,7 @@ export default function Home() {
         <section className={`wrap ${styles.intro}`}>
           <ScrollFadeText
             className="t-projet"
-            text="Studio Lixivel est un studio d’architecture intérieure et de décoration fondé par Cindy Lixivel à Rouen. Agencement, décoration et rénovation : plus de 300 projets imaginés pour créer des intérieurs élégants, chaleureux et fonctionnels. Un accompagnement personnalisé, à distance ou sur place, partout en France et en Europe, en tenant compte de vos envies, de vos besoins et de votre budget."
+            text="Studio Lixivel est un studio d’architecture intérieure et de décoration fondé par Cindy Lixivel à Rouen. Agencement, décoration et rénovation : plus de 300 projets imaginés pour créer des intérieurs élégants, chaleureux et fonctionnels. Un accompagnement personnalisé, à distance ou directement sur le lieu de votre projet, partout en France, en Europe et à l’international, en tenant compte de vos envies, de vos besoins et de votre budget."
           />
           <Link href="/le-studio" className="link">
             En savoir plus sur le studio

@@ -36,7 +36,7 @@ export default function ZonesPage() {
         }
       >
         <p className="c-2">
-          Le studio est basé à Rouen et accompagne des projets dans toute la France : à distance pour l’agencement et la
+          Nous sommes basés à Rouen et accompagnons des projets dans toute la France : à distance pour l’agencement et la
           décoration, sur place quand il y a des travaux.
         </p>
         <Link href={rdvHref("zones")} className="btn">
@@ -46,7 +46,7 @@ export default function ZonesPage() {
 
       <main id="contenu" className="sur-blanc">
         <section className={styles.block} aria-labelledby="t-villes">
-          <SectionHead id="t-villes" title="Villes où le studio intervient">
+          <SectionHead id="t-villes" title="Villes où nous intervenons">
             <p>Votre ville n’est pas dans la liste ? Les formules à distance fonctionnent partout en France.</p>
           </SectionHead>
           <ul className={styles.lignes}>
@@ -68,7 +68,7 @@ export default function ZonesPage() {
           <SectionHead id="t-comment" title="À distance ou sur place">
             <p>
               Conseils et Décoration se font entièrement à distance, par mail et en visio. Pour la semi-complète et la
-              prise en charge complète, le studio se déplace sur le chantier selon le projet.
+              prise en charge complète, nous nous déplaçons sur le chantier selon le projet.
             </p>
           </SectionHead>
           <ul className={`wrap ${styles.formules}`}>

@@ -5,7 +5,7 @@
  * Toutes les 5 minutes, ce script traite les nouvelles lignes :
  *   1. calcule le prix « à partir de » (surface × tarif de base de la formule, arrondi à 10 €),
  *   2. met la demande au statut « À rappeler »,
- *   3. envoie un mail à contact@ avec le résumé et une réponse prête à compléter
+ *   3. envoie un mail à assistante@ avec le résumé et une réponse prête à compléter
  *      (« Répondre » dans la boîte mail répond directement au client).
  *
  * Installation : voir docs/suivi-demandes.md (coller ce fichier dans Extensions → Apps Script,
@@ -16,7 +16,7 @@
 
 const CONFIG = {
   /** Adresse qui reçoit la notification de chaque nouvelle demande. */
-  notifier: "contact@studiolixivel.com",
+  notifier: "assistante@studiolixivel.com",
   /** Page de réservation de l'appel de lancement (vide tant que Cal.com n'est pas prêt). */
   rdv: "",
   /** Statuts proposés dans la colonne « Statut » (liste déroulante). */

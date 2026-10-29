@@ -9,7 +9,7 @@ export const SITE = {
   name: "Studio Lixivel",
   baseline: "Architecte d’intérieur",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://studiolixivel.com",
-  email: "contact@studiolixivel.com",
+  email: "assistante@studiolixivel.com",
   ville: "Rouen, Normandie",
   zone: "Partout en France",
   instagram: "https://www.instagram.com/studiolixivel/",

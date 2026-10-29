@@ -7,11 +7,16 @@ import { rdvHref } from "@/lib/site";
 import styles from "./Simulateur.module.css";
 
 const INCLUS: Record<string, string> = {
-  conseils: "Plan d’agencement en 2D, guide des couleurs et matériaux",
-  decoration: "Plan 2D, plan 3D décoré, liste shopping, accès aux prix fournisseurs",
-  "semi-complete": "Conception complète, consultation des artisans, coordination à distance",
-  complete: "Conception, mise en relation avec nos artisans, coordination des intervenants",
+  conseils: "Plans d’agencement 2D et moodboard",
+  decoration: "Plans d’agencement 2D, moodboard, plans de décoration 3D, liste shopping, accès aux prix fournisseurs, mise en relation avec notre menuisier",
+  "semi-complete":
+    "Plans d’agencement 2D, moodboard, plans de décoration 3D, liste shopping, accès aux prix fournisseurs, mise en relation avec notre menuisier, mise en relation avec nos artisans, déplacement à la clôture du chantier en option",
+  complete: "Conception complète, intervention de nos artisans, coordination des intervenants, déplacements réguliers sur le chantier",
 };
+
+/** Bornes du curseur de surface (m²). */
+const SURFACE_MIN = 40;
+const SURFACE_MAX = 200;
 
 const euro = (n: number) => `${new Intl.NumberFormat("fr-FR").format(n)} €`;
 
@@ -42,7 +47,7 @@ function useCountUp(target: number, duration = 400) {
 export default function Simulateur() {
   const [slug, setSlug] = useState("decoration");
   const [bien, setBien] = useState("appartement");
-  const [surface, setSurface] = useState(45);
+  const [surface, setSurface] = useState(SURFACE_MIN);
 
   const f = FORMULES.find((x) => x.slug === slug)!;
   const type = TYPES_BIEN.find((t) => t.slug === bien) ?? TYPES_BIEN[0];
@@ -104,18 +109,18 @@ export default function Simulateur() {
             <span className={styles.num}>03</span> Surface
           </label>
           <output htmlFor="surface" className={styles.surface}>
-            {surface >= 200 ? "200 m² et +" : `${surface} m²`}
+            {surface >= SURFACE_MAX ? "200 m² et +" : `${surface} m²`}
           </output>
           <input
             id="surface"
             type="range"
-            min={10}
-            max={200}
+            min={SURFACE_MIN}
+            max={SURFACE_MAX}
             step={5}
             value={surface}
             onChange={(e) => setSurface(Number(e.target.value))}
             className={styles.range}
-            style={{ ["--p" as string]: `${((surface - 10) / 190) * 100}%` }}
+            style={{ ["--p" as string]: `${((surface - SURFACE_MIN) / (SURFACE_MAX - SURFACE_MIN)) * 100}%` }}
           />
           <div className={styles.rangeLabels}>
             <span>10 m²</span>
@@ -175,7 +180,7 @@ export default function Simulateur() {
           Prendre rendez-vous avec cette estimation
         </Link>
         <p className="t-petit c-2">
-          Estimation indicative, hors mobilier et travaux. Après le questionnaire, le studio vous envoie une fourchette de prix, puis le tarif exact par email.
+          Estimation indicative, hors mobilier et travaux. Après le questionnaire, nous vous envoyons une fourchette de prix, puis le tarif exact par email.
         </p>
       </div>
     </div>

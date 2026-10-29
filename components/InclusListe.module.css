@@ -1,0 +1,58 @@
+/* Même rendu que .plus-list (globals.css), avec des lignes dépliables. */
+.liste > li {
+  border-bottom: 1px solid var(--bordure-legere);
+}
+
+.ligne {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  background: none;
+  color: var(--texte-2);
+  font: inherit;
+  line-height: 1.15;
+  text-align: left;
+}
+
+button.ligne {
+  cursor: pointer;
+}
+
+button.ligne:hover .texte {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+button.ligne:focus-visible,
+.plus:focus-visible {
+  outline: 2px solid var(--accent, currentColor);
+  outline-offset: 4px;
+}
+
+.signe {
+  flex: none;
+  width: 0.7em;
+  color: var(--texte-accent);
+  font-weight: 500;
+}
+
+.detail {
+  padding: 0 0 14px calc(0.7em + 12px);
+  color: var(--texte-2);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.plus {
+  margin-top: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}

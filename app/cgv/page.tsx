@@ -231,7 +231,7 @@ const ARTICLES: { titre: string; blocs: Bloc[] }[] = [
       "Le Prestataire est joignable par message WhatsApp du lundi au vendredi, de 9h00 à 19h30. Aucune réponse n’est assurée après 19h30, les sollicitations étant traitées le jour ouvré suivant.",
       "Le Prestataire n’est joignable par téléphone que sur rendez-vous préalablement convenu. Les échanges téléphoniques peuvent être organisés sur rendez-vous, selon les disponibilités du Prestataire.",
       { sous: "14.2 – Échanges écrits et WhatsApp" },
-      "Les échanges relatifs au projet doivent être adressés par écrit, notamment par email aux adresses contact@studiolixivel.com ou assistante@studiolixivel.com.",
+      "Les échanges relatifs au projet doivent être adressés par écrit, notamment par email à l’adresse assistante@studiolixivel.com.",
       "Afin d’assurer un traitement efficace et une bonne traçabilité des échanges, le Client s’engage à privilégier les emails pour toute information importante relative au projet.",
       "WhatsApp est réservé aux échanges courants et ne doit pas être utilisé pour transmettre ou valider des éléments importants du projet, notamment les validations de plans, choix définitifs, modifications de prestation, demandes ayant une incidence sur le budget, le planning ou l’exécution des travaux. Ces éléments doivent impérativement être confirmés par email pour être pris en compte contractuellement.",
       { sous: "14.3 – Contact administratif" },

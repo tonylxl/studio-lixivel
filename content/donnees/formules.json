@@ -5,12 +5,21 @@
       "court": "Conseils",
       "titre": "Agencement & conseils à distance",
       "surtitre": "100 % à distance",
-      "resume": "Un plan d’agencement en 2D et un guide des couleurs et matériaux pour optimiser chaque mètre carré. Vous gardez la main sur le choix du mobilier.",
-      "description": "Une prestation centrée sur l’optimisation et la fonctionnalité des espaces. Cindy repense l’agencement de votre intérieur afin d’exploiter au mieux chaque mètre carré, tout en tenant compte de vos besoins et de votre mode de vie.",
+      "resume": "Un plan d’agencement en 2D et un moodboard pour optimiser chaque mètre carré. Vous gardez la main sur le choix du mobilier.",
+      "description": "Une prestation centrée sur l’optimisation et la fonctionnalité des espaces. Nous repensons l’agencement de votre intérieur afin d’exploiter au mieux chaque mètre carré, tout en tenant compte de vos besoins et de votre mode de vie.",
       "inclus": [
-        "Échange de lancement pour comprendre vos besoins",
-        "Plan d’agencement en 2D",
-        "Guide des couleurs et matériaux"
+        {
+          "texte": "Échange téléphonique, audio et vidéo avant le début du projet",
+          "detail": ""
+        },
+        {
+          "texte": "Plan d’agencement en 2D",
+          "detail": ""
+        },
+        {
+          "texte": "Moodboard",
+          "detail": ""
+        }
       ],
       "delai": "1 mois",
       "tarif": "À partir de 35 €/m²",
@@ -27,16 +36,46 @@
       "resume": "Plan 2D, plan 3D décoré, moodboard et liste shopping détaillée : il ne vous reste plus qu’à commander.",
       "description": "Une prestation complète de conception, pensée en deux étapes : d’abord l’agencement, pour optimiser la fonctionnalité et l’organisation de chaque espace, puis la décoration, avec la création de visuels 3D.",
       "inclus": [
-        "Plan d’agencement en 2D",
-        "Plan 3D avec décoration",
-        "Moodboard",
-        "Création de mobiliers sur mesure",
-        "La mise en relation avec notre menuisier",
-        "Prises des cotations par notre menuisier",
-        "Présentations des échantillons et gestion du lancement de la commande",
-        "Révision du projet",
-        "Liste shopping détaillée",
-        "Accès aux prix fournisseurs pour textiles, accessoires, matériaux et mobiliers"
+        {
+          "texte": "Plan d’agencement en 2D",
+          "detail": ""
+        },
+        {
+          "texte": "Plan 3D avec décoration",
+          "detail": ""
+        },
+        {
+          "texte": "Moodboard",
+          "detail": ""
+        },
+        {
+          "texte": "Création de mobiliers sur mesure",
+          "detail": ""
+        },
+        {
+          "texte": "La mise en relation avec notre menuisier",
+          "detail": ""
+        },
+        {
+          "texte": "Prises des cotations par notre menuisier",
+          "detail": ""
+        },
+        {
+          "texte": "Présentations des échantillons et gestion du lancement de la commande pour le mobilier sur mesure",
+          "detail": ""
+        },
+        {
+          "texte": "Révision du projet",
+          "detail": ""
+        },
+        {
+          "texte": "Liste shopping détaillée",
+          "detail": ""
+        },
+        {
+          "texte": "Accès aux prix fournisseurs pour textiles, accessoires, matériaux et mobiliers",
+          "detail": ""
+        }
       ],
       "delai": "1 mois pour l’agencement, puis 1 à 6 mois pour la décoration",
       "tarif": "À partir de 55 €/m²",
@@ -51,21 +90,54 @@
       "titre": "Prestation semi-complète",
       "surtitre": "Conception + accompagnement des travaux à distance",
       "resume": "Nous concevons votre projet, vous mettons en relation avec nos artisans et vous accompagnons à distance pendant les travaux, que vous pilotez vous-même.",
-      "description": "Pour une rénovation que vous souhaitez piloter vous-même, tout en bénéficiant de notre accompagnement. Le studio conçoit le projet, vous met en relation avec nos artisans et partenaires et prépare les éléments nécessaires à la réalisation. Vous conservez la gestion quotidienne du chantier, tandis que nous restons à vos côtés à distance et continuons d’échanger avec les artisans pendant les travaux.",
+      "description": "Pour un projet de rénovation dont vous souhaitez garder la gestion, tout en bénéficiant de notre accompagnement. Nous concevons le projet, vous mettons en relation avec nos artisans et partenaires et préparons les éléments nécessaires à la réalisation. Vous conservez la gestion quotidienne du chantier, tandis que nous restons à vos côtés à distance et continuons d’échanger avec les artisans pendant les travaux.",
       "inclus": [
-        "Plan d’agencement en 2D",
-        "Plan 3D avec décoration",
-        "Création de mobiliers sur mesure",
-        "La mise en relation avec notre menuisier",
-        "Liste shopping détaillée",
-        "Accès aux prix fournisseurs pour textiles, accessoires, matériaux et mobiliers",
-        "La mise en relation avec nos partenaires et artisans",
-        "Des descriptifs techniques détaillés à transmettre aux entreprises",
-        "Un accompagnement à distance pendant la réalisation",
-        "Déplacement en cas d’urgence sur le chantier",
-        "Déplacement pour la réception des chantiers"
+        {
+          "texte": "Plan d’agencement en 2D",
+          "detail": ""
+        },
+        {
+          "texte": "Plan 3D avec décoration",
+          "detail": ""
+        },
+        {
+          "texte": "Création de mobiliers sur mesure",
+          "detail": ""
+        },
+        {
+          "texte": "La mise en relation avec notre menuisier",
+          "detail": ""
+        },
+        {
+          "texte": "Liste shopping détaillée",
+          "detail": ""
+        },
+        {
+          "texte": "Accès aux prix fournisseurs pour textiles, accessoires, matériaux et mobiliers",
+          "detail": ""
+        },
+        {
+          "texte": "La mise en relation avec nos partenaires et artisans",
+          "detail": ""
+        },
+        {
+          "texte": "Des descriptifs détaillés à transmettre aux entreprises",
+          "detail": ""
+        },
+        {
+          "texte": "Un accompagnement à distance pendant la réalisation",
+          "detail": ""
+        },
+        {
+          "texte": "Déplacement en cas d’urgence sur le chantier",
+          "detail": ""
+        },
+        {
+          "texte": "Déplacement pour la réception des chantiers si nécessaire",
+          "detail": ""
+        }
       ],
-      "delai": "Environ 8 mois, selon le projet",
+      "delai": "1 mois de conception, puis 1 à 8 mois selon le projet",
       "tarif": "À partir de 90 €/m²",
       "image": "/images/lampe.png",
       "illustration": true,
@@ -79,25 +151,70 @@
       "titre": "Prise en charge complète",
       "surtitre": "Conception et accompagnement des travaux",
       "resume": "Nous assurons la conception, les démarches et la coordination des artisans, avec des déplacements sur le chantier jusqu’à la réception.",
-      "description": "Pour une rénovation avec un accompagnement global. Le studio assure la conception de l’ensemble du projet, organise les échanges avec les entreprises et vous accompagne pendant la phase de réalisation avec des déplacements sur le chantier. Vous validez les grandes étapes, tandis que nous assurons la coordination prévue dans le cadre de la mission, jusqu’à l’accompagnement à la réception.",
+      "description": "Pour une rénovation avec un accompagnement global. Nous assurons la conception de l’ensemble du projet, organisons les échanges avec les entreprises et vous accompagnons pendant la phase de réalisation avec des déplacements sur le chantier. Vous validez les grandes étapes, tandis que nous assurons la coordination prévue dans le cadre de la mission, jusqu’à l’accompagnement à la réception.",
       "inclus": [
-        "Plan d’agencement en 2D",
-        "Plan 3D avec décoration",
-        "Création de mobiliers sur mesure",
-        "La mise en relation avec notre menuisier",
-        "Prises des cotations par notre menuisier",
-        "Liste shopping détaillée",
-        "Accès aux prix fournisseurs pour textiles, accessoires, matériaux et mobiliers",
-        "Intervention de nos partenaires et artisans",
-        "Intervention de notre menuisier",
-        "La coordination des différents intervenants",
-        "Déplacements réguliers sur le chantier",
-        "Accompagnement à la clôture et à la réception des chantiers",
-        "L’établissement des documents administratifs nécessaires",
-        "Réception et aménagement du mobilier (option, coût supplémentaire)",
-        "Service de nettoyage (option, coût supplémentaire)"
+        {
+          "texte": "Plan d’agencement en 2D",
+          "detail": ""
+        },
+        {
+          "texte": "Plan 3D avec décoration",
+          "detail": ""
+        },
+        {
+          "texte": "Création de mobiliers sur mesure",
+          "detail": ""
+        },
+        {
+          "texte": "La mise en relation avec notre menuisier",
+          "detail": ""
+        },
+        {
+          "texte": "Prises des cotations par notre menuisier",
+          "detail": ""
+        },
+        {
+          "texte": "Liste shopping détaillée",
+          "detail": ""
+        },
+        {
+          "texte": "Accès aux prix fournisseurs pour textiles, accessoires, matériaux et mobiliers",
+          "detail": ""
+        },
+        {
+          "texte": "Intervention de nos partenaires et artisans",
+          "detail": ""
+        },
+        {
+          "texte": "Intervention de notre menuisier",
+          "detail": ""
+        },
+        {
+          "texte": "La coordination des différents intervenants",
+          "detail": ""
+        },
+        {
+          "texte": "Déplacements réguliers sur le chantier",
+          "detail": ""
+        },
+        {
+          "texte": "Accompagnement à la clôture et à la réception des chantiers",
+          "detail": ""
+        },
+        {
+          "texte": "L’établissement des documents administratifs nécessaires",
+          "detail": ""
+        },
+        {
+          "texte": "Réception et aménagement du mobilier (option, coût supplémentaire)",
+          "detail": ""
+        },
+        {
+          "texte": "Service de nettoyage (option, coût supplémentaire)",
+          "detail": ""
+        }
       ],
-      "delai": "Environ 12 mois, selon le projet",
+      "delai": "1 mois de conception, puis 1 à 12 mois selon le projet",
       "tarif": "Sur devis",
       "image": "/images/bureau-nb.jpg",
       "modifs": "Plusieurs ajustements possibles avant validation de chaque étape",
@@ -114,7 +231,7 @@
       "complete": "✓"
     },
     {
-      "label": "Guide des couleurs et matériaux",
+      "label": "Moodboard",
       "conseils": "✓",
       "decoration": "✓",
       "semiComplete": "✓",
@@ -122,13 +239,6 @@
     },
     {
       "label": "Plans de décoration 3D",
-      "conseils": "—",
-      "decoration": "✓",
-      "semiComplete": "✓",
-      "complete": "✓"
-    },
-    {
-      "label": "Moodboard",
       "conseils": "—",
       "decoration": "✓",
       "semiComplete": "✓",
@@ -173,7 +283,7 @@
       "label": "Déplacement à la fin du chantier",
       "conseils": "—",
       "decoration": "—",
-      "semiComplete": "✓",
+      "semiComplete": "En option",
       "complete": "✓"
     },
     {
@@ -198,21 +308,28 @@
       "complete": "✓"
     },
     {
-      "label": "Réception et aménagement du mobilier (option)",
+      "label": "Réception du mobilier",
       "conseils": "—",
       "decoration": "—",
       "semiComplete": "—",
       "complete": "✓"
     },
     {
-      "label": "Service de nettoyage (option)",
+      "label": "Aménagement du mobilier",
       "conseils": "—",
       "decoration": "—",
       "semiComplete": "—",
       "complete": "✓"
     },
     {
-      "label": "Tarif",
+      "label": "Service de nettoyage",
+      "conseils": "—",
+      "decoration": "—",
+      "semiComplete": "—",
+      "complete": "✓"
+    },
+    {
+      "label": "Tarif (hors studio)",
       "conseils": "À partir de 35 €/m²",
       "decoration": "À partir de 55 €/m²",
       "semiComplete": "À partir de 90 €/m²",
@@ -221,9 +338,9 @@
     {
       "label": "Délai",
       "conseils": "1 mois",
-      "decoration": "1 mois + 1 à 6 mois",
-      "semiComplete": "Environ 8 mois",
-      "complete": "Environ 12 mois"
+      "decoration": "1 mois (agencement) + 1 à 6 mois",
+      "semiComplete": "1 mois (conception) + 1 à 8 mois selon le projet",
+      "complete": "1 mois (conception) + 1 à 12 mois selon le projet"
     }
   ],
   "etapes": [

@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SectionHead from "@/components/SectionHead";
 import ComparatifLignes from "@/components/ComparatifLignes";
 import Accordion from "@/components/Accordion";
+import InclusListe from "@/components/InclusListe";
 import Simulateur from "@/components/Simulateur";
 import Reveal from "@/components/Reveal";
 import { COMPARATIF, FORMULES } from "@/data/services";
@@ -66,11 +67,7 @@ export default function ServicesPage() {
               <p className={`t-serre c-2 ${styles.description}`}>{f.description}</p>
               <div className={styles.inclus}>
                 <p className="t-petit c-2">Ce qui est inclus</p>
-                <ul className={`plus-list ${styles.plus}`}>
-                  {f.inclus.map((x) => (
-                    <li key={x}>{x}</li>
-                  ))}
-                </ul>
+                <InclusListe items={f.inclus} />
               </div>
               <dl className={styles.meta}>
                 <div>
@@ -78,7 +75,7 @@ export default function ServicesPage() {
                   <dd className="t-carte">{f.delai}</dd>
                 </div>
                 <div>
-                  <dt className="t-petit c-2">Tarif</dt>
+                  <dt className="t-petit c-2">{f.prix === null ? "Tarif" : "Tarif (hors studio)"}</dt>
                   <dd className="t-carte">{f.tarif}</dd>
                 </div>
               </dl>
@@ -92,8 +89,8 @@ export default function ServicesPage() {
         {/* Comparatif */}
         <section className={styles.comparatif} aria-labelledby="t-comparer">
           <SectionHead id="t-comparer" title="Comparer les formules">
-            Ce que comprend chaque formule, en un coup d’œil. Les tarifs sont les honoraires du studio, hors mobilier et
-            travaux.
+            Ce que comprend chaque formule, en un coup d’œil. Les tarifs correspondent à nos honoraires, hors mobilier
+            et travaux.
           </SectionHead>
           <table className={styles.table}>
             <thead>
@@ -115,8 +112,8 @@ export default function ServicesPage() {
         {/* Simulateur */}
         <section id="simulateur" className={styles.simulateur} aria-labelledby="t-simulateur">
           <SectionHead id="t-simulateur" title="Simulateur de budget">
-            Choisissez une formule et la surface de votre projet : le simulateur estime les honoraires de votre projet
-            avec Studio Lixivel, hors mobilier et travaux. Les tarifs indiqués ne s’appliquent pas aux studios.
+            Choisissez une formule et la surface de votre projet : le simulateur estime nos honoraires pour votre projet, hors
+            mobilier et travaux. Les tarifs indiqués ne s’appliquent pas aux studios.
           </SectionHead>
           <div className="wrap">
             <Simulateur />
