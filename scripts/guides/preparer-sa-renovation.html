@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Préparer sa rénovation · Studio Lixivel</title>
+<!--
+  Guide PDF de la page Ressources. Pour régénérer le PDF :
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer \
+    --print-to-pdf=public/guides/preparer-sa-renovation.pdf scripts/guides/preparer-sa-renovation.html
+  (police : scripts/guides/fonts/, Schibsted Grotesk, OFL)
+-->
+<style>
+  @font-face { font-family: "Schibsted Grotesk"; src: url("fonts/schibsted-grotesk-latin-400-normal.woff2") format("woff2"); font-weight: 400; }
+  @font-face { font-family: "Schibsted Grotesk"; src: url("fonts/schibsted-grotesk-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+  @font-face { font-family: "Schibsted Grotesk"; src: url("fonts/schibsted-grotesk-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
+  @page { size: A4; margin: 0; }
+  :root { --texte: #494141; --texte-2: #5a5450; --accent: #8c373c; --rose: #f7dddf; --lin: #e0d9d2; --doux: #f6f2ef; --sauge: #bcd4b4; --moutarde: #fcc976; --ardoise: #4f6c78; }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: "Schibsted Grotesk", Helvetica, Arial, sans-serif; color: var(--texte); font-size: 10.5pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; padding: 18mm 18mm 16mm; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; gap: 7mm; }
+  .page:last-child { page-break-after: auto; }
+  .pied { position: absolute; left: 18mm; right: 18mm; bottom: 9mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--texte-2); }
+  h1 { font-size: 40pt; font-weight: 500; line-height: 1; letter-spacing: -0.03em; }
+  h2 { font-size: 19pt; font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 2.5mm; }
+  h3 { font-size: 11pt; font-weight: 600; margin-bottom: 1mm; }
+  p + p { margin-top: 2mm; }
+  .surtitre { font-size: 8.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+  .c2 { color: var(--texte-2); }
+  .couv { background: var(--lin); justify-content: space-between; }
+  .couv .lead { font-size: 14pt; max-width: 125mm; }
+  .couv .bas { display: flex; justify-content: space-between; align-items: flex-end; font-size: 9pt; }
+  .num { display: inline-grid; place-items: center; width: 7mm; height: 7mm; border-radius: 999px; background: var(--accent); color: #fff; font-size: 9pt; font-weight: 600; margin-right: 2mm; vertical-align: middle; }
+  .etape { break-inside: avoid; }
+  .etape h3 { display: flex; align-items: center; }
+  ul { padding-left: 4.5mm; }
+  li { margin: 0.8mm 0; }
+  .grille { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm 8mm; }
+  .carte { border-radius: 6mm; padding: 6mm; }
+  .conseil { background: var(--doux); border-radius: 6mm; padding: 5mm 6mm; }
+  .conseil b { color: var(--accent); }
+  .check { list-style: none; padding: 0; columns: 2; column-gap: 8mm; }
+  .check li { break-inside: avoid; padding-left: 7mm; position: relative; margin: 1.6mm 0; }
+  .check li::before { content: ""; position: absolute; left: 0; top: 0.6mm; width: 3.6mm; height: 3.6mm; border: 0.35mm solid var(--texte); border-radius: 1mm; }
+  .flux { display: flex; flex-wrap: wrap; align-items: center; gap: 2.5mm; }
+  .flux span.pill { background: #fff; border-radius: 999px; padding: 2.2mm 4mm; font-size: 9.5pt; }
+  .flux span.fleche { color: var(--accent); font-weight: 600; }
+  .quatre { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .formule { border-radius: 6mm; padding: 6mm; display: flex; flex-direction: column; gap: 2mm; }
+  .formule p { font-size: 10pt; }
+  .encadre { background: var(--rose); border-radius: 6mm; padding: 5mm 6mm; }
+  .encadre b { color: var(--accent); }
+  .fin { background: var(--sauge); }
+  .avertissement { font-size: 8pt; color: var(--texte-2); }
+</style>
+</head>
+<body>
+
+<!-- 1. Couverture -->
+<section class="page couv">
+  <img src="../../public/images/tabouret.png" alt="" style="position:absolute;right:-6mm;bottom:30mm;width:88mm;opacity:0.9">
+  <div>
+    <p class="surtitre">Studio Lixivel · Les guides du studio</p>
+  </div>
+  <div>
+    <h1>Préparer<br>sa rénovation</h1>
+    <p class="lead" style="margin-top:8mm">Les bonnes étapes pour imaginer votre futur intérieur, anticiper votre budget et aborder les travaux plus sereinement.</p>
+  </div>
+  <div style="background:var(--doux);border-radius:6mm;padding:6mm;max-width:130mm;position:relative">
+    <h3>L’idée à retenir</h3>
+    <p>On ne commence pas par demander des devis aux artisans au hasard : on définit d’abord ce que l’on souhaite créer, tout en tenant compte de son budget dès le départ.</p>
+  </div>
+  <div class="bas">
+    <span>studiolixivel.com</span>
+    <span>Architecte d’intérieur · Rouen et partout en France</span>
+  </div>
+</section>
+
+<!-- 2. Vie, pas plans -->
+<section class="page">
+  <div>
+    <p class="surtitre">Étape 1</p>
+    <h2>Partir de votre vie, pas seulement des plans</h2>
+    <p>Une rénovation réussie commence par des questions simples : comment vivez-vous aujourd’hui, et que souhaitez-vous améliorer ? Avant de choisir une cuisine ou une couleur de peinture, prenez le temps de définir vos priorités.</p>
+  </div>
+
+  <div class="grille">
+    <div class="carte" style="background:var(--rose)">
+      <h3>Vos besoins</h3>
+      <p>Davantage de rangements, une chambre supplémentaire, une meilleure circulation, un espace plus lumineux…</p>
+    </div>
+    <div class="carte" style="background:var(--sauge)">
+      <h3>Vos habitudes</h3>
+      <p>Télétravail, enfants, réception d’amis, animaux, besoins de confort et d’entretien.</p>
+    </div>
+    <div class="carte" style="background:var(--moutarde)">
+      <h3>Ce que vous conservez</h3>
+      <p>Mobilier, revêtements, équipements ou éléments de caractère que vous aimez.</p>
+    </div>
+    <div class="carte" style="background:var(--lin)">
+      <h3>Vos inspirations</h3>
+      <p>Quelques images suffisent pour donner une direction, sans chercher à tout reproduire.</p>
+    </div>
+  </div>
+
+  <div>
+    <h3>Les informations utiles à réunir</h3>
+    <p>Un plan coté ou les dimensions des pièces, les superficies, les hauteurs sous plafond, l’emplacement des ouvertures et des équipements, ainsi que des photos et vidéos. Ces éléments permettent de mieux comprendre les volumes et les contraintes.</p>
+  </div>
+
+  <div class="conseil">
+    <p><b>Notre conseil.</b> Classez vos envies en trois catégories : indispensable, souhaitable et facultatif. Cette distinction aide à faire les bons arbitrages lorsque le budget ou la configuration impose des choix.</p>
+  </div>
+  <div class="pied"><span>Studio Lixivel · Préparer sa rénovation</span><span>2</span></div>
+</section>
+
+<!-- 3. Enveloppe -->
+<section class="page">
+  <div>
+    <p class="surtitre">Étape 2</p>
+    <h2>Fixer une enveloppe réaliste dès le début</h2>
+    <p>Il n’est pas nécessaire de connaître le prix exact des travaux pour commencer à concevoir. En revanche, il est essentiel de définir dès le départ le budget que vous envisagez d’y consacrer. Cette enveloppe guide les choix d’agencement, de matériaux, d’équipements et de mobilier. Elle permet d’imaginer un projet cohérent avec vos moyens, sans promettre que toutes les envies seront réalisables.</p>
+  </div>
+
+  <div>
+    <h3>Pensez à distinguer</h3>
+    <div class="grille" style="margin-top:3mm">
+      <div class="carte" style="background:var(--lin)"><h3>Les travaux</h3><p>Dépose, électricité, plomberie, cloisons, sols, peinture, menuiseries, pose…</p></div>
+      <div class="carte" style="background:var(--rose)"><h3>Les achats</h3><p>Cuisine, sanitaires, revêtements, meubles, luminaires et décoration.</p></div>
+      <div class="carte" style="background:var(--moutarde)"><h3>Les honoraires</h3><p>Conception et accompagnement selon la prestation choisie.</p></div>
+      <div class="carte" style="background:var(--sauge)"><h3>Les imprévus</h3><p>Prévoyez une marge de sécurité, notamment dans l’ancien où certaines contraintes se révèlent pendant les travaux.</p></div>
+    </div>
+  </div>
+
+  <div>
+    <h3>Pourquoi ne pas demander tout de suite un prix ferme ?</h3>
+    <p>Sans projet suffisamment défini, les entreprises ne peuvent pas chiffrer les mêmes prestations. Comparer des devis devient alors difficile et des postes importants peuvent être oubliés.</p>
+  </div>
+
+  <div class="encadre">
+    <p><b>À retenir.</b> Votre budget est un point de départ pour la conception. Le chiffrage plus précis intervient ensuite, lorsque les choix sont définis et les documents du projet suffisamment aboutis.</p>
+  </div>
+  <div class="pied"><span>Studio Lixivel · Préparer sa rénovation</span><span>3</span></div>
+</section>
+
+<!-- 4. Concevoir -->
+<section class="page">
+  <div>
+    <p class="surtitre">Étape 3</p>
+    <h2>Concevoir avant de chiffrer précisément</h2>
+    <p>C’est souvent l’étape qui change tout. Avant de solliciter les artisans, il faut savoir ce que l’on souhaite réaliser.</p>
+  </div>
+
+  <div class="etape">
+    <h3><span class="num">1</span>Repenser l’agencement</h3>
+    <p>Les plans 2D permettent d’étudier les circulations, les dimensions, les rangements et les différentes possibilités d’aménagement.</p>
+  </div>
+  <div class="etape">
+    <h3><span class="num">2</span>Donner forme à l’ambiance</h3>
+    <p>Selon la prestation, les visuels 3D aident à se projeter dans les futurs espaces et à préciser les choix de couleurs, de matériaux, de mobilier et d’équipements.</p>
+  </div>
+  <div class="etape">
+    <h3><span class="num">3</span>Définir les interventions nécessaires</h3>
+    <p>Une fois les choix avancés, on peut identifier plus clairement ce qui doit être déposé, créé, déplacé, conservé ou remplacé. Les descriptifs de travaux servent alors de base à la consultation des entreprises.</p>
+  </div>
+  <div class="etape">
+    <h3><span class="num">4</span>Établir une première budgétisation</h3>
+    <p>À partir du projet conçu et des choix retenus, une première estimation des travaux peut être élaborée. Elle reste indicative : les devis des artisans permettront ensuite d’affiner les montants, voire d’ajuster certaines options.</p>
+  </div>
+
+  <div>
+    <h3>L’ordre à retenir</h3>
+    <div class="flux" style="margin-top:3mm">
+      <span class="pill">Besoins + budget initial</span><span class="fleche">→</span>
+      <span class="pill">Plans d’agencement</span><span class="fleche">→</span>
+      <span class="pill">Conception et choix des matériaux</span><span class="fleche">→</span>
+      <span class="pill">Estimation</span><span class="fleche">→</span>
+      <span class="pill">Consultation des artisans</span><span class="fleche">→</span>
+      <span class="pill">Ajustements éventuels</span>
+    </div>
+  </div>
+  <div class="pied"><span>Studio Lixivel · Préparer sa rénovation</span><span>4</span></div>
+</section>
+
+<!-- 5. Artisans -->
+<section class="page">
+  <div>
+    <p class="surtitre">Étape 4</p>
+    <h2>Choisir les bons artisans et préparer les travaux</h2>
+    <p>Une fois le projet défini, la consultation des entreprises peut commencer dans de meilleures conditions.</p>
+  </div>
+
+  <ul>
+    <li><b>Consulter sur une même base :</b> transmettez aux professionnels les mêmes plans, descriptifs et informations utiles.</li>
+    <li><b>Comparer au-delà du prix :</b> vérifiez les prestations incluses ou exclues, les matériaux, les délais prévisionnels et les conditions de paiement.</li>
+    <li><b>Vérifier les garanties :</b> demandez les attestations d’assurance adaptées aux travaux concernés, les références et les informations de l’entreprise.</li>
+    <li><b>Prévoir le calendrier :</b> certains éléments sur mesure nécessitent des prises de cotes définitives et des délais de fabrication.</li>
+    <li><b>Anticiper les contraintes :</b> autorisations éventuelles, copropriété, accès au logement, livraison et stockage des matériaux.</li>
+  </ul>
+
+  <div class="grille">
+    <div class="carte" style="background:var(--doux)">
+      <h3>Pendant le chantier</h3>
+      <p>Un chantier demande des décisions, des échanges et parfois des ajustements. Gardez une trace écrite des modifications convenues et vérifiez leur incidence sur le budget et le calendrier avant validation.</p>
+    </div>
+    <div class="carte" style="background:var(--doux)">
+      <h3>À la fin des travaux</h3>
+      <p>Prévoyez une visite attentive : vérification des prestations, réserves éventuelles et documents de fin de chantier selon les entreprises et les travaux réalisés.</p>
+    </div>
+  </div>
+
+  <div class="encadre">
+    <p><b>Un point important.</b> Les délais sont prévisionnels : approvisionnements, découvertes techniques et disponibilités des intervenants peuvent les faire évoluer. Mieux vaut anticiper cette souplesse dès le départ.</p>
+  </div>
+  <div class="pied"><span>Studio Lixivel · Préparer sa rénovation</span><span>5</span></div>
+</section>
+
+<!-- 6. Accompagnement -->
+<section class="page">
+  <div>
+    <p class="surtitre">Étape 5</p>
+    <h2>Quel accompagnement choisir ?</h2>
+    <p>Chez Studio Lixivel, le niveau d’accompagnement dépend de vos besoins et de la place que vous souhaitez prendre dans l’organisation des travaux.</p>
+  </div>
+
+  <div class="quatre">
+    <div class="formule" style="background:var(--sauge)">
+      <h3>Agencement &amp; Conseils à distance</h3>
+      <p>Pour optimiser les espaces et repenser leur organisation. Le projet peut se faire sans travaux, ou avec des travaux dont vous gérez vous-même la réalisation.</p>
+    </div>
+    <div class="formule" style="background:var(--rose)">
+      <h3>Agencement &amp; Décoration à distance</h3>
+      <p>Pour travailler l’agencement et l’univers décoratif, avec des visuels 3D et une shopping list selon les livrables prévus. Les travaux éventuels restent organisés par vos soins.</p>
+    </div>
+    <div class="formule" style="background:var(--moutarde)">
+      <h3>Prestation Semi-Complète</h3>
+      <p>Pour bénéficier de la conception du projet, de la préparation des travaux, de mises en relation avec des artisans et d’un accompagnement principalement à distance. Vous conservez la gestion quotidienne du chantier ; des déplacements ponctuels peuvent être envisagés selon le projet.</p>
+    </div>
+    <div class="formule" style="background:var(--ardoise);color:var(--doux)">
+      <h3>Prestation Complète</h3>
+      <p>Pour un accompagnement plus approfondi, avec des visites sur le chantier, la coordination des intervenants et une assistance jusqu’à la réception des travaux, dans les limites de la mission convenue.</p>
+    </div>
+  </div>
+
+  <div class="conseil">
+    <p><b>À savoir.</b> Les modalités précises, les déplacements et les responsabilités sont définis dans le devis et les documents contractuels. Les travaux sont réalisés par les entreprises retenues.</p>
+  </div>
+  <div class="pied"><span>Studio Lixivel · Préparer sa rénovation</span><span>6</span></div>
+</section>
+
+<!-- 7. Checklist -->
+<section class="page">
+  <div>
+    <p class="surtitre">Pour finir</p>
+    <h2>Votre checklist avant de vous lancer</h2>
+    <p>Gardez cette page à portée de main : elle vous aidera à avancer étape par étape.</p>
+  </div>
+
+  <ul class="check" style="columns:1">
+    <li>J’ai listé mes besoins, mes priorités et les éléments à conserver.</li>
+    <li>J’ai réuni des plans ou mesures fiables, des photos et des vidéos.</li>
+    <li>J’ai défini une enveloppe prévisionnelle pour les travaux et les achats.</li>
+    <li>J’ai prévu une marge pour les imprévus.</li>
+    <li>J’ai fait étudier l’agencement avant de figer les choix.</li>
+    <li>J’ai précisé l’ambiance, les matériaux et les équipements souhaités.</li>
+    <li>J’ai une première estimation cohérente avec le projet conçu.</li>
+    <li>Je peux consulter les artisans sur la base de documents comparables.</li>
+    <li>J’ai vérifié les devis, assurances et délais avant de m’engager.</li>
+    <li>Je sais qui organise les travaux et quel accompagnement est prévu.</li>
+  </ul>
+
+  <div class="fin" style="border-radius:6mm;padding:7mm;margin-top:auto">
+    <h3>Un projet de rénovation en tête ?</h3>
+    <p>À partir de vos plans, de vos photos, de vos envies et de votre budget, Studio Lixivel vous aide à trouver la formule adaptée à votre projet, à distance ou avec un accompagnement pendant les travaux.</p>
+  </div>
+  <div class="avertissement">Guide informatif : les besoins techniques, les autorisations et les garanties applicables sont à vérifier au cas par cas avec les professionnels compétents.</div>
+  <div class="pied"><span>Studio Lixivel · Architecture intérieure &amp; décoration</span><span>7</span></div>
+</section>
+
+</body>
+</html>
