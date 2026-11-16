@@ -17,8 +17,8 @@
           "services": false
         },
         {
-          "question": "Travaillez-vous aussi pour les professionnels ?",
-          "reponse": "Oui. En plus des logements, Studio Lixivel aménage des espaces professionnels : boutiques, cafés, restaurants, salons de coiffure, espaces événementiels et studios photo. Indiquez-le dans le questionnaire, nous adaptons la proposition à votre activité.",
+          "question": "Comment se déroulent les déplacements et dans quelles circonstances ?",
+          "reponse": "Les déplacements dépendent de la formule choisie et des besoins de votre projet. Les prestations Agencement & conseils et Agencement & décoration sont réalisées entièrement à distance, sans déplacement. Pour la formule Semi-complète, des déplacements ponctuels peuvent être organisés, notamment pour effectuer des prises de mesures, intervenir en cas de nécessité pendant les travaux ou réaliser une visite en fin de chantier si besoin. L’accompagnement reste principalement assuré à distance, avec des échanges réguliers avec vous et les artisans. La formule Prise en charge Complète prévoit une présence plus régulière sur le chantier, dès les premières prises de mesures et tout au long des travaux, afin d’accompagner leur réalisation et de coordonner les différents intervenants. Une visite est également prévue en fin de chantier pour vous accompagner lors de la réception des travaux.",
           "accueil": false,
           "services": false
         }
@@ -26,11 +26,11 @@
     },
     {
       "id": "formules",
-      "titre": "Les formules",
+      "titre": "Nos prestations",
       "questions": [
         {
-          "question": "Quelle formule choisir ?",
-          "reponse": "Tout dépend de votre projet : Agencement & conseils pour réorganiser l’espace, Agencement & décoration pour imaginer votre intérieur et vous guider dans le choix du mobilier, des matériaux et de la décoration, Semi-complète pour préparer vos travaux avec un accompagnement à distance, ou Complète pour bénéficier d’un accompagnement personnalisé sur place, y compris pendant les travaux. En cas de doute, le questionnaire nous aide à vous orienter.",
+          "question": "Quelle prestation choisir ?",
+          "reponse": "Tout dépend de vos besoins, de votre projet et du niveau d’accompagnement souhaité. La formule Agencement & conseils est idéale pour optimiser vos espaces, repenser leur organisation et trouver des solutions d’aménagement adaptées à votre quotidien. La formule Agencement & décoration va plus loin en intégrant l’ambiance, les couleurs, le choix du mobilier, des matériaux et des éléments décoratifs pour créer un intérieur harmonieux qui vous ressemble. Ces deux prestations sont réalisées à distance et peuvent concerner des projets avec ou sans travaux. Si des travaux sont nécessaires, vous en assurez vous-même l’organisation. La formule Semi-complète comprend la conception de votre projet, de l’agencement à la décoration, ainsi que la préparation des travaux, la mise en relation avec les artisans et un accompagnement principalement à distance pendant leur réalisation. Vous conservez la gestion quotidienne du chantier tout en bénéficiant de nos conseils et de notre expertise. Enfin, la formule Prise en charge Complète propose un accompagnement plus approfondi, de la conception jusqu’à la fin des travaux, avec des déplacements sur le chantier et la coordination des différents intervenants. Vous hésitez ? Notre questionnaire nous permet de mieux comprendre vos attentes et de vous orienter vers la formule la plus adaptée à votre projet.",
           "accueil": false,
           "services": true
         },
@@ -41,20 +41,20 @@
           "services": false
         },
         {
-          "question": "Faut-il faire des travaux ?",
-          "reponse": "Non, pas nécessairement. Les formules Agencement & conseils et Agencement & décoration peuvent se faire sans travaux, simplement pour réaménager ou décorer votre intérieur. Si des travaux sont nécessaires, leur réalisation reste à votre charge. Les formules Semi-complète et Complète proposent un accompagnement plus poussé, de la préparation à la réalisation des travaux.",
+          "question": "Je viens d’acheter un bien et je suis un peu perdu(e), par où commencer ?",
+          "reponse": "Pas de panique, c’est tout à fait normal ! Lorsqu’on achète un bien, il n’est pas toujours facile de savoir par où commencer, entre l’aménagement des espaces, la décoration, les travaux, le budget et les artisans à contacter. La première étape, c’est la conception de votre projet. Nous commençons toujours par échanger sur vos envies, vos besoins et votre budget travaux. Cette information est essentielle pour imaginer un projet réaliste et adapter les aménagements, les matériaux et les équipements au plus près de votre enveloppe budgétaire. Avant de consulter les artisans, il est important de définir précisément ce que vous souhaitez réaliser. Une fois les plans et les visuels 3D conçus, nous avons une vision plus claire des travaux à prévoir et des matériaux sélectionnés. Nous pouvons alors établir une première estimation du coût des travaux, puis consulter les artisans pour obtenir des devis plus précis et ajuster certains choix si nécessaire. Selon la formule choisie, nous pouvons également vous accompagner dans la préparation, l’organisation et la réalisation de vos travaux. Notre guide [« Préparer sa rénovation »](/guides#preparer-sa-renovation) résume ces étapes, à télécharger gratuitement.",
           "accueil": false,
           "services": false
         },
         {
           "question": "Que contient la liste shopping ?",
-          "reponse": "Toutes les références des meubles, luminaires et objets déco du projet, choisies pour tenir dans votre budget. Elle est incluse à partir de la formule Agencement & décoration : vous commandez à votre rythme, puis vous installez.",
+          "reponse": "La shopping list, c’est votre guide pour donner vie à votre projet ! Vous y retrouvez une sélection de meubles, luminaires, objets déco, matériaux et accessoires soigneusement choisis pour créer un intérieur qui vous ressemble. Chaque référence est accompagnée des informations utiles : prix, dimensions et liens d’achat, en tenant compte de vos envies et de votre budget. Incluse dès la formule Agencement & décoration, elle vous permet de faire vos achats facilement, à votre rythme et selon vos priorités.",
           "accueil": false,
           "services": false
         },
         {
-          "question": "Peut-on changer de formule en cours de route ?",
-          "reponse": "Oui. Il suffit de nous en parler : une modification du projet fait l’objet d’un nouveau devis ou d’un avenant, comme le prévoient les conditions générales de vente.",
+          "question": "Peut-on changer de prestation en cours de route ?",
+          "reponse": "Bien sûr ! Vous pouvez tout à fait commencer par une prestation à distance, puis choisir de passer à une prestation Semi-complète ou Complète si vous souhaitez finalement bénéficier d’un accompagnement pour la réalisation de vos travaux. Nous faisons alors le point ensemble sur vos nouveaux besoins et vous proposons un devis complémentaire ou un avenant, selon l’avancement de votre projet et les prestations souhaitées.",
           "accueil": false,
           "services": false
         }
@@ -65,20 +65,20 @@
       "titre": "À distance",
       "questions": [
         {
-          "question": "Comment se passe un projet à distance ?",
-          "reponse": "Tout se fait par mail et en audio, sans que nous ayons besoin de venir chez vous. Vous remplissez le questionnaire, vous nous envoyez plans côtés, photos et vidéos, puis nous vous livrons le plan 2D et, selon la formule choisie, le plan 3D décoration et la liste shopping.",
+          "question": "Comment se passe un projet à distance ?",
+          "reponse": "Tout se déroule à distance, grâce à des échanges réguliers par mail, téléphone ou messages vocaux, sans avoir besoin de nous déplacer chez vous. 1. Découverte de votre projet : nous échangeons sur vos envies, vos besoins, votre mode de vie et votre budget. Pour commencer, nous avons simplement besoin de vos plans cotés, des superficies, ainsi que de photos et vidéos de votre intérieur. 2. Conception de l’agencement (plans 2D) : nous étudions les possibilités d’aménagement et vous proposons des plans 2D optimisés pour repenser vos espaces. Nous échangeons ensuite pour affiner les propositions selon vos retours. 3. Décoration et visuels 3D : selon la formule choisie, nous imaginons l’ambiance de votre intérieur à travers des visuels 3D, avec une sélection de couleurs, de matériaux, de mobilier et de décoration. 4. Shopping list et dossier final : nous préparons, selon votre prestation, une shopping list regroupant les références sélectionnées, leurs prix et leurs liens d’achat. Vous recevez ensuite votre dossier complet pour donner vie à votre projet à votre rythme. Tout au long de ces étapes, nous restons à votre écoute pour vous conseiller et créer ensemble un intérieur qui vous ressemble, même à plusieurs centaines de kilomètres !",
           "accueil": false,
           "services": true
         },
         {
-          "question": "Quelles informations dois-je fournir ?",
-          "reponse": "Un plan ou les mesures de la pièce, des vidéos, des photos de chaque mur, le mobilier que vous gardez et quelques images qui vous inspirent. Pour les mesures : longueurs, hauteur sous plafond, emplacement des fenêtres, portes et prises. Nous vous envoyons un guide pour ne rien oublier.",
+          "question": "Quelles informations dois-je fournir ?",
+          "reponse": "Pour bien comprendre votre projet, nous avons besoin d’un plan coté ou des dimensions de vos espaces, accompagné de photos et de vidéos de votre intérieur. Pensez également à nous partager quelques inspirations qui reflètent vos goûts et vos envies. Concernant les mesures, les informations essentielles sont les longueurs et largeurs des pièces, la hauteur sous plafond, ainsi que l’emplacement et les dimensions des portes, fenêtres et principaux équipements. Ces éléments nous permettent de mieux visualiser vos espaces et d’imaginer un aménagement adapté à votre quotidien.",
           "accueil": false,
           "services": false
         },
         {
-          "question": "Travaillez-vous partout en France ?",
-          "reponse": "Oui. Les formules Conseils et Décoration se font entièrement à distance, partout en France. La semi-complète se pilote à distance, avec un déplacement en fin de chantier. La prise en charge complète prévoit des déplacements réguliers sur le chantier : nous en discutons selon le lieu de votre projet.",
+          "question": "Travaillez-vous partout en France ?",
+          "reponse": "Oui, nous accompagnons vos projets partout en France, mais aussi en Europe et à l’international ! Nos prestations Agencement & Conseils à distance et Agencement & Décoration à distance se réalisent entièrement à distance, sans déplacement. La Prestation Semi-Complète comprend la conception de votre projet et un accompagnement principalement à distance pendant les travaux, avec des déplacements ponctuels si nécessaire. Enfin, la Prestation Complète prévoit un accompagnement plus approfondi, avec plusieurs déplacements sur le chantier, des premières prises de mesures jusqu’à la réception des travaux, afin de coordonner les différents intervenants. Les modalités de déplacement sont définies ensemble selon la localisation et les besoins de votre projet.",
           "accueil": true,
           "services": false
         }
@@ -86,35 +86,23 @@
     },
     {
       "id": "tarifs",
-      "titre": "Tarifs et paiement",
+      "titre": "Nos tarifs",
       "questions": [
         {
-          "question": "Combien coûte un architecte d’intérieur ?",
-          "reponse": "Au Studio Lixivel, à partir de 35 €/m² pour l’agencement et les conseils, à partir de 55 €/m² pour l’agencement et la décoration, à partir de 90 €/m² pour la semi-complète, et sur devis pour la prise en charge complète. Ce sont nos honoraires, hors mobilier et travaux.",
+          "question": "Combien coûte un architecte d’intérieur ?",
+          "reponse": "Chez Studio Lixivel, pour les projets hors studios, nos honoraires débutent à 35 €/m² pour la formule Agencement & Conseils à distance, 55 €/m² pour Agencement & Décoration à distance et 90 €/m² pour la Prestation Semi-Complète. La Prestation Complète est proposée sur devis. Les studios font l’objet d’une tarification spécifique. Ces tarifs correspondent à nos honoraires et n’incluent ni le mobilier, ni les matériaux, ni les travaux.",
           "accueil": true,
           "services": true
         },
         {
-          "question": "Comment est calculé le prix ?",
-          "reponse": "Les honoraires sont calculés au mètre carré pour les formules Conseils, Décoration et semi-complète. La prise en charge complète se chiffre sur devis. Après le questionnaire, nous vous envoyons une fourchette, puis le tarif exact par email.",
+          "question": "Comment est calculé le prix ?",
+          "reponse": "Pour les projets hors studios, les honoraires sont calculés au mètre carré pour les formules Agencement & Conseils à distance, Agencement & Décoration à distance et Prestation Semi-Complète. Les studios font l’objet d’une tarification spécifique, tandis que la Prestation Complète est chiffrée sur devis. Après réception de votre questionnaire, nous étudions votre projet et vous communiquons une première estimation, avant de vous transmettre un devis personnalisé par email.",
           "accueil": false,
           "services": false
         },
         {
-          "question": "Le simulateur donne-t-il le prix exact ?",
-          "reponse": "Non, il donne un ordre de grandeur « à partir de ». Le simulateur de la page Services multiplie la surface par le tarif de base de la formule. Pour un studio, les tarifs ne s’appliquent pas : nous établissons un devis. Le prix exact dépend de votre projet : nous vous l’envoyons par email après le questionnaire.",
-          "accueil": false,
-          "services": true
-        },
-        {
-          "question": "Faut-il un gros budget ?",
-          "reponse": "Pas forcément ! Chaque projet est unique, et nous prenons toujours en compte votre budget pour vous proposer des solutions adaptées à vos envies et à vos besoins. Bien sûr, un certain budget reste nécessaire, mais l’essentiel est de trouver ensemble le bon équilibre entre vos souhaits et ce qui est réalisable.",
-          "accueil": false,
-          "services": false
-        },
-        {
-          "question": "Combien de modifications sont incluses ?",
-          "reponse": "Plusieurs ajustements sont possibles avant la validation de chaque étape, quelle que soit la formule. Au-delà, une modification fait l’objet d’un nouveau devis ou d’un avenant.",
+          "question": "Le simulateur donne-t-il le prix exact ?",
+          "reponse": "Le simulateur vous permet d’obtenir une première estimation de nos honoraires, calculée en multipliant la superficie de votre projet par le tarif de base au m² de la formule choisie, à partir de 40 m². Bien qu’il s’agisse d’un tarif indicatif, cette estimation reste généralement proche du montant final. Après réception des différents éléments et informations concernant votre projet, nous étudions vos besoins et ses particularités afin de vous transmettre un devis personnalisé par email.",
           "accueil": false,
           "services": true
         }
@@ -125,8 +113,8 @@
       "titre": "Travaux",
       "questions": [
         {
-          "question": "Trouvez-vous les artisans ?",
-          "reponse": "Oui, à partir de la formule semi-complète. Nous consultons les artisans, préparons les descriptifs de travaux et vous mettons en relation avec nos partenaires.",
+          "question": "Pouvez-vous nous mettre en relation avec des artisans pour les travaux ?",
+          "reponse": "Oui, bien sûr ! Nous travaillons avec un réseau d’artisans et de partenaires de confiance, avec lesquels nous avons l’habitude de collaborer. Dès la Prestation Semi-Complète, nous pouvons vous mettre en relation avec les professionnels adaptés à votre projet, les consulter et leur transmettre les éléments nécessaires au chiffrage et à la réalisation de vos travaux.",
           "accueil": false,
           "services": false
         },

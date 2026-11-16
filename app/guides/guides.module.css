@@ -62,6 +62,17 @@
   max-width: 460px;
 }
 
+/* Cartes étroites : la couverture passe sous le texte, sans recouvrir le bouton. */
+.carte:has(.apercu):not(:first-child) {
+  padding-right: 40px;
+}
+
+.carte:has(.apercu):not(:first-child) .apercu {
+  position: static;
+  width: 160px;
+  margin: 8px 0 -8px;
+}
+
 .haut {
   width: 100%;
   display: flex;
