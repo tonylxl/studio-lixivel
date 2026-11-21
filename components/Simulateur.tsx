@@ -6,9 +6,9 @@ import { FORMULES, TYPES_BIEN } from "@/data/services";
 import { rdvHref } from "@/lib/site";
 import styles from "./Simulateur.module.css";
 
-/** Bornes du curseur de surface (m²). */
-const SURFACE_MIN = 40;
-const SURFACE_MAX = 200;
+/** Bornes du curseur de surface (m²). Studio : de 0 à 40 m², sans « et + ». */
+const BORNES = { min: 40, max: 200, plus: true };
+const BORNES_STUDIO = { min: 0, max: 40, plus: false };
 /** Lignes de « Ce qui est inclus » reprises dans le récapitulatif. */
 const INCLUS_VISIBLES = 4;
 
@@ -102,11 +102,14 @@ const Etape = ({ n, children }: { n: number; children: React.ReactNode }) => (
 export default function Simulateur() {
   const [slug, setSlug] = useState("decoration");
   const [bien, setBien] = useState("appartement");
-  const [surface, setSurface] = useState(SURFACE_MIN);
+  const [surfaceChoisie, setSurface] = useState(BORNES.min);
   const surfaceId = useId();
 
   const f = FORMULES.find((x) => x.slug === slug)!;
   const type = TYPES_BIEN.find((t) => t.slug === bien) ?? TYPES_BIEN[0];
+  const { min: SURFACE_MIN, max: SURFACE_MAX, plus } = type.slug === "studio" ? BORNES_STUDIO : BORNES;
+  /** La surface reste dans les bornes du type de bien choisi. */
+  const surface = Math.min(SURFACE_MAX, Math.max(SURFACE_MIN, surfaceChoisie));
   /** Formule sans tarif au m² (complète) : la surface ne change rien, l'étape disparaît. */
   const sansSurface = f.prix === null;
   const surDevis = (f.prix === null && !f.minimum) || Boolean(type.surDevis);
@@ -148,7 +151,7 @@ export default function Simulateur() {
             <label htmlFor={surfaceId} className={styles.question}>
               <Etape n={3}>Surface</Etape>
               <output htmlFor={surfaceId} className={styles.surfaceValeur}>
-                {surface >= SURFACE_MAX ? `${SURFACE_MAX} m² et +` : `${surface} m²`}
+                {plus && surface >= SURFACE_MAX ? `${SURFACE_MAX} m² et +` : `${surface} m²`}
               </output>
             </label>
             <input
@@ -164,7 +167,9 @@ export default function Simulateur() {
             />
             <div className={styles.bornes} aria-hidden>
               <span>{SURFACE_MIN}&nbsp;m²</span>
-              <span>{SURFACE_MAX}&nbsp;m² et +</span>
+              <span>
+                {SURFACE_MAX}&nbsp;m²{plus && " et +"}
+              </span>
             </div>
           </div>
         )}
