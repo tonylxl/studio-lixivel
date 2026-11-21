@@ -6,9 +6,9 @@ import { FORMULES, TYPES_BIEN } from "@/data/services";
 import { rdvHref } from "@/lib/site";
 import styles from "./Simulateur.module.css";
 
-/** Bornes du curseur de surface (m²). Studio : de 0 à 40 m², sans « et + ». */
+/** Bornes du curseur de surface (m²). Studio : de 10 à 40 m², sans « et + ». */
 const BORNES = { min: 40, max: 200, plus: true };
-const BORNES_STUDIO = { min: 0, max: 40, plus: false };
+const BORNES_STUDIO = { min: 10, max: 40, plus: false };
 /** Lignes de « Ce qui est inclus » reprises dans le récapitulatif. */
 const INCLUS_VISIBLES = 4;
 
