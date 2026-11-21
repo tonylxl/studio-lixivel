@@ -249,6 +249,7 @@ h3 {
 .lx-dictee__dire { margin-top: 4px; color: #5a5450; font-size: 14px; }
 .lx-dictee__direct { min-height: 1.45em; margin-top: 8px; font-style: italic; color: #5a5450; }
 .lx-dictee__message { font-size: 14px; }
+.lx-dictee__message:not(:empty) { margin-top: 12px; }
 .lx-dictee__message[data-type="ok"] { color: #3e6b34; }
 .lx-dictee__message[data-type="erreur"] { color: #8c373c; }
 .lx-dictee__aide { margin-top: 12px; font-size: 14px; }

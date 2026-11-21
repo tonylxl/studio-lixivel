@@ -360,8 +360,30 @@
     panneau.classList.toggle("lx-dictee--ecoute", ecoute);
   };
 
-  const demarrer = () => {
+  // Demander le micro avant la reconnaissance vocale : la fenêtre d'autorisation s'affiche
+  // et, en cas de refus, on sait exactement pourquoi.
+  const accesMicro = async () => {
+    if (!navigator.mediaDevices?.getUserMedia) return true;
+    try {
+      const flux = await navigator.mediaDevices.getUserMedia({ audio: true });
+      flux.getTracks().forEach((t) => t.stop());
+      return true;
+    } catch (err) {
+      const raisons = {
+        NotAllowedError: "Le micro est refusé. Clique sur l’icône à gauche de l’adresse (app.pagescms.org), mets « Micro » sur « Autoriser », puis recharge la page. Si c’est déjà autorisé : Réglages Système › Confidentialité et sécurité › Microphone, active Google Chrome et relance Chrome.",
+        NotFoundError: "Aucun micro trouvé sur cet ordinateur.",
+        NotReadableError: "Le micro est déjà utilisé par une autre application (visio, enregistrement…) : ferme-la et réessaie.",
+        SecurityError: "Pages CMS empêche l’accès au micro sur sa page.",
+      };
+      message(`${raisons[err.name] || "Le micro n’est pas accessible."} (${err.name}${err.message ? " : " + err.message : ""})`, "erreur");
+      return false;
+    }
+  };
+
+  const demarrer = async () => {
     if (!Reconnaissance) return message("Ce navigateur ne propose pas la dictée : utilise Google Chrome.", "erreur");
+    message("Connexion au micro…", "");
+    if (!(await accesMicro())) return;
     reco = new Reconnaissance();
     reco.lang = "fr-FR";
     reco.continuous = true;
@@ -403,7 +425,7 @@
       if (e.error === "no-speech" || e.error === "aborted") return; // silence : on relance simplement
       ecoute = false;
       majBouton();
-      message(ERREURS[e.error] || `La dictée s’est arrêtée (erreur « ${e.error} »). Recharge la page et réessaie.`, "erreur");
+      message(`${ERREURS[e.error] || "La dictée s’est arrêtée. Recharge la page et réessaie."} (erreur « ${e.error} »)`, "erreur");
     };
     // Chrome coupe l'écoute après un silence : on relance tant que la dictée est active,
     // sauf si elle s'arrête tout de suite plusieurs fois de suite (problème de micro ou de navigateur).
@@ -467,6 +489,7 @@
           <p class="lx-dictee__intro">Clique sur le micro et parle : je remplis la fiche pour toi.</p>
         </div>
       </div>
+      <p class="lx-dictee__message" aria-live="polite"></p>
       <div class="lx-dictee__guide">
         <div class="lx-dictee__ligne">
           <p><span class="lx-dictee__position"></span> · Champ en cours : <b class="lx-dictee__champ"></b></p>
@@ -478,7 +501,6 @@
         </div>
         <p class="lx-dictee__dire"></p>
         <p class="lx-dictee__direct" aria-live="polite"></p>
-        <p class="lx-dictee__message" aria-live="polite"></p>
       </div>
       <details class="lx-dictee__aide">
         <summary>Ce que tu peux dire</summary>
