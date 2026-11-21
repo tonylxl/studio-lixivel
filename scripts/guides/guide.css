@@ -1,0 +1,72 @@
+/* Feuille de style commune des guides PDF (mêmes règles que bien-mesurer-sa-piece.html et preparer-sa-renovation.html). */
+@font-face { font-family: "Schibsted Grotesk"; src: url("fonts/schibsted-grotesk-latin-400-normal.woff2") format("woff2"); font-weight: 400; }
+@font-face { font-family: "Schibsted Grotesk"; src: url("fonts/schibsted-grotesk-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+@font-face { font-family: "Schibsted Grotesk"; src: url("fonts/schibsted-grotesk-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
+@page { size: A4; margin: 0; }
+:root { --texte: #494141; --texte-2: #5a5450; --accent: #8c373c; --rose: #f7dddf; --lin: #e0d9d2; --doux: #f6f2ef; --sauge: #bcd4b4; --moutarde: #fcc976; --ardoise: #4f6c78; }
+* { box-sizing: border-box; margin: 0; }
+body { font-family: "Schibsted Grotesk", Helvetica, Arial, sans-serif; color: var(--texte); font-size: 10.5pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; height: 297mm; padding: 18mm 18mm 16mm; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; gap: 7mm; }
+.page:last-child { page-break-after: auto; }
+.pied { position: absolute; left: 18mm; right: 18mm; bottom: 9mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--texte-2); }
+h1 { font-size: 40pt; font-weight: 500; line-height: 1; letter-spacing: -0.03em; }
+h2 { font-size: 19pt; font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 2.5mm; }
+h3 { font-size: 11pt; font-weight: 600; margin-bottom: 1mm; }
+p + p { margin-top: 2mm; }
+.surtitre { font-size: 8.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.c2 { color: var(--texte-2); }
+
+/* Couverture */
+.couv { justify-content: space-between; }
+.couv .lead { font-size: 14pt; max-width: 125mm; }
+.couv .bas { display: flex; justify-content: space-between; align-items: flex-end; font-size: 9pt; }
+.couv .illu { position: absolute; right: -6mm; bottom: 30mm; width: 88mm; opacity: 0.9; }
+.couv .encart { background: var(--doux); border-radius: 6mm; padding: 6mm; max-width: 130mm; position: relative; }
+.couv .themes { font-size: 8.5pt; letter-spacing: 0.08em; text-transform: uppercase; }
+.couv[data-dark] { color: var(--doux); }
+.couv[data-dark] .surtitre { color: var(--rose); }
+.couv[data-dark] .encart { color: var(--texte); }
+.couv[data-dark] .illu { filter: brightness(0) invert(1); opacity: 0.55; }
+
+/* Blocs */
+.num { display: inline-grid; place-items: center; flex: none; width: 7mm; height: 7mm; border-radius: 999px; background: var(--accent); color: #fff; font-size: 9pt; font-weight: 600; margin-right: 2mm; vertical-align: middle; }
+.etape { break-inside: avoid; }
+.etape h3 { display: flex; align-items: center; }
+ul { padding-left: 4.5mm; }
+li { margin: 0.8mm 0; }
+.grille { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm 8mm; }
+.trois { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; }
+.carte { border-radius: 6mm; padding: 6mm; }
+.carte p { font-size: 10pt; }
+.conseil { background: var(--doux); border-radius: 6mm; padding: 5mm 6mm; }
+.conseil b, .encadre b { color: var(--accent); }
+.encadre { background: var(--rose); border-radius: 6mm; padding: 5mm 6mm; }
+.check { list-style: none; padding: 0; }
+.check li { break-inside: avoid; padding-left: 7mm; position: relative; margin: 2.2mm 0; }
+.check li::before { content: ""; position: absolute; left: 0; top: 0.6mm; width: 3.6mm; height: 3.6mm; border: 0.35mm solid var(--texte); border-radius: 1mm; }
+.flux { display: flex; flex-wrap: wrap; align-items: center; gap: 2.5mm; }
+.flux span.pill { background: #fff; border-radius: 999px; padding: 2.2mm 4mm; font-size: 9.5pt; }
+.flux span.fleche { color: var(--accent); font-weight: 600; }
+.pills { display: flex; flex-wrap: wrap; gap: 2.5mm; }
+.pills span { background: #fff; border-radius: 999px; padding: 2mm 4mm; font-size: 9.5pt; }
+.fin { border-radius: 6mm; padding: 7mm; margin-top: auto; }
+.fin .lien { margin-top: 3mm; font-weight: 600; color: var(--accent); }
+.avertissement { font-size: 8pt; color: var(--texte-2); }
+
+/* Grand numéro (erreurs, astuces, conseils) */
+.gros { font-size: 30pt; font-weight: 500; line-height: 1; letter-spacing: -0.03em; color: var(--accent); }
+.bloc { display: grid; grid-template-columns: 20mm 1fr; gap: 0 4mm; break-inside: avoid; padding-top: 5mm; border-top: 0.3mm solid var(--lin); }
+.bloc h2 { font-size: 15pt; margin-bottom: 2mm; }
+.deux { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.deux h3 { font-size: 9pt; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.astuce { border-radius: 6mm; padding: 6mm; display: flex; flex-direction: column; gap: 2.5mm; }
+.astuce .gros { font-size: 22pt; }
+.astuce h3 { font-size: 12pt; margin: 0; }
+.astuce p { font-size: 9.8pt; }
+.astuce .essai { background: rgba(255,255,255,0.6); border-radius: 3mm; padding: 2.5mm 3.5mm; font-size: 9.3pt; }
+.astuce .mot { margin-top: auto; font-style: italic; color: var(--texte-2); font-size: 9.3pt; }
+.palette { display: flex; gap: 3mm; align-items: stretch; }
+.palette div { border-radius: 4mm; padding: 4mm; font-size: 9pt; display: flex; align-items: flex-end; min-height: 26mm; }
+.question { display: flex; gap: 4mm; align-items: baseline; }
+.question .gros { font-size: 20pt; }
+.question p { font-size: 12pt; font-weight: 500; }

@@ -30,6 +30,6 @@ Remplir le formulaire de `/guides` avec son propre email : le contact doit appar
 
 ## Ajouter un guide
 
-1. Écrire le guide en HTML sur le modèle de `scripts/guides/bien-mesurer-sa-piece.html`, puis le convertir en PDF :
+1. Écrire le guide en HTML sur le modèle de `scripts/guides/optimiser-son-interieur.html` (styles communs dans `scripts/guides/guide.css`), puis le convertir en PDF :
    `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer --print-to-pdf=public/guides/NOM.pdf scripts/guides/NOM.html`
 2. Dans Pages CMS (collection « Guides ») : ajouter le PDF, l’aperçu de la couverture, et passer le statut à « disponible ».

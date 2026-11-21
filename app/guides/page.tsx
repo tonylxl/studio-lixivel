@@ -11,7 +11,7 @@ import styles from "./guides.module.css";
 export const metadata: Metadata = {
   title: "Guides gratuits d’architecte d’intérieur",
   description:
-    "Les guides du Studio Lixivel à télécharger gratuitement : bien mesurer sa pièce, les cotes à connaître, choisir ses couleurs, préparer sa rénovation.",
+    "Les guides du Studio Lixivel à télécharger gratuitement : bien mesurer sa pièce, optimiser son intérieur, les erreurs d’aménagement à éviter, rénover sans dépasser son budget.",
   alternates: { canonical: "/guides" },
 };
 
