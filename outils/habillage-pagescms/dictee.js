@@ -214,7 +214,8 @@
 
   // Mots-clés de tous les champs, les plus longs d'abord (« photo avant » avant « avant »).
   const MOTS = CHAMPS.flatMap((c) => c.mots.map((m) => ({ mot: m, champ: c }))).sort((a, b) => b.mot.length - a.mot.length);
-  const LIAISON = /^\s*(:|,|est|c'est|sera|de|d'|du|en|=)?\s*/;
+  // Petits mots entre le nom du champ et la valeur (« budget de… », « la ville c'est… »), seulement s'ils sont entiers.
+  const LIAISON = /^\s*(?:[:,=]|d'|(?:est|c'est|sera|de|du|en)(?=\s))?\s*/;
 
   // Découpe « ville Rouen année 2024 surface 80 m² » en [ville → Rouen], [année → 2024], [surface → 80 m²].
   // Seulement si la phrase commence par un mot-clé ; un champ long (brief, légendes, avis) prend toute la suite.
@@ -380,12 +381,64 @@
     }
   };
 
+  // Reconnaissance « sur l'ordinateur » (Chrome récent) : le français se télécharge une fois,
+  // puis plus besoin du service en ligne de Google (utile si un VPN ou un pare-feu le bloque).
+  const CLE_LOCAL = "lx-dictee-local";
+  let local = false;
+  const lireLocal = () => {
+    try {
+      return localStorage.getItem(CLE_LOCAL) === "1";
+    } catch {
+      return false;
+    }
+  };
+  const noterLocal = (oui) => {
+    try {
+      oui ? localStorage.setItem(CLE_LOCAL, "1") : localStorage.removeItem(CLE_LOCAL);
+    } catch {
+      /* stockage indisponible */
+    }
+  };
+  const preparerLocal = async () => {
+    const options = { langs: ["fr-FR"], processLocally: true };
+    try {
+      if (typeof Reconnaissance.available === "function") {
+        const etat = await Reconnaissance.available(options);
+        if (etat === "unavailable") return false;
+        if (etat !== "available") {
+          message("Je télécharge le français sur ton ordinateur (une seule fois, environ une minute)…", "");
+          return Boolean(await Reconnaissance.install(options));
+        }
+        return true;
+      }
+      if (typeof Reconnaissance.availableOnDevice === "function") {
+        const etat = await Reconnaissance.availableOnDevice("fr-FR");
+        if (etat === "unavailable") return false;
+        if (etat !== "available") {
+          message("Je télécharge le français sur ton ordinateur (une seule fois, environ une minute)…", "");
+          return Boolean(await Reconnaissance.installOnDevice("fr-FR"));
+        }
+        return true;
+      }
+    } catch {
+      /* fonction absente ou refusée */
+    }
+    return false;
+  };
+
+  const AIDE_MAC = " En attendant, utilise la zone « dictée du Mac » juste en dessous : clique dedans, appuie deux fois sur la touche fn, parle, puis Entrée.";
+
   const demarrer = async () => {
-    if (!Reconnaissance) return message("Ce navigateur ne propose pas la dictée : utilise Google Chrome.", "erreur");
+    if (!Reconnaissance) return message("Ce navigateur ne propose pas la dictée vocale." + AIDE_MAC, "erreur");
     message("Connexion au micro…", "");
     if (!(await accesMicro())) return;
+    if (lireLocal() && !local) local = await preparerLocal();
     reco = new Reconnaissance();
     reco.lang = "fr-FR";
+    if (local) {
+      reco.processLocally = true;
+      if ("mode" in reco) reco.mode = "ondevice-only";
+    }
     reco.continuous = true;
     reco.interimResults = true;
     reco.onresult = (e) => {
@@ -405,7 +458,7 @@
       "not-allowed": "Le micro est bloqué pour ce site : clique sur l’icône à gauche de l’adresse (app.pagescms.org), autorise le micro, puis recharge la page.",
       "service-not-allowed": "Ce navigateur n’autorise pas la dictée. Utilise Google Chrome (la dictée ne marche pas dans Dia, Arc ou Brave).",
       "audio-capture": "Le Mac ne donne pas le micro à Chrome : Réglages Système › Confidentialité et sécurité › Microphone, active Google Chrome, puis relance Chrome.",
-      network: "La reconnaissance vocale ne répond pas. Elle marche seulement dans Google Chrome (pas Dia, Arc ou Brave) et avec Internet.",
+      network: "La dictée de Chrome n’arrive pas à joindre le service de Google (navigateur autre que Google Chrome, VPN, pare-feu ou bloqueur de pubs).",
       "language-not-supported": "Le français n’est pas disponible pour la dictée dans ce navigateur : utilise Google Chrome.",
     };
     let derniereErreur = "";
@@ -420,12 +473,25 @@
     reco.onspeechstart = () => {
       echecsRapides = 0;
     };
-    reco.onerror = (e) => {
+    reco.onerror = async (e) => {
       derniereErreur = e.error;
       if (e.error === "no-speech" || e.error === "aborted") return; // silence : on relance simplement
       ecoute = false;
       majBouton();
-      message(`${ERREURS[e.error] || "La dictée s’est arrêtée. Recharge la page et réessaie."} (erreur « ${e.error} »)`, "erreur");
+      // Service en ligne injoignable : on bascule sur la reconnaissance sur l'ordinateur si Chrome la propose.
+      if (e.error === "network" && !local) {
+        message("Le service en ligne ne répond pas, j’essaie la dictée directement sur ton ordinateur…", "");
+        if (await preparerLocal()) {
+          local = true;
+          noterLocal(true);
+          return demarrer();
+        }
+      }
+      if (local && e.error !== "not-allowed") {
+        local = false;
+        noterLocal(false);
+      }
+      message(`${ERREURS[e.error] || "La dictée s’est arrêtée. Recharge la page et réessaie."} (erreur « ${e.error} »)${AIDE_MAC}`, "erreur");
     };
     // Chrome coupe l'écoute après un silence : on relance tant que la dictée est active,
     // sauf si elle s'arrête tout de suite plusieurs fois de suite (problème de micro ou de navigateur).
@@ -466,6 +532,7 @@
   };
 
   const arreter = () => {
+    panneau.classList.remove("lx-dictee--guide");
     ecoute = false;
     reco?.stop();
     majBouton();
@@ -490,6 +557,10 @@
         </div>
       </div>
       <p class="lx-dictee__message" aria-live="polite"></p>
+      <label class="lx-dictee__mac">
+        <span>Ou avec la dictée du Mac : clique dans la zone, appuie deux fois sur <kbd>fn</kbd>, parle, puis <kbd>Entrée</kbd>.</span>
+        <input type="text" class="lx-dictee__saisie" placeholder="Ex. ville Rouen, année 2024, surface 80 mètres carrés" autocomplete="off">
+      </label>
       <div class="lx-dictee__guide">
         <div class="lx-dictee__ligne">
           <p><span class="lx-dictee__position"></span> · Champ en cours : <b class="lx-dictee__champ"></b></p>
@@ -514,6 +585,30 @@
         </ul>
       </details>`;
     el.querySelector(".lx-dictee__micro").addEventListener("click", () => (ecoute ? arreter() : demarrer()));
+    // Dictée du Mac : le texte arrive dans la zone ; on le range avec Entrée (ou après 3 s sans changement).
+    const saisieMac = el.querySelector(".lx-dictee__saisie");
+    let minuteur = 0;
+    const envoyerMac = () => {
+      clearTimeout(minuteur);
+      const t = saisieMac.value.trim();
+      if (!t) return;
+      saisieMac.value = "";
+      file = file.then(() => traiter(t)).catch(() => {});
+    };
+    saisieMac.addEventListener("focus", () => {
+      el.classList.add("lx-dictee--guide");
+      surligner(false);
+    });
+    saisieMac.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        envoyerMac();
+      }
+    });
+    saisieMac.addEventListener("input", () => {
+      clearTimeout(minuteur);
+      minuteur = setTimeout(envoyerMac, 3000);
+    });
     el.querySelector(".lx-dictee__nav").addEventListener("click", (e) => {
       const a = e.target.closest("button")?.dataset.action;
       if (a === "suivant") aller(courant + 1);

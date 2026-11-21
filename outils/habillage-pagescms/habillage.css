@@ -238,7 +238,12 @@ h3 {
 .lx-dictee__titre { font-weight: 600; font-size: 17px; }
 .lx-dictee__intro { color: #5a5450; }
 .lx-dictee__guide { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid #e0d9d2; }
-.lx-dictee--ecoute .lx-dictee__guide { display: block; }
+.lx-dictee--ecoute .lx-dictee__guide,
+.lx-dictee--guide .lx-dictee__guide { display: block; }
+.lx-dictee__mac { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; font-size: 14px; color: #5a5450; }
+.lx-dictee__mac kbd { padding: 1px 6px; border: 1px solid #e0d9d2; border-radius: 6px; background: #fff; font: inherit; font-size: 13px; }
+.lx-dictee__saisie { width: 100%; padding: 10px 14px; border: 1px solid #e0d9d2; border-radius: 12px; background: #fff; color: #494141; font: inherit; font-size: 15px; }
+.lx-dictee__saisie:focus { outline: 2px solid #bcd4b4; outline-offset: 1px; }
 .lx-dictee__ligne { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
 .lx-dictee__nav { display: flex; gap: 6px; }
 .lx-dictee__nav button {
