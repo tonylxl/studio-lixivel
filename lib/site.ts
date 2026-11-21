@@ -76,3 +76,6 @@ export const TONES = {
 } as const;
 
 export type Tone = keyof typeof TONES;
+
+/** Qualité des photos de projets (next/image compresse à 75 par défaut, trop visible sur les rendus et photos). */
+export const QUALITE_PHOTO = 90;

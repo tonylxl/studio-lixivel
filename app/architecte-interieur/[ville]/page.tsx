@@ -10,7 +10,7 @@ import Reveal from "@/components/Reveal";
 import { FORMULES } from "@/data/services";
 import { getProjets, getVille, getVilles, renderMarkdown } from "@/lib/content";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo";
-import { descriptionSeo, rdvHref, titreSeo } from "@/lib/site";
+import { descriptionSeo, QUALITE_PHOTO, rdvHref, titreSeo } from "@/lib/site";
 import styles from "../villes.module.css";
 
 type Params = { ville: string };
@@ -108,7 +108,7 @@ export default async function VillePage({ params }: { params: Promise<Params> })
               <Reveal as="li" key={p.slug} delay={i * 0.08}>
                 <Link href={`/projets/${p.slug}`} className={styles.projet}>
                   <div className={`media media--l ${styles.projetImg}`}>
-                    <Image src={p.cover} alt={p.coverAlt} fill sizes="(max-width: 760px) 100vw, 33vw" />
+                    <Image src={p.cover} alt={p.coverAlt} fill sizes="(max-width: 760px) 100vw, 33vw" quality={QUALITE_PHOTO} />
                   </div>
                   <p className="t-carte">{p.titre}</p>
                   <p className="t-petit c-2">

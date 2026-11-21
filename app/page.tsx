@@ -19,7 +19,7 @@ import { FAQ_ACCUEIL } from "@/data/faq";
 import { AVIS } from "@/data/avis";
 import { JsonLd, faqJsonLd } from "@/lib/seo";
 import { getProjets } from "@/lib/content";
-import { SITE } from "@/lib/site";
+import { QUALITE_PHOTO, SITE } from "@/lib/site";
 import styles from "./home.module.css";
 
 /**
@@ -111,6 +111,7 @@ export default function Home() {
                     fill
                     sizes="100vw"
                     className={styles.projetImg}
+                    quality={QUALITE_PHOTO}
                     priority={i === 0}
                   />
                 </span>

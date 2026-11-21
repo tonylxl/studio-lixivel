@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { QUALITE_PHOTO } from "@/lib/site";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { animate } from "motion";
 import styles from "./AvantApres.module.css";
@@ -78,9 +79,9 @@ export default function AvantApres({
       onPointerUp={() => (dragging.current = false)}
       onPointerCancel={() => (dragging.current = false)}
     >
-      <Image src={apres} alt={altApres} fill sizes={sizes} className={styles.img} />
+      <Image src={apres} alt={altApres} fill sizes={sizes} quality={QUALITE_PHOTO} className={styles.img} />
       <div className={styles.before} style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
-        <Image src={avant} alt={altAvant} fill sizes={sizes} className={styles.img} />
+        <Image src={avant} alt={altAvant} fill sizes={sizes} quality={QUALITE_PHOTO} className={styles.img} />
       </div>
       <span className={`${styles.label} ${styles.labelLeft}`}>Avant</span>
       <span className={`${styles.label} ${styles.labelRight}`}>Après</span>

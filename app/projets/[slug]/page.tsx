@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { descriptionSeo, titreSeo } from "@/lib/site";
+import { descriptionSeo, QUALITE_PHOTO, titreSeo } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -92,7 +92,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
         </section>
 
         <ScrollZoom className={styles.cover}>
-          <Image src={p.cover} alt={p.coverAlt} fill priority sizes="100vw" />
+          <Image src={p.cover} alt={p.coverAlt} fill priority sizes="100vw" quality={QUALITE_PHOTO} />
         </ScrollZoom>
 
         {p.brief && (
@@ -152,6 +152,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
                       alt={`${e.label} du projet ${p.titre}`}
                       fill
                       sizes={`(max-width: 760px) 100vw, ${Math.round(100 / etapes.length)}vw`}
+                      quality={QUALITE_PHOTO}
                     />
                   </div>
                   <p className="t-petit">{e.label}</p>
@@ -172,6 +173,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
                     alt={g.alt || `${p.titre} à ${p.ville}, photo ${i + 1}`}
                     fill
                     sizes="(max-width: 760px) 100vw, 50vw"
+                    quality={QUALITE_PHOTO}
                   />
                 </Reveal>
               ))}
@@ -230,7 +232,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
             <span className="t-petit c-2">Projet suivant</span>
             <span className={styles.nextTitle}>
               <span className={`media ${styles.nextThumb}`} aria-hidden>
-                <Image src={suivant.cover} alt="" fill sizes="120px" />
+                <Image src={suivant.cover} alt="" fill sizes="120px" quality={QUALITE_PHOTO} />
               </span>
               <span>
                 <span className={styles.nextNom}>{suivant.titre}</span>
