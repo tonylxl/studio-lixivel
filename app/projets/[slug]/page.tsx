@@ -138,6 +138,25 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
           </section>
         )}
 
+        {p.galerie.length > 0 && (
+          <section className={`sur-blanc ${styles.block}`} aria-labelledby="t-images">
+            <SectionHead id="t-images" title="En images" />
+            <ul className={`wrap ${styles.galerie}`}>
+              {p.galerie.map((g, i) => (
+                <Reveal as="li" key={`${g.image}-${i}`} className={`media ${styles.galImg}`}>
+                  <Image
+                    src={g.image}
+                    alt={g.alt || `${p.titre} à ${p.ville}, photo ${i + 1}`}
+                    fill
+                    sizes="(max-width: 760px) 100vw, 50vw"
+                    quality={QUALITE_PHOTO}
+                  />
+                </Reveal>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {etapes.length > 0 && (
           <section className={`sur-blanc ${styles.block}`} aria-labelledby="t-plan">
             <SectionHead id="t-plan" title={avecRealise ? "Du plan au réalisé" : "Les plans du projet"}>
@@ -159,25 +178,6 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
                 </Reveal>
               ))}
             </ol>
-          </section>
-        )}
-
-        {p.galerie.length > 0 && (
-          <section className={`sur-blanc ${styles.block}`} aria-labelledby="t-images">
-            <SectionHead id="t-images" title="En images" />
-            <ul className={`wrap ${styles.galerie}`}>
-              {p.galerie.map((g, i) => (
-                <Reveal as="li" key={`${g.image}-${i}`} className={`media ${styles.galImg}`}>
-                  <Image
-                    src={g.image}
-                    alt={g.alt || `${p.titre} à ${p.ville}, photo ${i + 1}`}
-                    fill
-                    sizes="(max-width: 760px) 100vw, 50vw"
-                    quality={QUALITE_PHOTO}
-                  />
-                </Reveal>
-              ))}
-            </ul>
           </section>
         )}
 
