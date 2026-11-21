@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Studio Lixivel · Pages CMS",
-  "description": "Habille Pages CMS (app.pagescms.org) aux couleurs du site Studio Lixivel, le traduit en français et ajoute des aides pour remplir le site.",
-  "version": "1.2.0",
+  "description": "Habille Pages CMS (app.pagescms.org) aux couleurs du site Studio Lixivel, le traduit en français, ajoute des aides pour remplir le site et la dictée vocale des fiches projets.",
+  "version": "1.3.0",
   "icons": {
     "16": "icone-16.png",
     "48": "icone-48.png",
@@ -24,7 +24,8 @@
       ],
       "js": [
         "traduction.js",
-        "aides.js"
+        "aides.js",
+        "dictee.js"
       ],
       "run_at": "document_end"
     }

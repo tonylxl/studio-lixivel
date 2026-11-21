@@ -207,3 +207,57 @@ h3 {
   line-height: 1.45 !important;
   color: #8f8781 !important;
 }
+
+/* ---------- Dictée vocale (dictee.js) ---------- */
+.lx-dictee {
+  position: sticky;
+  top: 8px;
+  z-index: 30;
+  margin: 0 0 20px;
+  padding: 18px 22px;
+  border-radius: 24px;
+  background: #f6f2ef;
+  border: 1px solid #e0d9d2;
+  color: #494141;
+  font-size: 15px;
+  line-height: 1.45;
+  box-shadow: 0 10px 30px rgb(73 65 65 / 0.08);
+}
+.lx-dictee p, .lx-dictee ul { margin: 0; }
+.lx-dictee--ecoute { background: #fff; border-color: #bcd4b4; }
+.lx-dictee__haut { display: flex; align-items: center; gap: 16px; }
+.lx-dictee__micro {
+  display: inline-flex; align-items: center; gap: 10px; flex: none;
+  padding: 12px 20px; border: 0; border-radius: 999px;
+  background: #494141; color: #ffe5e3; font: inherit; font-weight: 500; cursor: pointer;
+}
+.lx-dictee__micro svg { width: 20px; height: 20px; fill: currentColor; }
+.lx-dictee__micro[data-ecoute="oui"] { background: #bcd4b4; color: #494141; }
+.lx-dictee__micro[data-ecoute="oui"] svg { animation: lx-pouls 1.2s ease-in-out infinite; }
+@keyframes lx-pouls { 50% { transform: scale(1.25); } }
+.lx-dictee__titre { font-weight: 600; font-size: 17px; }
+.lx-dictee__intro { color: #5a5450; }
+.lx-dictee__guide { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid #e0d9d2; }
+.lx-dictee--ecoute .lx-dictee__guide { display: block; }
+.lx-dictee__ligne { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.lx-dictee__nav { display: flex; gap: 6px; }
+.lx-dictee__nav button {
+  padding: 6px 12px; border: 1px solid #e0d9d2; border-radius: 999px;
+  background: #fff; color: #494141; font: inherit; font-size: 14px; cursor: pointer;
+}
+.lx-dictee__nav button:hover { background: #fff2f2; }
+.lx-dictee__dire { margin-top: 4px; color: #5a5450; font-size: 14px; }
+.lx-dictee__direct { min-height: 1.45em; margin-top: 8px; font-style: italic; color: #5a5450; }
+.lx-dictee__message { font-size: 14px; }
+.lx-dictee__message[data-type="ok"] { color: #3e6b34; }
+.lx-dictee__message[data-type="erreur"] { color: #8c373c; }
+.lx-dictee__aide { margin-top: 12px; font-size: 14px; }
+.lx-dictee__aide summary { cursor: pointer; font-weight: 500; }
+.lx-dictee__aide ul { margin: 8px 0 0; padding-left: 20px; list-style: disc; }
+.lx-dictee__aide li + li { margin-top: 4px; }
+.lx-dictee-actif {
+  outline: 2px solid #bcd4b4;
+  outline-offset: 8px;
+  border-radius: 12px;
+  background: rgb(188 212 180 / 0.12);
+}

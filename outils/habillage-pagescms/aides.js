@@ -22,6 +22,7 @@
         titre: "Remplir une fiche projet",
         etapes: [
           "Avance de haut en bas, section par section. Seuls le nom, l’année et la photo principale sont obligatoires.",
+          "Tu peux aussi dicter la fiche à voix haute : bouton « Commencer la dictée » juste en dessous.",
           "Une case vide n’apparaît pas sur le site : tu peux compléter la fiche en plusieurs fois.",
           "Clique sur « Enregistrer » (en haut à droite) régulièrement. Le site se met à jour environ 1 minute après.",
         ],

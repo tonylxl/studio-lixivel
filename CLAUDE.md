@@ -28,6 +28,7 @@ Site de **Studio Lixivel**, studio d’architecture intérieure de **Cindy** (s�
 - `public/images/` : visuels provisoires exportés de Figma (bureau, bureau-nb, chambre, plan, portrait, tabouret, tabouret-rose, fauteuil, fauteuil-lin, lampe).
 - `.pages.yml` : configuration Pages CMS (à tester en vrai).
 - `outils/habillage-pagescms/` : extension Chrome (fonctionne aussi dans Dia) qui traduit Pages CMS en français (`traduction.js`), l’habille aux couleurs du site (variables CSS shadcn remplacées, police, éditeur proche du rendu des articles) et ajoute des aides (`aides.js` : bandeaux « mode d’emploi » et sections numérotées dans Projets et Blog, repérées par les libellés de `.pages.yml`). Installation : `LISEZMOI.md` du dossier.
+  **Dictée vocale des fiches projets** (`dictee.js`, 21 nov. 2026) : panneau micro en haut du formulaire Projets, mode guidé champ par champ et mode libre par mots-clés (« ville Rouen, année 2024… »), reconnaissance vocale de Chrome ; à tester sur le vrai Pages CMS (liste déroulante Couleur, liste Contraintes).
 - **Pages CMS est rempli par la mère de Tony** (débutante, Chrome sur Mac), surtout Projets et Blog (écrire, relire/publier, photos, dépôt de réels). Aides sous les champs (`description` dans `.pages.yml`) : tutoiement, phrases simples, un exemple concret et ce que le champ change sur le site.
 
 ## Règles de design (issues des maquettes)
