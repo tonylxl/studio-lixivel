@@ -146,7 +146,7 @@ export default function ProjetsHub({ projets }: { projets: ProjetCard[] }) {
                     {x.ville} · {x.annee}
                   </span>
                   <span className={styles.thumb} aria-hidden>
-                    <Image src={x.cover} alt="" fill sizes="240px" />
+                    <Image src={x.cover} alt="" fill sizes="240px" quality={QUALITE_PHOTO} />
                   </span>
                 </Link>
               </li>

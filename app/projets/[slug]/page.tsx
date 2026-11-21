@@ -232,7 +232,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
             <span className="t-petit c-2">Projet suivant</span>
             <span className={styles.nextTitle}>
               <span className={`media ${styles.nextThumb}`} aria-hidden>
-                <Image src={suivant.cover} alt="" fill sizes="120px" />
+                <Image src={suivant.cover} alt="" fill sizes="120px" quality={QUALITE_PHOTO} />
               </span>
               <span>
                 <span className={styles.nextNom}>{suivant.titre}</span>
