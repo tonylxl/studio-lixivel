@@ -378,24 +378,69 @@
       }
       panneau.querySelector(".lx-dictee__direct").textContent = provisoire;
     };
+    // Erreurs graves : on arrête au lieu de relancer en boucle (le micro clignoterait sans rien entendre).
+    const ERREURS = {
+      "not-allowed": "Le micro est bloqué pour ce site : clique sur l’icône à gauche de l’adresse (app.pagescms.org), autorise le micro, puis recharge la page.",
+      "service-not-allowed": "Ce navigateur n’autorise pas la dictée. Utilise Google Chrome (la dictée ne marche pas dans Dia, Arc ou Brave).",
+      "audio-capture": "Le Mac ne donne pas le micro à Chrome : Réglages Système › Confidentialité et sécurité › Microphone, active Google Chrome, puis relance Chrome.",
+      network: "La reconnaissance vocale ne répond pas. Elle marche seulement dans Google Chrome (pas Dia, Arc ou Brave) et avec Internet.",
+      "language-not-supported": "Le français n’est pas disponible pour la dictée dans ce navigateur : utilise Google Chrome.",
+    };
+    let derniereErreur = "";
+    let echecsRapides = 0;
+    let debutEcoute = 0;
+    reco.onstart = () => {
+      debutEcoute = Date.now();
+    };
+    reco.onaudiostart = () => {
+      if (!derniereErreur) message("Je t’écoute. Dis ce qu’il faut écrire dans le champ entouré.", "");
+    };
+    reco.onspeechstart = () => {
+      echecsRapides = 0;
+    };
     reco.onerror = (e) => {
-      if (e.error === "not-allowed" || e.error === "service-not-allowed") {
+      derniereErreur = e.error;
+      if (e.error === "no-speech" || e.error === "aborted") return; // silence : on relance simplement
+      ecoute = false;
+      majBouton();
+      message(ERREURS[e.error] || `La dictée s’est arrêtée (erreur « ${e.error} »). Recharge la page et réessaie.`, "erreur");
+    };
+    // Chrome coupe l'écoute après un silence : on relance tant que la dictée est active,
+    // sauf si elle s'arrête tout de suite plusieurs fois de suite (problème de micro ou de navigateur).
+    reco.onend = () => {
+      if (!ecoute) return;
+      echecsRapides = Date.now() - debutEcoute < 1500 ? echecsRapides + 1 : 0;
+      if (echecsRapides >= 3) {
         ecoute = false;
         majBouton();
-        message("Le micro est bloqué : clique sur le cadenas à gauche de l’adresse, autorise le micro, puis recharge la page.", "erreur");
-      } else if (e.error === "audio-capture") {
-        message("Aucun micro trouvé : vérifie qu’il est branché.", "erreur");
+        return message(
+          `La dictée n’arrive pas à démarrer${derniereErreur ? ` (erreur « ${derniereErreur} »)` : ""}. Vérifie que tu es dans Google Chrome et que le micro est autorisé (Réglages Système › Confidentialité et sécurité › Microphone).`,
+          "erreur",
+        );
       }
-    };
-    // Chrome coupe l'écoute après un silence : on relance tant que la dictée est active.
-    reco.onend = () => {
-      if (ecoute) setTimeout(() => ecoute && reco.start(), 250);
+      derniereErreur = "";
+      setTimeout(() => {
+        if (!ecoute) return;
+        try {
+          reco.start();
+        } catch {
+          /* déjà relancée */
+        }
+      }, 300);
     };
     ecoute = true;
-    reco.start();
+    try {
+      reco.start();
+    } catch (err) {
+      ecoute = false;
+      return message("La dictée n’a pas pu démarrer : recharge la page et réessaie.", "erreur");
+    }
     majBouton();
     surligner();
-    message("Je t’écoute. Dis ce qu’il faut écrire dans le champ entouré.", "");
+    const marques = navigator.userAgentData?.brands?.map((b) => b.brand) || [];
+    if (marques.length && !marques.includes("Google Chrome"))
+      message("Attention : la dictée marche dans Google Chrome. Dans ce navigateur (Dia, Arc, Brave…), elle risque de ne rien entendre.", "erreur");
+    else message("Connexion au micro…", "");
   };
 
   const arreter = () => {
