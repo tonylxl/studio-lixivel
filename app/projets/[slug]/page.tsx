@@ -56,11 +56,11 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
 
   // Du plan initial au réalisé : chaque bloc n'apparaît que si son image est renseignée ; le réalisé peut être masqué.
   const etapes = [
-    { label: "Plan initial", src: p.planInitial, plan: true },
-    { label: "Plan 2D", src: p.plan, plan: true },
-    { label: "Plan 3D", src: p.rendu, plan: false },
-    { label: "Projet réalisé", src: p.masquerRealise ? undefined : p.realise, plan: false },
-  ].filter((e): e is { label: string; src: string; plan: boolean } => Boolean(e.src));
+    { label: "Plan initial", src: p.planInitial },
+    { label: "Plan 2D", src: p.plan },
+    { label: "Plan 3D", src: p.rendu },
+    { label: "Projet réalisé", src: p.masquerRealise ? undefined : p.realise },
+  ].filter((e): e is { label: string; src: string } => Boolean(e.src));
   const avecRealise = etapes.some((e) => e.label === "Projet réalisé");
   const listeEtapes = etapes.map((e) => e.label.charAt(0).toLowerCase() + e.label.slice(1));
   const resumeEtapes =
@@ -165,7 +165,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
             <ol className={`wrap ${styles.etapes}`} style={{ ["--n" as string]: etapes.length }} data-n={etapes.length}>
               {etapes.map((e, i) => (
                 <Reveal as="li" key={e.label} delay={i * 0.1}>
-                  <div className={`media ${styles.etapeImg}`} data-plan={e.plan || undefined}>
+                  <div className={`media ${styles.etapeImg}`}>
                     <Image
                       src={e.src}
                       alt={`${e.label} du projet ${p.titre}`}

@@ -4,7 +4,7 @@ sousTitre: Studio Airbnb
 ville: Paris
 annee: 2026
 ordre: 1
-cover: /images/Rectangle Room 2-Pièce de vie-20260902-113443.jpg
+cover: /images/rectangle-room-2-piece-de-vie-20260902-113443.jpg
 coverAlt: "lit ambiance japonaise "
 surface: 27 m2
 formule: "Prestation semi complète "
@@ -18,21 +18,21 @@ contraintes:
 avant:
   image: /images/IMG_4685.jpg
 apres:
-  image: /images/Rectangle Room 2-Pièce de vie-20260829-233643.jpg
+  image: /images/rectangle-room-2-piece-de-vie-20260829-233643.jpg
 planInitial: /images/IMG_4685.jpg
-plan: /images/Capture d’eěcran 2026-08-02 aĚ 23.16.34.png
-rendu: /images/Rectangle Room 2-Pièce de vie-20260902-112228-1.jpg
-realise: /images/Rectangle Room 2-Pièce de vie-20260902-113443-1.jpg
+plan: /images/capture-d-eecran-2026-08-02-ae-23-16-34.png
+rendu: /images/rectangle-room-2-piece-de-vie-20260902-112228-1.jpg
+realise: /images/rectangle-room-2-piece-de-vie-20260902-113443-1.jpg
 masquerRealise: false
 galerie:
-  - image: /images/Rectangle Room 2 2-Pièce de vie-20260902-113015.jpg
+  - image: /images/rectangle-room-2-2-piece-de-vie-20260902-113015.jpg
     alt: coin chambre avec lit sur une estrade
-  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233558-1.jpg
-  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233605.jpg
-  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233620.jpg
-  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233628.jpg
-  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233643-1.jpg
-  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233643-2.jpg
-  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233649.jpg
-  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233655.jpg
+  - image: /images/rectangle-room-2-piece-de-vie-20260829-233558-1.jpg
+  - image: /images/rectangle-room-2-piece-de-vie-20260829-233605.jpg
+  - image: /images/rectangle-room-2-piece-de-vie-20260829-233620.jpg
+  - image: /images/rectangle-room-2-piece-de-vie-20260829-233628.jpg
+  - image: /images/rectangle-room-2-piece-de-vie-20260829-233643-1.jpg
+  - image: /images/rectangle-room-2-piece-de-vie-20260829-233643-2.jpg
+  - image: /images/rectangle-room-2-piece-de-vie-20260829-233649.jpg
+  - image: /images/rectangle-room-2-piece-de-vie-20260829-233655.jpg
 ---

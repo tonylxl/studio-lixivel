@@ -115,17 +115,10 @@
 
 .etapeImg {
   aspect-ratio: 440 / 520;
+  background: transparent;
 }
 
-.etapeImg[data-plan] {
-  background: var(--fond-rose);
-}
-
-.etapeImg[data-plan] img {
-  object-fit: contain;
-  padding: 24px;
-  mix-blend-mode: multiply;
-}
+/* Fond blanc ; l’image (plan ou photo) remplit tout le bloc, recadrée au centre (object-fit: cover de .media). */
 
 /* En images : une grande photo, deux petites empilées */
 .galerie {
