@@ -2,6 +2,8 @@
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
+    // 90 = photos de projets (QUALITE_PHOTO, lib/site.ts), 75 = défaut.
+    qualities: [75, 90],
   },
   // Redirections permanentes : ancien journal et ancien site WordPress.
   async redirects() {

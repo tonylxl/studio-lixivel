@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { TONES, type Tone } from "@/lib/site";
+import { QUALITE_PHOTO, TONES, type Tone } from "@/lib/site";
 import MaskReveal from "./MaskReveal";
 import CursorVoir from "./CursorVoir";
 import styles from "./ProjetsHub.module.css";
@@ -117,7 +117,7 @@ export default function ProjetsHub({ projets }: { projets: ProjetCard[] }) {
                       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
                       transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      <Image src={x.cover} alt={x.coverAlt} fill sizes="(max-width: 900px) 100vw, 50vw" priority={i < 2} />
+                      <Image src={x.cover} alt={x.coverAlt} fill sizes="(max-width: 900px) 100vw, 50vw" priority={i < 2} quality={QUALITE_PHOTO} />
                     </motion.div>
                   </motion.div>
                   <div className={styles.cardText}>
