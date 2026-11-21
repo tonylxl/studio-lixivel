@@ -32,4 +32,7 @@ galerie:
   - image: /images/Rectangle Room 2-Pièce de vie-20260829-233620.jpg
   - image: /images/Rectangle Room 2-Pièce de vie-20260829-233628.jpg
   - image: /images/Rectangle Room 2-Pièce de vie-20260829-233643-1.jpg
+  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233643-2.jpg
+  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233649.jpg
+  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233655.jpg
 ---
