@@ -1,38 +1,42 @@
 ---
-titre: Projet Japonais
-sousTitre: Studio Airbnb
+titre: "Évasion japonaise "
+sousTitre: Studio location à courte durée
 ville: Paris
 annee: 2026
 ordre: 1
 cover: /images/rectangle-room-2-piece-de-vie-20260902-113443.jpg
-coverAlt: "lit ambiance japonaise "
-surface: 27 m2
+coverAlt: Aménagement d’une suite d’inspiration japonaise, avec bois naturel,
+  éclairage chaleureux et décoration zen.
+surface: 29 m2
 formule: "Prestation semi complète "
 duree: 5 mois, dont 3 mois de travaux.
 budget: 35 000 / 40 000 € travaux et mobiliers
-brief: Ludovic souhaitait crée un studio pour une location courte durée avec une
-  ambiance japonaise.
+brief: Loïc souhaitait transformer un espace en studio destiné à la location
+  courte durée, en créant une ambiance japonaise chaleureuse et apaisante, pour
+  offrir aux voyageurs une expérience unique et dépaysante.
 contraintes:
-  - "salle de bain trop présente et au centre du studio. "
+  - "salle de bain trop présente et positionnée au centre du studio. "
   - "studio sous comble "
 avant:
   image: /images/IMG_4685.jpg
 apres:
   image: /images/rectangle-room-2-piece-de-vie-20260829-233643.jpg
-planInitial: /images/IMG_4685.jpg
-plan: /images/capture-d-eecran-2026-08-02-ae-23-16-34.png
-rendu: /images/rectangle-room-2-piece-de-vie-20260902-112228-1.jpg
+planInitial: /images/IMG_4098.jpeg
+plan: /images/Capture d’écran 2026-08-26 à 15.32.13.png
+rendu: /images/rectangle-room-2-piece-de-vie-20260829-233605.jpg
 realise: /images/rectangle-room-2-piece-de-vie-20260902-113443-1.jpg
 masquerRealise: false
 galerie:
-  - image: /images/rectangle-room-2-2-piece-de-vie-20260902-113015.jpg
+  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233558.jpg
     alt: coin chambre avec lit sur une estrade
-  - image: /images/rectangle-room-2-piece-de-vie-20260829-233558-1.jpg
-  - image: /images/rectangle-room-2-piece-de-vie-20260829-233605.jpg
-  - image: /images/rectangle-room-2-piece-de-vie-20260829-233620.jpg
+  - image: /images/rectangle-room-2-2-piece-de-vie-20260902-113015.jpg
   - image: /images/rectangle-room-2-piece-de-vie-20260829-233628.jpg
-  - image: /images/rectangle-room-2-piece-de-vie-20260829-233643-1.jpg
-  - image: /images/rectangle-room-2-piece-de-vie-20260829-233643-2.jpg
-  - image: /images/rectangle-room-2-piece-de-vie-20260829-233649.jpg
+  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233643.jpg
+    alt: "coin cuisine bois clair "
+  - image: /images/rectangle-room-2-piece-de-vie-20260829-233655.jpg
+    alt: "salle de bain "
+  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233701.jpg
+  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233706.jpg
+  - image: /images/Rectangle Room 2-Pièce de vie-20260902-112228.jpg
   - image: /images/rectangle-room-2-piece-de-vie-20260829-233655.jpg
 ---
