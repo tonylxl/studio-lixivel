@@ -1,6 +1,6 @@
 ---
 titre: "AINA café "
-sousTitre: "coffee shop, coworking et espace détente "
+sousTitre: "coffee shop, coworking beauté dédies aux professionnels  "
 ville: SERRIS 77
 annee: 2026
 ordre: 2
