@@ -30,6 +30,7 @@ galerie:
   - image: /images/Rectangle Room 2-Pièce de vie-20260829-233558.jpg
     alt: coin chambre avec lit sur une estrade
   - image: /images/rectangle-room-2-2-piece-de-vie-20260902-113015.jpg
+    alt: "Lit ambiance japonaise "
   - image: /images/rectangle-room-2-piece-de-vie-20260829-233628.jpg
   - image: /images/Rectangle Room 2-Pièce de vie-20260829-233643.jpg
     alt: "coin cuisine bois clair "
