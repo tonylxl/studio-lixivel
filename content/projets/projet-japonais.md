@@ -19,8 +19,14 @@ contraintes:
   - "studio sous comble "
 avant:
   image: /images/IMG_4685.jpg
+  legende: >
+    Une cuisine sous les combles, peu optimisée, avec des équipements apparents
+    et un aménagement manquant d’harmonie.
 apres:
   image: /images/rectangle-room-2-piece-de-vie-20260829-233643.jpg
+  legende: Un espace entièrement repensé dans un esprit japonais, où le bois
+    chaleureux, les lignes épurées et les rangements intégrés créent une
+    atmosphère douce et apaisante.
 planInitial: /images/IMG_4098.jpeg
 plan: /images/Capture d’écran 2026-08-26 à 15.32.13.png
 rendu: /images/rectangle-room-2-piece-de-vie-20260829-233605.jpg
