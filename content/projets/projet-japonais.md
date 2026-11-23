@@ -44,6 +44,7 @@ galerie:
     alt: "salle de bain "
   - image: /images/Rectangle Room 2-Pièce de vie-20260829-233701.jpg
   - image: /images/rectangle-room-2-piece-de-vie-20260902-112228-1.jpg
-  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233706.jpg
+  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233550.jpg
   - image: /images/rectangle-room-2-piece-de-vie-20260829-233655.jpg
+  - image: /images/Rectangle Room 2-Pièce de vie-20260829-233553.jpg
 ---
