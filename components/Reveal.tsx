@@ -1,13 +1,14 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
   delay?: number;
   y?: number;
   className?: string;
+  style?: CSSProperties;
   as?: "div" | "li" | "section" | "article" | "figure";
   [key: `data-${string}`]: string | boolean | undefined;
 };

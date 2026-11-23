@@ -121,25 +121,19 @@
 /* Fond blanc ; l’image (plan ou photo) remplit tout le bloc, recadrée au centre (object-fit: cover de .media). */
 
 /* En images : une grande photo, deux petites empilées */
+/* Galerie : lignes de même hauteur, chaque photo garde son format (lib/galerie.ts). */
 .galerie {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  grid-auto-rows: 1fr;
+  gap: 24px;
+}
+
+.rang {
+  display: flex;
   gap: 24px;
 }
 
 .galImg {
-  min-height: 380px;
-}
-
-.galerie li:nth-child(3n + 1) {
-  grid-row: span 2;
-}
-
-.galerie li:last-child:nth-child(3n + 1) {
-  grid-column: 1 / -1;
-  grid-row: auto;
-  aspect-ratio: 16 / 9;
+  min-width: 0;
 }
 
 /* Liste shopping */
@@ -300,17 +294,19 @@
   .etapes {
     grid-template-columns: minmax(0, 1fr);
   }
-  .galerie {
-    grid-template-columns: minmax(0, 1fr);
+  .galerie,
+  .rang {
+    gap: 16px;
   }
-  .galerie li:nth-child(3n + 1),
-  .galerie li:last-child:nth-child(3n + 1) {
-    grid-row: auto;
-    aspect-ratio: 4 / 5;
+  .rang {
+    flex-direction: column;
   }
-  .galImg {
-    min-height: 0;
-    aspect-ratio: 4 / 5;
+  .rang > span {
+    display: none;
+  }
+  .rang > * {
+    flex: none !important;
+    width: 100%;
   }
   .shopping thead {
     display: none;

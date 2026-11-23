@@ -12,6 +12,7 @@ import Reveal from "@/components/Reveal";
 import ScrollZoom from "@/components/ScrollZoom";
 import LineReveal from "@/components/LineReveal";
 import { getProjet, getProjets } from "@/lib/content";
+import { rangsGalerie } from "@/lib/galerie";
 import styles from "./projet.module.css";
 
 type Params = { slug: string };
@@ -141,19 +142,32 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
         {p.galerie.length > 0 && (
           <section className={`sur-blanc ${styles.block}`} aria-labelledby="t-images">
             <SectionHead id="t-images" title="En images" />
-            <ul className={`wrap ${styles.galerie}`}>
-              {p.galerie.map((g, i) => (
-                <Reveal as="li" key={`${g.image}-${i}`} className={`media ${styles.galImg}`}>
-                  <Image
-                    src={g.image}
-                    alt={g.alt || `${p.titre} à ${p.ville}, photo ${i + 1}`}
-                    fill
-                    sizes="(max-width: 760px) 100vw, 50vw"
-                    quality={QUALITE_PHOTO}
-                  />
-                </Reveal>
+            <div className={`wrap ${styles.galerie}`}>
+              {rangsGalerie(p.galerie).map((rang, r) => (
+                <div key={r} className={styles.rang}>
+                  {rang.photos.map((g) => {
+                    const i = p.galerie.findIndex((x) => x.image === g.image);
+                    const part = g.ratio / (rang.photos.reduce((s, x) => s + x.ratio, 0) + rang.vide);
+                    return (
+                      <Reveal
+                        key={`${g.image}-${r}`}
+                        className={`media ${styles.galImg}`}
+                        style={{ flex: `${g.ratio} 1 0`, aspectRatio: String(g.ratio) }}
+                      >
+                        <Image
+                          src={g.image}
+                          alt={g.alt || `${p.titre} à ${p.ville}, photo ${i + 1}`}
+                          fill
+                          sizes={`(max-width: 760px) 100vw, ${Math.ceil(part * 100)}vw`}
+                          quality={QUALITE_PHOTO}
+                        />
+                      </Reveal>
+                    );
+                  })}
+                  {rang.vide > 0 && <span aria-hidden style={{ flex: `${rang.vide} 1 0` }} />}
+                </div>
               ))}
-            </ul>
+            </div>
           </section>
         )}
 
