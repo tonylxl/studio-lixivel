@@ -38,4 +38,6 @@ galerie:
   - image: /images/AINA - Café-cooworking-20260319-113043.jpg
   - image: /images/AINA - Café-espace coiffure & ongle -20260320-112330.jpg
   - image: /images/AINA - Café-espace coiffure & ongle -20260320-111735.jpg
+avis:
+  contexte: "Cooffee shop, coworking beauté - Serris 77 "
 ---
