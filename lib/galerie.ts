@@ -66,7 +66,11 @@ function tourneeJpeg(buf: Buffer): boolean {
 function ratio(src: string): number {
   if (!src.startsWith("/")) return RATIO_DEFAUT;
   try {
-    const buf = fs.readFileSync(path.join(process.cwd(), "public", decodeURI(src)));
+    const chemin = path.join(process.cwd(), "public", decodeURI(src));
+    // Noms accentués : le fichier peut être enregistré en NFD (Mac) alors que le Markdown est en NFC.
+    const existant = [chemin, chemin.normalize("NFD"), chemin.normalize("NFC")].find((c) => fs.existsSync(c));
+    if (!existant) return RATIO_DEFAUT;
+    const buf = fs.readFileSync(existant);
     const d = dimensions(buf);
     if (!d || !d.w || !d.h) return RATIO_DEFAUT;
     let r = d.w / d.h;
@@ -107,6 +111,34 @@ export function rangsGalerie(galerie: { image: string; alt: string }[]): RangGal
       rangs.push({ photos: ligne, vide });
     }
     pleine = !pleine;
+  }
+  return rangs;
+}
+
+export type EtapeGalerie = { label: string; src: string; ratio: number };
+
+/**
+ * Section « Du plan au réalisé » : 2 visuels paysage par ligne (3 si portraits), mêmes hauteurs,
+ * sans recadrage. Un visuel seul en dernière ligne garde la largeur d'un visuel de la ligne précédente.
+ */
+export function rangsEtapes(etapes: { label: string; src: string }[]): { etapes: EtapeGalerie[]; vide: number }[] {
+  const items = etapes.map((e) => ({ ...e, ratio: ratio(e.src) }));
+  const rangs: { etapes: EtapeGalerie[]; vide: number }[] = [];
+  let i = 0;
+  while (i < items.length) {
+    const ligne: EtapeGalerie[] = [];
+    let somme = 0;
+    while (i < items.length && ligne.length < 3 && !(ligne.length >= 2 && somme >= LIGNE - 0.2)) {
+      ligne.push(items[i]);
+      somme += items[i].ratio;
+      i++;
+    }
+    const precedente = rangs.at(-1);
+    const vide =
+      ligne.length === 1 && precedente
+        ? Math.max(0, (precedente.etapes.reduce((s, e) => s + e.ratio, 0) + precedente.vide) - somme)
+        : 0;
+    rangs.push({ etapes: ligne, vide });
   }
   return rangs;
 }

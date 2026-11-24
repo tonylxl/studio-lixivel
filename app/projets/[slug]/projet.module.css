@@ -101,24 +101,27 @@
 
 /* Du plan au réalisé */
 /* Une colonne par étape (1 à 4 : plan initial, plan 2D, plan 3D, réalisé). */
+/* Du plan au réalisé : lignes de même hauteur, chaque visuel garde son format (lib/galerie.ts). */
 .etapes {
   display: grid;
-  grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr));
-  gap: 24px;
+  gap: 40px;
 }
 
-.etapes li {
+.etape {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-width: 0;
 }
 
 .etapeImg {
-  aspect-ratio: 440 / 520;
+  width: 100%;
   background: transparent;
 }
 
-/* Fond blanc ; l’image (plan ou photo) remplit tout le bloc, recadrée au centre (object-fit: cover de .media). */
+.vide {
+  list-style: none;
+}
 
 /* En images : une grande photo, deux petites empilées */
 /* Galerie : lignes de même hauteur, chaque photo garde son format (lib/galerie.ts). */
@@ -130,6 +133,9 @@
 .rang {
   display: flex;
   gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .galImg {
@@ -256,9 +262,6 @@
 }
 
 @media (max-width: 1024px) {
-  .etapes[data-n="4"] {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .aa {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -292,7 +295,7 @@
     gap: 20px;
   }
   .etapes {
-    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
   }
   .galerie,
   .rang {
@@ -301,7 +304,8 @@
   .rang {
     flex-direction: column;
   }
-  .rang > span {
+  .rang > span,
+  .rang > .vide {
     display: none;
   }
   .rang > * {

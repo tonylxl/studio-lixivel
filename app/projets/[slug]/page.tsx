@@ -12,7 +12,7 @@ import Reveal from "@/components/Reveal";
 import ScrollZoom from "@/components/ScrollZoom";
 import LineReveal from "@/components/LineReveal";
 import { getProjet, getProjets } from "@/lib/content";
-import { rangsGalerie } from "@/lib/galerie";
+import { rangsEtapes, rangsGalerie } from "@/lib/galerie";
 import styles from "./projet.module.css";
 
 type Params = { slug: string };
@@ -176,22 +176,37 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
             <SectionHead id="t-plan" title={avecRealise ? "Du plan au réalisé" : "Les plans du projet"}>
               Les étapes du projet : {resumeEtapes}.
             </SectionHead>
-            <ol className={`wrap ${styles.etapes}`} style={{ ["--n" as string]: etapes.length }} data-n={etapes.length}>
-              {etapes.map((e, i) => (
-                <Reveal as="li" key={e.label} delay={i * 0.1}>
-                  <div className={`media ${styles.etapeImg}`}>
-                    <Image
-                      src={e.src}
-                      alt={`${e.label} du projet ${p.titre}`}
-                      fill
-                      sizes={`(max-width: 760px) 100vw, ${Math.round(100 / etapes.length)}vw`}
-                      quality={QUALITE_PHOTO}
-                    />
-                  </div>
-                  <p className="t-petit">{e.label}</p>
-                </Reveal>
-              ))}
-            </ol>
+            <div className={`wrap ${styles.etapes}`}>
+              {rangsEtapes(etapes).map((rang, r, tous) => {
+                const debut = tous.slice(0, r).reduce((n, x) => n + x.etapes.length, 0);
+                const total = rang.etapes.reduce((s, x) => s + x.ratio, 0) + rang.vide;
+                return (
+                  <ol key={r} start={debut + 1} className={styles.rang}>
+                    {rang.etapes.map((e, i) => (
+                      <Reveal
+                        as="li"
+                        key={e.label}
+                        delay={i * 0.1}
+                        className={styles.etape}
+                        style={{ flex: `${e.ratio} 1 0` }}
+                      >
+                        <div className={`media ${styles.etapeImg}`} style={{ aspectRatio: String(e.ratio) }}>
+                          <Image
+                            src={e.src}
+                            alt={`${e.label} du projet ${p.titre}`}
+                            fill
+                            sizes={`(max-width: 760px) 100vw, ${Math.ceil((e.ratio / total) * 100)}vw`}
+                            quality={QUALITE_PHOTO}
+                          />
+                        </div>
+                        <p className="t-petit">{e.label}</p>
+                      </Reveal>
+                    ))}
+                    {rang.vide > 0 && <li aria-hidden className={styles.vide} style={{ flex: `${rang.vide} 1 0` }} />}
+                  </ol>
+                );
+              })}
+            </div>
           </section>
         )}
 
