@@ -31,6 +31,22 @@ function dimensions(buf: Buffer): { w: number; h: number } | null {
     }
     return null;
   }
+  // Vidéo MP4 / MOV : en-tête de piste « tkhd » (largeur, hauteur, rotation des vidéos de téléphone).
+  if (buf.length > 12 && buf.toString("ascii", 4, 8) === "ftyp") {
+    let i = buf.indexOf("tkhd");
+    while (i > 0 && i + 100 < buf.length) {
+      const v1 = buf[i + 4] === 1;
+      const matrice = i + (v1 ? 56 : 44);
+      const w = buf.readUInt32BE(i + (v1 ? 92 : 80)) / 65536;
+      const h = buf.readUInt32BE(i + (v1 ? 96 : 84)) / 65536;
+      if (w > 0 && h > 0) {
+        const tournee = buf.readInt32BE(matrice) === 0;
+        return tournee ? { w: h, h: w } : { w, h };
+      }
+      i = buf.indexOf("tkhd", i + 4);
+    }
+    return null;
+  }
   // JPEG : on cherche le premier segment SOF.
   if (buf.length > 4 && buf[0] === 0xff && buf[1] === 0xd8) {
     let i = 2;
@@ -78,7 +94,7 @@ function ratio(src: string): number {
       if (buf[0] === 0xff && tourneeJpeg(buf)) r = 1 / r;
     } catch {}
     // Bornes : un panorama ou une photo très étroite serait légèrement recadré.
-    return Math.min(2.4, Math.max(0.6, r));
+    return Math.min(2.4, Math.max(0.56, r));
   } catch {
     return RATIO_DEFAUT;
   }
@@ -115,13 +131,15 @@ export function rangsGalerie(galerie: { image: string; alt: string }[]): RangGal
   return rangs;
 }
 
-export type EtapeGalerie = { label: string; src: string; ratio: number };
+export type EtapeGalerie = { label: string; src: string; video?: boolean; poster?: string; ratio: number };
 
 /**
  * Section « Du plan au réalisé » : 2 visuels paysage par ligne (3 si portraits), mêmes hauteurs,
  * sans recadrage. Un visuel seul en dernière ligne garde la largeur d'un visuel de la ligne précédente.
  */
-export function rangsEtapes(etapes: { label: string; src: string }[]): { etapes: EtapeGalerie[]; vide: number }[] {
+export function rangsEtapes(
+  etapes: Omit<EtapeGalerie, "ratio">[],
+): { etapes: EtapeGalerie[]; vide: number }[] {
   const items = etapes.map((e) => ({ ...e, ratio: ratio(e.src) }));
   const rangs: { etapes: EtapeGalerie[]; vide: number }[] = [];
   let i = 0;

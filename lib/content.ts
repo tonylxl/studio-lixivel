@@ -109,8 +109,13 @@ export type Projet = {
   contraintes: string[];
   avant?: { image: string; legende?: string };
   apres?: { image: string; legende?: string };
-  /** Plan de l'état existant, avant le projet. */
+  /** Vidéo du logement avant travaux (prioritaire sur la photo `planInitial`). */
+  videoAvant?: string;
+  /** Photo du logement avant travaux (ancien « plan initial »). */
   planInitial?: string;
+  /** Plan 2D avant travaux. */
+  planAvant?: string;
+  /** Plan 2D après travaux. */
   plan?: string;
   /** Plan 3D (rendu). */
   rendu?: string;
@@ -143,7 +148,9 @@ export function getProjets(): Projet[] {
       contraintes: data.contraintes ?? [],
       avant: data.avant,
       apres: data.apres,
+      videoAvant: data.videoAvant || undefined,
       planInitial: data.planInitial || undefined,
+      planAvant: data.planAvant || undefined,
       plan: data.plan || undefined,
       rendu: data.rendu || undefined,
       realise: data.realise || undefined,

@@ -123,6 +123,15 @@
   list-style: none;
 }
 
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--fond-sombre);
+}
+
 /* En images : une grande photo, deux petites empilées */
 /* Galerie : lignes de même hauteur, chaque photo garde son format (lib/galerie.ts). */
 .galerie {

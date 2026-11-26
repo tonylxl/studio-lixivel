@@ -55,13 +55,20 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
     ["Année", String(p.annee)],
   ].filter(([, v]) => v) as [string, string][];
 
-  // Du plan initial au réalisé : chaque bloc n'apparaît que si son image est renseignée ; le réalisé peut être masqué.
-  const etapes = [
-    { label: "Plan initial", src: p.planInitial },
-    { label: "Plan 2D", src: p.plan },
-    { label: "Plan 3D", src: p.rendu },
-    { label: "Projet réalisé", src: p.masquerRealise ? undefined : p.realise },
-  ].filter((e): e is { label: string; src: string } => Boolean(e.src));
+  // Du plan au réalisé : chaque bloc n'apparaît que si son visuel est renseigné ; le réalisé peut être masqué.
+  // « Avant travaux » : la vidéo du client si elle existe, sinon la photo.
+  type Etape = { label: string; src?: string; video?: boolean; poster?: string };
+  const etapes = (
+    [
+      p.videoAvant
+        ? { label: "Avant travaux", src: p.videoAvant, video: true, poster: p.planInitial }
+        : { label: "Avant travaux", src: p.planInitial },
+      { label: "Plan 2D avant travaux", src: p.planAvant },
+      { label: "Plan 2D après travaux", src: p.plan },
+      { label: "Plan 3D", src: p.rendu },
+      { label: "Projet réalisé", src: p.masquerRealise ? undefined : p.realise },
+    ] as Etape[]
+  ).filter((e): e is Etape & { src: string } => Boolean(e.src));
   const avecRealise = etapes.some((e) => e.label === "Projet réalisé");
   const listeEtapes = etapes.map((e) => e.label.charAt(0).toLowerCase() + e.label.slice(1));
   const resumeEtapes =
@@ -190,14 +197,29 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
                         className={styles.etape}
                         style={{ flex: `${e.ratio} 1 0` }}
                       >
-                        <div className={`media ${styles.etapeImg}`} style={{ aspectRatio: String(e.ratio) }}>
-                          <Image
-                            src={e.src}
-                            alt={`${e.label} du projet ${p.titre}`}
-                            fill
-                            sizes={`(max-width: 760px) 100vw, ${Math.ceil((e.ratio / total) * 100)}vw`}
-                            quality={QUALITE_PHOTO}
-                          />
+                        <div
+                          className={`media ${e.video ? "media--l" : ""} ${styles.etapeImg}`}
+                          style={{ aspectRatio: String(e.ratio) }}
+                        >
+                          {e.video ? (
+                            <video
+                              src={encodeURI(decodeURI(e.src))}
+                              poster={e.poster ? encodeURI(decodeURI(e.poster)) : undefined}
+                              controls
+                              playsInline
+                              preload="metadata"
+                              aria-label={`${e.label} du projet ${p.titre}, vidéo`}
+                              className={styles.video}
+                            />
+                          ) : (
+                            <Image
+                              src={e.src}
+                              alt={`${e.label} du projet ${p.titre}`}
+                              fill
+                              sizes={`(max-width: 760px) 100vw, ${Math.ceil((e.ratio / total) * 100)}vw`}
+                              quality={QUALITE_PHOTO}
+                            />
+                          )}
                         </div>
                         <p className="t-petit">{e.label}</p>
                       </Reveal>
