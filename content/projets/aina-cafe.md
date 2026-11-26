@@ -32,14 +32,23 @@ rendu: /images/Rectangle Room 2-café-20260114-221338.jpg
 masquerRealise: false
 galerie:
   - image: /images/Rectangle Room 2-café-20260114-221338.jpg
+    alt: "Salle du café avec tables rondes en marbre, chaises en bois et paille, comptoir rose et grande verrière cintrée"
   - image: /images/AINA - Café-café-20260324-001709.jpg
+    alt: "Comptoir arrondi en bois clair, étagères murales et machine à café, suspensions blanches plissées"
   - image: /images/Rectangle Room 2-café-20260114-222046.jpg
+    alt: "Coin salon avec chaises arrondies roses et vert sauge, enseigne lumineuse Aina Café et étagère en bois aux formes douces"
   - image: /images/AINA - Café-café-20260324-000511-1.jpg
+    alt: "Banquette blanche le long du mur, tables hautes et tabourets en bois, tableaux colorés et portant de vêtements"
   - image: /images/AINA - Café-café-20260319-112719.jpg
+    alt: "Espace lounge en noyer avec fauteuils bouclette crème et boutique de vêtements dans une niche"
   - image: /images/AINA - Café-cooworking-20260319-113043.jpg
+    alt: "Coin coworking avec comptoir en bois festonné, tabourets hauts et ordinateur portable"
   - image: /images/AINA - Café-espace coiffure & ongle -20260320-112330.jpg
+    alt: "Couloir de l’espace beauté avec portes coulissantes vers les cabines de soin et appliques murales"
   - image: /images/AINA - Café-espace coiffure & ongle -20260320-111735.jpg
+    alt: "Bar à ongles avec table en bois, fauteuils crème arrondis, lampes de manucure et rangée de vernis"
   - image: /images/AINA - Café-café-20260505-115257.jpg
+    alt: "Espace enfants et photobooth sous une arche blanche, tabourets hauts en bois devant une table haute"
 avis:
   contexte: "Cooffee shop, coworking beauté - Serris 77 "
 ---

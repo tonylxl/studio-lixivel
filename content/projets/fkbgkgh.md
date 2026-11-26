@@ -22,6 +22,9 @@ rendu: /images/FARRAH - APPARTEMENT.png
 masquerRealise: false
 galerie:
   - image: /images/PHOTO-2026-09-29-15-01-58 3-1.jpg
+    alt: "Pièce de vie du studio avec canapé en velours bordeaux, table basse en travertin et cuisine en bois sous un lustre"
   - image: /images/PHOTO-2026-09-29-15-01-58 2.jpg
+    alt: "Placards à miroirs, buffet bas en bois clair et étagères éclairées, vue sur les toits de Paris"
   - image: /images/PHOTO-2026-09-29-15-01-58.jpg
+    alt: "Cuisine en bois avec crédence en marbre rouge, table ronde et chaises pliantes en métal, entrée en arche"
 ---

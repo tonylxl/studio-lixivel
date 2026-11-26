@@ -38,13 +38,19 @@ galerie:
   - image: /images/rectangle-room-2-2-piece-de-vie-20260902-113015.jpg
     alt: "Lit ambiance japonaise "
   - image: /images/rectangle-room-2-piece-de-vie-20260829-233628.jpg
+    alt: "Cuisine en bois clair sous les combles, bloc en bois foncé et coin repas japonais avec table basse"
   - image: /images/Rectangle Room 2-Pièce de vie-20260829-233643.jpg
     alt: "coin cuisine bois clair "
   - image: /images/rectangle-room-2-piece-de-vie-20260829-233655.jpg
     alt: "salle de bain "
   - image: /images/Rectangle Room 2-Pièce de vie-20260829-233701.jpg
+    alt: "Salle de bain en bois clair et blanc, cloison en briques de verre ambrées"
   - image: /images/Rectangle Room 2-Pièce de vie-20260829-233553.jpg
+    alt: "Coin détente sur tatamis avec meuble bar en bois, réfrigérateur vitré et lampe sculpturale blanche"
   - image: /images/Rectangle Room 2-Pièce de vie-20260829-233550.jpg
+    alt: "Coin repas sur tatamis avec table basse en bois foncé, coussins au sol et suspension boule en papier"
   - image: /images/rectangle-room-2-piece-de-vie-20260829-233655.jpg
+    alt: "Passage entre deux blocs en bois foncé vers la salle de bain, lit sur estrade éclairée sous les combles"
   - image: /images/rectangle-room-2-piece-de-vie-20260902-112228-1.jpg
+    alt: "Couloir avec pas japonais au sol, bonsaï devant une fenêtre en shoji et cloison en briques de verre"
 ---
