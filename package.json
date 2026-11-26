@@ -7,7 +7,8 @@
     "prebuild": "node scripts/noms-images.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "images": "node scripts/optimiser-images.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
