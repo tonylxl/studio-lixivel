@@ -1,6 +1,6 @@
 ---
 titre: Studio
-sousTitre: "Studio pour location "
+sousTitre: "Pour location "
 ville: Paris
 annee: 2026
 ordre: 4
