@@ -17,6 +17,8 @@ brief: Le projet consistait à repenser entièrement un studio situé à Paris,
   fonctionnels. Le tout dans une ambiance chic et chaleureuse, avec des
   matériaux et des aménagements soigneusement sélectionnés pour allier élégance
   et confort.
+plan: /images/PHOTO-2026-03-09-11-13-29.jpg
+rendu: /images/FARRAH - APPARTEMENT.png
 masquerRealise: false
 galerie:
   - image: /images/PHOTO-2026-09-29-15-01-58 3-1.jpg
