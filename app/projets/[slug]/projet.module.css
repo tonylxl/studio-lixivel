@@ -99,9 +99,9 @@
   border-top: 0;
 }
 
-/* Du plan au réalisé */
+/* Avant et après travaux */
 /* Une colonne par étape (1 à 4 : plan initial, plan 2D, plan 3D, réalisé). */
-/* Du plan au réalisé : lignes de même hauteur, chaque visuel garde son format (lib/galerie.ts). */
+/* Avant et après travaux : lignes de même hauteur, chaque visuel garde son format (lib/galerie.ts). */
 .etapes {
   display: grid;
   gap: 40px;

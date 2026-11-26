@@ -131,10 +131,10 @@ export function rangsGalerie(galerie: { image: string; alt: string }[]): RangGal
   return rangs;
 }
 
-export type EtapeGalerie = { label: string; src: string; video?: boolean; poster?: string; ratio: number };
+export type EtapeGalerie = { label: string; src: string; video?: boolean; ratio: number };
 
 /**
- * Section « Du plan au réalisé » : 2 visuels paysage par ligne (3 si portraits), mêmes hauteurs,
+ * Section « Avant et après travaux » : 2 visuels paysage par ligne (3 si portraits), mêmes hauteurs,
  * sans recadrage. Un visuel seul en dernière ligne garde la largeur d'un visuel de la ligne précédente.
  */
 export function rangsEtapes(

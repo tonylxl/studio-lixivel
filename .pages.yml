@@ -104,10 +104,10 @@ content:
         label: Vidéo avant travaux
         type: file
         options: { extensions: [mp4, mov, webm] }
-        description: "Facultative : la vidéo du logement envoyée par le client, avant les travaux. Si tu en mets une, elle s’affiche à la place de la photo « avant travaux ». Une vidéo courte (moins de 30 secondes) et légère (moins de 50 Mo) se charge mieux. Les cases vides n’apparaissent pas sur le site."
-      - { name: planInitial, label: Photo avant travaux, type: image, description: "Si tu n’as pas de vidéo : une photo du logement avant les travaux. Elle s’affiche sous le titre « Avant travaux »." }
+        description: "La vidéo du logement envoyée par le client, avant les travaux. Elle s’affiche dans la section « Avant et après travaux ». Une vidéo courte (moins de 30 secondes) et légère (moins de 50 Mo) se charge mieux. Une case vide n’apparaît pas sur le site."
+      - { name: planInitial, label: Photo avant travaux, type: image, description: "Une photo du logement avant les travaux. Elle a sa propre case, à côté de la vidéo s’il y en a une." }
       - { name: planAvant, label: Plan 2D avant travaux, type: image, description: "Le plan vu de dessus du logement tel qu’il était, avant les travaux." }
-      - { name: plan, label: Plan 2D après travaux, type: image, description: "Le plan vu de dessus avec le nouvel aménagement." }
+      - { name: plan, label: Plan 2D après travaux, type: image, description: "Le plan vu de dessus une fois que Cindy a modifié l’agencement." }
       - { name: rendu, label: Plan 3D, type: image, description: "L’image en 3D du projet." }
       - { name: realise, label: Photo du projet réalisé, type: image, description: "Facultative : la photo une fois le projet terminé, à comparer avec le plan 3D. Sans photo, le bloc n’apparaît pas." }
       - { name: masquerRealise, label: Cacher la photo du projet réalisé, type: boolean, description: "Coche pour ne pas afficher la photo du réalisé (par exemple si elle n’est pas encore assez belle), sans avoir à l’effacer." }

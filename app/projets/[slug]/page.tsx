@@ -55,21 +55,20 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
     ["Année", String(p.annee)],
   ].filter(([, v]) => v) as [string, string][];
 
-  // Du plan au réalisé : chaque bloc n'apparaît que si son visuel est renseigné ; le réalisé peut être masqué.
-  // « Avant travaux » : la vidéo du client si elle existe, sinon la photo.
-  type Etape = { label: string; src?: string; video?: boolean; poster?: string };
+  // Avant et après travaux : chaque bloc n'apparaît que si son visuel est renseigné ; le réalisé peut être masqué.
+  // « Avant travaux » : la vidéo du client et/ou une photo, chacune dans sa case.
+  type Etape = { label: string; src?: string; video?: boolean };
+  const deuxAvant = Boolean(p.videoAvant && p.planInitial);
   const etapes = (
     [
-      p.videoAvant
-        ? { label: "Avant travaux", src: p.videoAvant, video: true, poster: p.planInitial }
-        : { label: "Avant travaux", src: p.planInitial },
+      { label: deuxAvant ? "Avant travaux (vidéo)" : "Avant travaux", src: p.videoAvant, video: true },
+      { label: deuxAvant ? "Avant travaux (photo)" : "Avant travaux", src: p.planInitial },
       { label: "Plan 2D avant travaux", src: p.planAvant },
       { label: "Plan 2D après travaux", src: p.plan },
       { label: "Plan 3D", src: p.rendu },
       { label: "Projet réalisé", src: p.masquerRealise ? undefined : p.realise },
     ] as Etape[]
   ).filter((e): e is Etape & { src: string } => Boolean(e.src));
-  const avecRealise = etapes.some((e) => e.label === "Projet réalisé");
   const listeEtapes = etapes.map((e) => e.label.charAt(0).toLowerCase() + e.label.slice(1));
   const resumeEtapes =
     listeEtapes.length > 1 ? `${listeEtapes.slice(0, -1).join(", ")} et ${listeEtapes.at(-1)}` : listeEtapes[0];
@@ -180,7 +179,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
 
         {etapes.length > 0 && (
           <section className={`sur-blanc ${styles.block}`} aria-labelledby="t-plan">
-            <SectionHead id="t-plan" title={avecRealise ? "Du plan au réalisé" : "Les plans du projet"}>
+            <SectionHead id="t-plan" title="Avant et après travaux">
               Les étapes du projet : {resumeEtapes}.
             </SectionHead>
             <div className={`wrap ${styles.etapes}`}>
@@ -203,8 +202,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
                         >
                           {e.video ? (
                             <video
-                              src={encodeURI(decodeURI(e.src))}
-                              poster={e.poster ? encodeURI(decodeURI(e.poster)) : undefined}
+                              src={`${encodeURI(decodeURI(e.src))}#t=0.1`}
                               controls
                               playsInline
                               preload="metadata"

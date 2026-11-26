@@ -73,7 +73,7 @@
       Surface: ["3. Le tableau de la fiche", "Les chiffres du projet. Une ligne vide n’apparaît pas."],
       "Le brief": ["4. Le brief", "La demande du client et les difficultés du projet."],
       "Photo avant": ["5. Avant / après", "Le curseur qu’on fait glisser entre les deux photos."],
-      "Vidéo avant travaux": ["6. Du plan au réalisé", "Avant travaux (vidéo ou photo), plans 2D, plan 3D et réalisé. Une case vide n’apparaît pas."],
+      "Vidéo avant travaux": ["6. Avant et après travaux", "Vidéo et photo avant travaux, plans 2D avant et après, plan 3D et réalisé. Une case vide n’apparaît pas."],
       "Galerie de photos": ["7. La galerie", "Les photos du projet terminé."],
       "Liste shopping": ["8. La liste shopping", "Les meubles et objets choisis, avec leur prix."],
       "Avis du client": ["9. L’avis du client", "Facultatif."],
