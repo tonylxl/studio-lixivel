@@ -108,9 +108,6 @@ content:
       - { name: planInitial, label: Photo avant travaux, type: image, description: "Une photo du logement avant les travaux. Elle a sa propre case, à côté de la vidéo s’il y en a une." }
       - { name: planAvant, label: Plan 2D avant travaux, type: image, description: "Le plan vu de dessus du logement tel qu’il était, avant les travaux." }
       - { name: plan, label: Plan 2D après travaux, type: image, description: "Le plan vu de dessus une fois que Cindy a modifié l’agencement." }
-      - { name: rendu, label: Plan 3D, type: image, description: "L’image en 3D du projet." }
-      - { name: realise, label: Photo du projet réalisé, type: image, description: "Facultative : la photo une fois le projet terminé, à comparer avec le plan 3D. Sans photo, le bloc n’apparaît pas." }
-      - { name: masquerRealise, label: Cacher la photo du projet réalisé, type: boolean, description: "Coche pour ne pas afficher la photo du réalisé (par exemple si elle n’est pas encore assez belle), sans avoir à l’effacer." }
       - name: galerie
         label: Galerie de photos
         type: object

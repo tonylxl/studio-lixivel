@@ -117,11 +117,6 @@ export type Projet = {
   planAvant?: string;
   /** Plan 2D après travaux. */
   plan?: string;
-  /** Plan 3D (rendu). */
-  rendu?: string;
-  realise?: string;
-  /** Photo du réalisé masquée (projet pas encore photographié, ou pas réalisé). */
-  masquerRealise: boolean;
   galerie: { image: string; alt: string }[];
   shopping: { piece: string; ou?: string; prix?: string }[];
   avis?: { texte: string; nom: string; contexte?: string };
@@ -152,9 +147,6 @@ export function getProjets(): Projet[] {
       planInitial: data.planInitial || undefined,
       planAvant: data.planAvant || undefined,
       plan: data.plan || undefined,
-      rendu: data.rendu || undefined,
-      realise: data.realise || undefined,
-      masquerRealise: Boolean(data.masquerRealise),
       // Ancien format accepté : simple liste de chemins d'images.
       galerie: ((data.galerie ?? []) as (string | { image?: string; alt?: string })[])
         .map((g) => (typeof g === "string" ? { image: g, alt: "" } : { image: g?.image ?? "", alt: g?.alt ?? "" }))

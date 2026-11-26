@@ -55,7 +55,7 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
     ["Année", String(p.annee)],
   ].filter(([, v]) => v) as [string, string][];
 
-  // Avant et après travaux : chaque bloc n'apparaît que si son visuel est renseigné ; le réalisé peut être masqué.
+  // Avant et après travaux : chaque bloc n'apparaît que si son visuel est renseigné.
   // « Avant travaux » : la vidéo du client et/ou une photo, chacune dans sa case.
   type Etape = { label: string; src?: string; video?: boolean };
   const deuxAvant = Boolean(p.videoAvant && p.planInitial);
@@ -65,8 +65,6 @@ export default async function ProjetPage({ params }: { params: Promise<Params> }
       { label: deuxAvant ? "Avant travaux (photo)" : "Avant travaux", src: p.planInitial },
       { label: "Plan 2D avant travaux", src: p.planAvant },
       { label: "Plan 2D après travaux", src: p.plan },
-      { label: "Plan 3D", src: p.rendu },
-      { label: "Projet réalisé", src: p.masquerRealise ? undefined : p.realise },
     ] as Etape[]
   ).filter((e): e is Etape & { src: string } => Boolean(e.src));
   const listeEtapes = etapes.map((e) => e.label.charAt(0).toLowerCase() + e.label.slice(1));
